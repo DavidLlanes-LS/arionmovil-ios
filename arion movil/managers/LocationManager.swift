@@ -5,15 +5,22 @@
 //  Created by David Pacheco Rodriguez on 02/07/20.
 //  Copyright © 2020 David Pacheco Rodriguez. All rights reserved.
 //
-
+import SwiftUI
 import Foundation
 import CoreLocation
 import Combine
 
 class LocationManager: NSObject, ObservableObject {
-
+    let objectWillChange = PassthroughSubject<Void, Never>()
+    @Published var latitudeVar = ""
+    @Published var longitudeVar = ""
+    public var locationManager = CLLocationManager()
+    public var latitude:String = ""
+    public var longitude:String = ""
     override init() {
+        
         super.init()
+        
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
@@ -23,6 +30,9 @@ class LocationManager: NSObject, ObservableObject {
     @Published var locationStatus: CLAuthorizationStatus? {
         willSet {
             objectWillChange.send()
+            
+                
+            
         }
     }
 
@@ -38,32 +48,47 @@ class LocationManager: NSObject, ObservableObject {
         }
 
         switch status {
-        case .notDetermined: return "notDetermined"
+        case .notDetermined:
+            return "notDetermined"
         case .authorizedWhenInUse: return "authorizedWhenInUse"
+           
         case .authorizedAlways: return "authorizedAlways"
         case .restricted: return "restricted"
-        case .denied: return "denied"
+        case .denied:
+            self.locationManager.requestWhenInUseAuthorization()
+            return "denied"
         default: return "unknown"
         }
-
+       
     }
 
-    let objectWillChange = PassthroughSubject<Void, Never>()
-
-    private let locationManager = CLLocationManager()
+   
 }
 
 extension LocationManager: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.locationStatus = status
-        print(#function, statusString)
+        //print("ubicacion estado \(statusString)")
+     
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         self.lastLocation = location
-        print(#function, location)
+        //print("ubicacion \(location.latitude)")
+        self.latitudeVar = String(location.latitude)
+        self.longitudeVar = String(location.longitude)
     }
 
+}
+
+extension CLLocation {
+    var latitude: Double {
+        return self.coordinate.latitude
+    }
+    
+    var longitude: Double {
+        return self.coordinate.longitude
+    }
 }

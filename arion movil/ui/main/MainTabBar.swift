@@ -13,48 +13,51 @@ struct MainTabBar: View {
     @State private var currentTab:Int = 0
     @State private var showCurrentSong:Bool = false
     var body: some View {
-        GeometryReader{geometry in
-            ZStack{
-                Color("background")
-                ZStack(alignment:.bottom){
-                    TabView(selection: self.$currentTab){
-                        Main().tabItem{
-                            Image(systemName: "house")
-                            Text("Inicio")
-                        }.background(TabBarAccessor { tabBar in
+       
+        VStack {
+            GeometryReader{geometry in
+                ZStack{
+                    Color("background")
+                    ZStack(alignment:.bottom){
+                        TabView(selection: self.$currentTab){
+                            Main().tabItem{
+                                Image(systemName: "house")
+                                Text("Inicio")
+                            }.background(TabBarAccessor { tabBar in
+                                DispatchQueue.main.async{
+                                    self.paddingHeight = tabBar.bounds.height
+                                }
+                                }).tag(0)
+                            Queue().tabItem{
+                                Image(systemName: "music.note.list")
+                                Text("En fila")
+                            }.background(TabBarAccessor { tabBar in
                             DispatchQueue.main.async{
                                 self.paddingHeight = tabBar.bounds.height
                             }
-                            }).tag(0)
-                        Queue().tabItem{
-                            Image(systemName: "music.note.list")
-                            Text("En fila")
-                        }.background(TabBarAccessor { tabBar in
-                        DispatchQueue.main.async{
-                            self.paddingHeight = tabBar.bounds.height
+                            }).tag(1)
+                            Store().tabItem{
+                                Image(systemName: "bag")
+                                Text("Compras")
+                            }.background(TabBarAccessor { tabBar in
+                            DispatchQueue.main.async{
+                                self.paddingHeight = tabBar.bounds.height
+                            }
+                            }).tag(2)
+                            Profile().tabItem{
+                                Image(systemName: "person")
+                                Text("Perfil")
+                            }.tag(3)
+                        }.accentColor(Color("secondary-background"))
+                        if self.currentTab != 3{
+                            CurrentSong()
+                                .padding(.bottom, self.paddingHeight - geometry.safeAreaInsets.bottom).transition(.asymmetric(insertion: .scale, removal: .opacity))
                         }
-                        }).tag(1)
-                        Store().tabItem{
-                            Image(systemName: "bag")
-                            Text("Compras")
-                        }.background(TabBarAccessor { tabBar in
-                        DispatchQueue.main.async{
-                            self.paddingHeight = tabBar.bounds.height
-                        }
-                        }).tag(2)
-                        Profile().tabItem{
-                            Image(systemName: "person")
-                            Text("Perfil")
-                        }.tag(3)
-                    }.accentColor(Color("secondary-background"))
-                    if self.currentTab != 3{
-                        CurrentSong()
-                            .padding(.bottom, self.paddingHeight - geometry.safeAreaInsets.bottom).transition(.asymmetric(insertion: .scale, removal: .opacity))
                     }
                 }
+                
             }
-            
-        }
+        }.transition(.move(edge: .trailing))
         
     }
 }

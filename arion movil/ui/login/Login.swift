@@ -44,7 +44,7 @@ struct Login: View {
                     },color:Color.white)
                 }.padding(.bottom, 16)
             }.padding()
-        }.edgesIgnoringSafeArea(.all)
+        }.edgesIgnoringSafeArea(.all).transition(.move(edge: .trailing))
     }
 }
 

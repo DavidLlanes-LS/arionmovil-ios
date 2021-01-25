@@ -23,6 +23,14 @@ struct SearchBar: UIViewRepresentable {
 
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             text = searchText
+            
+        }
+        func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+            searchBar.resignFirstResponder()
+        }
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.resignFirstResponder()
+
         }
     }
 
@@ -37,10 +45,13 @@ struct SearchBar: UIViewRepresentable {
         searchBar.searchBarStyle = .minimal
         searchBar.backgroundColor = UIColor.init(named: "background")
         searchBar.autocapitalizationType = .none
+        
         return searchBar
     }
 
     func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
         uiView.text = text
     }
+  
 }
+

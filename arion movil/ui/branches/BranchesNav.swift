@@ -9,18 +9,22 @@
 import SwiftUI
 
 struct BranchesNav: View {
-    public var showMainView:()->()
+    @EnvironmentObject var pageSettings: PageSettings;
+    
     var body: some View {
-        NavigationView{
-            BranchesList(showMainView: self.showMainView)
+        if pageSettings.currentPage == "splash" {
+            BranchesList()
+        }
+        else{
+            MainTabBar()
+            
         }
     }
 }
 
 struct BranchesNav_Previews: PreviewProvider {
     static var previews: some View {
-        BranchesNav(){
-            
-        }
+        BranchesNav()
+        .preferredColorScheme(.dark)
     }
 }

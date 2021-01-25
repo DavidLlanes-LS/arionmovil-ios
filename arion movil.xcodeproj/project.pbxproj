@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,13 +41,10 @@
 		633F103E24B6731B00B284AE /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F103D24B6731B00B284AE /* UserDefaultManager.swift */; };
 		635D30D324AE513D000062AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D30D224AE513D000062AF /* AppDelegate.swift */; };
 		635D30D524AE513D000062AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D30D424AE513D000062AF /* SceneDelegate.swift */; };
-		635D30D724AE513D000062AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D30D624AE513D000062AF /* ContentView.swift */; };
 		635D30D924AE5143000062AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 635D30D824AE5143000062AF /* Assets.xcassets */; };
 		635D30DC24AE5143000062AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 635D30DB24AE5143000062AF /* Preview Assets.xcassets */; };
-		635D30DF24AE5143000062AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 635D30DD24AE5143000062AF /* LaunchScreen.storyboard */; };
 		635D30EA24AE5143000062AF /* arion_movilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D30E924AE5143000062AF /* arion_movilTests.swift */; };
 		635D30F524AE5143000062AF /* arion_movilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D30F424AE5143000062AF /* arion_movilUITests.swift */; };
-		635D310524AE5259000062AF /* BranchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D310424AE5259000062AF /* BranchesList.swift */; };
 		635D310724AE5265000062AF /* BranchesNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D310624AE5265000062AF /* BranchesNav.swift */; };
 		635D310924AE52BE000062AF /* BranchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D310824AE52BE000062AF /* BranchRow.swift */; };
 		635D310C24AE5520000062AF /* LogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635D310B24AE5520000062AF /* LogoImage.swift */; };
@@ -80,7 +77,6 @@
 		63981FBD24B8CB8500693058 /* SimpleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63981FBC24B8CB8500693058 /* SimpleBtn.swift */; };
 		63981FBF24B8D24500693058 /* CreateNewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63981FBE24B8D24500693058 /* CreateNewAccount.swift */; };
 		639E4F4224AFD04200029A07 /* SimpleunderlineBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4124AFD04200029A07 /* SimpleunderlineBtn.swift */; };
-		639E4F4424AFD49400029A07 /* MainViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4324AFD49400029A07 /* MainViewHolder.swift */; };
 		639E4F4724AFEEE500029A07 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4624AFEEE500029A07 /* Queue.swift */; };
 		639E4F4924AFEF3A00029A07 /* QueueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4824AFEF3A00029A07 /* QueueRow.swift */; };
 		63AB4BC224B7705F00DBCFB9 /* Localizable.Strings in Resources */ = {isa = PBXBuildFile; fileRef = 63AB4BC424B7705F00DBCFB9 /* Localizable.Strings */; };
@@ -93,6 +89,28 @@
 		63DC28DB24B5185E0062C4D8 /* CreateNewCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC28DA24B5185E0062C4D8 /* CreateNewCreditCard.swift */; };
 		63DC28DE24B51A360062C4D8 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC28DD24B51A360062C4D8 /* CustomTextField.swift */; };
 		63FAB1CD24BCA0B100527EE0 /* YearSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FAB1CC24BCA0B100527EE0 /* YearSearcher.swift */; };
+		7F07226025BA6279009E6E95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */; };
+		7F10760025BF21970011FF05 /* LocationManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1075FF25BF21970011FF05 /* LocationManager2.swift */; };
+		7F10760625BF48DD0011FF05 /* LoaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10760525BF48DD0011FF05 /* LoaderComponent.swift */; };
+		7F10762A25BF7A050011FF05 /* ViewPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762925BF7A050011FF05 /* ViewPageController.swift */; };
+		7F10762F25BF7A7B0011FF05 /* BranchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762E25BF7A7B0011FF05 /* BranchesList.swift */; };
+		7F53E91225BA22DC0044D258 /* ExpandedSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E91125BA22DC0044D258 /* ExpandedSearchBar.swift */; };
+		7F53E92625BA2A6E0044D258 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E92525BA2A6E0044D258 /* ApiService.swift */; };
+		7F53E92B25BA2AC20044D258 /* ApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E92A25BA2AC20044D258 /* ApiSession.swift */; };
+		7F53E94925BA2D600044D258 /* ArionEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E94825BA2D600044D258 /* ArionEndPoint.swift */; };
+		7F53E94E25BA2DF90044D258 /* ArionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E94D25BA2DF90044D258 /* ArionService.swift */; };
+		7F53E95325BA309B0044D258 /* BranchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E95225BA309B0044D258 /* BranchResponse.swift */; };
+		7F53E95825BA378D0044D258 /* BranchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E95725BA378D0044D258 /* BranchesViewModel.swift */; };
+		7F53E96025BA3DE80044D258 /* testService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E95F25BA3DE80044D258 /* testService.swift */; };
+		7F53E96625BA4ABD0044D258 /* imageWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E96525BA4ABD0044D258 /* imageWeb.swift */; };
+		7F741E3425BB4AEC00C23A6B /* SongsQueueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741E3325BB4AEC00C23A6B /* SongsQueueResponse.swift */; };
+		7F741E3925BB4DDE00C23A6B /* MusicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741E3825BB4DDE00C23A6B /* MusicListViewModel.swift */; };
+		7F741E3E25BB5A3500C23A6B /* PlayListURIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741E3D25BB5A3500C23A6B /* PlayListURIResponse.swift */; };
+		7F741E4325BB5BFD00C23A6B /* SongsUriViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741E4225BB5BFD00C23A6B /* SongsUriViewModel.swift */; };
+		7F741E5A25BB928000C23A6B /* AlbumStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741E5925BB928000C23A6B /* AlbumStockResponse.swift */; };
+		93003F2D36E92532DD8A33F6 /* Pods_arion_movil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E30C18857BE7F131ECFFCF /* Pods_arion_movil.framework */; };
+		AF18FEEC5F13C881C111ADBD /* Pods_arion_movil_arion_movilUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116FBD71EBA89BB8262849CF /* Pods_arion_movil_arion_movilUITests.framework */; };
+		E176B42118D6EC908556A210 /* Pods_arion_movilTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025BA56F8C0398C931038451 /* Pods_arion_movilTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +131,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		025BA56F8C0398C931038451 /* Pods_arion_movilTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arion_movilTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		073690C853EF0E22A9B35408 /* Pods-arion movilTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movilTests.debug.xcconfig"; path = "Target Support Files/Pods-arion movilTests/Pods-arion movilTests.debug.xcconfig"; sourceTree = "<group>"; };
+		116FBD71EBA89BB8262849CF /* Pods_arion_movil_arion_movilUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arion_movil_arion_movilUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CD0B4EF911D580D5E67209D /* Pods-arion movil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil.debug.xcconfig"; path = "Target Support Files/Pods-arion movil/Pods-arion movil.debug.xcconfig"; sourceTree = "<group>"; };
+		4F4A90C33FD1582C787F1923 /* Pods-arion movil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil.release.xcconfig"; path = "Target Support Files/Pods-arion movil/Pods-arion movil.release.xcconfig"; sourceTree = "<group>"; };
 		630198D224AFC3F0007C43F3 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		6306CDFE24B3A5AB007628F8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		6306CE0024B3A5E7007628F8 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
@@ -148,10 +171,8 @@
 		635D30CF24AE513D000062AF /* arion movil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "arion movil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		635D30D224AE513D000062AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		635D30D424AE513D000062AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		635D30D624AE513D000062AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		635D30D824AE5143000062AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		635D30DB24AE5143000062AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		635D30DE24AE5143000062AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		635D30E024AE5143000062AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		635D30E524AE5143000062AF /* arion movilTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "arion movilTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		635D30E924AE5143000062AF /* arion_movilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arion_movilTests.swift; sourceTree = "<group>"; };
@@ -159,7 +180,6 @@
 		635D30F024AE5143000062AF /* arion movilUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "arion movilUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		635D30F424AE5143000062AF /* arion_movilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arion_movilUITests.swift; sourceTree = "<group>"; };
 		635D30F624AE5143000062AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		635D310424AE5259000062AF /* BranchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesList.swift; sourceTree = "<group>"; };
 		635D310624AE5265000062AF /* BranchesNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesNav.swift; sourceTree = "<group>"; };
 		635D310824AE52BE000062AF /* BranchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRow.swift; sourceTree = "<group>"; };
 		635D310B24AE5520000062AF /* LogoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImage.swift; sourceTree = "<group>"; };
@@ -192,7 +212,6 @@
 		63981FBC24B8CB8500693058 /* SimpleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBtn.swift; sourceTree = "<group>"; };
 		63981FBE24B8D24500693058 /* CreateNewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccount.swift; sourceTree = "<group>"; };
 		639E4F4124AFD04200029A07 /* SimpleunderlineBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleunderlineBtn.swift; sourceTree = "<group>"; };
-		639E4F4324AFD49400029A07 /* MainViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewHolder.swift; sourceTree = "<group>"; };
 		639E4F4624AFEEE500029A07 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		639E4F4824AFEF3A00029A07 /* QueueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRow.swift; sourceTree = "<group>"; };
 		63AB4BC324B7705F00DBCFB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.Strings; sourceTree = "<group>"; };
@@ -206,6 +225,29 @@
 		63DC28DA24B5185E0062C4D8 /* CreateNewCreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCreditCard.swift; sourceTree = "<group>"; };
 		63DC28DD24B51A360062C4D8 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		63FAB1CC24BCA0B100527EE0 /* YearSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSearcher.swift; sourceTree = "<group>"; };
+		7F07225F25BA6279009E6E95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "arion movil/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
+		7F1075FF25BF21970011FF05 /* LocationManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager2.swift; sourceTree = "<group>"; };
+		7F10760525BF48DD0011FF05 /* LoaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderComponent.swift; sourceTree = "<group>"; };
+		7F10762925BF7A050011FF05 /* ViewPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPageController.swift; sourceTree = "<group>"; };
+		7F10762E25BF7A7B0011FF05 /* BranchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesList.swift; sourceTree = "<group>"; };
+		7F53E91125BA22DC0044D258 /* ExpandedSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedSearchBar.swift; sourceTree = "<group>"; };
+		7F53E92525BA2A6E0044D258 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		7F53E92A25BA2AC20044D258 /* ApiSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSession.swift; sourceTree = "<group>"; };
+		7F53E94825BA2D600044D258 /* ArionEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArionEndPoint.swift; sourceTree = "<group>"; };
+		7F53E94D25BA2DF90044D258 /* ArionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArionService.swift; sourceTree = "<group>"; };
+		7F53E95225BA309B0044D258 /* BranchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchResponse.swift; sourceTree = "<group>"; };
+		7F53E95725BA378D0044D258 /* BranchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesViewModel.swift; sourceTree = "<group>"; };
+		7F53E95F25BA3DE80044D258 /* testService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testService.swift; sourceTree = "<group>"; };
+		7F53E96525BA4ABD0044D258 /* imageWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageWeb.swift; sourceTree = "<group>"; };
+		7F741E3325BB4AEC00C23A6B /* SongsQueueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsQueueResponse.swift; sourceTree = "<group>"; };
+		7F741E3825BB4DDE00C23A6B /* MusicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewModel.swift; sourceTree = "<group>"; };
+		7F741E3D25BB5A3500C23A6B /* PlayListURIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListURIResponse.swift; sourceTree = "<group>"; };
+		7F741E4225BB5BFD00C23A6B /* SongsUriViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsUriViewModel.swift; sourceTree = "<group>"; };
+		7F741E5925BB928000C23A6B /* AlbumStockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumStockResponse.swift; sourceTree = "<group>"; };
+		83DFB0455310CB98BCFB93DD /* Pods-arion movil-arion movilUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil-arion movilUITests.debug.xcconfig"; path = "Target Support Files/Pods-arion movil-arion movilUITests/Pods-arion movil-arion movilUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		92FF48A9489CFD14ECE5FAF1 /* Pods-arion movilTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movilTests.release.xcconfig"; path = "Target Support Files/Pods-arion movilTests/Pods-arion movilTests.release.xcconfig"; sourceTree = "<group>"; };
+		B6E30C18857BE7F131ECFFCF /* Pods_arion_movil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arion_movil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C513991E25D28873A578A603 /* Pods-arion movil-arion movilUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil-arion movilUITests.release.xcconfig"; path = "Target Support Files/Pods-arion movil-arion movilUITests/Pods-arion movil-arion movilUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93003F2D36E92532DD8A33F6 /* Pods_arion_movil.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E176B42118D6EC908556A210 /* Pods_arion_movilTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +271,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF18FEEC5F13C881C111ADBD /* Pods_arion_movil_arion_movilUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +382,8 @@
 				635D30E824AE5143000062AF /* arion movilTests */,
 				635D30F324AE5143000062AF /* arion movilUITests */,
 				635D30D024AE513D000062AF /* Products */,
+				A21AB6E488325072D410A668 /* Pods */,
+				AEC81856FDCF36F5421B286D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -353,15 +400,15 @@
 		635D30D124AE513D000062AF /* arion movil */ = {
 			isa = PBXGroup;
 			children = (
+				7F53E91725BA288D0044D258 /* data */,
+				7F53E91625BA28790044D258 /* domain */,
 				6360B0A124AE7FEF00811899 /* managers */,
-				635D311224AE59D9000062AF /* models */,
 				635D310224AE5225000062AF /* ui */,
 				635D30D224AE513D000062AF /* AppDelegate.swift */,
 				635D30D424AE513D000062AF /* SceneDelegate.swift */,
-				635D30D624AE513D000062AF /* ContentView.swift */,
 				635D30D824AE5143000062AF /* Assets.xcassets */,
-				635D30DD24AE5143000062AF /* LaunchScreen.storyboard */,
 				635D30E024AE5143000062AF /* Info.plist */,
+				7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */,
 				635D311724AE5FC8000062AF /* Fonts */,
 				635D30DA24AE5143000062AF /* Preview Content */,
 				63AB4BC424B7705F00DBCFB9 /* Localizable.Strings */,
@@ -398,15 +445,14 @@
 		635D310224AE5225000062AF /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				635D310324AE5231000062AF /* branches */,
+				6360B0A524AE83A500811899 /* main */,
 				63981FB924B8BD5200693058 /* login */,
 				6306CDFD24B3A59D007628F8 /* profile */,
 				6339F06824B368D1008C8554 /* store */,
 				639E4F4524AFEDA100029A07 /* queue */,
 				6360B0B324AE903000811899 /* songs */,
-				6360B0A524AE83A500811899 /* main */,
-				635D310A24AE54F4000062AF /* extras */,
-				635D310324AE5231000062AF /* branches */,
-				639E4F4324AFD49400029A07 /* MainViewHolder.swift */,
+				635D310A24AE54F4000062AF /* custom_components */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -414,16 +460,18 @@
 		635D310324AE5231000062AF /* branches */ = {
 			isa = PBXGroup;
 			children = (
-				635D310424AE5259000062AF /* BranchesList.swift */,
+				7F10762525BF79420011FF05 /* Components */,
 				635D310624AE5265000062AF /* BranchesNav.swift */,
-				635D310824AE52BE000062AF /* BranchRow.swift */,
+				7F53E95725BA378D0044D258 /* BranchesViewModel.swift */,
 			);
 			path = branches;
 			sourceTree = "<group>";
 		};
-		635D310A24AE54F4000062AF /* extras */ = {
+		635D310A24AE54F4000062AF /* custom_components */ = {
 			isa = PBXGroup;
 			children = (
+				7F10760425BF48C60011FF05 /* loader */,
+				7F53E96425BA4AA70044D258 /* image_web */,
 				6312061124B6119C00CB0312 /* navigationLinks */,
 				63DC28DC24B51A210062C4D8 /* text field */,
 				6339F05F24B36087008C8554 /* shapes */,
@@ -433,7 +481,7 @@
 				635D310F24AE57FF000062AF /* text */,
 				635D310B24AE5520000062AF /* LogoImage.swift */,
 			);
-			path = extras;
+			path = custom_components;
 			sourceTree = "<group>";
 		};
 		635D310F24AE57FF000062AF /* text */ = {
@@ -453,6 +501,10 @@
 				633F102D24B6274300B284AE /* Album.swift */,
 				633F103124B62AD600B284AE /* Artist.swift */,
 				63AB4BD024B7871500DBCFB9 /* MusicalGenre.swift */,
+				7F53E95225BA309B0044D258 /* BranchResponse.swift */,
+				7F741E3325BB4AEC00C23A6B /* SongsQueueResponse.swift */,
+				7F741E3D25BB5A3500C23A6B /* PlayListURIResponse.swift */,
+				7F741E5925BB928000C23A6B /* AlbumStockResponse.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -486,6 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				6360B09F24AE701F00811899 /* SearchBar.swift */,
+				7F53E91125BA22DC0044D258 /* ExpandedSearchBar.swift */,
 			);
 			path = searchbar;
 			sourceTree = "<group>";
@@ -493,8 +546,10 @@
 		6360B0A124AE7FEF00811899 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				7F10762925BF7A050011FF05 /* ViewPageController.swift */,
 				6360B0A224AE7FFE00811899 /* LocationManager.swift */,
 				633F103D24B6731B00B284AE /* UserDefaultManager.swift */,
+				7F1075FF25BF21970011FF05 /* LocationManager2.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -506,6 +561,8 @@
 				6360B0AA24AE84CA00811899 /* filters */,
 				6360B0A624AE83D400811899 /* Main.swift */,
 				6325359724AF83BD00651494 /* MainTabBar.swift */,
+				7F741E3825BB4DDE00C23A6B /* MusicListViewModel.swift */,
+				7F741E4225BB5BFD00C23A6B /* SongsUriViewModel.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -595,6 +652,74 @@
 			path = "text field";
 			sourceTree = "<group>";
 		};
+		7F10760425BF48C60011FF05 /* loader */ = {
+			isa = PBXGroup;
+			children = (
+				7F10760525BF48DD0011FF05 /* LoaderComponent.swift */,
+			);
+			path = loader;
+			sourceTree = "<group>";
+		};
+		7F10762525BF79420011FF05 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				635D310824AE52BE000062AF /* BranchRow.swift */,
+				7F10762E25BF7A7B0011FF05 /* BranchesList.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7F53E91625BA28790044D258 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				635D311224AE59D9000062AF /* models */,
+				7F53E94825BA2D600044D258 /* ArionEndPoint.swift */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		7F53E91725BA288D0044D258 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				7F53E92525BA2A6E0044D258 /* ApiService.swift */,
+				7F53E92A25BA2AC20044D258 /* ApiSession.swift */,
+				7F53E95F25BA3DE80044D258 /* testService.swift */,
+				7F53E94D25BA2DF90044D258 /* ArionService.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		7F53E96425BA4AA70044D258 /* image_web */ = {
+			isa = PBXGroup;
+			children = (
+				7F53E96525BA4ABD0044D258 /* imageWeb.swift */,
+			);
+			path = image_web;
+			sourceTree = "<group>";
+		};
+		A21AB6E488325072D410A668 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3CD0B4EF911D580D5E67209D /* Pods-arion movil.debug.xcconfig */,
+				4F4A90C33FD1582C787F1923 /* Pods-arion movil.release.xcconfig */,
+				83DFB0455310CB98BCFB93DD /* Pods-arion movil-arion movilUITests.debug.xcconfig */,
+				C513991E25D28873A578A603 /* Pods-arion movil-arion movilUITests.release.xcconfig */,
+				073690C853EF0E22A9B35408 /* Pods-arion movilTests.debug.xcconfig */,
+				92FF48A9489CFD14ECE5FAF1 /* Pods-arion movilTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AEC81856FDCF36F5421B286D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6E30C18857BE7F131ECFFCF /* Pods_arion_movil.framework */,
+				116FBD71EBA89BB8262849CF /* Pods_arion_movil_arion_movilUITests.framework */,
+				025BA56F8C0398C931038451 /* Pods_arion_movilTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -602,9 +727,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 635D30F924AE5143000062AF /* Build configuration list for PBXNativeTarget "arion movil" */;
 			buildPhases = (
+				EDF14759A69CBC9F795FEEF0 /* [CP] Check Pods Manifest.lock */,
 				635D30CB24AE513D000062AF /* Sources */,
 				635D30CC24AE513D000062AF /* Frameworks */,
 				635D30CD24AE513D000062AF /* Resources */,
+				68F4AF12A007E2A7A0F3C720 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -619,6 +746,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 635D30FC24AE5143000062AF /* Build configuration list for PBXNativeTarget "arion movilTests" */;
 			buildPhases = (
+				2386D6201F7AFA788B1AE2E8 /* [CP] Check Pods Manifest.lock */,
 				635D30E124AE5143000062AF /* Sources */,
 				635D30E224AE5143000062AF /* Frameworks */,
 				635D30E324AE5143000062AF /* Resources */,
@@ -637,9 +765,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 635D30FF24AE5143000062AF /* Build configuration list for PBXNativeTarget "arion movilUITests" */;
 			buildPhases = (
+				B0AD05AB121D05C3D5336335 /* [CP] Check Pods Manifest.lock */,
 				635D30EC24AE5143000062AF /* Sources */,
 				635D30ED24AE5143000062AF /* Frameworks */,
 				635D30EE24AE5143000062AF /* Resources */,
+				0F9DD2D5E5E9E7032DAB8C37 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -706,10 +836,10 @@
 				6360B09424AE6EDE00811899 /* Exo-Italic.ttf in Resources */,
 				6360B08D24AE6EDE00811899 /* Exo-BlackItalic.ttf in Resources */,
 				6360B09324AE6EDE00811899 /* Exo-ExtraLightItalic.ttf in Resources */,
-				635D30DF24AE5143000062AF /* LaunchScreen.storyboard in Resources */,
 				6360B09924AE6EDE00811899 /* Exo-Regular.ttf in Resources */,
 				6360B09724AE6EDE00811899 /* Exo-Medium.ttf in Resources */,
 				63AB4BC224B7705F00DBCFB9 /* Localizable.Strings in Resources */,
+				7F07226025BA6279009E6E95 /* LaunchScreen.storyboard in Resources */,
 				6360B09124AE6EDE00811899 /* Exo-ExtraBoldItalic.ttf in Resources */,
 				6360B09024AE6EDE00811899 /* Exo-ExtraBold.ttf in Resources */,
 				6360B09524AE6EDE00811899 /* Exo-Light.ttf in Resources */,
@@ -741,6 +871,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F9DD2D5E5E9E7032DAB8C37 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-arion movil-arion movilUITests/Pods-arion movil-arion movilUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-arion movil-arion movilUITests/Pods-arion movil-arion movilUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-arion movil-arion movilUITests/Pods-arion movil-arion movilUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2386D6201F7AFA788B1AE2E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-arion movilTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68F4AF12A007E2A7A0F3C720 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-arion movil/Pods-arion movil-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-arion movil/Pods-arion movil-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-arion movil/Pods-arion movil-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0AD05AB121D05C3D5336335 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-arion movil-arion movilUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDF14759A69CBC9F795FEEF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-arion movil-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		635D30CB24AE513D000062AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -748,9 +981,12 @@
 			files = (
 				633F102624B61B8100B284AE /* TextBindingManager.swift in Sources */,
 				633F102B24B6251C00B284AE /* Song.swift in Sources */,
+				7F10762F25BF7A7B0011FF05 /* BranchesList.swift in Sources */,
 				635D30D324AE513D000062AF /* AppDelegate.swift in Sources */,
 				6306CE1324B3C9EF007628F8 /* CustomFont.swift in Sources */,
 				63981FBD24B8CB8500693058 /* SimpleBtn.swift in Sources */,
+				7F741E3E25BB5A3500C23A6B /* PlayListURIResponse.swift in Sources */,
+				7F53E96025BA3DE80044D258 /* testService.swift in Sources */,
 				6360B0B224AE889500811899 /* SearchBarFilter.swift in Sources */,
 				6325359424AF7EA200651494 /* SongRow.swift in Sources */,
 				63AB4BCD24B7855200DBCFB9 /* AlbumSearcher.swift in Sources */,
@@ -762,21 +998,26 @@
 				6339F07124B372B8008C8554 /* Package.swift in Sources */,
 				630198D324AFC3F0007C43F3 /* ProgressBar.swift in Sources */,
 				6325359824AF83BD00651494 /* MainTabBar.swift in Sources */,
+				7F10760625BF48DD0011FF05 /* LoaderComponent.swift in Sources */,
 				633F103024B62A9C00B284AE /* SearchSongRow.swift in Sources */,
-				639E4F4424AFD49400029A07 /* MainViewHolder.swift in Sources */,
 				633F103E24B6731B00B284AE /* UserDefaultManager.swift in Sources */,
 				635D310C24AE5520000062AF /* LogoImage.swift in Sources */,
 				6312AABD24B797C300256983 /* SongAlbumRow.swift in Sources */,
+				7F53E92B25BA2AC20044D258 /* ApiSession.swift in Sources */,
 				633F103924B66F3900B284AE /* ShopHistoryRow.swift in Sources */,
 				6339F06A24B368F1008C8554 /* AvailableCredits.swift in Sources */,
 				6306CE1124B3C99E007628F8 /* TextWithCustomFonts.swift in Sources */,
 				639E4F4724AFEEE500029A07 /* Queue.swift in Sources */,
+				7F53E95325BA309B0044D258 /* BranchResponse.swift in Sources */,
 				633F102924B624F300B284AE /* SongSearcher.swift in Sources */,
 				633F102E24B6274300B284AE /* Album.swift in Sources */,
+				7F741E3925BB4DDE00C23A6B /* MusicListViewModel.swift in Sources */,
 				6360B0AE24AE85DD00811899 /* FilterGrid.swift in Sources */,
+				7F10760025BF21970011FF05 /* LocationManager2.swift in Sources */,
 				63AB4BCF24B786AF00DBCFB9 /* MusicalGenreSearcher.swift in Sources */,
 				6360B0AC24AE84DC00811899 /* FilterButton.swift in Sources */,
 				6339F06324B36113008C8554 /* TurnedTriangle.swift in Sources */,
+				7F53E96625BA4ABD0044D258 /* imageWeb.swift in Sources */,
 				633F103724B66F1100B284AE /* ShopHistory.swift in Sources */,
 				6306CE0F24B3C6DA007628F8 /* CreditCardRow.swift in Sources */,
 				63AB4BD424B791FE00DBCFB9 /* SongsAlbum.swift in Sources */,
@@ -784,28 +1025,35 @@
 				6306CDFF24B3A5AB007628F8 /* Profile.swift in Sources */,
 				639E4F4924AFEF3A00029A07 /* QueueRow.swift in Sources */,
 				633F103424B63B1600B284AE /* ArtistSearcher.swift in Sources */,
-				635D30D724AE513D000062AF /* ContentView.swift in Sources */,
-				635D310524AE5259000062AF /* BranchesList.swift in Sources */,
 				635D311524AE5A77000062AF /* Branch.swift in Sources */,
 				6325359624AF7ED400651494 /* SongItem.swift in Sources */,
 				633F103C24B6719200B284AE /* Settings.swift in Sources */,
 				6360B0A324AE7FFE00811899 /* LocationManager.swift in Sources */,
 				63DC28DE24B51A360062C4D8 /* CustomTextField.swift in Sources */,
+				7F53E95825BA378D0044D258 /* BranchesViewModel.swift in Sources */,
+				7F53E92625BA2A6E0044D258 /* ApiService.swift in Sources */,
 				6325359A24AF84B600651494 /* CurrentSong.swift in Sources */,
 				635D310924AE52BE000062AF /* BranchRow.swift in Sources */,
 				63FAB1CD24BCA0B100527EE0 /* YearSearcher.swift in Sources */,
 				6360B0A024AE701F00811899 /* SearchBar.swift in Sources */,
 				63981FBF24B8D24500693058 /* CreateNewAccount.swift in Sources */,
 				633F103224B62AD600B284AE /* Artist.swift in Sources */,
+				7F741E5A25BB928000C23A6B /* AlbumStockResponse.swift in Sources */,
 				6339F05E24B35E66008C8554 /* IconBtn.swift in Sources */,
 				6306CE0124B3A5E7007628F8 /* ProfileImage.swift in Sources */,
 				6339F06D24B36F5E008C8554 /* Store.swift in Sources */,
+				7F53E94E25BA2DF90044D258 /* ArionService.swift in Sources */,
+				7F741E3425BB4AEC00C23A6B /* SongsQueueResponse.swift in Sources */,
 				635D310724AE5265000062AF /* BranchesNav.swift in Sources */,
+				7F10762A25BF7A050011FF05 /* ViewPageController.swift in Sources */,
 				6339F06124B36094008C8554 /* Triangle.swift in Sources */,
+				7F741E4325BB5BFD00C23A6B /* SongsUriViewModel.swift in Sources */,
+				7F53E94925BA2D600044D258 /* ArionEndPoint.swift in Sources */,
 				6306CE0524B3B6E8007628F8 /* RectangleBtn.swift in Sources */,
 				63AB4BD124B7871500DBCFB9 /* MusicalGenre.swift in Sources */,
 				6306CE0D24B3C6B8007628F8 /* CreditCards.swift in Sources */,
 				63981FBB24B8BE6000693058 /* Login.swift in Sources */,
+				7F53E91225BA22DC0044D258 /* ExpandedSearchBar.swift in Sources */,
 				6339F06F24B37021008C8554 /* AvailableCreditsBig.swift in Sources */,
 				63DC28DB24B5185E0062C4D8 /* CreateNewCreditCard.swift in Sources */,
 			);
@@ -843,14 +1091,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		635D30DD24AE5143000062AF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				635D30DE24AE5143000062AF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		63AB4BC424B7705F00DBCFB9 /* Localizable.Strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -858,6 +1098,14 @@
 				63AB4BC524B7706500DBCFB9 /* es-419 */,
 			);
 			name = Localizable.Strings;
+			sourceTree = "<group>";
+		};
+		7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F07225F25BA6279009E6E95 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -981,6 +1229,7 @@
 		};
 		635D30FA24AE5143000062AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CD0B4EF911D580D5E67209D /* Pods-arion movil.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1001,6 +1250,7 @@
 		};
 		635D30FB24AE5143000062AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F4A90C33FD1582C787F1923 /* Pods-arion movil.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1021,6 +1271,7 @@
 		};
 		635D30FD24AE5143000062AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 073690C853EF0E22A9B35408 /* Pods-arion movilTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1043,6 +1294,7 @@
 		};
 		635D30FE24AE5143000062AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92FF48A9489CFD14ECE5FAF1 /* Pods-arion movilTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1065,6 +1317,7 @@
 		};
 		635D310024AE5143000062AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83DFB0455310CB98BCFB93DD /* Pods-arion movil-arion movilUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1085,6 +1338,7 @@
 		};
 		635D310124AE5143000062AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C513991E25D28873A578A603 /* Pods-arion movil-arion movilUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

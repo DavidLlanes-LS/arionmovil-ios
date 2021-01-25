@@ -9,56 +9,76 @@
 import SwiftUI
 
 struct Main: View {
+    @State private var showingAlert = true
     @State var isFilterArtist:Bool = false
     @State var isFilterAlbum:Bool = false
     @State var isFilterMusicGenre:Bool = false
     @State var isFilterYear:Bool = false
+    @State public var searchText : String = ""
+    @ObservedObject var viewModel = SongsUriViewModel()
+    @State var data:[String] = []
     var body: some View {
-        NavigationView{
-            ScrollView{
-                ZStack{
-                    Color("background")
-                    VStack{
-                        TextWithCustomFonts("Buscar una cación", customFont: CustomFont(type: .bold, size: 20))
-                            .frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
-                        ZStack {
-                            SearchBarFilter().buttonStyle(PlainButtonStyle())
-                            NavigationLink(destination: SongSearcher()) {
+        
+        GeometryReader {g in 
+            NavigationView{
+                ScrollView{
+                    ZStack{
+                        Color("background")
+                        VStack{
+                            TextWithCustomFonts("Buscar una cación", customFont: CustomFont(type: .bold, size: 20))
+                                .frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
+                            ZStack {
+                                //SearchBarFilter().buttonStyle(PlainButtonStyle())
+                                SearchBar(text: $searchText, placeholder: "Canción, artista, albúm")
+                                NavigationLink(destination: SongSearcher()) {
+                                    EmptyView()
+                                }
+                            }.padding(.bottom)
+                            ZStack {
+                                FilterGrid(openFilter: self.openFilter(id:))
+                            }.padding(.bottom)
+                            NavigationLink(destination: ArtistSearcher(),isActive: $isFilterArtist) {
                                 EmptyView()
                             }
-                        }.padding(.bottom)
-                        ZStack {
-                            FilterGrid(openFilter: self.openFilter(id:))
-                        }.padding(.bottom)
-                        NavigationLink(destination: ArtistSearcher(),isActive: $isFilterArtist) {
-                            EmptyView()
-                        }
-                        NavigationLink(destination: AlbumSearcher(),isActive: $isFilterAlbum) {
-                            EmptyView()
-                        }
-                        NavigationLink(destination: MusicalGenreSearcher(),isActive: $isFilterMusicGenre) {
-                            EmptyView()
-                        }
-                        NavigationLink(destination: YearSearcher(),isActive: $isFilterYear) {
-                            EmptyView()
-                        }
-                        HStack{
-                            TextWithCustomFonts("Canciones disponibles",customFont: CustomFont(type: .bold, size: 20)).frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
-                            SimpleunderlineBtn("Ver todo"){
-                                 
+                            NavigationLink(destination: AlbumSearcher(),isActive: $isFilterAlbum) {
+                                EmptyView()
                             }
-                        }.buttonStyle(PlainButtonStyle())
-                        VStack(spacing:16){
-                             ForEach((1...10).reversed(), id: \.self) {_ in
-                                 SongRow()
-                             }
-                         }
-                    }.padding()
-                }
-                
-            }.onAppear(perform: {
-                UITableView.appearance().separatorStyle = .none
-            }).navigationBarTitle("Bienvenido",displayMode: .inline)
+                            NavigationLink(destination: MusicalGenreSearcher(),isActive: $isFilterMusicGenre) {
+                                EmptyView()
+                            }
+                          
+                            NavigationLink(destination: YearSearcher(),isActive: $isFilterYear) {
+                                EmptyView()
+                            }
+                            
+                            HStack{
+                                TextWithCustomFonts("Canciones disponibles",customFont: CustomFont(type: .bold, size: 20)).frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
+                                SimpleunderlineBtn("Ver todo"){
+                                     
+                                }
+                            }.buttonStyle(PlainButtonStyle())
+                            VStack{
+                                ForEach(1...3,id:\.self){item in
+                                    SongRow()
+                                }
+                               
+                                
+                            }
+                            Spacer().frame(height:78)
+                        }.padding()
+                    }
+                    
+                }.onAppear(perform: {
+                    UITableView.appearance().separatorStyle = .none
+                    //UITableView.appearance().isScrollEnabled = false
+                    
+                }).navigationBarTitle("Bienvenido",displayMode: .inline)
+            }.onAppear{
+                viewModel.getUriReponse()
+                data = ["1","2"]
+            }.alert(isPresented:$showingAlert, content: {
+                Alert(title:Text(String("Atención").capitalized), message: Text(String("Recuerda que no podrás reproducir canciones si la calidad de red es baja").capitalized), primaryButton: .cancel(Text(String("Cancelar").capitalized)),secondaryButton: .default(Text(String("Aceptar").capitalized)))
+        })
         }
     }
     

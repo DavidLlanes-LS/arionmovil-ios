@@ -10,8 +10,9 @@ import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    @ObservedObject var locationManager = LocationManager()
     var window: UIWindow?
+    var pageSettings = PageSettings()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -20,20 +21,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = CreateNewAccount()
+        let contentView = BranchesNav()
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(pageSettings))
             self.window = window
             let theme = UserDefaultManager().getThemeMode()
             window.backgroundColor = UIColor.init(named: "background")
             if theme == .dark{
                 window.overrideUserInterfaceStyle = .dark
             }else{
-                window.overrideUserInterfaceStyle = .light
-            }
+                window.overrideUserInterfaceStyle = .light        }
             
             window.makeKeyAndVisible()
         }
@@ -44,11 +44,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+    
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        locationManager.locationManager.requestWhenInUseAuthorization()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

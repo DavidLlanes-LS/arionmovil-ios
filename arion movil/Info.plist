@@ -4,8 +4,15 @@
 <dict>
 	<key>UIStatusBarStyle</key>
 	<string>NO</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Utilizamos tu ubicacion para recomendarte los restaurantes mas cercanos a ti.</string>
+	<key>Privacy - Location </key>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Exo-ThinItalic.ttf</string>

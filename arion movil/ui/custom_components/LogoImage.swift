@@ -7,14 +7,23 @@
 //
 
 import SwiftUI
-
+extension Image {
+    func data(url:URL)->Self{
+        if let data = try? Data(contentsOf: url){
+            return Image(uiImage: UIImage(data:data)!).resizable()
+        }
+        return self.resizable()
+    }
+}
 struct LogoImage: View {
-    var imageName:String
+    @State var imageName:String
     var body: some View {
-        Image(imageName)
+        Image(systemName: "building.fill").data(url: URL(string: imageName)!)
             .resizable()
             .aspectRatio(1, contentMode: .fit)
-    }
+            }
+        
+    
 }
 
 struct LogoImage_Previews: PreviewProvider {
