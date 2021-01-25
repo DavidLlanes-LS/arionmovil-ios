@@ -57,7 +57,7 @@ struct Main: View {
                                      
                                 }
                             }.buttonStyle(PlainButtonStyle())
-                            VStack{
+                            VStack(spacing:10){
                                 ForEach(1...3,id:\.self){item in
                                     SongRow()
                                 }
