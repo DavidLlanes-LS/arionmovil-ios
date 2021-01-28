@@ -83,7 +83,7 @@ struct Album2:Codable {
 }
 
 // MARK: - Title
-struct Title:Codable {
+struct Title:Codable,Identifiable {
     let id: String?
     let titleID: Int?
     let mediaAlbumID: String?

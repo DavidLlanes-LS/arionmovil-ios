@@ -22,18 +22,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = BranchesNav()
+        let persistenceContainer = PersistenceController.shared
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(pageSettings))
+            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(pageSettings).environment(\.managedObjectContext, persistenceContainer.container.viewContext))
             self.window = window
             let theme = UserDefaultManager().getThemeMode()
             window.backgroundColor = UIColor.init(named: "background")
+            
             if theme == .dark{
                 window.overrideUserInterfaceStyle = .dark
             }else{
-                window.overrideUserInterfaceStyle = .light        }
+                window.overrideUserInterfaceStyle = .light
+                
+            }
             
             window.makeKeyAndVisible()
         }

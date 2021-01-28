@@ -82,7 +82,10 @@ class testeto{
     
     private func puedeser(data:Data){
         do{
-            let f:AlbumStockResponse = try JSONDecoder().decode(AlbumStockResponse.self, from: data)
+            let f:AlbumStockCD = try JSONDecoder().decode(AlbumStockCD.self, from: data)
+            MyCoreBack.shared.background.saveIfNeeded()
+            PersistenceController.shared.container.viewContext.saveIfNeeded()
+           
         }catch{
             print(error)
         }

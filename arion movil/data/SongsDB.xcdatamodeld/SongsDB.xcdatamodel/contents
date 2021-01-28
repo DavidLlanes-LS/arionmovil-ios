@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AlbumCD" representedClassName="AlbumCD" syncable="YES">
+        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="coverImageUri" optional="YES" attributeType="String"/>
+        <attribute name="genere" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="mediaId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="releaseyear" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlaylistCD" inverseName="albums" inverseEntity="PlaylistCD"/>
+        <relationship name="titles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TitleCD" inverseName="album" inverseEntity="TitleCD"/>
+    </entity>
+    <entity name="AlbumStockCD" representedClassName="AlbumStockCD" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EventCD" inverseName="albumstock" inverseEntity="EventCD"/>
+        <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlaylistCD" inverseName="albumstock" inverseEntity="PlaylistCD"/>
+    </entity>
+    <entity name="EventCD" representedClassName="EventCD" syncable="YES">
+        <attribute name="playListId" optional="YES" attributeType="String"/>
+        <relationship name="albumstock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlbumStockCD" inverseName="events" inverseEntity="AlbumStockCD"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemCD" inverseName="event" inverseEntity="ItemCD"/>
+    </entity>
+    <entity name="ItemCD" representedClassName="ItemCD" syncable="YES">
+        <attribute name="dayOfWeek" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventCD" inverseName="items" inverseEntity="EventCD"/>
+        <relationship name="periods" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PeriodCD" inverseName="period" inverseEntity="PeriodCD"/>
+    </entity>
+    <entity name="PeriodCD" representedClassName="PeriodCD" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="String"/>
+        <relationship name="period" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemCD" inverseName="periods" inverseEntity="ItemCD"/>
+    </entity>
+    <entity name="PlaylistCD" representedClassName="PlaylistCD" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <relationship name="albums" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AlbumCD" inverseName="playlist" inverseEntity="AlbumCD"/>
+        <relationship name="albumstock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlbumStockCD" inverseName="playlists" inverseEntity="AlbumStockCD"/>
+    </entity>
+    <entity name="SongsState" representedClassName="SongsState" syncable="YES">
+        <attribute name="catalogUri" optional="YES" attributeType="String"/>
+        <attribute name="generationDate" optional="YES" attributeType="String"/>
+        <attribute name="resultCode" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="TitleCD" representedClassName="TitleCD" syncable="YES">
+        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="coverImageUri" optional="YES" attributeType="String"/>
+        <attribute name="genere" optional="YES" attributeType="String"/>
+        <attribute name="hasExplicitContent" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="mediaAlbumId" optional="YES" attributeType="String"/>
+        <attribute name="mediaId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="recordedYear" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="titleId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlbumCD" inverseName="titles" inverseEntity="AlbumCD"/>
+    </entity>
+    <elements>
+        <element name="AlbumCD" positionX="-36.34414672851562" positionY="72.56222534179693" width="128" height="178"/>
+        <element name="AlbumStockCD" positionX="72" positionY="171" width="128" height="88"/>
+        <element name="EventCD" positionX="54" positionY="162" width="128" height="88"/>
+        <element name="ItemCD" positionX="36" positionY="153" width="128" height="88"/>
+        <element name="PeriodCD" positionX="-1572.131378173828" positionY="157.31494140625" width="128" height="88"/>
+        <element name="PlaylistCD" positionX="-25.7054443359375" positionY="-319.89794921875" width="128" height="88"/>
+        <element name="SongsState" positionX="-315.3486328125" positionY="-163.5347900390625" width="128" height="88"/>
+        <element name="TitleCD" positionX="-174.6539306640624" positionY="68.538330078125" width="128" height="208"/>
+    </elements>
+</model>

@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import CoreData
 // MARK: - SongsUriResponse
 struct SongsUriResponse:Codable{
-    let catalogURI: String
-    let generationDate: String
-    let resultCode: Int
+    public var catalogURI: String?
+    public var generationDate: String?
+    public var resultCode: Int?
     
     
     enum CodingKeys: String, CodingKey{
@@ -19,4 +20,6 @@ struct SongsUriResponse:Codable{
         case generationDate="GenerationDate"
         case resultCode="ResultCode"
     }
+    
+  
 }

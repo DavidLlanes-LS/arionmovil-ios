@@ -12,6 +12,7 @@ struct MainTabBar: View {
     @State private var paddingHeight:CGFloat = 0
     @State private var currentTab:Int = 0
     @State private var showCurrentSong:Bool = false
+
     var body: some View {
        
         VStack {
@@ -20,7 +21,7 @@ struct MainTabBar: View {
                     Color("background")
                     ZStack(alignment:.bottom){
                         TabView(selection: self.$currentTab){
-                            Main().tabItem{
+                            MainTest().tabItem{
                                 Image(systemName: "house")
                                 Text("Inicio")
                             }.background(TabBarAccessor { tabBar in
@@ -57,7 +58,9 @@ struct MainTabBar: View {
                 }
                 
             }
-        }.transition(.move(edge: .trailing))
+        }.transition(.move(edge: .trailing)).onAppear{
+            
+        }
         
     }
 }
