@@ -17,7 +17,9 @@ struct MainTest: View {
     @State var isFilterMusicGenre:Bool = false
     @State var isFilterYear:Bool = false
     @State public var searchText : String = ""
-   
+    var count:Int = 5
+    @State var rows:Int = 0
+    @State var isImpar = false
     @Environment(\.managedObjectContext) public var viewContext
     @FetchRequest(sortDescriptors: [])
     private var songsState: FetchedResults<SongsState>
@@ -29,62 +31,64 @@ struct MainTest: View {
     var body: some View {
         
         NavigationView {
-        
-             
+            VStack {
+                List{
                     VStack{
-                        VStack {
-                            ZStack{
-                                Color("background")
-                                VStack{
-                                    TextWithCustomFonts("Buscar una canción", customFont: CustomFont(type: .bold, size: 20))
-                                        .frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
-                                    ZStack {
-                                        //SearchBarFilter().buttonStyle(PlainButtonStyle())
-                                        SearchBar(text: $searchText, placeholder: "Canción, artista, albúm")
-                                        NavigationLink(destination: SongSearcher()) {
-                                            EmptyView()
-                                        }
-                                    }.padding(.bottom)
-                                    ZStack {
-                                        FilterGrid(openFilter: self.openFilter(id:))
-                                    }.padding(.bottom)
-                                    NavigationLink(destination: ArtistSearcher(),isActive: $isFilterArtist) {
-                                        EmptyView()
-                                    }
-                                    NavigationLink(destination: AlbumSearcher(),isActive: $isFilterAlbum) {
-                                        EmptyView()
-                                    }
-                                    NavigationLink(destination: MusicalGenreSearcher(),isActive: $isFilterMusicGenre) {
-                                        EmptyView()
-                                    }
-                                    
-                                    NavigationLink(destination: YearSearcher(),isActive: $isFilterYear) {
-                                        EmptyView()
-                                    }
-                                    
-                                    HStack{
-                                        
-                                        
-                                        TextWithCustomFonts("Canciones disponibles",customFont: CustomFont(type: .bold, size: 20)).frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
-                                        SimpleunderlineBtn("Ver todo"){
-                                            
-                                        }
-                                    }.buttonStyle(PlainButtonStyle())
-                                    VStack(spacing:10){
-                                        ForEach(1...3,id:\.self){item in
-                                            SongRow()
-                                        }
-                                        
-                                        
-                                    }
-                                   Spacer().frame(height:78)
-                                    
-                                    
-                                }.padding()
+                        TextWithCustomFonts("Buscar una canción", customFont: CustomFont(type: .bold, size: 20))
+                            .frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
+                        ZStack {
+                            //SearchBarFilter().buttonStyle(PlainButtonStyle())
+                            SearchBar(text: $searchText, placeholder: "Canción, artista, albúm")
+                            
+                        }.padding(.bottom)
+                        ZStack {
+                            FilterGrid(openFilter: self.openFilter(id:))
+                        }.padding(.bottom)
+                        HStack{
+                            
+                            
+                            TextWithCustomFonts("Canciones disponibles",customFont: CustomFont(type: .bold, size: 20)).frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
+                            SimpleunderlineBtn("Ver todo"){
+                                
                             }
                         }
-                        GridViewSong(items:15).listStyle(PlainListStyle())
-                    }.navigationBarTitle("Bienvenido",displayMode: .inline)
+                        
+                       
+                    }.buttonStyle(PlainButtonStyle())
+                    if rows > 0{
+                            
+                            ForEach(1...rows,id:\.self){i in
+                                
+                                VStack {
+                                    HStack(spacing: 16){
+                                        SongItem()
+                                        SongItem()
+                                        
+                                        
+                                    }
+                                    Spacer().frame(height:10)
+                                }
+                            }
+                            if isImpar {
+                                HStack(spacing: 16){
+                                    SongItem()
+                                    SongItem().opacity(0.0)
+                                    
+                                    
+                                }
+                            }
+                           
+                            
+                            
+                       
+                    }
+                    
+                }
+            }.listStyle(PlainListStyle()).navigationBarTitle("Bienvenido",displayMode: .inline).onAppear{
+                getRows()
+            }
+            
+             
                 
             
         }
@@ -114,6 +118,22 @@ struct MainTest: View {
             
         }
    
+    }
+    
+    public func getRows(){
+        let decimalValue:Double = Double(count)/2
+        let intValue:Int =  count/2
+        let difference:Double = decimalValue - Double(intValue)
+        print("rows",difference)
+        if difference > 0 {
+            rows = intValue
+            self.isImpar = true
+        }
+        else {
+            rows = intValue
+           
+        }
+     
     }
 }
 

@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (5.4.1)
+  - GzipSwift (5.1.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - GzipSwift
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - GzipSwift
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
+
+PODFILE CHECKSUM: da7c0cf7f06c2061272faf9dd88d81c194457db8
+
+COCOAPODS: 1.10.0
