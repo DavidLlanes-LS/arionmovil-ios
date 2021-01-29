@@ -25,7 +25,7 @@ struct Main: View {
     private var stock: FetchedResults<AlbumStockCD>
     @State var data:[String] = []
     init() {
-       
+        
     }
     var body: some View {
         
@@ -77,7 +77,7 @@ struct Main: View {
                                     
                                     
                                 }
-                               Spacer().frame(height:78)
+                                Spacer().frame(height:78)
                                 
                                 
                             }.padding()
@@ -93,7 +93,7 @@ struct Main: View {
             }).onAppear{
                 //viewModel.getUriReponse()
                 if !isRequested {
-                   
+                    
                     getList()
                 }
                 self.isRequested = true
@@ -123,20 +123,20 @@ struct Main: View {
         var playlists = stock.first?.playlists?.allObjects as! [PlaylistCD]
         //var playlist = Array(( stock.first?.playlists as! Set<PlaylistCD>))
         var albums = playlists.first?.albums?.allObjects as! [AlbumCD]
-//        var albums2 = albums.sorted{
-//           $0.id < $1.id
-//       }
+        //        var albums2 = albums.sorted{
+        //           $0.id < $1.id
+        //       }
         albums.forEach{ album in
             (album.titles?.allObjects as! [TitleCD]).forEach{
                 $0.coverImageUri = album.coverImageUri
                 titles.append(contentsOf:(album.titles?.allObjects as! [TitleCD]))
             }        }
-       // titles = albums.first?.titles?.allObjects as! [TitleCD]
-
-            
+        // titles = albums.first?.titles?.allObjects as! [TitleCD]
+        
+        
         print("pruebas",titles.count)
         musicList = titles
-       
+        
     }
 }
 

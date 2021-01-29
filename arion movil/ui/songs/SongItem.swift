@@ -7,22 +7,39 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct SongItem: View {
+    var song:TitleCD
+     var url:String = "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BLACKPINK-_The_Album.png/220px-BLACKPINK-_The_Album.png"
     var hasCorners:Bool = true
+    
     var body: some View {
+        
         VStack(spacing:0) {
-            Image("dualipa").resizable().aspectRatio(contentMode: .fill).cornerRadius(hasCorners ? 0:0)
+            //Image("dualipa").resizable().aspectRatio(contentMode: .fill).cornerRadius(hasCorners ? 0:0)
+//            URLImage(url:URL(string: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BLACKPINK-_The_Album.png/220px-BLACKPINK-_The_Album.png")!, content:  {
+//
+//                $0.resizable().aspectRatio(contentMode: .fill)})
+            URLImage(url:URL(string: url)!, content:  {
+
+                $0.resizable().aspectRatio(contentMode: .fill)})
             if(hasCorners){
                 VStack {
                     
-                    TextWithCustomFonts("Dua lipa", customFont: CustomFont(type: .bold, size: 14)).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
-                    TextWithCustomFonts("Canción", customFont: CustomFont(type: .bold, size: 14)).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
+                    TextWithCustomFonts(song.artist ?? "No hay", customFont: CustomFont(type: .bold, size: 8)).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
+                    TextWithCustomFonts(song.name ?? "No hay", customFont: CustomFont(type: .bold, size: 12)).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
                     Spacer().frame(height:2)
                     
-                }.frame(maxWidth:.infinity).background(Color.gray)
+                }.frame(maxWidth:.infinity).background(Color.white).onAppear{
+//                    url = song.coverImageUri!
+//                    print("imagenes", url)
+//                    print("cancion",url)
+                    var url:String = song.coverImageUri ?? "sdsd"
+                    
+                }
             }
-            
+        
            
         }
         
@@ -31,6 +48,7 @@ struct SongItem: View {
 
 struct SongItem_Previews: PreviewProvider {
     static var previews: some View {
-        SongItem()
+        let title:TitleCD = TitleCD()
+        SongItem(song:title)
     }
 }

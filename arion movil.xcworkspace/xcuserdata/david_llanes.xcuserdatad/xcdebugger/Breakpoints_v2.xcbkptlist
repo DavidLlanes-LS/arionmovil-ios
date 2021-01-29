@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
             endingLineNumber = "68"
-            landmarkName = "getUri(catalogUri:)"
+            landmarkName = "getUri(catalogUri:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -302,9 +302,9 @@
             filePath = "arion movil/ui/main/SongsUriViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "getUriReponse()"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "getUriReponse(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -320,7 +320,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
             endingLineNumber = "47"
-            landmarkName = "getUriReponse()"
+            landmarkName = "getUriReponse(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -336,7 +336,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "getUriReponse()"
+            landmarkName = "getUriReponse(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -344,15 +344,15 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "689EF73A-96A5-4B0B-A38A-D884CEE4FA15"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arion movil/ui/main/SongsUriViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "getStock()"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getStock(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -368,7 +368,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
             endingLineNumber = "85"
-            landmarkName = "puedeser(data:)"
+            landmarkName = "puedeser(data:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -384,7 +384,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "getUri(catalogUri:)"
+            landmarkName = "getUri(catalogUri:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -447,7 +447,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "getUri(catalogUri:)"
+            landmarkName = "getUri(catalogUri:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -463,7 +463,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "getUri(catalogUri:)"
+            landmarkName = "getUri(catalogUri:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -479,7 +479,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "getUri(catalogUri:)"
+            landmarkName = "getUri(catalogUri:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -495,7 +495,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "getUri(catalogUri:)"
+            landmarkName = "getUri(catalogUri:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -509,8 +509,8 @@
             filePath = "arion movil/ui/main/SongsUriViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "addTask(song:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -525,8 +525,8 @@
             filePath = "arion movil/ui/main/SongsUriViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "addTask(song:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -541,42 +541,10 @@
             filePath = "arion movil/ui/main/SongsUriViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "addTask(song:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "11AE05D6-3A55-4EE2-9B9B-4F0777C1AEDC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/Main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "14023336-3DA4-4DDD-906F-83720C8E1BF6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/Main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "body"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -589,8 +557,8 @@
             filePath = "arion movil/ui/main/MainTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "MainTest"
             landmarkType = "14">
             <Locations>
@@ -697,8 +665,8 @@
             filePath = "arion movil/ui/main/MainTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "MainTest"
             landmarkType = "14">
             <Locations>
@@ -753,22 +721,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "459E989C-DFD0-41DE-B944-8E931F4AB4D9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/MainTest.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "getData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D7F83CAD-E9F6-43FE-9BEB-2FA0AE552B18"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -776,8 +728,8 @@
             filePath = "arion movil/ui/main/MainTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -792,8 +744,8 @@
             filePath = "arion movil/ui/main/MainTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -858,7 +810,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "getUri(catalogUri:)"
+            landmarkName = "getUri(catalogUri:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -906,7 +858,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
             endingLineNumber = "84"
-            landmarkName = "puedeser(data:)"
+            landmarkName = "puedeser(data:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -914,7 +866,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ABEB7FFB-5DAE-4DBB-B074-BFF98B1E2020"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arion movil/data/testService.swift"
@@ -922,7 +874,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "getUri(catalogUri:)"
+            landmarkName = "getUri(catalogUri:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -936,9 +888,9 @@
             filePath = "arion movil/data/testService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "puedeser(data:)"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "puedeser(data:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1464,218 +1416,10 @@
             filePath = "arion movil/data/testService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "puedeser(data:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "puedeser(data:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5C5C4026-5256-42B2-AB7A-A4363BB4398E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/Main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "getList()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5C5C4026-5256-42B2-AB7A-A4363BB4398E - e1be675da4eac7e0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "arion_movil.Main.getList() -&gt; Swift.Array&lt;arion_movil.TitleCD&gt;"
-                  moduleName = "arion movil"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/main/Main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
-                  offsetFromSymbolStart = "262">
-               </Location>
-               <Location
-                  uuid = "5C5C4026-5256-42B2-AB7A-A4363BB4398E - e1be675da4eac7e0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "arion_movil.Main.getList() -&gt; Swift.Array&lt;arion_movil.TitleCD&gt;"
-                  moduleName = "arion movil"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/main/Main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
-                  offsetFromSymbolStart = "2755">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "36071E77-7FFC-46D8-9EBD-87093AFD6D36"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/Main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "getList()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "36071E77-7FFC-46D8-9EBD-87093AFD6D36 - e1be675da4eac787"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "arion_movil.Main.getList() -&gt; Swift.Array&lt;arion_movil.TitleCD&gt;"
-                  moduleName = "arion movil"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/main/Main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "1188">
-               </Location>
-               <Location
-                  uuid = "36071E77-7FFC-46D8-9EBD-87093AFD6D36 - e1be675da4eac787"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "arion_movil.Main.getList() -&gt; Swift.Array&lt;arion_movil.TitleCD&gt;"
-                  moduleName = "arion movil"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/main/Main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "2763">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "87820F5C-7662-4CEE-B10A-C897256ACD51"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/Main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "getList()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "87820F5C-7662-4CEE-B10A-C897256ACD51 - e1be675da4eac7a6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "arion_movil.Main.getList() -&gt; Swift.Array&lt;arion_movil.TitleCD&gt;"
-                  moduleName = "arion movil"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/main/Main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "124"
-                  endingLineNumber = "124"
-                  offsetFromSymbolStart = "1812">
-               </Location>
-               <Location
-                  uuid = "87820F5C-7662-4CEE-B10A-C897256ACD51 - e1be675da4eac7a6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "arion_movil.Main.getList() -&gt; Swift.Array&lt;arion_movil.TitleCD&gt;"
-                  moduleName = "arion movil"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/main/Main.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "124"
-                  endingLineNumber = "124"
-                  offsetFromSymbolStart = "2771">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B03E53A0-0CB9-45E0-9D82-7D773A25B493"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/Main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "getList()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CEAF7ED6-F7C7-430F-9BB2-23F4F86255EF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/Main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "getList()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B2AAF8BA-1403-47E0-9EE2-794099DA4B36"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/Main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "getList()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "59992338-2559-47F5-88B0-BE8B84DE49B8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arion movil/ui/main/Main.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "body"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1739,6 +1483,198 @@
             startingLineNumber = "65"
             endingLineNumber = "65"
             landmarkName = "getRows()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE18560A-B018-449E-9748-7228F80A43F1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arion movil/ui/songs/SongItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "CE18560A-B018-449E-9748-7228F80A43F1 - 924b649bb998aaff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(URLImage.URLImage&lt;SwiftUI.EmptyView, URLImage.ActivityIndicator, SwiftUI.EmptyView, SwiftUI.Image&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0&gt;)&gt; in arion_movil.SongItem.body.getter : some"
+                  moduleName = "arion movil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/songs/SongItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "CE18560A-B018-449E-9748-7228F80A43F1 - 723734ab73241771"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftUI.Image) -&gt; SwiftUI.Image in closure #1 () -&gt; SwiftUI.TupleView&lt;(URLImage.URLImage&lt;SwiftUI.EmptyView, URLImage.ActivityIndicator, SwiftUI.EmptyView, SwiftUI.Image&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0&gt;)&gt; in arion_movil.SongItem.body.getter : some"
+                  moduleName = "arion movil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/songs/SongItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "131">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1CB66C4-444C-4798-9E83-C4B6EFA6FDC0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arion movil/ui/songs/SongItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "046FFFAC-B0CA-4B12-98A6-4E322EE144F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arion movil/ui/songs/SongItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "046FFFAC-B0CA-4B12-98A6-4E322EE144F2 - de03f0e3cf66ba45"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "arion_movil.SongItem.body.getter : some"
+                  moduleName = "arion movil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/songs/SongItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "290">
+               </Location>
+               <Location
+                  uuid = "046FFFAC-B0CA-4B12-98A6-4E322EE144F2 - 924b649bb998aaff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(URLImage.URLImage&lt;SwiftUI.EmptyView, URLImage.ActivityIndicator, SwiftUI.EmptyView, SwiftUI.Image&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0&gt;)&gt; in arion_movil.SongItem.body.getter : some"
+                  moduleName = "arion movil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/David/Trabajo/programador/programas/ios/arios/arionmovil-ios/arion%20movil/ui/songs/SongItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "424">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "299F45B8-4C17-4C4A-8A05-57537F544228"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arion movil/ui/songs/SongItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A132C85B-D9E2-4506-B0E0-E2FDE8004C6B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arion movil/ui/songs/SongItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49091E0C-3DFC-4018-9D97-20735C99F1ED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arion movil/ui/main/SongsUriViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "getUriReponse(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C6D3C33-32E2-4C43-B5DE-2CE3922F1A99"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arion movil/data/testService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "puedeser(data:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E361D23B-7FCC-4CFF-83A9-DF1F1AD5E514"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arion movil/ui/main/MainTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "getList()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -8,7 +8,7 @@ target 'arion movil' do
   # Pods for arion movil
   pod 'Alamofire', '~> 5.2'
   pod 'GzipSwift'
-
+  pod 'URLImage'
   target 'arion movilTests' do
     inherit! :search_paths
     # Pods for testing

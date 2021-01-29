@@ -48,7 +48,7 @@ class testeto{
       
     }
     
-    func getUri(catalogUri:String){
+    func getUri(catalogUri:String,completion: @escaping () -> () ){
         
         AF.download(catalogUri).downloadProgress{bytesRead in
             //print("descarga \(bytesRead)")
@@ -70,7 +70,7 @@ class testeto{
            
          
             let str = String(decoding: self.file, as: UTF8.self)
-            self.puedeser(data: str.data(using: .utf8)!)
+            self.puedeser(data: str.data(using: .utf8)!,completion: completion)
             
             
             
@@ -80,11 +80,12 @@ class testeto{
     
         
     
-    private func puedeser(data:Data){
+    private func puedeser(data:Data,completion: @escaping () -> ()){
         do{
             let f:AlbumStockCD = try JSONDecoder().decode(AlbumStockCD.self, from: data)
             MyCoreBack.shared.background.saveIfNeeded()
             PersistenceController.shared.container.viewContext.saveIfNeeded()
+            completion()
            
         }catch{
             print(error)

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct GridViewSong: View {
-    
+    var song:TitleCD = TitleCD()
     var count:Int = 0
     @State var rows:Int = 0
     @State var isImpar = false
@@ -24,16 +24,16 @@ struct GridViewSong: View {
                     ForEach(1...rows,id:\.self){i in
                         
                         HStack(spacing: 16){
-                            SongItem()
-                            SongItem()
+                            SongItem(song:song)
+                            SongItem(song:song)
                             
                             
                         }
                     }
                     if isImpar {
                         HStack(spacing: 16){
-                            SongItem()
-                            SongItem().opacity(0.0)
+                            SongItem(song:song)
+                            SongItem(song:song).opacity(0.0)
                             
                             
                         }

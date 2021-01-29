@@ -33,7 +33,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
         
         
     }
-    func getUriReponse() {
+    func getUriReponse(completion: @escaping () -> () ){
         requested = false
         let cancellable = self.getSongsURI()
             .sink(receiveCompletion: { result in
@@ -52,15 +52,17 @@ class SongsUriViewModel: ObservableObject, ArionService {
                 DispatchQueue.main.async {
                     self.requested = true
                     self.uriResponse = response
-                    self.getStock()
+                    self.getStock(completion: completion)
+                   
                     self.addTask(song: self.uriResponse)
                 }
+                
         }
         
         cancellables.insert(cancellable)
     }
-    func getStock(){
-        tester.getUri(catalogUri: self.uriResponse.catalogURI!)
+    func getStock(completion: @escaping () -> ()){
+        tester.getUri(catalogUri: self.uriResponse.catalogURI!,completion: completion)
         
         
     }
@@ -90,6 +92,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
 
         saveContext()
     }
+    
     
    
 }

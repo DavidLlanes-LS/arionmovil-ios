@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct SongRow: View {
+    var song:TitleCD = TitleCD()
     var body: some View {
         HStack(spacing: 16){
-            SongItem()
-            SongItem()
+            SongItem(song:song)
+            SongItem(song:song)
         }
     }
 }

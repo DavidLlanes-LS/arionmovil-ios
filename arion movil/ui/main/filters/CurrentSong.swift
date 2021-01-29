@@ -10,10 +10,11 @@ import SwiftUI
 
 struct CurrentSong: View {
     @State var progressValue: Float = 0.0
+    var song:TitleCD = TitleCD()
     var body: some View {
         VStack(spacing: 0) {
             HStack{
-                SongItem(hasCorners: false)
+                SongItem(song:song,hasCorners: false)
                     .frame(width:75, height:75)
                 VStack{
                     TextWithCustomFonts("Reproducción actual",customFont:CustomFont(type: .light, size: 14) ,color: Color("title")).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
