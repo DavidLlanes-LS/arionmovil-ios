@@ -22,13 +22,14 @@ struct MainTest: View {
     @State var isFilterAlbum:Bool = false
     @State var isFilterMusicGenre:Bool = false
     @State var isFilterYear:Bool = false
+    @State var hasFetsched:Bool = false
     @State public var searchText : String = ""
     @State var count:Int = 9
     @State var rows:Int = 0
     @State var isImpar = false
   
     init(){
-        
+       
     }
    
     var body: some View {
@@ -37,7 +38,7 @@ struct MainTest: View {
             VStack {
                 List{
                     VStack{
-                        TextWithCustomFonts("Buscar una canción", customFont: CustomFont(type: .bold, size: 20))
+                        TextWithCustomFonts("\(songsState.count) \(stock.count)Buscar una canción", customFont: CustomFont(type: .bold, size: 20))
                             .frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
                         ZStack {
                             //SearchBarFilter().buttonStyle(PlainButtonStyle())
@@ -91,17 +92,25 @@ struct MainTest: View {
                     Spacer().frame(height:78)
                 }
             }.listStyle(PlainListStyle()).navigationBarTitle("Bienvenido",displayMode: .inline).onAppear{
-                viewModel.getUriReponse {
-                    getList()
-                    getRows()
-                }
+                
 //                getList()
 //
 //                getRows()
               
             }.alert(isPresented:$showingAlert, content: {
                 Alert(title:Text(String("Atención").capitalized), message: Text(String("Recuerda que no podrás reproducir canciones si la calidad de red es baja").capitalized), primaryButton: .cancel(Text(String("Cancelar").capitalized)),secondaryButton: .default(Text(String("Aceptar").capitalized)))
-            })
+            }).onAppear{
+                if !hasFetsched
+                {
+                   // viewModel.songsState = self.songsState
+//                    viewModel.getUriReponse {
+//                        self.getList()
+//                        self.getRows()
+//                    }
+                    hasFetsched = true
+                }
+                
+            }
             
              
                 
@@ -128,8 +137,8 @@ struct MainTest: View {
    
     
     public func getRows(){
-        let decimalValue:Double = Double(count)/2
-        let intValue:Int =  count/2
+        let decimalValue:Double = Double(count-1)/2
+        let intValue:Int =  (count-1)/2
         let difference:Double = decimalValue - Double(intValue)
         print("rows",difference)
         if difference > 0 {
@@ -173,7 +182,8 @@ struct MainTest: View {
             musicList.sort{
                 $0.name!<$1.name!
             }
-            count = 490
+            count = musicList.count - 1
+            print("canciones",musicList.count)
             print("listas0","\(musicList[1].id) \(musicList[1].name)" )
             print("listas1","\(musicList[1].id) \(musicList[1].name)" )
             print("listas2","\(musicList[2].id) \(musicList[2].name)" )

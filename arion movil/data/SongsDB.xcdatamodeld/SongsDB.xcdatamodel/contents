@@ -55,13 +55,13 @@
         <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlbumCD" inverseName="titles" inverseEntity="AlbumCD"/>
     </entity>
     <elements>
-        <element name="AlbumCD" positionX="-36.34414672851562" positionY="72.56222534179693" width="128" height="178"/>
-        <element name="AlbumStockCD" positionX="72" positionY="171" width="128" height="88"/>
-        <element name="EventCD" positionX="54" positionY="162" width="128" height="88"/>
-        <element name="ItemCD" positionX="36" positionY="153" width="128" height="88"/>
-        <element name="PeriodCD" positionX="-1572.131378173828" positionY="157.31494140625" width="128" height="88"/>
-        <element name="PlaylistCD" positionX="-25.7054443359375" positionY="-319.89794921875" width="128" height="88"/>
-        <element name="SongsState" positionX="-315.3486328125" positionY="-163.5347900390625" width="128" height="88"/>
-        <element name="TitleCD" positionX="-174.6539306640624" positionY="68.538330078125" width="128" height="208"/>
+        <element name="AlbumCD" positionX="-8.982574462890625" positionY="-141.4615783691406" width="128" height="178"/>
+        <element name="AlbumStockCD" positionX="15.22836303710938" positionY="272.5328979492188" width="128" height="88"/>
+        <element name="EventCD" positionX="68.28115844726562" positionY="66.67340087890625" width="128" height="88"/>
+        <element name="ItemCD" positionX="169.66650390625" positionY="-376.7164001464844" width="128" height="88"/>
+        <element name="PeriodCD" positionX="-685.3728332519529" positionY="51.55657958984375" width="128" height="88"/>
+        <element name="PlaylistCD" positionX="-614.2780151367188" positionY="310.96484375" width="128" height="88"/>
+        <element name="SongsState" positionX="-804.8788452148438" positionY="-112.4972534179688" width="128" height="88"/>
+        <element name="TitleCD" positionX="-217.1708374023436" positionY="81.28387451171875" width="128" height="208"/>
     </elements>
 </model>

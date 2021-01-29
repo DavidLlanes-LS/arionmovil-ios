@@ -18,14 +18,23 @@ public class AlbumStockCD: NSManagedObject, Encodable, Decodable {
         case events = "Events"
     }
     
+    @nonobjc public class func fetchRequestSingle() -> NSFetchRequest<AlbumStockCD> {
+        let request = NSFetchRequest<AlbumStockCD>(entityName: "AlbumStockCD")
+        //request.sortDescriptors = [NSSortDescriptor(key: "catalogUri", ascending: true)]
+
+        //request.propertiesToFetch = ["name"]
+        return request
+    }
+    
     required public convenience init(from decoder: Decoder) throws {
-        let codingUserInfoKeyManagedObjectContext =  MyCoreBack.shared.background
-        if
-           let entity = NSEntityDescription.entity(forEntityName: "AlbumStockCD", in: codingUserInfoKeyManagedObjectContext){
-            self.init(entity:entity, insertInto: codingUserInfoKeyManagedObjectContext)
-        }else{
-            self.init()
-        }
+//        let codingUserInfoKeyManagedObjectContext =  MyCoreBack.shared.background
+//        if
+//           let entity = NSEntityDescription.entity(forEntityName: "AlbumStockCD", in: codingUserInfoKeyManagedObjectContext){
+//            self.init(entity:entity, insertInto: codingUserInfoKeyManagedObjectContext)
+//        }else{
+//            self.init()
+//        }
+        self.init()
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
         try id = container.decode(String.self, forKey: .id)

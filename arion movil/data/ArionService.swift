@@ -8,6 +8,8 @@
 
 import Foundation
 import Combine
+import Alamofire
+import Gzip
 protocol ArionService {
     var apiSession: APIService {get}
     func getBranchesList(latitude:String,longitude:String) -> AnyPublisher<LocationsList, APIError>
@@ -30,4 +32,40 @@ extension ArionService {
         return apiSession.request(with: ApiRequest().getSongsList())
             .eraseToAnyPublisher()
     }
+    
+    func getStockUnzipped(catalogUri:String,completion: @escaping () -> () )->AlbumStockCD{
+        var file:Data = Data()
+        var stockFinal:AlbumStockCD = AlbumStockCD()
+        AF.download(catalogUri).downloadProgress{bytesRead in
+        }.responseData { response in
+            var decompressedData: Data
+            if response.value!.isGzipped {
+                decompressedData = try! response.value!.gunzipped()
+               file = decompressedData
+            } else {
+                decompressedData = response.value!
+              file = decompressedData
+            }
+            let str = String(decoding: file, as: UTF8.self)
+            
+            stockFinal = self.saveStock(data: str.data(using: .utf8)!,completion: completion)
+            
+          
+        }
+        return stockFinal
+    }
+    
+    private func saveStock(data:Data,completion: @escaping () -> ())->AlbumStockCD{
+        do{
+            let stock:AlbumStockCD = try JSONDecoder().decode(AlbumStockCD.self, from: data)
+            //MyCoreBack.shared.background.saveIfNeeded()
+            //PersistenceController.shared.container.viewContext.saveIfNeeded()
+            completion()
+            return stock
+           
+        }catch{
+            print(error)
+        }
+          return AlbumStockCD()
+        }
 }

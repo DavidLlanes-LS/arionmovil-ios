@@ -93,7 +93,7 @@
 		7F10760625BF48DD0011FF05 /* LoaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10760525BF48DD0011FF05 /* LoaderComponent.swift */; };
 		7F10762A25BF7A050011FF05 /* ViewPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762925BF7A050011FF05 /* ViewPageController.swift */; };
 		7F10762F25BF7A7B0011FF05 /* BranchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762E25BF7A7B0011FF05 /* BranchesList.swift */; };
-		7F36B7FF25C0951B0011F98D /* SongsDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B7FD25C0951B0011F98D /* SongsDB.xcdatamodeld */; };
+		7F1702FB25C472C000D15908 /* SongsDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F1702F925C472C000D15908 /* SongsDB.xcdatamodeld */; };
 		7F36B81425C097990011F98D /* PersitenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B81325C097990011F98D /* PersitenceController.swift */; };
 		7F36B82125C0C4390011F98D /* MainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B82025C0C4390011F98D /* MainTest.swift */; };
 		7F36B82625C0C8710011F98D /* testViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B82525C0C8710011F98D /* testViewmodel.swift */; };
@@ -249,7 +249,7 @@
 		7F10760525BF48DD0011FF05 /* LoaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderComponent.swift; sourceTree = "<group>"; };
 		7F10762925BF7A050011FF05 /* ViewPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPageController.swift; sourceTree = "<group>"; };
 		7F10762E25BF7A7B0011FF05 /* BranchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesList.swift; sourceTree = "<group>"; };
-		7F36B7FE25C0951B0011F98D /* SongsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SongsDB.xcdatamodel; sourceTree = "<group>"; };
+		7F1702FA25C472C000D15908 /* SongsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SongsDB.xcdatamodel; sourceTree = "<group>"; };
 		7F36B81325C097990011F98D /* PersitenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersitenceController.swift; sourceTree = "<group>"; };
 		7F36B82025C0C4390011F98D /* MainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTest.swift; sourceTree = "<group>"; };
 		7F36B82525C0C8710011F98D /* testViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewmodel.swift; sourceTree = "<group>"; };
@@ -756,11 +756,11 @@
 		7F53E91725BA288D0044D258 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				7F1702F925C472C000D15908 /* SongsDB.xcdatamodeld */,
 				7F53E92525BA2A6E0044D258 /* ApiService.swift */,
 				7F53E92A25BA2AC20044D258 /* ApiSession.swift */,
 				7F53E95F25BA3DE80044D258 /* testService.swift */,
 				7F53E94D25BA2DF90044D258 /* ArionService.swift */,
-				7F36B7FD25C0951B0011F98D /* SongsDB.xcdatamodeld */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -1092,6 +1092,7 @@
 				7F36B89725C1E1170011F98D /* ItemCD+CoreDataProperties.swift in Sources */,
 				633F103924B66F3900B284AE /* ShopHistoryRow.swift in Sources */,
 				7F36B82625C0C8710011F98D /* testViewmodel.swift in Sources */,
+				7F1702FB25C472C000D15908 /* SongsDB.xcdatamodeld in Sources */,
 				6339F06A24B368F1008C8554 /* AvailableCredits.swift in Sources */,
 				6306CE1124B3C99E007628F8 /* TextWithCustomFonts.swift in Sources */,
 				639E4F4724AFEEE500029A07 /* Queue.swift in Sources */,
@@ -1145,7 +1146,6 @@
 				635D310724AE5265000062AF /* BranchesNav.swift in Sources */,
 				7F10762A25BF7A050011FF05 /* ViewPageController.swift in Sources */,
 				6339F06124B36094008C8554 /* Triangle.swift in Sources */,
-				7F36B7FF25C0951B0011F98D /* SongsDB.xcdatamodeld in Sources */,
 				7F741E4325BB5BFD00C23A6B /* SongsUriViewModel.swift in Sources */,
 				7F36B89C25C1E1170011F98D /* PlaylistCD+CoreDataClass.swift in Sources */,
 				7F53E94925BA2D600044D258 /* ArionEndPoint.swift in Sources */,
@@ -1503,12 +1503,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7F36B7FD25C0951B0011F98D /* SongsDB.xcdatamodeld */ = {
+		7F1702F925C472C000D15908 /* SongsDB.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7F36B7FE25C0951B0011F98D /* SongsDB.xcdatamodel */,
+				7F1702FA25C472C000D15908 /* SongsDB.xcdatamodel */,
 			);
-			currentVersion = 7F36B7FE25C0951B0011F98D /* SongsDB.xcdatamodel */;
+			currentVersion = 7F1702FA25C472C000D15908 /* SongsDB.xcdatamodel */;
 			path = SongsDB.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
