@@ -415,7 +415,6 @@
 			isa = PBXGroup;
 			children = (
 				635D30D124AE513D000062AF /* arion movil */,
-				7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */,
 				7F210E2D25C5E40E0074373D /* resources */,
 				635D30E824AE5143000062AF /* arion movilTests */,
 				635D30F324AE5143000062AF /* arion movilUITests */,
@@ -478,6 +477,7 @@
 		635D310224AE5225000062AF /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */,
 				635D310324AE5231000062AF /* branches */,
 				6360B0A524AE83A500811899 /* main */,
 				7F210E2325C5E3390074373D /* Home */,
