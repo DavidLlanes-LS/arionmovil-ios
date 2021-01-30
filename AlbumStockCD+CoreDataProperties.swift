@@ -18,6 +18,7 @@ extension AlbumStockCD {
     }
 
     @NSManaged public var id: String?
+    @NSManaged public var restaurantId: String?
     @NSManaged public var events: NSSet?
     @NSManaged public var playlists: NSSet?
 

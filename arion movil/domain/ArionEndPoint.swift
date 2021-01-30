@@ -36,12 +36,12 @@ class ApiRequest{
         return urlRequest
     }
     
-    func getSongsList()->URLRequest{
+    func getSongsList(branchId:String)->URLRequest{
         var urlRequest: URLRequest{
-            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/playlists/get-playlists-catalog/894248a4-e878-b552-cfb9-3b22a45b440f"
+            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/playlists/get-playlists-catalog/\(branchId)"
             guard let url = URL(string:urlRequest )
                 else {preconditionFailure("Invalid URL format")}
-           // print("branchesRequest: \(urlRequest)")
+            //print("songsRequest: \(branchId)")
             let request = URLRequest(url: url)
             return request
         }

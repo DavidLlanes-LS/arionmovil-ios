@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BranchesNav: View {
-    @EnvironmentObject var pageSettings: PageSettings;
+    @EnvironmentObject var pageSettings: AppHelper;
     
     var body: some View {
         if pageSettings.currentPage == "splash" {

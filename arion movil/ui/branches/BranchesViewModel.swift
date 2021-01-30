@@ -21,7 +21,10 @@ class BranchesListViewModel: ObservableObject, ArionService {
         self.apiSession = apiSession
     }
     func getBranchesList(longitude:String, latitude:String) {
-        self.showLoader = true
+        DispatchQueue.main.async {
+            self.showLoader = true
+        }
+       
         let cancellable = self.getBranchesList(latitude:latitude, longitude: longitude)
             .sink(receiveCompletion: { result in
                 switch result {

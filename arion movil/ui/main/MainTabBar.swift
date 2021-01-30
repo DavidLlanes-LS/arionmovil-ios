@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct MainTabBar: View {
+    @EnvironmentObject var appSettings: AppHelper
     @State private var paddingHeight:CGFloat = 0
     @State private var currentTab:Int = 0
     @State private var showCurrentSong:Bool = false
@@ -21,7 +22,7 @@ struct MainTabBar: View {
                     Color("background")
                     ZStack(alignment:.bottom){
                         TabView(selection: self.$currentTab){
-                            MainTest().tabItem{
+                            Home(branchId:appSettings.currentBranchId).tabItem{
                                 Image(systemName: "house")
                                 Text("Inicio")
                             }.background(TabBarAccessor { tabBar in

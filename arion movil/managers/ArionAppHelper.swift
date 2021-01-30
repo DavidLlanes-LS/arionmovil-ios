@@ -7,6 +7,7 @@
 //
 
 import Foundation
-class PageSettings: ObservableObject {
+class AppHelper: ObservableObject {
     @Published var currentPage: String = "splash"
+    @Published var currentBranchId: String = ""
 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BranchesList: View {
     @ObservedObject var viewModel = BranchesListViewModel()
-    @EnvironmentObject var pageSettings: PageSettings
+    @EnvironmentObject var appSettings: AppHelper
     @State var show = false
     @State var isView = true
     @State var txt = ""
@@ -45,7 +45,9 @@ struct BranchesList: View {
                                     
                                     Button(action: {
                                         withAnimation{
-                                            pageSettings.currentPage="otro"
+                                            appSettings.currentBranchId = branch.id
+                                            appSettings.currentPage="otro"
+                                           
                                         }
                                         
                                         
@@ -68,6 +70,7 @@ struct BranchesList: View {
                     }.onAppear{
                         self.viewModel.getBranchesList(longitude: "-103.33270", latitude: "20.62753")
                         /*self.viewModel.getBranchesList(longitude: self.locationManager.longitudeVar, latitude: self.locationManager.latitudeVar)*/
+                        viewModel.showLoader = false
                     }
                     
                 }

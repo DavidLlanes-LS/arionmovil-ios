@@ -13,8 +13,14 @@
     </entity>
     <entity name="AlbumStockCD" representedClassName="AlbumStockCD" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="restaurantId" optional="YES" attributeType="String"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EventCD" inverseName="albumstock" inverseEntity="EventCD"/>
         <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlaylistCD" inverseName="albumstock" inverseEntity="PlaylistCD"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="restaurantId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="EventCD" representedClassName="EventCD" syncable="YES">
         <attribute name="playListId" optional="YES" attributeType="String"/>
@@ -37,9 +43,15 @@
         <relationship name="albumstock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlbumStockCD" inverseName="playlists" inverseEntity="AlbumStockCD"/>
     </entity>
     <entity name="SongsState" representedClassName="SongsState" syncable="YES">
+        <attribute name="branchId" optional="YES" attributeType="String"/>
         <attribute name="catalogUri" optional="YES" attributeType="String"/>
         <attribute name="generationDate" optional="YES" attributeType="String"/>
         <attribute name="resultCode" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="branchId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="TitleCD" representedClassName="TitleCD" syncable="YES">
         <attribute name="artist" optional="YES" attributeType="String"/>
@@ -56,12 +68,12 @@
     </entity>
     <elements>
         <element name="AlbumCD" positionX="-8.982574462890625" positionY="-141.4615783691406" width="128" height="178"/>
-        <element name="AlbumStockCD" positionX="15.22836303710938" positionY="272.5328979492188" width="128" height="88"/>
+        <element name="AlbumStockCD" positionX="15.22836303710938" positionY="272.5328979492188" width="128" height="89"/>
         <element name="EventCD" positionX="68.28115844726562" positionY="66.67340087890625" width="128" height="88"/>
         <element name="ItemCD" positionX="169.66650390625" positionY="-376.7164001464844" width="128" height="88"/>
         <element name="PeriodCD" positionX="-685.3728332519529" positionY="51.55657958984375" width="128" height="88"/>
         <element name="PlaylistCD" positionX="-614.2780151367188" positionY="310.96484375" width="128" height="88"/>
-        <element name="SongsState" positionX="-804.8788452148438" positionY="-112.4972534179688" width="128" height="88"/>
+        <element name="SongsState" positionX="-804.8788452148438" positionY="-112.4972534179688" width="128" height="89"/>
         <element name="TitleCD" positionX="-217.1708374023436" positionY="81.28387451171875" width="128" height="208"/>
     </elements>
 </model>

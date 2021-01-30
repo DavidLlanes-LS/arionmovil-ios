@@ -28,14 +28,13 @@ extension ArionService {
             .eraseToAnyPublisher()
     }
     
-    func getSongsURI() -> AnyPublisher<SongsUriResponse, APIError> {
-        return apiSession.request(with: ApiRequest().getSongsList())
+    func getSongsURI(branchid:String) -> AnyPublisher<SongsUriResponse, APIError> {
+        return apiSession.request(with: ApiRequest().getSongsList(branchId: branchid))
             .eraseToAnyPublisher()
     }
     
-    func getStockUnzipped(catalogUri:String,completion: @escaping () -> () )->AlbumStockCD{
+    func getStockUnzipped(branchId:String,catalogUri:String,completion: @escaping () -> () ){
         var file:Data = Data()
-        var stockFinal:AlbumStockCD = AlbumStockCD()
         AF.download(catalogUri).downloadProgress{bytesRead in
         }.responseData { response in
             var decompressedData: Data
@@ -48,24 +47,26 @@ extension ArionService {
             }
             let str = String(decoding: file, as: UTF8.self)
             
-            stockFinal = self.saveStock(data: str.data(using: .utf8)!,completion: completion)
+            self.saveStock(branchId:branchId,data: str.data(using: .utf8)!,completion: completion)
             
           
         }
-        return stockFinal
+       
     }
     
-    private func saveStock(data:Data,completion: @escaping () -> ())->AlbumStockCD{
+    private func saveStock(branchId:String,data:Data,completion: @escaping () -> ()){
         do{
-            let stock:AlbumStockCD = try JSONDecoder().decode(AlbumStockCD.self, from: data)
-            //MyCoreBack.shared.background.saveIfNeeded()
-            //PersistenceController.shared.container.viewContext.saveIfNeeded()
+            let decoder:JSONDecoder = JSONDecoder()
+            decoder.userInfo[CodingUserInfoKey(rawValue: "localId")!] = branchId
+            let stock:AlbumStockCD = try decoder.decode(AlbumStockCD.self, from: data)
+            MyCoreBack.shared.background.saveIfNeeded()
+            PersistenceController.shared.container.viewContext.saveIfNeeded()
             completion()
-            return stock
+            
            
         }catch{
             print(error)
         }
-          return AlbumStockCD()
+         
         }
 }

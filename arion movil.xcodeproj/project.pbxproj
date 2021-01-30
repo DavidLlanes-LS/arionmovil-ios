@@ -69,7 +69,7 @@
 		6360B09D24AE6EDE00811899 /* Exo-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 635D311924AE60E4000062AF /* Exo-ThinItalic.ttf */; };
 		6360B0A024AE701F00811899 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360B09F24AE701F00811899 /* SearchBar.swift */; };
 		6360B0A324AE7FFE00811899 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360B0A224AE7FFE00811899 /* LocationManager.swift */; };
-		6360B0A724AE83D400811899 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360B0A624AE83D400811899 /* Main.swift */; };
+		6360B0A724AE83D400811899 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360B0A624AE83D400811899 /* Home.swift */; };
 		6360B0AC24AE84DC00811899 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360B0AB24AE84DC00811899 /* FilterButton.swift */; };
 		6360B0AE24AE85DD00811899 /* FilterGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360B0AD24AE85DD00811899 /* FilterGrid.swift */; };
 		6360B0B224AE889500811899 /* SearchBarFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360B0B124AE889500811899 /* SearchBarFilter.swift */; };
@@ -91,12 +91,10 @@
 		63FAB1CD24BCA0B100527EE0 /* YearSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FAB1CC24BCA0B100527EE0 /* YearSearcher.swift */; };
 		7F07226025BA6279009E6E95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */; };
 		7F10760625BF48DD0011FF05 /* LoaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10760525BF48DD0011FF05 /* LoaderComponent.swift */; };
-		7F10762A25BF7A050011FF05 /* ViewPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762925BF7A050011FF05 /* ViewPageController.swift */; };
+		7F10762A25BF7A050011FF05 /* ArionAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762925BF7A050011FF05 /* ArionAppHelper.swift */; };
 		7F10762F25BF7A7B0011FF05 /* BranchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762E25BF7A7B0011FF05 /* BranchesList.swift */; };
 		7F1702FB25C472C000D15908 /* SongsDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F1702F925C472C000D15908 /* SongsDB.xcdatamodeld */; };
 		7F36B81425C097990011F98D /* PersitenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B81325C097990011F98D /* PersitenceController.swift */; };
-		7F36B82125C0C4390011F98D /* MainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B82025C0C4390011F98D /* MainTest.swift */; };
-		7F36B82625C0C8710011F98D /* testViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B82525C0C8710011F98D /* testViewmodel.swift */; };
 		7F36B87D25C1D8280011F98D /* SongsState+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B87B25C1D8280011F98D /* SongsState+CoreDataClass.swift */; };
 		7F36B87E25C1D8280011F98D /* SongsState+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B87C25C1D8280011F98D /* SongsState+CoreDataProperties.swift */; };
 		7F36B89025C1E1170011F98D /* TitleCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B88225C1E1170011F98D /* TitleCD+CoreDataClass.swift */; };
@@ -224,7 +222,7 @@
 		635D312924AE60E6000062AF /* Exo-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-ExtraLight.ttf"; sourceTree = "<group>"; };
 		6360B09F24AE701F00811899 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		6360B0A224AE7FFE00811899 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		6360B0A624AE83D400811899 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		6360B0A624AE83D400811899 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		6360B0AB24AE84DC00811899 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		6360B0AD24AE85DD00811899 /* FilterGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGrid.swift; sourceTree = "<group>"; };
 		6360B0B124AE889500811899 /* SearchBarFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarFilter.swift; sourceTree = "<group>"; };
@@ -247,12 +245,10 @@
 		63FAB1CC24BCA0B100527EE0 /* YearSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSearcher.swift; sourceTree = "<group>"; };
 		7F07225F25BA6279009E6E95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "arion movil/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		7F10760525BF48DD0011FF05 /* LoaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderComponent.swift; sourceTree = "<group>"; };
-		7F10762925BF7A050011FF05 /* ViewPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPageController.swift; sourceTree = "<group>"; };
+		7F10762925BF7A050011FF05 /* ArionAppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArionAppHelper.swift; sourceTree = "<group>"; };
 		7F10762E25BF7A7B0011FF05 /* BranchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesList.swift; sourceTree = "<group>"; };
 		7F1702FA25C472C000D15908 /* SongsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SongsDB.xcdatamodel; sourceTree = "<group>"; };
 		7F36B81325C097990011F98D /* PersitenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersitenceController.swift; sourceTree = "<group>"; };
-		7F36B82025C0C4390011F98D /* MainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTest.swift; sourceTree = "<group>"; };
-		7F36B82525C0C8710011F98D /* testViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewmodel.swift; sourceTree = "<group>"; };
 		7F36B87B25C1D8280011F98D /* SongsState+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongsState+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7F36B87C25C1D8280011F98D /* SongsState+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongsState+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7F36B88225C1E1170011F98D /* TitleCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleCD+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -419,6 +415,8 @@
 			isa = PBXGroup;
 			children = (
 				635D30D124AE513D000062AF /* arion movil */,
+				7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */,
+				7F210E2D25C5E40E0074373D /* resources */,
 				635D30E824AE5143000062AF /* arion movilTests */,
 				635D30F324AE5143000062AF /* arion movilUITests */,
 				635D30D024AE513D000062AF /* Products */,
@@ -446,12 +444,7 @@
 				635D310224AE5225000062AF /* ui */,
 				635D30D224AE513D000062AF /* AppDelegate.swift */,
 				635D30D424AE513D000062AF /* SceneDelegate.swift */,
-				635D30D824AE5143000062AF /* Assets.xcassets */,
 				635D30E024AE5143000062AF /* Info.plist */,
-				7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */,
-				635D311724AE5FC8000062AF /* Fonts */,
-				635D30DA24AE5143000062AF /* Preview Content */,
-				63AB4BC424B7705F00DBCFB9 /* Localizable.Strings */,
 			);
 			path = "arion movil";
 			sourceTree = "<group>";
@@ -487,6 +480,7 @@
 			children = (
 				635D310324AE5231000062AF /* branches */,
 				6360B0A524AE83A500811899 /* main */,
+				7F210E2325C5E3390074373D /* Home */,
 				63981FB924B8BD5200693058 /* login */,
 				6306CDFD24B3A59D007628F8 /* profile */,
 				6339F06824B368D1008C8554 /* store */,
@@ -585,7 +579,7 @@
 		6360B0A124AE7FEF00811899 /* managers */ = {
 			isa = PBXGroup;
 			children = (
-				7F10762925BF7A050011FF05 /* ViewPageController.swift */,
+				7F10762925BF7A050011FF05 /* ArionAppHelper.swift */,
 				6360B0A224AE7FFE00811899 /* LocationManager.swift */,
 				633F103D24B6731B00B284AE /* UserDefaultManager.swift */,
 				7F36B81325C097990011F98D /* PersitenceController.swift */,
@@ -596,14 +590,9 @@
 		6360B0A524AE83A500811899 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				633F102724B624DB00B284AE /* searchers */,
 				6360B0AA24AE84CA00811899 /* filters */,
-				6360B0A624AE83D400811899 /* Main.swift */,
 				6325359724AF83BD00651494 /* MainTabBar.swift */,
 				7F741E3825BB4DDE00C23A6B /* MusicListViewModel.swift */,
-				7F741E4225BB5BFD00C23A6B /* SongsUriViewModel.swift */,
-				7F36B82025C0C4390011F98D /* MainTest.swift */,
-				7F36B82525C0C8710011F98D /* testViewmodel.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -708,6 +697,27 @@
 				7F10762E25BF7A7B0011FF05 /* BranchesList.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		7F210E2325C5E3390074373D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				633F102724B624DB00B284AE /* searchers */,
+				6360B0A624AE83D400811899 /* Home.swift */,
+				7F741E4225BB5BFD00C23A6B /* SongsUriViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7F210E2D25C5E40E0074373D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				635D30DA24AE5143000062AF /* Preview Content */,
+				635D30D824AE5143000062AF /* Assets.xcassets */,
+				63AB4BC424B7705F00DBCFB9 /* Localizable.Strings */,
+				635D311724AE5FC8000062AF /* Fonts */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 		7F36B85F25C1D6FD0011F98D /* cd */ = {
@@ -1076,7 +1086,7 @@
 				6325359424AF7EA200651494 /* SongRow.swift in Sources */,
 				63AB4BCD24B7855200DBCFB9 /* AlbumSearcher.swift in Sources */,
 				635D30D524AE513D000062AF /* SceneDelegate.swift in Sources */,
-				6360B0A724AE83D400811899 /* Main.swift in Sources */,
+				6360B0A724AE83D400811899 /* Home.swift in Sources */,
 				639E4F4224AFD04200029A07 /* SimpleunderlineBtn.swift in Sources */,
 				63AB4BC824B77A4000DBCFB9 /* ChangePasswordEmail.swift in Sources */,
 				6312061324B611C000CB0312 /* RedRectangleText.swift in Sources */,
@@ -1091,7 +1101,6 @@
 				7F53E92B25BA2AC20044D258 /* ApiSession.swift in Sources */,
 				7F36B89725C1E1170011F98D /* ItemCD+CoreDataProperties.swift in Sources */,
 				633F103924B66F3900B284AE /* ShopHistoryRow.swift in Sources */,
-				7F36B82625C0C8710011F98D /* testViewmodel.swift in Sources */,
 				7F1702FB25C472C000D15908 /* SongsDB.xcdatamodeld in Sources */,
 				6339F06A24B368F1008C8554 /* AvailableCredits.swift in Sources */,
 				6306CE1124B3C99E007628F8 /* TextWithCustomFonts.swift in Sources */,
@@ -1144,7 +1153,7 @@
 				7F53E94E25BA2DF90044D258 /* ArionService.swift in Sources */,
 				7F741E3425BB4AEC00C23A6B /* SongsQueueResponse.swift in Sources */,
 				635D310724AE5265000062AF /* BranchesNav.swift in Sources */,
-				7F10762A25BF7A050011FF05 /* ViewPageController.swift in Sources */,
+				7F10762A25BF7A050011FF05 /* ArionAppHelper.swift in Sources */,
 				6339F06124B36094008C8554 /* Triangle.swift in Sources */,
 				7F741E4325BB5BFD00C23A6B /* SongsUriViewModel.swift in Sources */,
 				7F36B89C25C1E1170011F98D /* PlaylistCD+CoreDataClass.swift in Sources */,
@@ -1156,7 +1165,6 @@
 				6306CE0D24B3C6B8007628F8 /* CreditCards.swift in Sources */,
 				63981FBB24B8BE6000693058 /* Login.swift in Sources */,
 				7F53E91225BA22DC0044D258 /* ExpandedSearchBar.swift in Sources */,
-				7F36B82125C0C4390011F98D /* MainTest.swift in Sources */,
 				7F36B87D25C1D8280011F98D /* SongsState+CoreDataClass.swift in Sources */,
 				6339F06F24B37021008C8554 /* AvailableCreditsBig.swift in Sources */,
 				63DC28DB24B5185E0062C4D8 /* CreateNewCreditCard.swift in Sources */,
@@ -1337,7 +1345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"arion movil/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
 				DEVELOPMENT_TEAM = UA8F39F9KD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "arion movil/Info.plist";
@@ -1358,7 +1366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"arion movil/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
 				DEVELOPMENT_TEAM = UA8F39F9KD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "arion movil/Info.plist";

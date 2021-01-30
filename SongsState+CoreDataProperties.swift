@@ -19,6 +19,7 @@ extension SongsState {
 
     @NSManaged public var catalogUri: String?
     @NSManaged public var generationDate: String?
+    @NSManaged public var branchId: String?
     @NSManaged public var resultCode: Int32
 
 }

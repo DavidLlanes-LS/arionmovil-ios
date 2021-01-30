@@ -12,7 +12,7 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     @ObservedObject var locationManager = LocationManager()
     var window: UIWindow?
-    var pageSettings = PageSettings()
+    var pageSettings = AppHelper()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

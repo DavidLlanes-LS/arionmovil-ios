@@ -17,29 +17,33 @@ public class AlbumStockCD: NSManagedObject, Encodable, Decodable {
         case playlists = "Playlists"
         case events = "Events"
     }
-    
+    let userLocalId = CodingUserInfoKey(rawValue: "localId")!
+    //let userLocalId:String = "12345"
     @nonobjc public class func fetchRequestSingle() -> NSFetchRequest<AlbumStockCD> {
         let request = NSFetchRequest<AlbumStockCD>(entityName: "AlbumStockCD")
-        //request.sortDescriptors = [NSSortDescriptor(key: "catalogUri", ascending: true)]
-
-        //request.propertiesToFetch = ["name"]
+        request.predicate = NSPredicate(format: "restaurantId == %@", "12345")
         return request
     }
     
     required public convenience init(from decoder: Decoder) throws {
-//        let codingUserInfoKeyManagedObjectContext =  MyCoreBack.shared.background
-//        if
-//           let entity = NSEntityDescription.entity(forEntityName: "AlbumStockCD", in: codingUserInfoKeyManagedObjectContext){
-//            self.init(entity:entity, insertInto: codingUserInfoKeyManagedObjectContext)
-//        }else{
-//            self.init()
-//        }
-        self.init()
+        let codingUserInfoKeyManagedObjectContext =  MyCoreBack.shared.background
+       
+        
+        if
+           let entity = NSEntityDescription.entity(forEntityName: "AlbumStockCD", in: codingUserInfoKeyManagedObjectContext){
+            self.init(entity:entity, insertInto: codingUserInfoKeyManagedObjectContext)
+        }else{
+            self.init()
+        }
+//        self.init()
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
         try id = container.decode(String.self, forKey: .id)
+        // id = decoder.userInfo[userLocalId] as? String
         try playlists =  container.decode(Set<PlaylistCD>.self, forKey: .playlists) as NSSet
         try events =  container.decode(Set<EventCD>.self, forKey: .events) as NSSet
+        restaurantId = decoder.userInfo[userLocalId] as? String
+        //try codingUserLocalId
     }
     
     

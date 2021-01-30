@@ -18,6 +18,7 @@ extension PlaylistCD {
     }
 
     @NSManaged public var id: String?
+    @NSManaged public var userLocalId: String?
     @NSManaged public var albums: NSSet?
     @NSManaged public var albumstock: AlbumStockCD?
 
