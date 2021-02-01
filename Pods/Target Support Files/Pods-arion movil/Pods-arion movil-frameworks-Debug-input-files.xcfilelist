@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-arion movil/Pods-arion movil-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/GzipSwift/Gzip.framework
+${BUILT_PRODUCTS_DIR}/URLImage/URLImage.framework

@@ -1,0 +1,6 @@
+framework module Pods_arion_movilTests {
+  umbrella header "Pods-arion movilTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

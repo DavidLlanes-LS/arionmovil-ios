@@ -1,0 +1,6 @@
+framework module Pods_arion_movil {
+  umbrella header "Pods-arion movil-umbrella.h"
+
+  export *
+  module * { export * }
+}
