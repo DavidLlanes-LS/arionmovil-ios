@@ -5,35 +5,58 @@
 //  Created by David Pacheco Rodriguez on 03/07/20.
 //  Copyright © 2020 David Pacheco Rodriguez. All rights reserved.
 //
-
 import SwiftUI
 
 struct QueueRow: View {
+    var song: TitleInQueue
+    var creditsFirst: Int
+    var creditsNext: Int
+    var hiddenButtons: Bool
+    
+    @StateObject var viewModel = QueueViewModel()
+    @State var showAlert: Bool = false
+    @State var sendToNext: Bool = false
+    @EnvironmentObject var pageSettings: AppHelper
+    
     var body: some View {
         HStack(){
-            Triangle()
-                .fill(Color.green)
-                .frame(width: 5, height: 5)
             VStack(alignment:.leading){
-                TextWithCustomFonts("Don't stop me now",customFont: CustomFont(type: .bold, size: 16),color:  Color("two-gray"))
-                TextWithCustomFonts("Queen",color: Color("two-gray"))
+                TextWithCustomFonts(song.titleName, customFont: CustomFont(type: .bold, size: 16))
+                TextWithCustomFonts(song.titleArtist)
             }
             Spacer()
-            HStack(spacing:32){
-                IconBtn("arrow.right.circle"){
-                    
+            HStack(spacing:16){
+                IconBtn("arrow.right.circle", hidden: hiddenButtons) {
+                    if (pageSettings.userId != nil) {
+                        viewModel.addQueue(body: AddQueue(userId: pageSettings.userId!, locationId: pageSettings.locationId!, playerId: pageSettings.playerId!, mediaTitleId: song.titleID, creditsToCharge: 20, positionToAdvance: 1))
+                    } else {
+                        showAlert = true
+                    }
+                    sendToNext = true
                 }
-                IconBtn("hand.thumbsup"){
-                    
+                IconBtn("arrowtriangle.up.circle", hidden: hiddenButtons) {
+                    if (pageSettings.userId != nil) {
+                        viewModel.addQueue(body: AddQueue(userId: pageSettings.userId!, locationId: pageSettings.locationId!, playerId: pageSettings.playerId!, mediaTitleId: song.titleID, creditsToCharge: 20, positionToAdvance: 1))
+                    } else {
+                        showAlert = true
+                    }
+                    sendToNext = false
                 }
             }
-            Text("52").bold()
-        }.frame(height:60)
+            Text("\(song.credits)").bold()
+        }
+        .frame(height:60)
+        .padding(.horizontal)
+        .alert(isPresented: $showAlert, content: {
+            let result:Int = sendToNext ? creditsNext - song.credits + 1 : creditsFirst - song.credits + 1
+            
+            return Alert(title:Text(String("Atención").capitalized), message: Text(String("¿Quieres adelantar la canción de posición por \(result) créditos?").capitalized), primaryButton: .cancel(Text(String("Cancelar").capitalized)),secondaryButton: .default(Text(String("Aceptar").capitalized)))
+        })
     }
 }
 
 struct QueueRow_Previews: PreviewProvider {
     static var previews: some View {
-        QueueRow()
+        QueueRow(song: TitleInQueue(id: "", playerID: "", titleID: "", titleName: "Loco", titleArtist: "Olwa", credits: 1), creditsFirst: 1, creditsNext: 1, hiddenButtons: false)
     }
 }

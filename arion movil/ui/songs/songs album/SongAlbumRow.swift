@@ -17,7 +17,7 @@ struct SongAlbumRow: View {
                 TextWithCustomFonts(song.artist?.name ?? "No artist", customFont: CustomFont(type: .light, size: 18)).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
             }
             Spacer()
-            IconBtn("capslock"){
+            IconBtn("capslock",hidden: false){
                 
             }
         }.padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)

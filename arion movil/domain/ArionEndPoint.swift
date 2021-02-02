@@ -29,7 +29,7 @@ class ApiRequest{
               // print("branchesRequest: \(urlRequest)")
                var request = URLRequest(url: url)
                request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-           // request.httpBody = body.getDic()
+            request.httpBody = body.getDic().percentEncoded()
                
                return request
            }

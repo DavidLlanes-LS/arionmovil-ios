@@ -128,6 +128,9 @@
 		7F741E5A25BB928000C23A6B /* AlbumStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741E5925BB928000C23A6B /* AlbumStockResponse.swift */; };
 		7F87087725C99E0800D28541 /* AddQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87087625C99E0800D28541 /* AddQueue.swift */; };
 		7F87087C25C99E9300D28541 /* AddQueueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87087B25C99E9300D28541 /* AddQueueResponse.swift */; };
+		7F87089425C9A14F00D28541 /* Dictionary+Encoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87089325C9A14F00D28541 /* Dictionary+Encoded.swift */; };
+		7F87089C25C9A25200D28541 /* OnLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87089B25C9A25200D28541 /* OnLoadModifier.swift */; };
+		7F8708A125C9A27400D28541 /* QueueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8708A025C9A27400D28541 /* QueueViewModel.swift */; };
 		93003F2D36E92532DD8A33F6 /* Pods_arion_movil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E30C18857BE7F131ECFFCF /* Pods_arion_movil.framework */; };
 		AF18FEEC5F13C881C111ADBD /* Pods_arion_movil_arion_movilUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116FBD71EBA89BB8262849CF /* Pods_arion_movil_arion_movilUITests.framework */; };
 		E176B42118D6EC908556A210 /* Pods_arion_movilTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025BA56F8C0398C931038451 /* Pods_arion_movilTests.framework */; };
@@ -284,6 +287,9 @@
 		7F741E5925BB928000C23A6B /* AlbumStockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumStockResponse.swift; sourceTree = "<group>"; };
 		7F87087625C99E0800D28541 /* AddQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQueue.swift; sourceTree = "<group>"; };
 		7F87087B25C99E9300D28541 /* AddQueueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQueueResponse.swift; sourceTree = "<group>"; };
+		7F87089325C9A14F00D28541 /* Dictionary+Encoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Encoded.swift"; sourceTree = "<group>"; };
+		7F87089B25C9A25200D28541 /* OnLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnLoadModifier.swift; sourceTree = "<group>"; };
+		7F8708A025C9A27400D28541 /* QueueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewModel.swift; sourceTree = "<group>"; };
 		83DFB0455310CB98BCFB93DD /* Pods-arion movil-arion movilUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil-arion movilUITests.debug.xcconfig"; path = "Target Support Files/Pods-arion movil-arion movilUITests/Pods-arion movil-arion movilUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		92FF48A9489CFD14ECE5FAF1 /* Pods-arion movilTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movilTests.release.xcconfig"; path = "Target Support Files/Pods-arion movilTests/Pods-arion movilTests.release.xcconfig"; sourceTree = "<group>"; };
 		B6E30C18857BE7F131ECFFCF /* Pods_arion_movil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arion_movil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -648,6 +654,8 @@
 			children = (
 				639E4F4624AFEEE500029A07 /* Queue.swift */,
 				639E4F4824AFEF3A00029A07 /* QueueRow.swift */,
+				7F87089B25C9A25200D28541 /* OnLoadModifier.swift */,
+				7F8708A025C9A27400D28541 /* QueueViewModel.swift */,
 			);
 			path = queue;
 			sourceTree = "<group>";
@@ -772,6 +780,7 @@
 		7F53E91725BA288D0044D258 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				7F87089225C9A12A00D28541 /* extensions */,
 				7F1702F925C472C000D15908 /* SongsDB.xcdatamodeld */,
 				7F53E92525BA2A6E0044D258 /* ApiService.swift */,
 				7F53E92A25BA2AC20044D258 /* ApiSession.swift */,
@@ -795,6 +804,14 @@
 				7F6E25EA25C30D2A00E797C3 /* GridViewSong.swift */,
 			);
 			path = grid_view;
+			sourceTree = "<group>";
+		};
+		7F87089225C9A12A00D28541 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F87089325C9A14F00D28541 /* Dictionary+Encoded.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		A21AB6E488325072D410A668 /* Pods */ = {
@@ -1117,6 +1134,7 @@
 				633F102E24B6274300B284AE /* Album.swift in Sources */,
 				7F36B87E25C1D8280011F98D /* SongsState+CoreDataProperties.swift in Sources */,
 				7F741E3925BB4DDE00C23A6B /* MusicListViewModel.swift in Sources */,
+				7F87089C25C9A25200D28541 /* OnLoadModifier.swift in Sources */,
 				6360B0AE24AE85DD00811899 /* FilterGrid.swift in Sources */,
 				7F36B89425C1E1170011F98D /* AlbumCD+CoreDataClass.swift in Sources */,
 				63AB4BCF24B786AF00DBCFB9 /* MusicalGenreSearcher.swift in Sources */,
@@ -1150,11 +1168,13 @@
 				63FAB1CD24BCA0B100527EE0 /* YearSearcher.swift in Sources */,
 				6360B0A024AE701F00811899 /* SearchBar.swift in Sources */,
 				63981FBF24B8D24500693058 /* CreateNewAccount.swift in Sources */,
+				7F8708A125C9A27400D28541 /* QueueViewModel.swift in Sources */,
 				633F103224B62AD600B284AE /* Artist.swift in Sources */,
 				7F741E5A25BB928000C23A6B /* AlbumStockResponse.swift in Sources */,
 				6339F05E24B35E66008C8554 /* IconBtn.swift in Sources */,
 				6306CE0124B3A5E7007628F8 /* ProfileImage.swift in Sources */,
 				6339F06D24B36F5E008C8554 /* Store.swift in Sources */,
+				7F87089425C9A14F00D28541 /* Dictionary+Encoded.swift in Sources */,
 				7F36B89A25C1E1170011F98D /* AlbumStockCD+CoreDataClass.swift in Sources */,
 				7F36B89025C1E1170011F98D /* TitleCD+CoreDataClass.swift in Sources */,
 				7F53E94E25BA2DF90044D258 /* ArionService.swift in Sources */,
@@ -1282,7 +1302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1337,7 +1357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
