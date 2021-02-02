@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Queue: View {
     @StateObject var viewModel = QueueViewModel()
+    @EnvironmentObject var appSettings: AppHelper
     
     var body: some View {
         NavigationView {
@@ -41,10 +42,10 @@ struct Queue: View {
                         }
                     }
                 }
+                .onAppear(perform: {
+                    self.viewModel.getQueue()
+                })
             }
-            .modifier(
-                OnLoadModifier(work: self.viewModel.getQueue)
-            )
             .navigationBarTitle("En fila", displayMode: .inline)
         }
     }

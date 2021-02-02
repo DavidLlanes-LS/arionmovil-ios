@@ -15,8 +15,10 @@ struct QueueRow: View {
     
     @StateObject var viewModel = QueueViewModel()
     @State var showAlert: Bool = false
+    @State var authAlert: Bool = false
     @State var sendToNext: Bool = false
     @EnvironmentObject var pageSettings: AppHelper
+    var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
     
     var body: some View {
         HStack(){
@@ -36,7 +38,7 @@ struct QueueRow: View {
                 }
                 IconBtn("arrowtriangle.up.circle", hidden: hiddenButtons) {
                     if (pageSettings.userId != nil) {
-                        viewModel.addQueue(body: AddQueue(userId: pageSettings.userId!, locationId: pageSettings.locationId!, playerId: pageSettings.playerId!, mediaTitleId: song.titleID, creditsToCharge: 20, positionToAdvance: 1))
+                        viewModel.addQueue(body: AddQueue(userId: pageSettings.userId!, locationId: pageSettings.currentBranchId, playerId: pageSettings.playerId!, mediaTitleId: song.titleID, creditsToCharge: 20, positionToAdvance: 1))
                     } else {
                         showAlert = true
                     }
@@ -50,7 +52,25 @@ struct QueueRow: View {
         .alert(isPresented: $showAlert, content: {
             let result:Int = sendToNext ? creditsNext - song.credits + 1 : creditsFirst - song.credits + 1
             
-            return Alert(title:Text(String("Atención").capitalized), message: Text(String("¿Quieres adelantar la canción de posición por \(result) créditos?").capitalized), primaryButton: .cancel(Text(String("Cancelar").capitalized)),secondaryButton: .default(Text(String("Aceptar").capitalized)))
+            if (isAuth) {
+                return Alert(
+                    title:Text(String("Atención").capitalized),
+                    message: Text(String("¿Quieres adelantar la canción de posición por \(result) créditos?")),
+                    primaryButton: .cancel(Text(String("Cancelar").capitalized)),
+                    secondaryButton: .default(Text(String("Aceptar").capitalized)) {
+                        
+                    }
+                )
+            } else {
+                return Alert(
+                    title:Text(String("Inicia sesión para continuar")),
+                    message: Text(String("Iniciar sesión o crear una cuenta para poder realizar esta acción.")),
+                    primaryButton: .cancel(Text(String("Cancelar").capitalized)),
+                    secondaryButton: .default(Text(String("Aceptar").capitalized)) {
+                        
+                    }
+                )
+            }
         })
     }
 }

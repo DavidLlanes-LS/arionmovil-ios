@@ -19,8 +19,9 @@ class MusicListViewModel: ObservableObject, ArionService {
     init(apiSession: APIService = APISession()) {
         self.apiSession = apiSession
     }
-    func getQueueList(longitude:String, latitude:String) {
-        let cancellable = self.getSongsQueue()
+    
+    func getQueueList(longitude:String, latitude:String, playerId: String) {
+        let cancellable = self.getSongsQueue(playerId: playerId)
             .sink(receiveCompletion: { result in
                 switch result {
                 case .failure(let error):

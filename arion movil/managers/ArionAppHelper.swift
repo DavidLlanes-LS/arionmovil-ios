@@ -11,6 +11,6 @@ class AppHelper: ObservableObject {
     @Published var currentPage: String = "splash"
     @Published var currentBranchId: String = ""
     @Published var locationId: String? = nil
-       @Published var userId: String? = nil
-       @Published var playerId: String? = nil
+    @Published var userId: String? = nil
+    @Published var playerId: String? = nil
 }

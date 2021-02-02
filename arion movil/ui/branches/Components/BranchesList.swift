@@ -47,10 +47,9 @@ struct BranchesList: View {
                                         withAnimation{
                                             appSettings.currentBranchId = branch.id
                                             appSettings.currentPage="otro"
-                                           
+                                            appSettings.playerId = branch.playerID
+                                            UserDefaults.standard.set(branch.playerID, forKey: Constants.keyPlayerId)
                                         }
-                                        
-                                        
                                     }, label: {
                                         BranchRow(branch: branch)
                                     }).listRowBackground(Color("background")).listRowInsets(.init(EdgeInsets(top: 2, leading:0, bottom: 2, trailing: 0)))

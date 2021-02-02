@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4C344F25C9C1C900785422 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C344E25C9C1C900785422 /* Constants.swift */; };
 		630198D324AFC3F0007C43F3 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630198D224AFC3F0007C43F3 /* ProgressBar.swift */; };
 		6306CDFF24B3A5AB007628F8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6306CDFE24B3A5AB007628F8 /* Profile.swift */; };
 		6306CE0124B3A5E7007628F8 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6306CE0024B3A5E7007628F8 /* ProfileImage.swift */; };
@@ -156,6 +157,7 @@
 /* Begin PBXFileReference section */
 		025BA56F8C0398C931038451 /* Pods_arion_movilTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arion_movilTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		073690C853EF0E22A9B35408 /* Pods-arion movilTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movilTests.debug.xcconfig"; path = "Target Support Files/Pods-arion movilTests/Pods-arion movilTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0A4C344E25C9C1C900785422 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		116FBD71EBA89BB8262849CF /* Pods_arion_movil_arion_movilUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arion_movil_arion_movilUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD0B4EF911D580D5E67209D /* Pods-arion movil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil.debug.xcconfig"; path = "Target Support Files/Pods-arion movil/Pods-arion movil.debug.xcconfig"; sourceTree = "<group>"; };
 		4F4A90C33FD1582C787F1923 /* Pods-arion movil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil.release.xcconfig"; path = "Target Support Files/Pods-arion movil/Pods-arion movil.release.xcconfig"; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 				639E4F4824AFEF3A00029A07 /* QueueRow.swift */,
 				7F87089B25C9A25200D28541 /* OnLoadModifier.swift */,
 				7F8708A025C9A27400D28541 /* QueueViewModel.swift */,
+				0A4C344E25C9C1C900785422 /* Constants.swift */,
 			);
 			path = queue;
 			sourceTree = "<group>";
@@ -1186,6 +1189,7 @@
 				7F36B89C25C1E1170011F98D /* PlaylistCD+CoreDataClass.swift in Sources */,
 				7F53E94925BA2D600044D258 /* ArionEndPoint.swift in Sources */,
 				7F36B89825C1E1170011F98D /* EventCD+CoreDataClass.swift in Sources */,
+				0A4C344F25C9C1C900785422 /* Constants.swift in Sources */,
 				6306CE0524B3B6E8007628F8 /* RectangleBtn.swift in Sources */,
 				7F87087725C99E0800D28541 /* AddQueue.swift in Sources */,
 				63AB4BD124B7871500DBCFB9 /* MusicalGenre.swift in Sources */,
