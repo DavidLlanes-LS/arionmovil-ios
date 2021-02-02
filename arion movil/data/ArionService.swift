@@ -32,7 +32,10 @@ extension ArionService {
         return apiSession.request(with: ApiRequest().getSongsList(branchId: branchid))
             .eraseToAnyPublisher()
     }
-    
+    func postAddSongsQueue(body: AddQueue) -> AnyPublisher<ModifyQueueResultCode, APIError> {
+           return apiSession.request(with: ApiRequest().postQueue(body: body))
+               .eraseToAnyPublisher()
+       }
     func getStockUnzipped(branchId:String,catalogUri:String,completion: @escaping () -> () ){
         var file:Data = Data()
         AF.download(catalogUri).downloadProgress{bytesRead in

@@ -36,6 +36,7 @@ struct Profile: View {
                        NavigationLink(destination: Help(), label: {
                            TextWithCustomFonts("Ayuda",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
                        })
+                    
                        
                        }.padding()
                    

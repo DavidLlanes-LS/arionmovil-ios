@@ -126,6 +126,8 @@
 		7F741E3E25BB5A3500C23A6B /* SongsUriResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741E3D25BB5A3500C23A6B /* SongsUriResponse.swift */; };
 		7F741E4325BB5BFD00C23A6B /* SongsUriViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741E4225BB5BFD00C23A6B /* SongsUriViewModel.swift */; };
 		7F741E5A25BB928000C23A6B /* AlbumStockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741E5925BB928000C23A6B /* AlbumStockResponse.swift */; };
+		7F87087725C99E0800D28541 /* AddQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87087625C99E0800D28541 /* AddQueue.swift */; };
+		7F87087C25C99E9300D28541 /* AddQueueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87087B25C99E9300D28541 /* AddQueueResponse.swift */; };
 		93003F2D36E92532DD8A33F6 /* Pods_arion_movil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E30C18857BE7F131ECFFCF /* Pods_arion_movil.framework */; };
 		AF18FEEC5F13C881C111ADBD /* Pods_arion_movil_arion_movilUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116FBD71EBA89BB8262849CF /* Pods_arion_movil_arion_movilUITests.framework */; };
 		E176B42118D6EC908556A210 /* Pods_arion_movilTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025BA56F8C0398C931038451 /* Pods_arion_movilTests.framework */; };
@@ -280,6 +282,8 @@
 		7F741E3D25BB5A3500C23A6B /* SongsUriResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsUriResponse.swift; sourceTree = "<group>"; };
 		7F741E4225BB5BFD00C23A6B /* SongsUriViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsUriViewModel.swift; sourceTree = "<group>"; };
 		7F741E5925BB928000C23A6B /* AlbumStockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumStockResponse.swift; sourceTree = "<group>"; };
+		7F87087625C99E0800D28541 /* AddQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQueue.swift; sourceTree = "<group>"; };
+		7F87087B25C99E9300D28541 /* AddQueueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQueueResponse.swift; sourceTree = "<group>"; };
 		83DFB0455310CB98BCFB93DD /* Pods-arion movil-arion movilUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil-arion movilUITests.debug.xcconfig"; path = "Target Support Files/Pods-arion movil-arion movilUITests/Pods-arion movil-arion movilUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		92FF48A9489CFD14ECE5FAF1 /* Pods-arion movilTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movilTests.release.xcconfig"; path = "Target Support Files/Pods-arion movilTests/Pods-arion movilTests.release.xcconfig"; sourceTree = "<group>"; };
 		B6E30C18857BE7F131ECFFCF /* Pods_arion_movil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arion_movil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -538,6 +542,7 @@
 				633F102D24B6274300B284AE /* Album.swift */,
 				633F103124B62AD600B284AE /* Artist.swift */,
 				63AB4BD024B7871500DBCFB9 /* MusicalGenre.swift */,
+				7F87087625C99E0800D28541 /* AddQueue.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -750,6 +755,7 @@
 				7F741E3325BB4AEC00C23A6B /* SongsQueueResponse.swift */,
 				7F741E3D25BB5A3500C23A6B /* SongsUriResponse.swift */,
 				7F741E5925BB928000C23A6B /* AlbumStockResponse.swift */,
+				7F87087B25C99E9300D28541 /* AddQueueResponse.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -1125,6 +1131,7 @@
 				63AB4BCB24B77DB200DBCFB9 /* Help.swift in Sources */,
 				6306CDFF24B3A5AB007628F8 /* Profile.swift in Sources */,
 				639E4F4924AFEF3A00029A07 /* QueueRow.swift in Sources */,
+				7F87087C25C99E9300D28541 /* AddQueueResponse.swift in Sources */,
 				633F103424B63B1600B284AE /* ArtistSearcher.swift in Sources */,
 				635D311524AE5A77000062AF /* Branch.swift in Sources */,
 				6325359624AF7ED400651494 /* SongItem.swift in Sources */,
@@ -1160,6 +1167,7 @@
 				7F53E94925BA2D600044D258 /* ArionEndPoint.swift in Sources */,
 				7F36B89825C1E1170011F98D /* EventCD+CoreDataClass.swift in Sources */,
 				6306CE0524B3B6E8007628F8 /* RectangleBtn.swift in Sources */,
+				7F87087725C99E0800D28541 /* AddQueue.swift in Sources */,
 				63AB4BD124B7871500DBCFB9 /* MusicalGenre.swift in Sources */,
 				7F6E25EB25C30D2A00E797C3 /* GridViewSong.swift in Sources */,
 				6306CE0D24B3C6B8007628F8 /* CreditCards.swift in Sources */,

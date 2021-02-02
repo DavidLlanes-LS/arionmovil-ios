@@ -21,7 +21,20 @@ class ApiRequest{
         }
         return urlRequest
     }
-    
+    func postQueue(body: AddQueue)->URLRequest{
+           var urlRequest: URLRequest{
+               let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/queue/modify-queue"
+               guard let url = URL(string:urlRequest )
+                   else {preconditionFailure("Invalid URL format")}
+              // print("branchesRequest: \(urlRequest)")
+               var request = URLRequest(url: url)
+               request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+           // request.httpBody = body.getDic()
+               
+               return request
+           }
+           return urlRequest
+       }
     
     func getSongQueue()->URLRequest{
         var urlRequest: URLRequest{
