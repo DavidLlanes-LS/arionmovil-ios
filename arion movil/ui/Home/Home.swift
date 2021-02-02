@@ -10,6 +10,7 @@ import SwiftUI
 import CoreData
 struct Home: View {
     var fetchRequest: FetchRequest<AlbumStockCD> = FetchRequest<AlbumStockCD>(entity:AlbumStockCD.entity(), sortDescriptors: [], predicate: NSPredicate(format: "restaurantId == %@", ""))
+    @State private var showLinkTarget = false
     @Environment(\.managedObjectContext) public var viewContext
     @EnvironmentObject var appSettings:AppHelper
     @FetchRequest(sortDescriptors: [])
@@ -35,6 +36,18 @@ struct Home: View {
         
         NavigationView {
             VStack {
+                NavigationLink(destination: MusicalGenreSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterMusicGenre ) {
+                   Spacer().fixedSize()
+                }
+                NavigationLink(destination:YearSearcher(), isActive: self.$isFilterYear ) {
+                   Spacer().fixedSize()
+                }
+                NavigationLink(destination: AlbumSearcher(), isActive: self.$isFilterAlbum ) {
+                   Spacer().fixedSize()
+                }
+                NavigationLink(destination: ArtistSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterArtist ) {
+                   Spacer().fixedSize()
+                }
                 List{
                     VStack{
                         TextWithCustomFonts("Buscar una canción", customFont: CustomFont(type: .bold, size: 20))
@@ -153,7 +166,7 @@ struct Home: View {
         if(stock.count != 0){
             var titles:[TitleCD] = []
             let playlists = stock.first?.playlists?.allObjects as! [PlaylistCD]
-            var albums = playlists.first?.albums?.allObjects as! [AlbumCD]
+            let albums = playlists.first?.albums?.allObjects as! [AlbumCD]
             albums.forEach{ album in
                 (album.titles?.allObjects as! [TitleCD]).forEach{
                     $0.coverImageUri = album.coverImageUri
