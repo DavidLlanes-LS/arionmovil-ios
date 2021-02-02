@@ -17,15 +17,15 @@ class QueueViewModel: ObservableObject, ArionService {
     @Published var songs = [TitleInQueue]()
     @Published var showLoader: Bool = false
     @Published var costCredits: Int = 0
+    var playerId = UserDefaults.standard.string(forKey: Constants.keyPlayerId)
     
     init(apiSession: APIService = APISession()) {
         self.apiSession = apiSession
-        self.getQueue()
     }
     
     func getQueue() {
         self.showLoader = true
-        let cancellable = self.getSongsQueue()
+        let cancellable = self.getSongsQueue(playerId: playerId!)
             .sink(receiveCompletion: { result in
                 switch result {
                 case .failure(let error):

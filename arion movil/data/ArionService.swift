@@ -23,8 +23,8 @@ extension ArionService {
             .eraseToAnyPublisher()
     }
     
-    func getSongsQueue() -> AnyPublisher<Titleslist, APIError> {
-        return apiSession.request(with: ApiRequest().getSongQueue())
+    func getSongsQueue(playerId:String) -> AnyPublisher<Titleslist, APIError> {
+        return apiSession.request(with: ApiRequest().getSongQueue(playerId: playerId))
             .eraseToAnyPublisher()
     }
     
