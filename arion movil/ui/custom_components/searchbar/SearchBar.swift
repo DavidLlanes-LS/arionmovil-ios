@@ -22,7 +22,15 @@ struct SearchBar: UIViewRepresentable {
         }
 
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            text = searchText
+            if(searchText.isEmpty)
+            {
+                searchBar.resignFirstResponder()
+                self.text = "000"
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.text = searchText
+                    }
+            
             
         }
         func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
@@ -30,6 +38,7 @@ struct SearchBar: UIViewRepresentable {
         }
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             searchBar.resignFirstResponder()
+            
 
         }
     }
