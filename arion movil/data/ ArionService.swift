@@ -10,6 +10,7 @@ import Foundation
 import Combine
 import Alamofire
 import Gzip
+
 protocol ArionService {
     var apiSession: APIService {get}
     func getBranchesList(latitude:String,longitude:String) -> AnyPublisher<LocationsList, APIError>
@@ -32,10 +33,17 @@ extension ArionService {
         return apiSession.request(with: ApiRequest().getSongsList(branchId: branchid))
             .eraseToAnyPublisher()
     }
+    
     func postAddSongsQueue(body: AddQueue) -> AnyPublisher<ModifyQueueResultCode, APIError> {
-           return apiSession.request(with: ApiRequest().postQueue(body: body))
-               .eraseToAnyPublisher()
-       }
+        return apiSession.request(with: ApiRequest().postQueue(body: body))
+            .eraseToAnyPublisher()
+    }
+    
+    func postSignIn(body: [String:Any]) -> AnyPublisher<SignInResponse, APIError> {
+        return apiSession.request(with: ApiRequest().postSingIn(body: body))
+            .eraseToAnyPublisher()
+    }
+    
     func getStockUnzipped(branchId:String,catalogUri:String,completion: @escaping () -> () ){
         var file:Data = Data()
         AF.download(catalogUri).downloadProgress{bytesRead in

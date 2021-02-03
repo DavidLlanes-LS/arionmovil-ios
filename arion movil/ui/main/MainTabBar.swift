@@ -51,9 +51,9 @@ struct MainTabBar: View {
                                 Text("Perfil")
                             }.tag(3)
                         }.accentColor(Color("secondary-background"))
-                        if self.currentTab != 3{
-                            CurrentSong()
-                                .padding(.bottom, self.paddingHeight - geometry.safeAreaInsets.bottom).transition(.asymmetric(insertion: .scale, removal: .opacity))
+                        if self.appSettings.showCurrentSong {
+                            //CurrentSong()
+                            //    .padding(.bottom, self.paddingHeight - geometry.safeAreaInsets.bottom).transition(.asymmetric(insertion: .scale, removal: .opacity))
                         }
                     }
                 }

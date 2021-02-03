@@ -17,6 +17,8 @@ class QueueViewModel: ObservableObject, ArionService {
     @Published var songs = [TitleInQueue]()
     @Published var showLoader: Bool = false
     @Published var costCredits: Int = 0
+    @Published var showAlert: Bool = false
+    
     var playerId = UserDefaults.standard.string(forKey: Constants.keyPlayerId)
     
     init(apiSession: APIService = APISession()) {
@@ -36,7 +38,9 @@ class QueueViewModel: ObservableObject, ArionService {
                     break
                 }
             }) { (queue) in
-                self.songs = queue.titlesInQueue
+                DispatchQueue.main.async {
+                    self.songs = queue.titlesInQueue
+                }
             }
         cancellables.insert(cancellable)
     }
@@ -54,7 +58,12 @@ class QueueViewModel: ObservableObject, ArionService {
                     break
                 }
             }) { (result) in
-                self.getQueue()
+                DispatchQueue.main.async {
+                    if (result.authMessage != nil) {
+                        UserDefaults.standard.set(false, forKey: Constants.keyIsAuth)
+                    }
+                    self.getQueue()
+                }
             }
         cancellables.insert(cancellable)
     }

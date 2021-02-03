@@ -119,7 +119,7 @@ struct Home: View {
                     }
                     hasFetsched = true
                 }
-                
+                appSettings.showCurrentSong = true
             }
             
              

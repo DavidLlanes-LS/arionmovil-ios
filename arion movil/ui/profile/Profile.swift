@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct Profile: View {
+    @EnvironmentObject var appSettings: AppHelper
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -44,6 +46,9 @@ struct Profile: View {
                        
                    }).frame(width:200, height:40).padding()
                }
+                .onAppear() {
+                    appSettings.showCurrentSong = false
+                }
             }
            .navigationBarTitle("Perfil", displayMode: .inline)
         }

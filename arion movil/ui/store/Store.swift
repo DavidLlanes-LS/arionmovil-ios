@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct Store: View {
+    @EnvironmentObject var appSettings: AppHelper
+    
     var body: some View {
         NavigationView{
             VStack(spacing:0){
@@ -23,6 +25,9 @@ struct Store: View {
                 Spacer()
             }.background(Color("background"))
                 .navigationBarTitle("Compras", displayMode: .inline)
+            .onAppear() {
+                appSettings.showCurrentSong = false
+            }
         }
         
     }
