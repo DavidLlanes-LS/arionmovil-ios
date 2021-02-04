@@ -10,17 +10,12 @@ import SwiftUI
 struct QueueView: View {
     @StateObject var viewModel = QueueViewModel()
     @State var navigationToLogin: Bool = false
-    @EnvironmentObject var appSettings: AppHelper
-    
-    var userId = UserDefaults.standard.string(forKey: Constants.keyUserId)
-    var playerId = UserDefaults.standard.string(forKey: Constants.keyPlayerId)
-    var locationId = UserDefaults.standard.string(forKey: Constants.keyLocationId)
     
     var body: some View {
         NavigationView {
             VStack(spacing:0) {
                 NavigationLink(destination: LoginView(), isActive: self.$navigationToLogin) {
-                   Spacer().fixedSize()
+                    Spacer().fixedSize()
                 }
                 AvailableCredits()
                 VStack {
@@ -31,33 +26,33 @@ struct QueueView: View {
                     }
                     .padding([.top, .leading, .trailing])
                     List{
-                        ForEach(self.viewModel.songs.indices) { song in
+                        ForEach(0..<self.viewModel.songs.count, id: \.self) { index in
                             QueueRow(
-                                song: viewModel.songs[song],
+                                song: viewModel.songs[index],
                                 creditsFirst: viewModel.songs[0].credits,
-                                creditsNext: viewModel.songs[(song - 1) < 0 ? 0 : song - 1].credits,
-                                hiddenButtons: song == 0,
+                                creditsNext: viewModel.songs[(index - 1) < 0 ? 0 : index - 1].credits,
+                                hiddenButtons: index == 0,
                                 nav: self.$navigationToLogin,
-                                position: song,
+                                position: index,
                                 totalList: viewModel.songs.count
-                            ) { result, position in
-                                viewModel.addQueue(body: AddQueue(userId: userId!, locationId: locationId!, playerId: playerId!, mediaTitleId: viewModel.songs[song].titleID, creditsToCharge: result, positionToAdvance: position))
-                            }.environmentObject(viewModel)
+                            )
+                            .environmentObject(viewModel)
                         }
                     }
+                    .animation(.default)
+                    .listStyle(PlainListStyle())
                     if viewModel.showLoader {
                         ProgressView()
                     }
                 }
                 .onAppear(perform: {
                     self.viewModel.getQueue()
-                    self.appSettings.showCurrentSong = true
                 })
             }
             .navigationBarTitle("En fila", displayMode: .inline)
         }
     }
-
+    
 }
 
 struct Queue_Previews: PreviewProvider {

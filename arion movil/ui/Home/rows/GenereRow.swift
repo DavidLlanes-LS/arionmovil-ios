@@ -13,6 +13,7 @@ struct GenereRow: View {
     @Binding var navigateLogin:Bool
     var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
     @State var showAlert: Bool = false
+    
     init(name:String,artist:String, navigateLogin:Binding<Bool>) {
         self.name = name
         self.artist = artist
@@ -45,7 +46,6 @@ struct GenereRow: View {
                     message: Text(String("¿Quieres agregar esta canción a la fila por un costo de 10 créditos?")),
                     primaryButton: .cancel(Text(String("Cancelar").capitalized)),
                     secondaryButton: .default(Text(String("Aceptar").capitalized)) {
-
                     }
                 )
             } else {

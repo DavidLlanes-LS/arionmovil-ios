@@ -45,7 +45,7 @@ class QueueViewModel: ObservableObject, ArionService {
         cancellables.insert(cancellable)
     }
     
-    func addQueue(body: AddQueue) {
+    func addQueue(body: AddQueue, handle: @escaping(_ result: Int?, _ error: Bool?) -> Void) {
         self.showLoader = true
         let cancellable = self.postAddSongsQueue(body: body)
             .sink(receiveCompletion: { result in
@@ -60,9 +60,11 @@ class QueueViewModel: ObservableObject, ArionService {
             }) { (result) in
                 DispatchQueue.main.async {
                     if (result.authMessage != nil) {
-                        UserDefaults.standard.set(false, forKey: Constants.keyIsAuth)
+                        handle(nil, true)
+                    } else {
+                        handle(result.resultCode, nil)
+                        self.getQueue()
                     }
-                    self.getQueue()
                 }
             }
         cancellables.insert(cancellable)

@@ -23,7 +23,7 @@ class LoginViewModel:ObservableObject,ArionService {
         self.apiSession = apiSession
     }
     
-    func signIn() {
+    func signIn(handle: @escaping(_ result: Int) -> Void) {
         let cancellable = self.postSignIn(body: ["Email": username, "Password": password])
             .sink(receiveCompletion: { result in
                 switch result {
@@ -36,9 +36,11 @@ class LoginViewModel:ObservableObject,ArionService {
                         break
                 }
             }, receiveValue: { (result) in
+                handle(result.status)
                 UserDefaults.standard.set(result.userId, forKey: Constants.keyUserId)
                 UserDefaults.standard.set(true, forKey: Constants.keyIsAuth)
             })
+        
         cancellables.insert(cancellable)
     }
 }
