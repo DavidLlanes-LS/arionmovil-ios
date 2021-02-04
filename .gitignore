@@ -64,6 +64,8 @@ build/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata
+!xcuserdata/**/
+!xcuserdata/**/xcschemes/**
 *.xccheckout
 *.moved-aside
 DerivedData

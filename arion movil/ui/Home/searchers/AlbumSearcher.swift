@@ -22,13 +22,10 @@ struct AlbumSearcher: View {
     }
     var body: some View {
         VStack(spacing:0){
-            NavigationLink(destination: LoginView(), isActive: self.$NavLogin ) {
-                
-            }
+            NavigationLink(destination: LoginView(), isActive: self.$NavLogin ) {}
             SearchBar(text: $searchText, placeholder: "Busca un album")
             List{
                 ForEach(viewModel.albumListMain.filter({$0.name!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty}), id: \.self) {album in
-                    
                     Section(header:  TextWithCustomFonts(album.name!, customFont: CustomFont(type: .bold, size: 16)) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))){
                         ForEach(viewModel.musicList.filter {$0.mediaAlbumId == album.id} , id: \.self){ title in
                             GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin)

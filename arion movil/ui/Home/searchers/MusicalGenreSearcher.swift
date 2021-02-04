@@ -11,7 +11,7 @@ struct MusicalGenreSearcher: View {
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
     @State var NavLogin:Bool = false
     init(branchId: String){
-      
+        
         viewModel.branchId = branchId
         viewModel.setDataCD()
     }
@@ -19,28 +19,23 @@ struct MusicalGenreSearcher: View {
     @State public var searchText : String = ""
     var body: some View {
         VStack(spacing:0){
-            NavigationLink(destination: LoginView(), isActive: self.$NavLogin ) {
-               
-            }
+            NavigationLink(destination: LoginView(), isActive: self.$NavLogin ) {}
             SearchBar(text: $searchText, placeholder: "Busca un album")
             List{
                 ForEach(viewModel.genereList.filter{$0.lowercased().contains(searchText) || searchText.isEmpty},id:\.self){ genere in
                     Section(header: TextWithCustomFonts(genere, customFont: CustomFont(type: .bold, size: 16)) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))) {
                         ForEach(viewModel.musicList.filter{$0.genere! == genere},id:\.self){title in
-                            
-                            
                             GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin)
                         }
                     }
                     
                 }
             }.animation(.default)
-            Spacer().frame(height:78)
-            
+            // Spacer().frame(height:78)
         }.navigationBarTitle("Género",displayMode: .inline)
     }
     
-   
+    
 }
 
 
