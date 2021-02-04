@@ -182,8 +182,14 @@ struct Home: View {
         
         if(stock.count != 0){
             var titles:[TitleCD] = []
+            
             let playlists = stock.first?.playlists?.allObjects as! [PlaylistCD]
-            let albums = playlists.first?.albums?.allObjects as! [AlbumCD]
+            var albums2:[AlbumCD] = []
+            for playlist in playlists{
+                albums2.append(contentsOf: (playlist.albums?.allObjects as! [AlbumCD]))
+            }
+           // let albums = playlists.first?.albums?.allObjects as! [AlbumCD]
+            let albums = albums2
             albums.forEach{ album in
                 (album.titles?.allObjects as! [TitleCD]).forEach{
                     $0.coverImageUri = album.coverImageUri

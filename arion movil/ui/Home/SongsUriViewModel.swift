@@ -136,7 +136,12 @@ class SongsUriViewModel: ObservableObject, ArionService {
         if(stock.count != 0){
             var titles:[TitleCD] = []
             let playlists = stock.first?.playlists?.allObjects as! [PlaylistCD]
-            var albums = playlists.first?.albums?.allObjects as! [AlbumCD]
+            var albums2:[AlbumCD] = []
+            for playlist in playlists{
+                albums2.append(contentsOf: (playlist.albums?.allObjects as! [AlbumCD]))
+            }
+            //var albums = playlists.first?.albums?.allObjects as! [AlbumCD]
+            var albums = albums2
             albums.forEach{ album in
                 (album.titles?.allObjects as! [TitleCD]).forEach{
                     $0.coverImageUri = album.coverImageUri
@@ -196,7 +201,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
         let decimalValue:Double = Double(count-1)/2
         let intValue:Int =  (count-1)/2
         let difference:Double = decimalValue - Double(intValue)
-        print("rows",difference)
+       
         if difference > 0 {
             rows = intValue
             self.isImpar = true
