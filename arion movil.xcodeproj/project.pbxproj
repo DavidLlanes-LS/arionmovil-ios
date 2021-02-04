@@ -80,7 +80,7 @@
 		63981FBD24B8CB8500693058 /* SimpleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63981FBC24B8CB8500693058 /* SimpleBtn.swift */; };
 		63981FBF24B8D24500693058 /* CreateNewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63981FBE24B8D24500693058 /* CreateNewAccount.swift */; };
 		639E4F4224AFD04200029A07 /* SimpleunderlineBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4124AFD04200029A07 /* SimpleunderlineBtn.swift */; };
-		639E4F4724AFEEE500029A07 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4624AFEEE500029A07 /* Queue.swift */; };
+		639E4F4724AFEEE500029A07 /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4624AFEEE500029A07 /* QueueView.swift */; };
 		639E4F4924AFEF3A00029A07 /* QueueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4824AFEF3A00029A07 /* QueueRow.swift */; };
 		63AB4BC224B7705F00DBCFB9 /* Localizable.Strings in Resources */ = {isa = PBXBuildFile; fileRef = 63AB4BC424B7705F00DBCFB9 /* Localizable.Strings */; };
 		63AB4BC824B77A4000DBCFB9 /* ChangePasswordEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB4BC724B77A4000DBCFB9 /* ChangePasswordEmail.swift */; };
@@ -243,7 +243,7 @@
 		63981FBC24B8CB8500693058 /* SimpleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBtn.swift; sourceTree = "<group>"; };
 		63981FBE24B8D24500693058 /* CreateNewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccount.swift; sourceTree = "<group>"; };
 		639E4F4124AFD04200029A07 /* SimpleunderlineBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleunderlineBtn.swift; sourceTree = "<group>"; };
-		639E4F4624AFEEE500029A07 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		639E4F4624AFEEE500029A07 /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
 		639E4F4824AFEF3A00029A07 /* QueueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRow.swift; sourceTree = "<group>"; };
 		63AB4BC324B7705F00DBCFB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.Strings; sourceTree = "<group>"; };
 		63AB4BC524B7706500DBCFB9 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.Strings"; sourceTree = "<group>"; };
@@ -663,7 +663,7 @@
 		639E4F4524AFEDA100029A07 /* queue */ = {
 			isa = PBXGroup;
 			children = (
-				639E4F4624AFEEE500029A07 /* Queue.swift */,
+				639E4F4624AFEEE500029A07 /* QueueView.swift */,
 				639E4F4824AFEF3A00029A07 /* QueueRow.swift */,
 				7F87089B25C9A25200D28541 /* OnLoadModifier.swift */,
 				7F8708A025C9A27400D28541 /* QueueViewModel.swift */,
@@ -1150,7 +1150,7 @@
 				7F1702FB25C472C000D15908 /* SongsDB.xcdatamodeld in Sources */,
 				6339F06A24B368F1008C8554 /* AvailableCredits.swift in Sources */,
 				6306CE1124B3C99E007628F8 /* TextWithCustomFonts.swift in Sources */,
-				639E4F4724AFEEE500029A07 /* Queue.swift in Sources */,
+				639E4F4724AFEEE500029A07 /* QueueView.swift in Sources */,
 				7F53E95325BA309B0044D258 /* BranchResponse.swift in Sources */,
 				633F102924B624F300B284AE /* SongSearcher.swift in Sources */,
 				7F36B81425C097990011F98D /* PersitenceController.swift in Sources */,

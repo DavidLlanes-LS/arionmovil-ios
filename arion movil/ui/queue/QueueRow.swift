@@ -19,6 +19,7 @@ struct QueueRow: View {
     @State var authAlert: Bool = false
     @State var sendToNext: Bool = false
     @Binding var nav: Bool
+    @EnvironmentObject var viewModel: QueueViewModel
     @EnvironmentObject var pageSettings: AppHelper
     
     init(song: TitleInQueue, creditsFirst: Int, creditsNext: Int, hiddenButtons:Bool, nav:Binding<Bool>, position:Int, totalList:Int, funct:@escaping (_ result:Int, _ positionAdvance:Int)->()) {

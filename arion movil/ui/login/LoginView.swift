@@ -21,7 +21,6 @@ struct LoginView: View {
                         .resizable()
                         .frame(width: 220, height: 80)
                         .aspectRatio(contentMode: .fit)
-                    
                     VStack{
                         VStack(alignment:.leading){
                             TextWithCustomFonts("Usuario", customFont: CustomFont(type: .bold, size: 16),color: .white)
@@ -52,8 +51,7 @@ struct LoginView: View {
                     }
                     .padding(.bottom, 16)
                 }
-            }
-      
+            }.navigationBarTitle("Login", displayMode: .inline)
     }
 }
 
