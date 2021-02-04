@@ -18,7 +18,7 @@ class QueueViewModel: ObservableObject, ArionService {
     @Published var showLoader: Bool = false
     @Published var costCredits: Int = 0
     @Published var showAlert: Bool = false
-    var userId = UserDefaults.standard.string(forKey: Constants.keyUserId)
+    
     var playerId = UserDefaults.standard.string(forKey: Constants.keyPlayerId)
     var locationId = UserDefaults.standard.string(forKey: Constants.keyLocationId)
     
@@ -91,8 +91,10 @@ class QueueViewModel: ObservableObject, ArionService {
         cancellables.insert(cancellable)
     }
     func addNewQueue(id:String){
+        var userId = UserDefaults.standard.string(forKey: Constants.keyUserId)
         print("branchprice",branchPrice!.basePrice)
-        self.addQueue(body: AddQueue(userId: self.userId!, locationId: self.locationId!, playerId: self.playerId!, mediaTitleId: id, creditsToCharge: branchPrice!.basePrice, positionToAdvance: -1)){result, error in}
+        if userId != nil
+        { self.addQueue(body: AddQueue(userId: userId!, locationId: self.locationId!, playerId: self.playerId!, mediaTitleId: id, creditsToCharge: branchPrice!.basePrice, positionToAdvance: -1)){result, error in}}
         
     }
 }
