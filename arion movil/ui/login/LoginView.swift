@@ -10,6 +10,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
             ZStack{
@@ -34,7 +35,11 @@ struct LoginView: View {
                     .padding()
                     
                     RectangleBtn("Iniciar sesión") {
-                        self.viewModel.signIn()
+                        self.viewModel.signIn() { result in
+                            if (result == 1) {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                        }
                     }
                     .frame(height: 50)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding()
@@ -51,7 +56,7 @@ struct LoginView: View {
                     }
                     .padding(.bottom, 16)
                 }
-            }.navigationBarTitle("Login", displayMode: .inline)
+            }.navigationBarTitle("Iniciar sesión", displayMode: .inline)
     }
 }
 
