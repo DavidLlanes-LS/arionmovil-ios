@@ -13,8 +13,8 @@ struct SongRow: View {
     @State var navigateLogin = false
     var body: some View {
         HStack(spacing: 16){
-            SongItem(song:song,navigateLogin: $navigateLogin)
-            SongItem(song:song,navigateLogin: $navigateLogin)
+            SongItem(song:song,navigateLogin: $navigateLogin){_ in}
+            SongItem(song:song,navigateLogin: $navigateLogin){_ in}
         }
     }
 }

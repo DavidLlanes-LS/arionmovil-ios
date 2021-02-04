@@ -10,13 +10,14 @@ import SwiftUI
 struct GenereRow: View {
     var name = ""
     var artist = ""
+    var funct:() -> ()
     @Binding var navigateLogin:Bool
     var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
     @State var showAlert: Bool = false
-    
-    init(name:String,artist:String, navigateLogin:Binding<Bool>) {
+    init(name:String,artist:String, navigateLogin:Binding<Bool>,funct:@escaping ()->()) {
         self.name = name
         self.artist = artist
+        self.funct = funct
         _navigateLogin = navigateLogin
     }
     @State var logo:String = "playlist_unfilled"
@@ -46,6 +47,7 @@ struct GenereRow: View {
                     message: Text(String("¿Quieres agregar esta canción a la fila por un costo de 10 créditos?")),
                     primaryButton: .cancel(Text(String("Cancelar").capitalized)),
                     secondaryButton: .default(Text(String("Aceptar").capitalized)) {
+                            funct()
                     }
                 )
             } else {
@@ -65,6 +67,6 @@ struct GenereRow: View {
 struct GenereRow_Previews: PreviewProvider {
     @State static var nav = false
     static var previews: some View {
-        GenereRow(name: "sfsdfdsfds", artist: "sdfsddfdsf",navigateLogin: $nav)
+        GenereRow(name: "sfsdfdsfds", artist: "sdfsddfdsf",navigateLogin: $nav){}
     }
 }

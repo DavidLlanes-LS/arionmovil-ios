@@ -5,7 +5,6 @@
 //  Created by David Israel Llanes Ordaz on 21/01/21.
 //  Copyright © 2021 David Pacheco Rodriguez. All rights reserved.
 //
-
 import Foundation
 import Combine
 import Alamofire
@@ -31,6 +30,10 @@ extension ArionService {
     
     func getSongsURI(branchid:String) -> AnyPublisher<SongsUriResponse, APIError> {
         return apiSession.request(with: ApiRequest().getSongsList(branchId: branchid))
+            .eraseToAnyPublisher()
+    }
+    func getBranchPrice(branchid:String) -> AnyPublisher<BranchPriceResponse, APIError> {
+        return apiSession.request(with: ApiRequest().getBranchPrice(branchId: branchid))
             .eraseToAnyPublisher()
     }
     

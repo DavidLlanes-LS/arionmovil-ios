@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct YearSearcher: View {
-    
+    @StateObject var queueViewModel = QueueViewModel()
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
     
     @State var NavLogin = false
@@ -29,7 +29,9 @@ struct YearSearcher: View {
                             Button(action:{
                                 NavLogin = true
                             }){
-                                GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin)
+                                GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin){
+                                    queueViewModel.addNewQueue(id: title.id!)
+                                }
                             }
                         }
                     }

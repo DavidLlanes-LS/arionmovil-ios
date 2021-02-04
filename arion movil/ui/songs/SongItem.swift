@@ -11,14 +11,16 @@ import URLImage
 struct SongItem: View {
     var song:TitleCD
     var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
+    var funct:(_:String) -> ()
     @State var showAlert: Bool = false
     @Binding var navigateLogin:Bool
      var url:String = "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BLACKPINK-_The_Album.png/220px-BLACKPINK-_The_Album.png"
     var hasCorners:Bool = true
-    init(song:TitleCD,navigateLogin:Binding<Bool>,url:String="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BLACKPINK-_The_Album.png/220px-BLACKPINK-_The_Album.png" ,hasCorners:Bool = true) {
+    init(song:TitleCD,navigateLogin:Binding<Bool>,url:String="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BLACKPINK-_The_Album.png/220px-BLACKPINK-_The_Album.png" ,hasCorners:Bool = true,funct:@escaping (_:String)->()) {
         _navigateLogin = navigateLogin
         self.song = song
         self.hasCorners = hasCorners
+        self.funct = funct
         self.url = url
     }
     var body: some View {
@@ -28,11 +30,6 @@ struct SongItem: View {
                 showAlert = true
             }) {
                 VStack(alignment:.center,spacing:0) {
-                    //Image("dualipa").resizable().aspectRatio(contentMode: .fill).cornerRadius(hasCorners ? 0:0)
-        //            URLImage(url:URL(string: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BLACKPINK-_The_Album.png/220px-BLACKPINK-_The_Album.png")!, content:  {
-        //
-        //                $0.resizable().aspectRatio(contentMode: .fill)})
-                 
                     VStack(alignment: .center) {
                         Spacer()
                         URLImage(url:URL(string: url)!, content:  {
@@ -48,10 +45,6 @@ struct SongItem: View {
                             Spacer().frame(height:2)
                             
                         }.frame(maxWidth:.infinity).background(Color.white).onAppear{
-        //                    url = song.coverImageUri!
-        //                    print("imagenes", url)
-        //                    print("cancion",url)
-                            //var url:String = song.coverImageUri ?? "sdsd"
                             
                         }
                     }
@@ -65,7 +58,7 @@ struct SongItem: View {
                         message: Text(String("¿Quieres agregar esta canción a la fila por un costo de 10 créditos?")),
                         primaryButton: .cancel(Text(String("Cancelar").capitalized)),
                         secondaryButton: .default(Text(String("Aceptar").capitalized)) {
-                            
+                            funct(song.id!)
                         }
                     )
                 } else {
@@ -88,6 +81,6 @@ struct SongItem_Previews: PreviewProvider {
     @State static var navigateLogin = false
     static var previews: some View {
         let title:TitleCD = TitleCD()
-        SongItem(song:title,navigateLogin: $navigateLogin)
+        SongItem(song:title,navigateLogin: $navigateLogin){id in}
     }
 }

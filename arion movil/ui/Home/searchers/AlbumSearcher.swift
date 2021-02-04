@@ -5,10 +5,10 @@
 //  Created by David Pacheco Rodriguez on 09/07/20.
 //  Copyright © 2020 David Pacheco Rodriguez. All rights reserved.
 //
-
 import SwiftUI
 
 struct AlbumSearcher: View {
+    @StateObject var queueViewModel = QueueViewModel()
     var letters: [Character] = (0..<26).map {
         i in Character(UnicodeScalar("A".unicodeScalars[ "A".unicodeScalars.startIndex].value + i)!)
     }
@@ -28,7 +28,9 @@ struct AlbumSearcher: View {
                 ForEach(viewModel.albumListMain.filter({$0.name!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty}), id: \.self) {album in
                     Section(header:  TextWithCustomFonts(album.name!, customFont: CustomFont(type: .bold, size: 16)) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))){
                         ForEach(viewModel.musicList.filter {$0.mediaAlbumId == album.id} , id: \.self){ title in
-                            GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin)
+                            GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin){
+                                queueViewModel.addNewQueue(id: title.id!)
+                            }
                         }
                     }
                     

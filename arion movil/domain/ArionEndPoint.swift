@@ -89,7 +89,19 @@ class ApiRequest{
         return urlRequest
     }
     
-    
+    func getBranchPrice(branchId:String)->URLRequest{
+           var urlRequest: URLRequest{
+               let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-location-base-price/\(branchId)"
+               guard let url = URL(string:urlRequest )
+                   else {preconditionFailure("Invalid URL format")}
+               //print("songsRequest: \(branchId)")
+               let request = URLRequest(url: url)
+               return request
+           }
+           return urlRequest
+       }
+
+
 }
 
 

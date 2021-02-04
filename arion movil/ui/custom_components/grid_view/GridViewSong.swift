@@ -24,16 +24,16 @@ struct GridViewSong: View {
                     ForEach(1...rows,id:\.self){i in
                         
                         HStack(spacing: 16){
-                            SongItem(song:song,navigateLogin: $navigateLogin)
-                            SongItem(song:song,navigateLogin: $navigateLogin)
+                            SongItem(song:song,navigateLogin: $navigateLogin){_ in}
+                            SongItem(song:song,navigateLogin: $navigateLogin){_ in}
                             
                             
                         }
                     }
                     if isImpar {
                         HStack(spacing: 16){
-                            SongItem(song:song,navigateLogin: $navigateLogin)
-                            SongItem(song:song,navigateLogin: $navigateLogin).opacity(0.0)
+                            SongItem(song:song,navigateLogin: $navigateLogin){_ in}
+                            SongItem(song:song,navigateLogin: $navigateLogin){_ in}.opacity(0.0)
                             
                             
                         }

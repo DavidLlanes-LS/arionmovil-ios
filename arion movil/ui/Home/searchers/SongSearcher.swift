@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SongSearcher: View {
-    
+    @StateObject var queueViewModel = QueueViewModel()
     @State var searchText:String = ""
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
     @State var navigateLogin = false
@@ -23,7 +23,9 @@ struct SongSearcher: View {
             List{
                 if viewModel.stock.count > 0 {
                     ForEach(viewModel.musicList.filter{$0.name!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty},id: \.self){song in
-                        GenereRow(name: song.name!, artist: song.artist!, navigateLogin: $navigateLogin)
+                        GenereRow(name: song.name!, artist: song.artist!, navigateLogin: $navigateLogin){
+                            queueViewModel.addNewQueue(id: song.id!)
+                        }
                     }
                 }
             }.animation(.default)

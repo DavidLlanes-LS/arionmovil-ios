@@ -13,16 +13,18 @@ class QueueViewModel: ObservableObject, ArionService {
     
     var apiSession: APIService
     var cancellables = Set<AnyCancellable>()
-    
+    var branchPrice:BranchPriceResponse?
     @Published var songs = [TitleInQueue]()
     @Published var showLoader: Bool = false
     @Published var costCredits: Int = 0
     @Published var showAlert: Bool = false
-    
+    var userId = UserDefaults.standard.string(forKey: Constants.keyUserId)
     var playerId = UserDefaults.standard.string(forKey: Constants.keyPlayerId)
+    var locationId = UserDefaults.standard.string(forKey: Constants.keyLocationId)
     
     init(apiSession: APIService = APISession()) {
         self.apiSession = apiSession
+        getActualBranchPrice()
     }
     
     func getQueue() {
@@ -50,11 +52,11 @@ class QueueViewModel: ObservableObject, ArionService {
         let cancellable = self.postAddSongsQueue(body: body)
             .sink(receiveCompletion: { result in
                 switch result {
-                    case .failure(let error):
-                        print("Handle error: \(error)")
-                        self.showLoader = false
-                    case .finished:
-                        self.showLoader = false
+                case .failure(let error):
+                    print("Handle error: \(error)")
+                    self.showLoader = false
+                case .finished:
+                    self.showLoader = false
                     break
                 }
             }) { (result) in
@@ -68,5 +70,29 @@ class QueueViewModel: ObservableObject, ArionService {
                 }
             }
         cancellables.insert(cancellable)
+    }
+    func getActualBranchPrice() {
+        self.showLoader = true
+        let cancellable = self.getBranchPrice(branchid: locationId!)
+            .sink(receiveCompletion: { result in
+                switch result {
+                case .failure(let error):
+                    print("Handle error: \(error)")
+                    self.showLoader = false
+                case .finished:
+                    self.showLoader = false
+                    break
+                }
+            }) { (price) in
+                
+                self.branchPrice = price
+                
+            }
+        cancellables.insert(cancellable)
+    }
+    func addNewQueue(id:String){
+        print("branchprice",branchPrice!.basePrice)
+        self.addQueue(body: AddQueue(userId: self.userId!, locationId: self.locationId!, playerId: self.playerId!, mediaTitleId: id, creditsToCharge: branchPrice!.basePrice, positionToAdvance: -1)){result, error in}
+        
     }
 }
