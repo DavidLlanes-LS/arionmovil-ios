@@ -5,12 +5,12 @@
 //  Created by David Israel Llanes Ordaz on 28/01/21.
 //  Copyright © 2021 David Pacheco Rodriguez. All rights reserved.
 //
-
 import SwiftUI
 
 struct GridViewSong: View {
     var song:TitleCD = TitleCD()
     var count:Int = 0
+    @State var navigateLogin = false
     @State var rows:Int = 0
     @State var isImpar = false
     init(items:Int) {
@@ -24,16 +24,16 @@ struct GridViewSong: View {
                     ForEach(1...rows,id:\.self){i in
                         
                         HStack(spacing: 16){
-                            SongItem(song:song)
-                            SongItem(song:song)
+                            SongItem(song:song,navigateLogin: $navigateLogin)
+                            SongItem(song:song,navigateLogin: $navigateLogin)
                             
                             
                         }
                     }
                     if isImpar {
                         HStack(spacing: 16){
-                            SongItem(song:song)
-                            SongItem(song:song).opacity(0.0)
+                            SongItem(song:song,navigateLogin: $navigateLogin)
+                            SongItem(song:song,navigateLogin: $navigateLogin).opacity(0.0)
                             
                             
                         }

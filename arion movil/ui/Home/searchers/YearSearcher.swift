@@ -5,43 +5,50 @@
 //  Created by David Pacheco Rodriguez on 13/07/20.
 //  Copyright © 2020 David Pacheco Rodriguez. All rights reserved.
 //
-
 import SwiftUI
 
 struct YearSearcher: View {
-    var headers: [String] = ["2010 -2019", "2000 - 2009"]
-    var artists:[Artist] = [Artist(id: 1, name: "Adele"), Artist(id: 2, name: "Jhon"),Artist(id: 3, name: "Visente Fernandez"), Artist(id: 4, name: "Alejandro Frendandez")]
+  
+    @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
+
+    @State var NavLogin = false
     @State public var searchText : String = ""
+    init(branchId: String){
+        viewModel.branchId = branchId
+        viewModel.setDataCD()
+    }
+    @State var musicList:[TitleCD] = []
     var body: some View {
         VStack(spacing:0){
-            SearchBar(text: $searchText, placeholder: "Busca una cancion")
+            NavigationLink(destination: LoginView(), isActive: self.$NavLogin ) {
+               Spacer().fixedSize()
+            }
+            //SearchBar(text: $searchText, placeholder: "Busca una cancion")
             List{
-                ForEach(self.headers, id: \.self) {char in
-                    Section(header: Text(char)){
-                        ForEach(self.artists.filter {$0.name.contains(char)} , id: \.id){ artist in
-                            NavigationLink(destination:SongsAlbum()){
-                                Text("\(artist.name)")
+                ForEach(viewModel.yearList, id: \.self) {interval in
+                    Section(header:TextWithCustomFonts(String("\(interval[0])-\(interval[1])"), customFont: CustomFont(type: .bold, size: 16)) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)) ){
+                        ForEach(viewModel.musicList.filter {$0.recordedYear >= interval[0] && $0.recordedYear <= interval[1] } , id: \.id){ title in
+                            Button(action:{
+                                NavLogin = true
+                            }){
+                                GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin)
                             }
                         }
                     }
                     
                 }
             }
-        }.navigationBarTitle("Año",displayMode: .inline)
+        }.navigationBarTitle("Año",displayMode: .inline).onAppear{
+            
+        }
     }
     
-    func searchForCharactersInArtists(_ character:Character) -> Bool {
-        for artist in artists {
-            if artist.name.first == character {
-                return true
-            }
-        }
-        return false
-    }
-}
+    
+    
 
 struct YearSearcher_Previews: PreviewProvider {
     static var previews: some View {
-        YearSearcher()
+        YearSearcher(branchId: "ddsf")
     }
+}
 }

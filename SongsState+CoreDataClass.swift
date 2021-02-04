@@ -13,10 +13,10 @@ import CoreData
 @objc(SongsState)
 public class SongsState: NSManagedObject {
 
-    @nonobjc public class func fetchRequestNamed() -> NSFetchRequest<SongsState> {
+    @nonobjc public class func fetchRequestNamed(branchId:String) -> NSFetchRequest<SongsState> {
         let request = NSFetchRequest<SongsState>(entityName: "SongsState")
         //request.sortDescriptors = [NSSortDescriptor(key: "catalogUri", ascending: true)]
-
+        request.predicate = NSPredicate(format: "branchId == %@", branchId)
         //request.propertiesToFetch = ["name"]
         return request
     }

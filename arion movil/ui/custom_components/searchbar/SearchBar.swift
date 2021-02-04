@@ -25,7 +25,7 @@ struct SearchBar: UIViewRepresentable {
             if(searchText.isEmpty)
             {
                 searchBar.resignFirstResponder()
-                self.text = "000"
+                self.text = ""
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.text = searchText

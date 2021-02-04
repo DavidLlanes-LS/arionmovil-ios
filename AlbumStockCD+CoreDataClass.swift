@@ -19,9 +19,9 @@ public class AlbumStockCD: NSManagedObject, Encodable, Decodable {
     }
     let userLocalId = CodingUserInfoKey(rawValue: "localId")!
     //let userLocalId:String = "12345"
-    @nonobjc public class func fetchRequestSingle() -> NSFetchRequest<AlbumStockCD> {
+    @nonobjc public class func fetchRequestSingle(branchId:String) -> NSFetchRequest<AlbumStockCD> {
         let request = NSFetchRequest<AlbumStockCD>(entityName: "AlbumStockCD")
-        request.predicate = NSPredicate(format: "restaurantId == %@", "12345")
+        request.predicate = NSPredicate(format: "restaurantId == %@", branchId)
         return request
     }
     

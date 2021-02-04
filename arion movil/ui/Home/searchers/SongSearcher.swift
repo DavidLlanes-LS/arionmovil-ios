@@ -5,26 +5,43 @@
 //  Created by David Pacheco Rodriguez on 08/07/20.
 //  Copyright © 2020 David Pacheco Rodriguez. All rights reserved.
 //
-
 import SwiftUI
 
 struct SongSearcher: View {
+
     @State var searchText:String = ""
-    var songs:[Song] = [Song(id: 1, name: "Lost",artist: Artist(id: 1, name: "Frank Ocean"))]
+    @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
+    @State var navigateLogin = false
+    init(branchId: String){
+        viewModel.branchId = branchId
+        viewModel.setDataCD()
+    }
     var body: some View {
         VStack{
-            SearchBar(text: $searchText, placeholder: "Busca una canción")
-            List(self.songs.filter {
-                searchText != "" ? ($0.name.contains(searchText) || ($0.artist != nil ? $0.artist!.name.contains(searchText) : true) ): true
-            }){ song in
-                SearchSongRow(song: song)
+            NavigationLink(destination: LoginView(), isActive: self.$navigateLogin ) {
+               
             }
-        }.navigationBarTitle("Buscador",displayMode: .inline)
+            SearchBar(text: $searchText, placeholder: "Busca una canción")
+            List{
+                if viewModel.stock.count > 0 {
+                    ForEach(viewModel.musicList.filter{$0.name!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty},id: \.self){song in
+                        GenereRow(name: song.name!, artist: song.artist!, navigateLogin: $navigateLogin)
+                    }
+                }
+            
+            }.animation(.default)
+        }.navigationBarTitle("Buscador",displayMode: .inline).onAppear{
+           
+           
+        }
     }
+    
+ 
+  
 }
 
 struct SongSearcher_Previews: PreviewProvider {
     static var previews: some View {
-        SongSearcher()
+        SongSearcher(branchId: "sd")
     }
 }

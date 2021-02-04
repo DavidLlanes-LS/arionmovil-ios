@@ -10,11 +10,12 @@ import SwiftUI
 import CoreData
 struct Home: View {
     var fetchRequest: FetchRequest<AlbumStockCD> = FetchRequest<AlbumStockCD>(entity:AlbumStockCD.entity(), sortDescriptors: [], predicate: NSPredicate(format: "restaurantId == %@", ""))
+    var fetchRequest2: FetchRequest<SongsState> = FetchRequest<SongsState>(entity:SongsState.entity(), sortDescriptors: [], predicate: NSPredicate(format: "branchId == %@", ""))
+    @State var navigateLogin = false
     @State private var showLinkTarget = false
     @Environment(\.managedObjectContext) public var viewContext
     @EnvironmentObject var appSettings:AppHelper
-    @FetchRequest(sortDescriptors: [])
-    private var songsState: FetchedResults<SongsState>
+    private var songsState: FetchedResults<SongsState>{fetchRequest2.wrappedValue}
     private var stock: FetchedResults<AlbumStockCD>{fetchRequest.wrappedValue}
     @ObservedObject var viewModel:SongsUriViewModel = SongsUriViewModel()
     @State var musicList:[TitleCD] = []
@@ -25,36 +26,52 @@ struct Home: View {
     @State var isFilterYear:Bool = false
     @State var hasFetsched:Bool = false
     @State public var searchText : String = ""
+    @State var navSearcher:Bool = false
+    @State var navSeeAll:Bool = false
     @State var count:Int = 9
     @State var rows:Int = 0
     @State var isImpar = false
     init(branchId: String){
         fetchRequest = FetchRequest<AlbumStockCD>(entity:AlbumStockCD.entity(), sortDescriptors: [], predicate: NSPredicate(format: "restaurantId == %@", branchId))
-        
-    }
+        fetchRequest2 = FetchRequest<SongsState>(entity:SongsState.entity(), sortDescriptors: [], predicate: NSPredicate(format: "branchId == %@", branchId))    }
     var body: some View {
         
         NavigationView {
             VStack {
                 NavigationLink(destination: MusicalGenreSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterMusicGenre ) {
-                   Spacer().fixedSize()
+                    
                 }
-                NavigationLink(destination:YearSearcher(), isActive: self.$isFilterYear ) {
-                   Spacer().fixedSize()
+                NavigationLink(destination:YearSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterYear ) {
+                    
                 }
-                NavigationLink(destination: AlbumSearcher(), isActive: self.$isFilterAlbum ) {
-                   Spacer().fixedSize()
+                NavigationLink(destination: AlbumSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterAlbum ) {
+                    
                 }
                 NavigationLink(destination: ArtistSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterArtist ) {
-                   Spacer().fixedSize()
+                    
                 }
+                NavigationLink(destination: LoginView(), isActive: self.$navigateLogin ) {
+                    
+                }
+                NavigationLink(destination: SongSearcher(branchId: appSettings.currentBranchId), isActive: self.$navSearcher ) {
+                    
+                }
+                                NavigationLink(destination: SeeAll(branchId: appSettings.currentBranchId), isActive: self.$navSeeAll) {
+                
+                                }
                 List{
                     VStack{
                         TextWithCustomFonts("Buscar una canción", customFont: CustomFont(type: .bold, size: 20))
                             .frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
                         ZStack {
                             //SearchBarFilter().buttonStyle(PlainButtonStyle())
-                            SearchBar(text: $searchText, placeholder: "Canción, artista, albúm")
+                            // SearchBar(text: $searchText, placeholder: "Canción, artista, albúm")
+                            Button(action:{
+                                navSearcher = true
+                                
+                            }){
+                                SearchBarFilter().buttonStyle(PlainButtonStyle())
+                            }
                             
                         }.padding(.bottom)
                         ZStack {
@@ -65,42 +82,42 @@ struct Home: View {
                             
                             TextWithCustomFonts("Canciones disponibles",customFont: CustomFont(type: .bold, size: 20)).frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
                             SimpleunderlineBtn("Ver todo"){
-                                
+                                navSeeAll = true
                             }
                         }
                         
-                       
+                        
                     }.buttonStyle(PlainButtonStyle())
                     if(stock.count != 0){
                         if rows > 0{
-                                
+                            
                             ForEach(0...rows,id:\.self){i in
-                                    
-                                    VStack {
-                                        HStack(spacing: 16){
-                                            SongItem(song: musicList[i*2],url:musicList[i*2].coverImageUri! )
-                                            SongItem(song: musicList[(i*2)+1],url:musicList[(i*2)+1].coverImageUri!)
-                                            
-                                            
-                                        }
-                                        Spacer().frame(height:10)
-                                    }
-                                }
-                            if viewModel.isImpar {
+                                
+                                VStack {
                                     HStack(spacing: 16){
-                                        SongItem(song: musicList[count],url:musicList[count].coverImageUri!)
-                                        SongItem(song: musicList[count],url:musicList[count].coverImageUri!).opacity(0.0)
+                                        SongItem(song: musicList[i*2], navigateLogin: self.$navigateLogin,url:musicList[i*2].coverImageUri! ).buttonStyle(PlainButtonStyle())
+                                        SongItem(song: musicList[(i*2)+1], navigateLogin: self.$navigateLogin,url:musicList[(i*2)+1].coverImageUri!).buttonStyle(PlainButtonStyle())
                                         
                                         
                                     }
+                                    Spacer().frame(height:10)
                                 }
-                               
-                                
-                                
-                           
+                            }
+                            if self.isImpar {
+                                HStack(spacing: 16){
+                                    SongItem(song: musicList[count], navigateLogin: self.$navigateLogin,url:musicList[count].coverImageUri!).buttonStyle(PlainButtonStyle())
+                                                                       SongItem(song: musicList[count], navigateLogin: self.$navigateLogin,url:musicList[count].coverImageUri!).opacity(0.0).buttonStyle(PlainButtonStyle())
+                                    
+                                    
+                                }
+                            }
+                            
+                            
+                            
+                            
                         }
                     }
-                 
+                    
                     Spacer().frame(height:78)
                 }
             }.listStyle(PlainListStyle()).navigationBarTitle("Bienvenido",displayMode: .inline).alert(isPresented:$showingAlert, content: {
@@ -122,8 +139,8 @@ struct Home: View {
                 appSettings.showCurrentSong = true
             }
             
-             
-                
+            
+            
             
         }
         
@@ -138,13 +155,13 @@ struct Home: View {
             self.isFilterMusicGenre = true
         case 4:
             self.isFilterYear = true
-
+            
         default:
             self.isFilterArtist = true
         }
     }
     
-   
+    
     
     public func getRows(){
         let decimalValue:Double = Double(count-1)/2
@@ -157,9 +174,9 @@ struct Home: View {
         }
         else {
             rows = intValue
-           
+            
         }
-     
+        
     }
     func getList(){
         
@@ -175,7 +192,7 @@ struct Home: View {
             
             
             print("pruebas",titles.count)
-         
+            
             
             titles.forEach{title in
                 title.coverImageUri = title.coverImageUri! as String

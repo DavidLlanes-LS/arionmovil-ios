@@ -18,6 +18,11 @@ class SongsUriViewModel: ObservableObject, ArionService {
     var stock: [AlbumStockCD] = []
     @Published var branchId:String = ""
     @Published var countSongs:Int = 0
+    @Published var artistListMain:[String] = []
+    @Published var genereList:[String] = []
+    @Published var yearList:[[Int]] = []
+    @Published var albumListMain:[AlbumCD] = []
+    @Published var count:Int = 0
     @Published var rows:Int = 0
     @Published var isImpar = false
     @Published var musicList:[TitleCD] = []
@@ -27,10 +32,12 @@ class SongsUriViewModel: ObservableObject, ArionService {
     var tester:testeto = testeto()
     var apiSession: APIService
     var cancellables = Set<AnyCancellable>()
-    init(apiSession: APIService = APISession()) {
+    init(apiSession: APIService = APISession(), branchId:String = "") {
         self.apiSession = apiSession
-        self.songsState = self.getSongsStateCD()
-        getStockCD()
+        self.branchId = branchId
+        self.songsState = self.getSongsStateCD(branchId: branchId)
+        getStockCD(branchId: branchId)
+        getList()
         
         
         
@@ -55,14 +62,14 @@ class SongsUriViewModel: ObservableObject, ArionService {
                     self.requested = true
                     self.uriResponse = response
                     self.storeSongsStateCD(song: self.uriResponse,completion: completion)
-                
+                    
                 }
                 
-        }
+            }
         
         cancellables.insert(cancellable)
     }
-   
+    
     private func storeSongsStateCD(song:SongsUriResponse,completion: @escaping () -> ()){
         if(songsState.count > 0)
         {
@@ -86,12 +93,12 @@ class SongsUriViewModel: ObservableObject, ArionService {
         }
         
         
-       saveContext()
+        saveContext()
     }
     
-    private func getSongsStateCD()->[SongsState]{
+    private func getSongsStateCD(branchId:String)->[SongsState]{
         var songsStateList: [SongsState] = []
-        let songStateFetch = SongsState.fetchRequestNamed()
+        let songStateFetch = SongsState.fetchRequestNamed(branchId: branchId)
         do{
             let temporalList = try PersistenceController.shared.container.viewContext.fetch(songStateFetch)
             songsStateList = temporalList
@@ -101,9 +108,9 @@ class SongsUriViewModel: ObservableObject, ArionService {
         return songsStateList
     }
     
-    private func getStockCD(){
+    private func getStockCD(branchId:String){
         var AlbumStockList: [AlbumStockCD] = []
-        let stockFetch = AlbumStockCD.fetchRequestSingle()
+        let stockFetch = AlbumStockCD.fetchRequestSingle(branchId: branchId)
         do{
             let temporalList = try PersistenceController.shared.container.viewContext.fetch(stockFetch)
             AlbumStockList = temporalList
@@ -112,13 +119,94 @@ class SongsUriViewModel: ObservableObject, ArionService {
         }
         self.stock = AlbumStockList
     }
-
+    
     
     private func saveContext(){
         viewContext.saveIfNeeded()
         PersistenceController.shared.container.viewContext.saveIfNeeded()
-            
+        
     }
-
+    func setDataCD(){
+        getStockCD(branchId: branchId)
+        getList()
+        getRows()
+    }
+    func getList(){
+        
+        if(stock.count != 0){
+            var titles:[TitleCD] = []
+            let playlists = stock.first?.playlists?.allObjects as! [PlaylistCD]
+            var albums = playlists.first?.albums?.allObjects as! [AlbumCD]
+            albums.forEach{ album in
+                (album.titles?.allObjects as! [TitleCD]).forEach{
+                    $0.coverImageUri = album.coverImageUri
+                    titles.append(contentsOf:(album.titles?.allObjects as! [TitleCD]))
+                }        }
+            
+            
+            
+            
+            
+            titles.forEach{title in
+                title.coverImageUri = title.coverImageUri! as String
+            }
+            
+            titles = Array(Set(titles))
+            musicList = titles
+            musicList.sort{
+                $0.name!<$1.name!
+            }
+            count = musicList.count - 1
+            let sections = Set(musicList.map{ $0.artist!})
+            artistListMain = Array(sections)
+            artistListMain.sort{
+                $0<$1
+            }
+            let sections2 = Set(musicList.map{ $0.genere!})
+            genereList = Array(sections2)
+            genereList.sort{
+                $0<$1
+            }
+            let sections3 = Set(musicList.map{ $0.recordedYear})
+            let temporarlYearList = Array(sections3)
+            var yearListIndividual = temporarlYearList.map({
+                (Int($0)/10)*10
+                
+            })
+            yearListIndividual = yearListIndividual.filter({$0 != 0})
+            yearListIndividual = Array(Set(yearListIndividual))
+            yearListIndividual.sort{
+                $0<$1
+            }
+            yearListIndividual.forEach { year in
+                yearList.append([year,year+9])
+            }
+            
+            albums = Array(Set(albums))
+            albums.sort{
+                $0.name!<$1.name!
+            }
+            albumListMain = albums
+            
+            
+        }
+        
+    }
+    public func getRows(){
+        let decimalValue:Double = Double(count-1)/2
+        let intValue:Int =  (count-1)/2
+        let difference:Double = decimalValue - Double(intValue)
+        print("rows",difference)
+        if difference > 0 {
+            rows = intValue
+            self.isImpar = true
+        }
+        else {
+            rows = intValue
+            
+        }
+        
+    }
 }
+
 

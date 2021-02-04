@@ -10,10 +10,11 @@ import SwiftUI
 
 struct SongRow: View {
     var song:TitleCD = TitleCD()
+    @State var navigateLogin = false
     var body: some View {
         HStack(spacing: 16){
-            SongItem(song:song)
-            SongItem(song:song)
+            SongItem(song:song,navigateLogin: $navigateLogin)
+            SongItem(song:song,navigateLogin: $navigateLogin)
         }
     }
 }
