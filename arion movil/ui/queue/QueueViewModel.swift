@@ -91,7 +91,7 @@ class QueueViewModel: ObservableObject, ArionService {
         cancellables.insert(cancellable)
     }
     func addNewQueue(id:String){
-        var userId = UserDefaults.standard.string(forKey: Constants.keyUserId)
+        let userId = UserDefaults.standard.string(forKey: Constants.keyUserId)
         print("branchprice",branchPrice!.basePrice)
         if userId != nil
         { self.addQueue(body: AddQueue(userId: userId!, locationId: self.locationId!, playerId: self.playerId!, mediaTitleId: id, creditsToCharge: branchPrice!.basePrice, positionToAdvance: -1)){result, error in}}

@@ -21,7 +21,7 @@ struct ArtistSearcher: View {
     var body: some View {
         VStack(spacing:0){
             
-            SearchBar(text: $searchText, placeholder: "Busca un restaurante")
+            SearchBar(text: $searchText, placeholder: "Busca un artista")
             List{
                 ForEach(self.letters.filter {self.searchForCharactersInArtists($0) }, id: \.self) {char in
                     Section(header: TextWithCustomFonts(String(char), customFont: CustomFont(type: .bold, size: 16)) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))){
