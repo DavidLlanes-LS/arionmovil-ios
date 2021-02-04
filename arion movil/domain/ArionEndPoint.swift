@@ -21,20 +21,48 @@ class ApiRequest{
         }
         return urlRequest
     }
+    
     func postQueue(body: AddQueue)->URLRequest{
            var urlRequest: URLRequest{
-               let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/queue/modify-queue"
-               guard let url = URL(string:urlRequest )
+                let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/queue/modify-queue"
+                guard let url = URL(string:urlRequest )
                    else {preconditionFailure("Invalid URL format")}
-              // print("branchesRequest: \(urlRequest)")
-               var request = URLRequest(url: url)
-               request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-            request.httpBody = body.getDic().percentEncoded()
+                // print("branchesRequest: \(urlRequest)")
+                var request = URLRequest(url: url)
+            
+                request.setValue("application/json", forHTTPHeaderField: "Accept")
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue(UserDefaults.standard.string(forKey: Constants.keyCookie), forHTTPHeaderField: "Cookie")
+                
+                let bodyData = try? JSONSerialization.data(withJSONObject: body.getDic(), options: [])
+                request.httpBody = bodyData
+                request.httpMethod = "POST"
                
-               return request
+                return request
            }
            return urlRequest
-       }
+    }
+    
+    func postSingIn(body: [String:Any])->URLRequest{
+        var urlRequest:URLRequest{
+            let urlReq: String = "http://acsstaging.cloudapp.net/api/amcm/auth/sign-in"
+            guard let url = URL(string: urlReq)
+                else {preconditionFailure("Invalid URL format")}
+            var request = URLRequest(url: url)
+            
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let bodyData = try? JSONSerialization.data(withJSONObject: body, options: [])
+            request.httpBody = bodyData
+            request.httpMethod = "POST"
+           
+            return request
+        }
+        
+
+        return urlRequest
+    }
     
     func getSongQueue(playerId: String)->URLRequest{
         var urlRequest: URLRequest{

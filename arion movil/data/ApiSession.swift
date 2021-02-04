@@ -28,9 +28,17 @@ struct APISession: APIService {
                 if let response = response as? HTTPURLResponse {
                     if (200...299).contains(response.statusCode) {
                     // 6
+                        if (response.url?.absoluteString == "http://acsstaging.cloudapp.net/api/amcm/auth/sign-in") {
+                            let cookieStorage = HTTPCookieStorage.shared
+                            let cookies = cookieStorage.cookies(for: response.url!) ?? []
+                            for cookie in cookies {
+                                print("Cookie: \(cookie.name)=\(cookie.value)")
+                                UserDefaults.standard.set("\(cookie.name)=\(cookie.value)", forKey: Constants.keyCookie)
+                            }
+                        }
+                        
                         let body:String? = String(data: data, encoding: .utf8)
                         print("respuesta \(body!)")
-                        
                     return Just(data)
                         .decode(type: T.self, decoder: decoder)
                         .mapError {_ in .decodingError}

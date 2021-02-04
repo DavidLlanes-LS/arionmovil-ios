@@ -12,13 +12,27 @@ struct QueueRow: View {
     var creditsFirst: Int
     var creditsNext: Int
     var hiddenButtons: Bool
+    var position: Int
+    var totalList: Int
     
-    @StateObject var viewModel = QueueViewModel()
     @State var showAlert: Bool = false
     @State var authAlert: Bool = false
     @State var sendToNext: Bool = false
+    @Binding var nav: Bool
     @EnvironmentObject var pageSettings: AppHelper
-    var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
+    
+    init(song: TitleInQueue, creditsFirst: Int, creditsNext: Int, hiddenButtons:Bool, nav:Binding<Bool>, position:Int, totalList:Int, funct:@escaping (_ result:Int, _ positionAdvance:Int)->()) {
+        self.song = song
+        self.creditsFirst = creditsFirst
+        self.creditsNext = creditsNext
+        self.hiddenButtons = hiddenButtons
+        self.position = position
+        _nav = nav
+        self.totalList = totalList
+        self.funct = funct
+    }
+    
+    var funct:(_ result:Int, _ positionAdvance:Int) -> ()
     
     var body: some View {
         HStack(){
@@ -29,19 +43,11 @@ struct QueueRow: View {
             Spacer()
             HStack(spacing:16){
                 IconBtn("arrow.right.circle", hidden: hiddenButtons) {
-                    if (pageSettings.userId != nil) {
-                        viewModel.addQueue(body: AddQueue(userId: pageSettings.userId!, locationId: pageSettings.locationId!, playerId: pageSettings.playerId!, mediaTitleId: song.titleID, creditsToCharge: 20, positionToAdvance: 1))
-                    } else {
-                        showAlert = true
-                    }
+                    showAlert = true
                     sendToNext = true
                 }
                 IconBtn("arrowtriangle.up.circle", hidden: hiddenButtons) {
-                    if (pageSettings.userId != nil) {
-                        viewModel.addQueue(body: AddQueue(userId: pageSettings.userId!, locationId: pageSettings.currentBranchId, playerId: pageSettings.playerId!, mediaTitleId: song.titleID, creditsToCharge: 20, positionToAdvance: 1))
-                    } else {
-                        showAlert = true
-                    }
+                    showAlert = true
                     sendToNext = false
                 }
             }
@@ -51,14 +57,15 @@ struct QueueRow: View {
         .padding(.horizontal)
         .alert(isPresented: $showAlert, content: {
             let result:Int = sendToNext ? creditsNext - song.credits + 1 : creditsFirst - song.credits + 1
+            let positionAdvance:Int = sendToNext ? 1 : totalList - position
             
-            if (isAuth) {
+            if (UserDefaults.standard.bool(forKey: Constants.keyIsAuth)) {
                 return Alert(
                     title:Text(String("Atención").capitalized),
                     message: Text(String("¿Quieres adelantar la canción de posición por \(result) créditos?")),
                     primaryButton: .cancel(Text(String("Cancelar").capitalized)),
                     secondaryButton: .default(Text(String("Aceptar").capitalized)) {
-                        
+                        funct(result, positionAdvance)
                     }
                 )
             } else {
@@ -67,7 +74,7 @@ struct QueueRow: View {
                     message: Text(String("Iniciar sesión o crear una cuenta para poder realizar esta acción.")),
                     primaryButton: .cancel(Text(String("Cancelar").capitalized)),
                     secondaryButton: .default(Text(String("Aceptar").capitalized)) {
-                        
+                        nav = true
                     }
                 )
             }
@@ -76,7 +83,10 @@ struct QueueRow: View {
 }
 
 struct QueueRow_Previews: PreviewProvider {
+    
+    @State static var nav: Bool = false
+    
     static var previews: some View {
-        QueueRow(song: TitleInQueue(id: "", playerID: "", titleID: "", titleName: "Loco", titleArtist: "Olwa", credits: 1), creditsFirst: 1, creditsNext: 1, hiddenButtons: false)
+        QueueRow(song: TitleInQueue(id: "", playerID: "", titleID: "", titleName: "Loco", titleArtist: "Olwa", credits: 1), creditsFirst: 1, creditsNext: 1, hiddenButtons: false, nav: $nav, position: 0, totalList: 0) { result, position in }
     }
 }

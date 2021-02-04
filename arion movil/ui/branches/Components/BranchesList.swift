@@ -49,6 +49,8 @@ struct BranchesList: View {
                                             appSettings.currentPage="otro"
                                             appSettings.playerId = branch.playerID
                                             UserDefaults.standard.set(branch.playerID, forKey: Constants.keyPlayerId)
+                                            UserDefaults.standard.set(branch.playerID, forKey: Constants.keyPlayerId)
+                                            UserDefaults.standard.set(branch.id, forKey: Constants.keyLocationId)
                                         }
                                     }, label: {
                                         BranchRow(branch: branch)
