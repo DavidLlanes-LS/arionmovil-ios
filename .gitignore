@@ -1,7 +1,5 @@
 # Created by http://www.gitignore.io
 
-
-Pods/Pods.xcodeproj/xcuserdata/
 ### OSX ###
 .DS_Store
 .AppleDouble
