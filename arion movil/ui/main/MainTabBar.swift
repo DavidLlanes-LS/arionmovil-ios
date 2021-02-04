@@ -14,9 +14,8 @@ struct MainTabBar: View {
     @State private var currentTab:Int = 0
     @State private var showCurrentSong:Bool = false
 
-    var body: some View {
-       
-        VStack {
+    var body: some View{
+        VStack{
             GeometryReader{geometry in
                 ZStack{
                     Color("background")
@@ -30,7 +29,7 @@ struct MainTabBar: View {
                                     self.paddingHeight = tabBar.bounds.height
                                 }
                                 }).tag(0)
-                            Queue().tabItem{
+                            QueueView().tabItem{
                                 Image(systemName: "music.note.list")
                                 Text("En fila")
                             }.background(TabBarAccessor { tabBar in
