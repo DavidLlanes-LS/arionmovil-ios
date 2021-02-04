@@ -9,65 +9,46 @@
 import SwiftUI
 import CoreData
 struct Home: View {
-    var fetchRequest: FetchRequest<AlbumStockCD> = FetchRequest<AlbumStockCD>(entity:AlbumStockCD.entity(), sortDescriptors: [], predicate: NSPredicate(format: "restaurantId == %@", ""))
-    var fetchRequest2: FetchRequest<SongsState> = FetchRequest<SongsState>(entity:SongsState.entity(), sortDescriptors: [], predicate: NSPredicate(format: "branchId == %@", ""))
-    @State var navigateLogin = false
-    @State private var showLinkTarget = false
-    @Environment(\.managedObjectContext) public var viewContext
     @EnvironmentObject var appSettings:AppHelper
-    private var songsState: FetchedResults<SongsState>{fetchRequest2.wrappedValue}
-    private var stock: FetchedResults<AlbumStockCD>{fetchRequest.wrappedValue}
     @ObservedObject var viewModel:SongsUriViewModel = SongsUriViewModel()
-    @State var musicList:[TitleCD] = []
+    var fetchRequest: FetchRequest<AlbumStockCD> = FetchRequest<AlbumStockCD>(entity:AlbumStockCD.entity(), sortDescriptors: [], predicate: NSPredicate(format: "restaurantId == %@", ""))
+    private var stock: FetchedResults<AlbumStockCD>{fetchRequest.wrappedValue}
+    @State var navigateLogin = false
+    @State var navigateFilterArtist:Bool = false
+    @State var navigateFilterAlbum:Bool = false
+    @State var navigateFilterMusicGenre:Bool = false
+    @State var navigateFilterYear:Bool = false
+    @State var navigateSongSearcher:Bool = false
+    @State var navigateSeeAll:Bool = false
     @State private var showingAlert = true
-    @State var isFilterArtist:Bool = false
-    @State var isFilterAlbum:Bool = false
-    @State var isFilterMusicGenre:Bool = false
-    @State var isFilterYear:Bool = false
     @State var hasFetsched:Bool = false
+    @State var musicList:[TitleCD] = []
     @State public var searchText : String = ""
-    @State var navSearcher:Bool = false
-    @State var navSeeAll:Bool = false
-    @State var count:Int = 9
+    @State var count:Int = 0
     @State var rows:Int = 0
     @State var isImpar = false
     init(branchId: String){
         fetchRequest = FetchRequest<AlbumStockCD>(entity:AlbumStockCD.entity(), sortDescriptors: [], predicate: NSPredicate(format: "restaurantId == %@", branchId))
-        fetchRequest2 = FetchRequest<SongsState>(entity:SongsState.entity(), sortDescriptors: [], predicate: NSPredicate(format: "branchId == %@", branchId))    }
+    }
     var body: some View {
         
         NavigationView {
             VStack {
-                NavigationLink(destination: MusicalGenreSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterMusicGenre ) {
-                    
-                }
-                NavigationLink(destination:YearSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterYear ) {
-                    
-                }
-                NavigationLink(destination: AlbumSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterAlbum ) {
-                    
-                }
-                NavigationLink(destination: ArtistSearcher(branchId: appSettings.currentBranchId), isActive: self.$isFilterArtist ) {
-                    
-                }
-                NavigationLink(destination: LoginView(), isActive: self.$navigateLogin ) {
-                    
-                }
-                NavigationLink(destination: SongSearcher(branchId: appSettings.currentBranchId), isActive: self.$navSearcher ) {
-                    
-                }
-                                NavigationLink(destination: SeeAll(branchId: appSettings.currentBranchId), isActive: self.$navSeeAll) {
+                NavigationLink(destination: MusicalGenreSearcher(branchId: appSettings.currentBranchId), isActive: self.$navigateFilterMusicGenre ) {}
+                NavigationLink(destination:YearSearcher(branchId: appSettings.currentBranchId), isActive: self.$navigateFilterYear ) {}
+                NavigationLink(destination: AlbumSearcher(branchId: appSettings.currentBranchId), isActive: self.$navigateFilterAlbum ) {}
+                NavigationLink(destination: ArtistSearcher(branchId: appSettings.currentBranchId), isActive: self.$navigateFilterArtist ) {}
+                NavigationLink(destination: LoginView(), isActive: self.$navigateLogin ) {}
+                NavigationLink(destination: SongSearcher(branchId: appSettings.currentBranchId), isActive: self.$navigateSongSearcher ) {}
+                NavigationLink(destination: SeeAll(branchId: appSettings.currentBranchId), isActive: self.$navigateSeeAll) {}
                 
-                                }
                 List{
                     VStack{
                         TextWithCustomFonts("Buscar una canción", customFont: CustomFont(type: .bold, size: 20))
                             .frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
                         ZStack {
-                            //SearchBarFilter().buttonStyle(PlainButtonStyle())
-                            // SearchBar(text: $searchText, placeholder: "Canción, artista, albúm")
                             Button(action:{
-                                navSearcher = true
+                                navigateSongSearcher = true
                                 
                             }){
                                 SearchBarFilter().buttonStyle(PlainButtonStyle())
@@ -78,15 +59,11 @@ struct Home: View {
                             FilterGrid(openFilter: self.openFilter(id:))
                         }.padding(.bottom)
                         HStack{
-                            
-                            
                             TextWithCustomFonts("Canciones disponibles",customFont: CustomFont(type: .bold, size: 20)).frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
                             SimpleunderlineBtn("Ver todo"){
-                                navSeeAll = true
+                                navigateSeeAll = true
                             }
                         }
-                        
-                        
                     }.buttonStyle(PlainButtonStyle())
                     if(stock.count != 0){
                         if rows > 0{
@@ -106,7 +83,7 @@ struct Home: View {
                             if self.isImpar {
                                 HStack(spacing: 16){
                                     SongItem(song: musicList[count], navigateLogin: self.$navigateLogin,url:musicList[count].coverImageUri!).buttonStyle(PlainButtonStyle())
-                                                                       SongItem(song: musicList[count], navigateLogin: self.$navigateLogin,url:musicList[count].coverImageUri!).opacity(0.0).buttonStyle(PlainButtonStyle())
+                                    SongItem(song: musicList[count], navigateLogin: self.$navigateLogin,url:musicList[count].coverImageUri!).opacity(0.0).buttonStyle(PlainButtonStyle())
                                     
                                     
                                 }
@@ -117,7 +94,6 @@ struct Home: View {
                             
                         }
                     }
-                    
                     Spacer().frame(height:78)
                 }
             }.listStyle(PlainListStyle()).navigationBarTitle("Bienvenido",displayMode: .inline).alert(isPresented:$showingAlert, content: {
@@ -148,16 +124,16 @@ struct Home: View {
     func openFilter(id:Int) {
         switch id {
         case 1:
-            self.isFilterArtist = true
+            self.navigateFilterArtist = true
         case 2:
-            self.isFilterAlbum = true
+            self.navigateFilterAlbum = true
         case 3:
-            self.isFilterMusicGenre = true
+            self.navigateFilterMusicGenre = true
         case 4:
-            self.isFilterYear = true
+            self.navigateFilterYear = true
             
         default:
-            self.isFilterArtist = true
+            self.navigateFilterArtist = true
         }
     }
     
@@ -188,22 +164,16 @@ struct Home: View {
             for playlist in playlists{
                 albums2.append(contentsOf: (playlist.albums?.allObjects as! [AlbumCD]))
             }
-           // let albums = playlists.first?.albums?.allObjects as! [AlbumCD]
             let albums = albums2
             albums.forEach{ album in
                 (album.titles?.allObjects as! [TitleCD]).forEach{
                     $0.coverImageUri = album.coverImageUri
                     titles.append(contentsOf:(album.titles?.allObjects as! [TitleCD]))
                 }        }
-            
-            
             print("pruebas",titles.count)
-            
-            
             titles.forEach{title in
                 title.coverImageUri = title.coverImageUri! as String
             }
-            
             titles = Array(Set(titles))
             musicList = titles
             musicList.sort{

@@ -17,7 +17,6 @@ class SongsUriViewModel: ObservableObject, ArionService {
     var songsState: [SongsState] = []
     var stock: [AlbumStockCD] = []
     @Published var branchId:String = ""
-    @Published var countSongs:Int = 0
     @Published var artistListMain:[String] = []
     @Published var genereList:[String] = []
     @Published var yearList:[[Int]] = []
@@ -29,7 +28,6 @@ class SongsUriViewModel: ObservableObject, ArionService {
     @Published var uriResponse:SongsUriResponse = SongsUriResponse(catalogURI: "", generationDate: "", resultCode: 0 )
     @Published var stockResponse:SongsUriResponse = SongsUriResponse(catalogURI: "", generationDate: "", resultCode: 0 )
     @Published  var requested:Bool = false
-    var tester:testeto = testeto()
     var apiSession: APIService
     var cancellables = Set<AnyCancellable>()
     init(apiSession: APIService = APISession(), branchId:String = "") {
@@ -136,22 +134,16 @@ class SongsUriViewModel: ObservableObject, ArionService {
         if(stock.count != 0){
             var titles:[TitleCD] = []
             let playlists = stock.first?.playlists?.allObjects as! [PlaylistCD]
-            var albums2:[AlbumCD] = []
+            var albumsTemporal:[AlbumCD] = []
             for playlist in playlists{
-                albums2.append(contentsOf: (playlist.albums?.allObjects as! [AlbumCD]))
+                albumsTemporal.append(contentsOf: (playlist.albums?.allObjects as! [AlbumCD]))
             }
-            //var albums = playlists.first?.albums?.allObjects as! [AlbumCD]
-            var albums = albums2
+            var albums = albumsTemporal
             albums.forEach{ album in
                 (album.titles?.allObjects as! [TitleCD]).forEach{
                     $0.coverImageUri = album.coverImageUri
                     titles.append(contentsOf:(album.titles?.allObjects as! [TitleCD]))
                 }        }
-            
-            
-            
-            
-            
             titles.forEach{title in
                 title.coverImageUri = title.coverImageUri! as String
             }
@@ -201,7 +193,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
         let decimalValue:Double = Double(count-1)/2
         let intValue:Int =  (count-1)/2
         let difference:Double = decimalValue - Double(intValue)
-       
+        
         if difference > 0 {
             rows = intValue
             self.isImpar = true

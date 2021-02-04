@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct YearSearcher: View {
-  
+    
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
-
+    
     @State var NavLogin = false
     @State public var searchText : String = ""
     init(branchId: String){
@@ -20,9 +20,7 @@ struct YearSearcher: View {
     @State var musicList:[TitleCD] = []
     var body: some View {
         VStack(spacing:0){
-            NavigationLink(destination: LoginView(), isActive: self.$NavLogin ) {
-               Spacer().fixedSize()
-            }
+            NavigationLink(destination: LoginView(), isActive: self.$NavLogin ) {}
             //SearchBar(text: $searchText, placeholder: "Busca una cancion")
             List{
                 ForEach(viewModel.yearList, id: \.self) {interval in
@@ -45,10 +43,10 @@ struct YearSearcher: View {
     
     
     
-
-struct YearSearcher_Previews: PreviewProvider {
-    static var previews: some View {
-        YearSearcher(branchId: "ddsf")
+    
+    struct YearSearcher_Previews: PreviewProvider {
+        static var previews: some View {
+            YearSearcher(branchId: "ddsf")
+        }
     }
-}
 }

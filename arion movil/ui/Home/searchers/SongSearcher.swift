@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SongSearcher: View {
-
+    
     @State var searchText:String = ""
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
     @State var navigateLogin = false
@@ -18,9 +18,7 @@ struct SongSearcher: View {
     }
     var body: some View {
         VStack{
-            NavigationLink(destination: LoginView(), isActive: self.$navigateLogin ) {
-               
-            }
+            NavigationLink(destination: LoginView(), isActive: self.$navigateLogin ) {}
             SearchBar(text: $searchText, placeholder: "Busca una canción")
             List{
                 if viewModel.stock.count > 0 {
@@ -28,16 +26,13 @@ struct SongSearcher: View {
                         GenereRow(name: song.name!, artist: song.artist!, navigateLogin: $navigateLogin)
                     }
                 }
-            
             }.animation(.default)
         }.navigationBarTitle("Buscador",displayMode: .inline).onAppear{
-           
-           
         }
     }
     
- 
-  
+    
+    
 }
 
 struct SongSearcher_Previews: PreviewProvider {
