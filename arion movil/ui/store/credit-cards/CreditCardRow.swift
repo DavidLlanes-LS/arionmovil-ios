@@ -7,8 +7,16 @@
 //
 
 import SwiftUI
-
+extension String {
+    subscript(i: Int) -> String {
+        return String(self[index(startIndex, offsetBy: i)])
+    }
+}
 struct CreditCardRow: View {
+    var card:CreditCard
+    init(card:CreditCard) {
+        self.card = card
+    }
     var body: some View {
         VStack{
             VStack(alignment:.leading, spacing:32){
@@ -33,14 +41,14 @@ struct CreditCardRow: View {
                         TextWithCustomFonts("*",customFont: CustomFont(type: .semibold, size: 22),color: .white)
                     }
                     HStack(spacing:8){
-                        TextWithCustomFonts("3",customFont: CustomFont(type: .bold, size: 22),color: .white)
-                        TextWithCustomFonts("2",customFont: CustomFont(type: .bold, size: 22),color: .white)
-                        TextWithCustomFonts("1",customFont: CustomFont(type: .bold, size: 22),color: .white)
-                        TextWithCustomFonts("1",customFont: CustomFont(type: .bold, size: 22),color: .white)
+                        TextWithCustomFonts(String(card.cardNumber![12]),customFont: CustomFont(type: .bold, size: 17),color: .white)
+                        TextWithCustomFonts(String(card.cardNumber![13]),customFont: CustomFont(type: .bold, size: 17),color: .white)
+                        TextWithCustomFonts(String(card.cardNumber![14]),customFont: CustomFont(type: .bold, size: 17),color: .white)
+                        TextWithCustomFonts(String(card.cardNumber![15]),customFont: CustomFont(type: .bold, size: 17),color: .white)
                     }
                 }.frame(minWidth:0, maxWidth: .infinity)
                 
-                TextWithCustomFonts("12/25",customFont: CustomFont(type: .semibold, size: 20),color: .white)
+                TextWithCustomFonts("\(card.expirationMonth!)/\(card.expirationYear!.suffix(2))",customFont: CustomFont(type: .semibold, size: 20),color: .white)
                     .frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
                 }.padding()
         }.background(Color("gray-lightgray")).cornerRadius(10)
@@ -49,6 +57,7 @@ struct CreditCardRow: View {
 
 struct CreditCardRow_Previews: PreviewProvider {
     static var previews: some View {
-        CreditCardRow()
+        var credit: CreditCard = CreditCard()
+        CreditCardRow(card: credit)
     }
 }

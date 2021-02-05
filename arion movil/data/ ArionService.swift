@@ -32,6 +32,10 @@ extension ArionService {
         return apiSession.request(with: ApiRequest().getSongsList(branchId: branchid))
             .eraseToAnyPublisher()
     }
+    func getCreditCards() -> AnyPublisher<CardListResponse, APIError> {
+        return apiSession.request(with: ApiRequest().getRegisteredCards())
+            .eraseToAnyPublisher()
+    }
     func getBranchPrice(branchid:String) -> AnyPublisher<BranchPriceResponse, APIError> {
         return apiSession.request(with: ApiRequest().getBranchPrice(branchId: branchid))
             .eraseToAnyPublisher()
@@ -41,6 +45,10 @@ extension ArionService {
         return apiSession.request(with: ApiRequest().postQueue(body: body))
             .eraseToAnyPublisher()
     }
+    func postAddCard(body: AddCardBody) -> AnyPublisher<AddCardResultCode, APIError> {
+           return apiSession.request(with: ApiRequest().postAddCard(body: body))
+            .eraseToAnyPublisher()
+       }
     
     func postSignIn(body: [String:Any]) -> AnyPublisher<SignInResponse, APIError> {
         return apiSession.request(with: ApiRequest().postSingIn(body: body))
@@ -67,6 +75,9 @@ extension ArionService {
         }
        
     }
+    
+
+
     
     private func saveStock(branchId:String,data:Data,completion: @escaping () -> ()){
         do{

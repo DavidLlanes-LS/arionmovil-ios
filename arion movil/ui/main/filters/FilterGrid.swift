@@ -29,6 +29,8 @@ struct FilterGrid: View {
                     self.openFilter(4)
                 }
             }
-            }.frame(minWidth:0,maxWidth: .infinity,alignment: .center)
+        }.frame(minWidth:0,maxWidth: .infinity,alignment: .center).onAppear{
+            
+        }
     }
 }

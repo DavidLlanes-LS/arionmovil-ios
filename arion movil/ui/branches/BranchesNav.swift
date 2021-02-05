@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct BranchesNav: View {
+   
+  
     @EnvironmentObject var pageSettings: AppHelper;
     
     var body: some View {
@@ -20,6 +22,9 @@ struct BranchesNav: View {
             
         }
     }
+
+
+   
 }
 
 struct BranchesNav_Previews: PreviewProvider {
