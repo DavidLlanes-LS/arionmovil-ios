@@ -27,6 +27,10 @@ extension ArionService {
         return apiSession.request(with: ApiRequest().getSongQueue(playerId: playerId))
             .eraseToAnyPublisher()
     }
+    func getPackagesList(branchid:String) -> AnyPublisher<CreditPackagesResponse, APIError> {
+        return apiSession.request(with: ApiRequest().getPackagesList(branchId: branchid))
+            .eraseToAnyPublisher()
+    }
     
     func getSongsURI(branchid:String) -> AnyPublisher<SongsUriResponse, APIError> {
         return apiSession.request(with: ApiRequest().getSongsList(branchId: branchid))
@@ -47,6 +51,11 @@ extension ArionService {
     }
     func postAddCard(body: AddCardBody) -> AnyPublisher<AddCardResultCode, APIError> {
            return apiSession.request(with: ApiRequest().postAddCard(body: body))
+            .eraseToAnyPublisher()
+       }
+    
+    func postDeleteCard(body: DeleteCardBody) -> AnyPublisher<AddCardResultCode, APIError> {
+        return apiSession.request(with: ApiRequest().postDeleteCard(body: body))
             .eraseToAnyPublisher()
        }
     

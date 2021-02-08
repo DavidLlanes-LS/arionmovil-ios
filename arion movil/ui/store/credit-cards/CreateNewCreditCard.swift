@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CreateNewCreditCard: View {
+    @Environment(\.presentationMode) var presentationMode
     @State private var dateIndex:Int = 0
     @State private var months:[Int] = Array(1...12)
     @State private var years:[Int] = Array(21...30)
@@ -56,6 +57,15 @@ struct CreateNewCreditCard: View {
             }.navigationBarTitle("Nuevo método de pago").onAppear{
                
             }
+            if viewModel.showLoader {
+            VStack{
+               
+                    Spacer()
+                    LoaderComponent()
+                    Spacer()
+                
+            }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
+            }
         }
         
     }
@@ -71,6 +81,8 @@ struct CreateNewCreditCard: View {
         return false
     }
     func myFunction(){
+        viewModel.showLoader = true
+      
         self.openpay = Openpay(withMerchantId: Constants.idOpenPayMerchant, andApiKey: Constants.keyOpenPay, isProductionMode: false)
         let card:OPCard = OPCard()
         card.holderName = cardName
@@ -87,8 +99,10 @@ struct CreateNewCreditCard: View {
     func successToken(token: OPToken) {
             print("openpayTokenID: \(token.id)")
             self.token = token.id
-            viewModel.addQueue(body:AddCardBody(cardToken: self.token, deviceSessionId: self.sessionId) )
-       
+        viewModel.addCard(body:AddCardBody(cardToken: self.token, deviceSessionId: self.sessionId) ){
+            self.presentationMode.wrappedValue.dismiss()
+        }
+           
     }
 
     func failToken(error: NSError) {

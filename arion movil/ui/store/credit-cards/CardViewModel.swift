@@ -20,12 +20,36 @@ class CardViewModel: ObservableObject, ArionService {
     }
     
     
-    func addQueue(body: AddCardBody) {
+    func addCard(body: AddCardBody, onSuccess:@escaping ()->()) {
+        
         let cancellable = self.postAddCard(body: body)
             .sink(receiveCompletion: { result in
                 switch result {
                 case .failure(let error):
-                    print("openpayError: \(error.localizedDescription)")
+                    print("Error: \(error.localizedDescription)")
+                    DispatchQueue.main.async {
+                        self.showLoader = false}
+                case .finished:
+                    
+                    break
+                }
+            }) { (result) in
+                DispatchQueue.main.async {
+                    DispatchQueue.main.async {
+                        self.showLoader = true}
+                    print("openpay",result)
+                    onSuccess()
+                }
+            }
+        cancellables.insert(cancellable)
+    }
+    func deleteCard(cardId:String) {
+        let body:DeleteCardBody = DeleteCardBody(cardId: cardId)
+        let cancellable = self.postDeleteCard(body: body)
+            .sink(receiveCompletion: { result in
+                switch result {
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
                    
                 case .finished:
                     

@@ -140,6 +140,9 @@
 		7F8708A125C9A27400D28541 /* QueueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8708A025C9A27400D28541 /* QueueViewModel.swift */; };
 		7F8708F725CC226700D28541 /* GenereRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8708F625CC226700D28541 /* GenereRow.swift */; };
 		7F87090225CC286500D28541 /* SeeAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87090125CC286500D28541 /* SeeAll.swift */; };
+		7FA43ABD25D1829B00914661 /* DeleteCodeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43ABC25D1829B00914661 /* DeleteCodeBody.swift */; };
+		7FA43AC225D18EED00914661 /* CreditsPackagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */; };
+		7FA43AC725D1918500914661 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43AC625D1918500914661 /* StoreViewModel.swift */; };
 		7FC0C5F325CD9DE500317A70 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC0C5E725CD9DE500317A70 /* CardView.xib */; };
 		7FC0C5F425CD9DE500317A70 /* PickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5E925CD9DE500317A70 /* PickerControl.swift */; };
 		7FC0C5F525CD9DE500317A70 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5EA25CD9DE500317A70 /* CardView.swift */; };
@@ -317,6 +320,9 @@
 		7F8708A025C9A27400D28541 /* QueueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewModel.swift; sourceTree = "<group>"; };
 		7F8708F625CC226700D28541 /* GenereRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenereRow.swift; sourceTree = "<group>"; };
 		7F87090125CC286500D28541 /* SeeAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAll.swift; sourceTree = "<group>"; };
+		7FA43ABC25D1829B00914661 /* DeleteCodeBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCodeBody.swift; sourceTree = "<group>"; };
+		7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsPackagesResponse.swift; sourceTree = "<group>"; };
+		7FA43AC625D1918500914661 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		7FC0C5E825CD9DE500317A70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CardView.xib; sourceTree = "<group>"; };
 		7FC0C5E925CD9DE500317A70 /* PickerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerControl.swift; sourceTree = "<group>"; };
 		7FC0C5EA25CD9DE500317A70 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -427,6 +433,7 @@
 				6306CE0A24B3C695007628F8 /* credit */,
 				6339F06C24B36F5E008C8554 /* Store.swift */,
 				6339F07024B372B7008C8554 /* Package.swift */,
+				7FA43AC625D1918500914661 /* StoreViewModel.swift */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -814,6 +821,8 @@
 				7FCAB36B25CC885100BF63FC /* BranchPriceResponse.swift */,
 				7F3EA54425CDC3B800F2F6E1 /* AddCardResponse.swift */,
 				7F3EA54925CDCE3000F2F6E1 /* CardListResponse.swift */,
+				7FA43ABC25D1829B00914661 /* DeleteCodeBody.swift */,
+				7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -1255,10 +1264,12 @@
 				63FAB1CD24BCA0B100527EE0 /* YearSearcher.swift in Sources */,
 				6360B0A024AE701F00811899 /* SearchBar.swift in Sources */,
 				63981FBF24B8D24500693058 /* CreateNewAccount.swift in Sources */,
+				7FA43ABD25D1829B00914661 /* DeleteCodeBody.swift in Sources */,
 				7F8708A125C9A27400D28541 /* QueueViewModel.swift in Sources */,
 				633F103224B62AD600B284AE /* Artist.swift in Sources */,
 				7F741E5A25BB928000C23A6B /* AlbumStockResponse.swift in Sources */,
 				6339F05E24B35E66008C8554 /* IconBtn.swift in Sources */,
+				7FA43AC725D1918500914661 /* StoreViewModel.swift in Sources */,
 				6306CE0124B3A5E7007628F8 /* ProfileImage.swift in Sources */,
 				7FC0C5F525CD9DE500317A70 /* CardView.swift in Sources */,
 				6339F06D24B36F5E008C8554 /* Store.swift in Sources */,
@@ -1270,6 +1281,7 @@
 				7F741E3425BB4AEC00C23A6B /* SongsQueueResponse.swift in Sources */,
 				635D310724AE5265000062AF /* BranchesNav.swift in Sources */,
 				7F10762A25BF7A050011FF05 /* ArionAppHelper.swift in Sources */,
+				7FA43AC225D18EED00914661 /* CreditsPackagesResponse.swift in Sources */,
 				6339F06124B36094008C8554 /* Triangle.swift in Sources */,
 				0A18CD6925CB5261006C28BD /* SecureTextField.swift in Sources */,
 				7F741E4325BB5BFD00C23A6B /* SongsUriViewModel.swift in Sources */,
@@ -1477,7 +1489,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
-				DEVELOPMENT_TEAM = UA8F39F9KD;
+				DEVELOPMENT_TEAM = 95TDA5VUFH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "arion movil/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -26,7 +26,7 @@ struct CreditCards: View {
                 Spacer()
             }
             else{
-                if viewModel.creditCards.count != 0 && viewModel.creditCards != nil {
+                if viewModel.creditCards.count != 0  {
                     HStack {
                         List{
                             ForEach(viewModel.creditCards, id:\.self){credit in
@@ -34,7 +34,17 @@ struct CreditCards: View {
                                     CreditCardRow(card: credit)
                                     Spacer()
                                 }
-                            }.listStyle(PlainListStyle())
+                            }.onDelete(perform: { indexSet in
+                              
+                                //print("eliminar",viewModel.creditCards[])
+                                indexSet.forEach{(i) in
+                                   
+                                    print("eliminar", viewModel.creditCards[i].id!)
+                                    viewModel.deleteCard(cardId:viewModel.creditCards[i].id!)
+                                    viewModel.creditCards.remove(at: i)
+                                    
+                                }
+                            }).listStyle(PlainListStyle())
 
                         }
 
@@ -51,7 +61,7 @@ struct CreditCards: View {
           
             
                 Button(action:{
-                    var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
+                    let isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
                     if isAuth {
                         navigationToCreateCard = true
                     }

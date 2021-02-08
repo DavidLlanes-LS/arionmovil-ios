@@ -9,6 +9,7 @@ target 'arion movil' do
   pod 'Alamofire', '~> 5.2'
   pod 'GzipSwift'
   pod 'URLImage'
+  pod 'BottomSheet', :git => 'https://github.com/weitieda/bottom-sheet.git'
   target 'arion movilTests' do
     inherit! :search_paths
     # Pods for testing

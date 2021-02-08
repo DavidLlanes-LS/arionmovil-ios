@@ -9,12 +9,16 @@
 import SwiftUI
 
 struct Package: View {
+    var package:Packages
+    init(package:Packages){
+        self.package = package
+    }
     var body: some View {
         HStack{
             HStack{
-                TextWithCustomFonts("Básico",customFont: CustomFont(type: .bold, size: 16), color: Color("secondary-background")).frame(width:60)
-                TextWithCustomFonts("- 20 Créditos",customFont: CustomFont(type: .semibold, size: 16), color: Color("light-gray")).frame(minWidth:0,maxWidth: .infinity, alignment: .leading)
-                TextWithCustomFonts("$50",customFont: CustomFont(type: .bold, size: 16), color: Color("title")).frame(width:60).frame(width:40)
+                TextWithCustomFonts(package.name!,customFont: CustomFont(type: .bold, size: 16), color: Color("secondary-background"))
+                TextWithCustomFonts("- \(package.amount!) Créditos",customFont: CustomFont(type: .semibold, size: 16), color: Color("light-gray")).frame(minWidth:0,maxWidth: .infinity, alignment: .leading)
+                TextWithCustomFonts("$\(package.price!)",customFont: CustomFont(type: .bold, size: 16), color: Color("title")).frame(width:60).frame(width:40)
             }.padding()
         }.background(Color("gray-background"))
     }
@@ -22,7 +26,8 @@ struct Package: View {
 
 struct Package_Previews: PreviewProvider {
     static var previews: some View {
-        Package()
+        let package:Packages =  Packages()
+        Package(package: package)
         .environment(\.colorScheme, .dark)
     }
 }
