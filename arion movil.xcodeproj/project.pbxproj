@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A08EF1C25CDED5C006D921E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08EF1B25CDED5C006D921E /* SignUpViewModel.swift */; };
+		0A08EF2225CDEEB7006D921E /* SignUpBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08EF2125CDEEB7006D921E /* SignUpBody.swift */; };
+		0A08EF2725CDEFEF006D921E /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08EF2625CDEFEF006D921E /* SignUpResponse.swift */; };
+		0A08EF3425CDF740006D921E /* CountriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08EF3325CDF740006D921E /* CountriesResponse.swift */; };
 		0A18CD3525C9EEE5006C28BD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A18CD3425C9EEE5006C28BD /* LoginViewModel.swift */; };
 		0A18CD4325CA0E6B006C28BD /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A18CD4225CA0E6A006C28BD /* SignInResponse.swift */; };
 		0A18CD6925CB5261006C28BD /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A18CD6825CB5261006C28BD /* SecureTextField.swift */; };
@@ -78,7 +82,7 @@
 		6360B0B224AE889500811899 /* SearchBarFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360B0B124AE889500811899 /* SearchBarFilter.swift */; };
 		63981FBB24B8BE6000693058 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63981FBA24B8BE6000693058 /* LoginView.swift */; };
 		63981FBD24B8CB8500693058 /* SimpleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63981FBC24B8CB8500693058 /* SimpleBtn.swift */; };
-		63981FBF24B8D24500693058 /* CreateNewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63981FBE24B8D24500693058 /* CreateNewAccount.swift */; };
+		63981FBF24B8D24500693058 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63981FBE24B8D24500693058 /* SignUpView.swift */; };
 		639E4F4224AFD04200029A07 /* SimpleunderlineBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4124AFD04200029A07 /* SimpleunderlineBtn.swift */; };
 		639E4F4724AFEEE500029A07 /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4624AFEEE500029A07 /* QueueView.swift */; };
 		639E4F4924AFEF3A00029A07 /* QueueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E4F4824AFEF3A00029A07 /* QueueRow.swift */; };
@@ -162,6 +166,10 @@
 /* Begin PBXFileReference section */
 		025BA56F8C0398C931038451 /* Pods_arion_movilTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arion_movilTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		073690C853EF0E22A9B35408 /* Pods-arion movilTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movilTests.debug.xcconfig"; path = "Target Support Files/Pods-arion movilTests/Pods-arion movilTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0A08EF1B25CDED5C006D921E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		0A08EF2125CDEEB7006D921E /* SignUpBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBody.swift; sourceTree = "<group>"; };
+		0A08EF2625CDEFEF006D921E /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		0A08EF3325CDF740006D921E /* CountriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesResponse.swift; sourceTree = "<group>"; };
 		0A18CD3425C9EEE5006C28BD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0A18CD4225CA0E6A006C28BD /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		0A18CD6825CB5261006C28BD /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
@@ -242,7 +250,7 @@
 		6360B0B124AE889500811899 /* SearchBarFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarFilter.swift; sourceTree = "<group>"; };
 		63981FBA24B8BE6000693058 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		63981FBC24B8CB8500693058 /* SimpleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBtn.swift; sourceTree = "<group>"; };
-		63981FBE24B8D24500693058 /* CreateNewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccount.swift; sourceTree = "<group>"; };
+		63981FBE24B8D24500693058 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		639E4F4124AFD04200029A07 /* SimpleunderlineBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleunderlineBtn.swift; sourceTree = "<group>"; };
 		639E4F4624AFEEE500029A07 /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
 		639E4F4824AFEF3A00029A07 /* QueueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRow.swift; sourceTree = "<group>"; };
@@ -336,6 +344,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A08EF1425CDEC8B006D921E /* register */ = {
+			isa = PBXGroup;
+			children = (
+				63981FBE24B8D24500693058 /* SignUpView.swift */,
+				0A08EF1B25CDED5C006D921E /* SignUpViewModel.swift */,
+			);
+			path = register;
+			sourceTree = "<group>";
+		};
+		0A08EF2025CDEE84006D921E /* body */ = {
+			isa = PBXGroup;
+			children = (
+				7F87087625C99E0800D28541 /* AddQueue.swift */,
+				0A08EF2125CDEEB7006D921E /* SignUpBody.swift */,
+			);
+			path = body;
+			sourceTree = "<group>";
+		};
 		630198D124AFC3D9007C43F3 /* progressbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +530,7 @@
 				6360B0A524AE83A500811899 /* main */,
 				7F210E2325C5E3390074373D /* Home */,
 				63981FB924B8BD5200693058 /* login */,
+				0A08EF1425CDEC8B006D921E /* register */,
 				6306CDFD24B3A59D007628F8 /* profile */,
 				6339F06824B368D1008C8554 /* store */,
 				639E4F4524AFEDA100029A07 /* queue */,
@@ -554,13 +581,13 @@
 			isa = PBXGroup;
 			children = (
 				7F36B86025C1D7150011F98D /* api */,
+				0A08EF2025CDEE84006D921E /* body */,
 				7F36B85F25C1D6FD0011F98D /* cd */,
 				635D311424AE5A77000062AF /* Branch.swift */,
 				633F102A24B6251C00B284AE /* Song.swift */,
 				633F102D24B6274300B284AE /* Album.swift */,
 				633F103124B62AD600B284AE /* Artist.swift */,
 				63AB4BD024B7871500DBCFB9 /* MusicalGenre.swift */,
-				7F87087625C99E0800D28541 /* AddQueue.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -644,7 +671,6 @@
 			isa = PBXGroup;
 			children = (
 				63981FBA24B8BE6000693058 /* LoginView.swift */,
-				63981FBE24B8D24500693058 /* CreateNewAccount.swift */,
 				0A18CD3425C9EEE5006C28BD /* LoginViewModel.swift */,
 			);
 			path = login;
@@ -782,6 +808,8 @@
 				7F87087B25C99E9300D28541 /* AddQueueResponse.swift */,
 				0A18CD4225CA0E6A006C28BD /* SignInResponse.swift */,
 				7FCAB36B25CC885100BF63FC /* BranchPriceResponse.swift */,
+				0A08EF2625CDEFEF006D921E /* SignUpResponse.swift */,
+				0A08EF3325CDF740006D921E /* CountriesResponse.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -1133,6 +1161,7 @@
 				7F53E96025BA3DE80044D258 /* testService.swift in Sources */,
 				6360B0B224AE889500811899 /* SearchBarFilter.swift in Sources */,
 				6325359424AF7EA200651494 /* SongRow.swift in Sources */,
+				0A08EF3425CDF740006D921E /* CountriesResponse.swift in Sources */,
 				63AB4BCD24B7855200DBCFB9 /* AlbumSearcher.swift in Sources */,
 				635D30D524AE513D000062AF /* SceneDelegate.swift in Sources */,
 				6360B0A724AE83D400811899 /* Home.swift in Sources */,
@@ -1141,6 +1170,7 @@
 				6312061324B611C000CB0312 /* RedRectangleText.swift in Sources */,
 				6339F07124B372B8008C8554 /* Package.swift in Sources */,
 				0A18CD4325CA0E6B006C28BD /* SignInResponse.swift in Sources */,
+				0A08EF2225CDEEB7006D921E /* SignUpBody.swift in Sources */,
 				630198D324AFC3F0007C43F3 /* ProgressBar.swift in Sources */,
 				6325359824AF83BD00651494 /* MainTabBar.swift in Sources */,
 				7F10760625BF48DD0011FF05 /* LoaderComponent.swift in Sources */,
@@ -1158,6 +1188,7 @@
 				7F53E95325BA309B0044D258 /* BranchResponse.swift in Sources */,
 				633F102924B624F300B284AE /* SongSearcher.swift in Sources */,
 				7F36B81425C097990011F98D /* PersitenceController.swift in Sources */,
+				0A08EF1C25CDED5C006D921E /* SignUpViewModel.swift in Sources */,
 				633F102E24B6274300B284AE /* Album.swift in Sources */,
 				7F36B87E25C1D8280011F98D /* SongsState+CoreDataProperties.swift in Sources */,
 				7F741E3925BB4DDE00C23A6B /* MusicListViewModel.swift in Sources */,
@@ -1167,6 +1198,7 @@
 				63AB4BCF24B786AF00DBCFB9 /* MusicalGenreSearcher.swift in Sources */,
 				6360B0AC24AE84DC00811899 /* FilterButton.swift in Sources */,
 				6339F06324B36113008C8554 /* TurnedTriangle.swift in Sources */,
+				0A08EF2725CDEFEF006D921E /* SignUpResponse.swift in Sources */,
 				0A18CD3525C9EEE5006C28BD /* LoginViewModel.swift in Sources */,
 				7F53E96625BA4ABD0044D258 /* imageWeb.swift in Sources */,
 				7F8708F725CC226700D28541 /* GenereRow.swift in Sources */,
@@ -1197,7 +1229,7 @@
 				635D310924AE52BE000062AF /* BranchRow.swift in Sources */,
 				63FAB1CD24BCA0B100527EE0 /* YearSearcher.swift in Sources */,
 				6360B0A024AE701F00811899 /* SearchBar.swift in Sources */,
-				63981FBF24B8D24500693058 /* CreateNewAccount.swift in Sources */,
+				63981FBF24B8D24500693058 /* SignUpView.swift in Sources */,
 				7F8708A125C9A27400D28541 /* QueueViewModel.swift in Sources */,
 				633F103224B62AD600B284AE /* Artist.swift in Sources */,
 				7F741E5A25BB928000C23A6B /* AlbumStockResponse.swift in Sources */,
