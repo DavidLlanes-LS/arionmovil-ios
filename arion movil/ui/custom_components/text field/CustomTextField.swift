@@ -14,11 +14,13 @@ struct CustomTextField: View {
     var customFont: CustomFont = CustomFont(type: .semibold, size: 16)
     var color: Color = .black
     var body: some View {
-        TextField(self.title, text: self.$textValue)
-            .font(.custom(self.customFont.type.rawValue, size: CGFloat(self.customFont.size))).foregroundColor(self.color)
-            .padding()
-            .background(Color.white)
-            .cornerRadius(4.0)
-            .opacity(0.8)
+        VStack {
+            TextField(self.title, text: self.$textValue)
+                .font(.custom(self.customFont.type.rawValue, size: CGFloat(self.customFont.size))).foregroundColor(self.color)
+                .padding()
+                .background(Color.white)
+                .cornerRadius(4.0)
+                .opacity(0.8)
+        }
     }
 }
