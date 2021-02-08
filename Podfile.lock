@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
+  - BottomSheet (1.0.5)
   - GzipSwift (5.1.1)
   - URLImage (2.2.0):
     - URLImage/Common (= 2.2.0)
@@ -23,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - BottomSheet (from `https://github.com/weitieda/bottom-sheet.git`)
   - GzipSwift
   - URLImage
 
@@ -32,11 +34,21 @@ SPEC REPOS:
     - GzipSwift
     - URLImage
 
+EXTERNAL SOURCES:
+  BottomSheet:
+    :git: https://github.com/weitieda/bottom-sheet.git
+
+CHECKOUT OPTIONS:
+  BottomSheet:
+    :commit: f2cd6acd19e1cdcbf25e34b92ca1ee7081f7a13c
+    :git: https://github.com/weitieda/bottom-sheet.git
+
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  BottomSheet: ef1e03a999a7ab82b0bc82c0fd2a6a1f43ebc90b
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
   URLImage: d58d7fa82e466c7576f2aea4f2113251a7a38ee9
 
-PODFILE CHECKSUM: b1d9de2cfcd7e4db03dcd569b108d091baec24f2
+PODFILE CHECKSUM: de9ed3130d6a7ebe01e4ec4391ba7a0708f84252
 
 COCOAPODS: 1.10.0

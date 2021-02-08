@@ -190,10 +190,11 @@ struct Home: View {
             }
             titles = Array(Set(titles))
             musicList = titles
-            musicList.sort{
-                $0.name!<$1.name!
-            }
-            count = musicList.count - 1
+//            musicList.sort{
+//                $0.name!<$1.name!
+//            }
+            //count = musicList.count - 1
+            count = 30 - 1
         }
         
     }

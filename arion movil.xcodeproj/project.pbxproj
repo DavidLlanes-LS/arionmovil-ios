@@ -118,6 +118,10 @@
 		7F36B89B25C1E1170011F98D /* AlbumStockCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B88D25C1E1170011F98D /* AlbumStockCD+CoreDataProperties.swift */; };
 		7F36B89C25C1E1170011F98D /* PlaylistCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B88E25C1E1170011F98D /* PlaylistCD+CoreDataClass.swift */; };
 		7F36B89D25C1E1170011F98D /* PlaylistCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B88F25C1E1170011F98D /* PlaylistCD+CoreDataProperties.swift */; };
+		7F3EA53B25CDBA4900F2F6E1 /* AddCardBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EA53A25CDBA4900F2F6E1 /* AddCardBody.swift */; };
+		7F3EA54025CDBD4100F2F6E1 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EA53F25CDBD4100F2F6E1 /* CardViewModel.swift */; };
+		7F3EA54525CDC3B800F2F6E1 /* AddCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EA54425CDC3B800F2F6E1 /* AddCardResponse.swift */; };
+		7F3EA54A25CDCE3000F2F6E1 /* CardListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EA54925CDCE3000F2F6E1 /* CardListResponse.swift */; };
 		7F53E91225BA22DC0044D258 /* ExpandedSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E91125BA22DC0044D258 /* ExpandedSearchBar.swift */; };
 		7F53E92625BA2A6E0044D258 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E92525BA2A6E0044D258 /* ApiService.swift */; };
 		7F53E92B25BA2AC20044D258 /* ApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53E92A25BA2AC20044D258 /* ApiSession.swift */; };
@@ -140,6 +144,18 @@
 		7F8708A125C9A27400D28541 /* QueueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8708A025C9A27400D28541 /* QueueViewModel.swift */; };
 		7F8708F725CC226700D28541 /* GenereRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8708F625CC226700D28541 /* GenereRow.swift */; };
 		7F87090225CC286500D28541 /* SeeAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87090125CC286500D28541 /* SeeAll.swift */; };
+		7FA43ABD25D1829B00914661 /* DeleteCodeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43ABC25D1829B00914661 /* DeleteCodeBody.swift */; };
+		7FA43AC225D18EED00914661 /* CreditsPackagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */; };
+		7FA43AC725D1918500914661 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43AC625D1918500914661 /* StoreViewModel.swift */; };
+		7FA43B0F25D1BD7500914661 /* AddQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43B0E25D1BD7500914661 /* AddQueue.swift */; };
+		7FC0C5F325CD9DE500317A70 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC0C5E725CD9DE500317A70 /* CardView.xib */; };
+		7FC0C5F425CD9DE500317A70 /* PickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5E925CD9DE500317A70 /* PickerControl.swift */; };
+		7FC0C5F525CD9DE500317A70 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5EA25CD9DE500317A70 /* CardView.swift */; };
+		7FC0C5F625CD9DE500317A70 /* OPToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5EB25CD9DE500317A70 /* OPToken.swift */; };
+		7FC0C5F725CD9DE500317A70 /* OPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5EE25CD9DE500317A70 /* OPAddress.swift */; };
+		7FC0C5F825CD9DE500317A70 /* SecureUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5EF25CD9DE500317A70 /* SecureUITextField.swift */; };
+		7FC0C5F925CD9DE500317A70 /* OPCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5F025CD9DE500317A70 /* OPCard.swift */; };
+		7FC0C5FA25CD9DE500317A70 /* Openpay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5F225CD9DE500317A70 /* Openpay.swift */; };
 		7FCAB36C25CC885100BF63FC /* BranchPriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCAB36B25CC885100BF63FC /* BranchPriceResponse.swift */; };
 		93003F2D36E92532DD8A33F6 /* Pods_arion_movil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E30C18857BE7F131ECFFCF /* Pods_arion_movil.framework */; };
 		AF18FEEC5F13C881C111ADBD /* Pods_arion_movil_arion_movilUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116FBD71EBA89BB8262849CF /* Pods_arion_movil_arion_movilUITests.framework */; };
@@ -287,6 +303,10 @@
 		7F36B88D25C1E1170011F98D /* AlbumStockCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumStockCD+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7F36B88E25C1E1170011F98D /* PlaylistCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaylistCD+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7F36B88F25C1E1170011F98D /* PlaylistCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaylistCD+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7F3EA53A25CDBA4900F2F6E1 /* AddCardBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardBody.swift; sourceTree = "<group>"; };
+		7F3EA53F25CDBD4100F2F6E1 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		7F3EA54425CDC3B800F2F6E1 /* AddCardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardResponse.swift; sourceTree = "<group>"; };
+		7F3EA54925CDCE3000F2F6E1 /* CardListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListResponse.swift; sourceTree = "<group>"; };
 		7F53E91125BA22DC0044D258 /* ExpandedSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedSearchBar.swift; sourceTree = "<group>"; };
 		7F53E92525BA2A6E0044D258 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		7F53E92A25BA2AC20044D258 /* ApiSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSession.swift; sourceTree = "<group>"; };
@@ -309,6 +329,21 @@
 		7F8708A025C9A27400D28541 /* QueueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewModel.swift; sourceTree = "<group>"; };
 		7F8708F625CC226700D28541 /* GenereRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenereRow.swift; sourceTree = "<group>"; };
 		7F87090125CC286500D28541 /* SeeAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAll.swift; sourceTree = "<group>"; };
+		7FA43ABC25D1829B00914661 /* DeleteCodeBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCodeBody.swift; sourceTree = "<group>"; };
+		7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsPackagesResponse.swift; sourceTree = "<group>"; };
+		7FA43AC625D1918500914661 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
+		7FA43B0E25D1BD7500914661 /* AddQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQueue.swift; sourceTree = "<group>"; };
+		7FC0C5E825CD9DE500317A70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CardView.xib; sourceTree = "<group>"; };
+		7FC0C5E925CD9DE500317A70 /* PickerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerControl.swift; sourceTree = "<group>"; };
+		7FC0C5EA25CD9DE500317A70 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		7FC0C5EB25CD9DE500317A70 /* OPToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPToken.swift; sourceTree = "<group>"; };
+		7FC0C5EC25CD9DE500317A70 /* Openpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Openpay.h; sourceTree = "<group>"; };
+		7FC0C5ED25CD9DE500317A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CardView.xib; sourceTree = "<group>"; };
+		7FC0C5EE25CD9DE500317A70 /* OPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPAddress.swift; sourceTree = "<group>"; };
+		7FC0C5EF25CD9DE500317A70 /* SecureUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureUITextField.swift; sourceTree = "<group>"; };
+		7FC0C5F025CD9DE500317A70 /* OPCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPCard.swift; sourceTree = "<group>"; };
+		7FC0C5F125CD9DE500317A70 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "es-MX"; path = "es-MX.lproj/CardView.xib"; sourceTree = "<group>"; };
+		7FC0C5F225CD9DE500317A70 /* Openpay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Openpay.swift; sourceTree = "<group>"; };
 		7FCAB36B25CC885100BF63FC /* BranchPriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchPriceResponse.swift; sourceTree = "<group>"; };
 		83DFB0455310CB98BCFB93DD /* Pods-arion movil-arion movilUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil-arion movilUITests.debug.xcconfig"; path = "Target Support Files/Pods-arion movil-arion movilUITests/Pods-arion movil-arion movilUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		92FF48A9489CFD14ECE5FAF1 /* Pods-arion movilTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movilTests.release.xcconfig"; path = "Target Support Files/Pods-arion movilTests/Pods-arion movilTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -356,7 +391,6 @@
 		0A08EF2025CDEE84006D921E /* body */ = {
 			isa = PBXGroup;
 			children = (
-				7F87087625C99E0800D28541 /* AddQueue.swift */,
 				0A08EF2125CDEEB7006D921E /* SignUpBody.swift */,
 			);
 			path = body;
@@ -398,6 +432,7 @@
 				6306CE0C24B3C6B8007628F8 /* CreditCards.swift */,
 				6306CE0E24B3C6DA007628F8 /* CreditCardRow.swift */,
 				63DC28DA24B5185E0062C4D8 /* CreateNewCreditCard.swift */,
+				7F3EA53F25CDBD4100F2F6E1 /* CardViewModel.swift */,
 			);
 			path = "credit-cards";
 			sourceTree = "<group>";
@@ -425,6 +460,7 @@
 				6306CE0A24B3C695007628F8 /* credit */,
 				6339F06C24B36F5E008C8554 /* Store.swift */,
 				6339F07024B372B7008C8554 /* Package.swift */,
+				7FA43AC625D1918500914661 /* StoreViewModel.swift */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -485,6 +521,7 @@
 		635D30D124AE513D000062AF /* arion movil */ = {
 			isa = PBXGroup;
 			children = (
+				7FC0C5E625CD9DE500317A70 /* Openpay */,
 				7F53E91725BA288D0044D258 /* data */,
 				7F53E91625BA28790044D258 /* domain */,
 				6360B0A124AE7FEF00811899 /* managers */,
@@ -588,6 +625,9 @@
 				633F102D24B6274300B284AE /* Album.swift */,
 				633F103124B62AD600B284AE /* Artist.swift */,
 				63AB4BD024B7871500DBCFB9 /* MusicalGenre.swift */,
+				7F87087625C99E0800D28541 /* AddQueue.swift */,
+				7F3EA53A25CDBA4900F2F6E1 /* AddCardBody.swift */,
+				7FA43B0E25D1BD7500914661 /* AddQueue.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -810,6 +850,10 @@
 				7FCAB36B25CC885100BF63FC /* BranchPriceResponse.swift */,
 				0A08EF2625CDEFEF006D921E /* SignUpResponse.swift */,
 				0A08EF3325CDF740006D921E /* CountriesResponse.swift */,
+				7F3EA54425CDC3B800F2F6E1 /* AddCardResponse.swift */,
+				7F3EA54925CDCE3000F2F6E1 /* CardListResponse.swift */,
+				7FA43ABC25D1829B00914661 /* DeleteCodeBody.swift */,
+				7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -866,6 +910,22 @@
 				7F8708F625CC226700D28541 /* GenereRow.swift */,
 			);
 			path = rows;
+			sourceTree = "<group>";
+		};
+		7FC0C5E625CD9DE500317A70 /* Openpay */ = {
+			isa = PBXGroup;
+			children = (
+				7FC0C5E725CD9DE500317A70 /* CardView.xib */,
+				7FC0C5E925CD9DE500317A70 /* PickerControl.swift */,
+				7FC0C5EA25CD9DE500317A70 /* CardView.swift */,
+				7FC0C5EB25CD9DE500317A70 /* OPToken.swift */,
+				7FC0C5EC25CD9DE500317A70 /* Openpay.h */,
+				7FC0C5EE25CD9DE500317A70 /* OPAddress.swift */,
+				7FC0C5EF25CD9DE500317A70 /* SecureUITextField.swift */,
+				7FC0C5F025CD9DE500317A70 /* OPCard.swift */,
+				7FC0C5F225CD9DE500317A70 /* Openpay.swift */,
+			);
+			path = Openpay;
 			sourceTree = "<group>";
 		};
 		A21AB6E488325072D410A668 /* Pods */ = {
@@ -983,6 +1043,7 @@
 				en,
 				Base,
 				"es-419",
+				"es-MX",
 			);
 			mainGroup = 635D30C624AE513D000062AF;
 			productRefGroup = 635D30D024AE513D000062AF /* Products */;
@@ -1002,6 +1063,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6360B09824AE6EDE00811899 /* Exo-MediumItalic.ttf in Resources */,
+				7FC0C5F325CD9DE500317A70 /* CardView.xib in Resources */,
 				6360B08E24AE6EDE00811899 /* Exo-Bold.ttf in Resources */,
 				6360B09A24AE6EDE00811899 /* Exo-SemiBold.ttf in Resources */,
 				6360B09424AE6EDE00811899 /* Exo-Italic.ttf in Resources */,
@@ -1167,6 +1229,7 @@
 				6360B0A724AE83D400811899 /* Home.swift in Sources */,
 				639E4F4224AFD04200029A07 /* SimpleunderlineBtn.swift in Sources */,
 				63AB4BC824B77A4000DBCFB9 /* ChangePasswordEmail.swift in Sources */,
+				7FC0C5F925CD9DE500317A70 /* OPCard.swift in Sources */,
 				6312061324B611C000CB0312 /* RedRectangleText.swift in Sources */,
 				6339F07124B372B8008C8554 /* Package.swift in Sources */,
 				0A18CD4325CA0E6B006C28BD /* SignInResponse.swift in Sources */,
@@ -1175,6 +1238,7 @@
 				6325359824AF83BD00651494 /* MainTabBar.swift in Sources */,
 				7F10760625BF48DD0011FF05 /* LoaderComponent.swift in Sources */,
 				633F103E24B6731B00B284AE /* UserDefaultManager.swift in Sources */,
+				7FC0C5F425CD9DE500317A70 /* PickerControl.swift in Sources */,
 				635D310C24AE5520000062AF /* LogoImage.swift in Sources */,
 				6312AABD24B797C300256983 /* SongAlbumRow.swift in Sources */,
 				7F53E92B25BA2AC20044D258 /* ApiSession.swift in Sources */,
@@ -1201,20 +1265,25 @@
 				0A08EF2725CDEFEF006D921E /* SignUpResponse.swift in Sources */,
 				0A18CD3525C9EEE5006C28BD /* LoginViewModel.swift in Sources */,
 				7F53E96625BA4ABD0044D258 /* imageWeb.swift in Sources */,
+				7FC0C5FA25CD9DE500317A70 /* Openpay.swift in Sources */,
 				7F8708F725CC226700D28541 /* GenereRow.swift in Sources */,
 				633F103724B66F1100B284AE /* ShopHistory.swift in Sources */,
+				7FC0C5F625CD9DE500317A70 /* OPToken.swift in Sources */,
+				7F3EA54A25CDCE3000F2F6E1 /* CardListResponse.swift in Sources */,
 				6306CE0F24B3C6DA007628F8 /* CreditCardRow.swift in Sources */,
 				7F36B89525C1E1170011F98D /* AlbumCD+CoreDataProperties.swift in Sources */,
 				7F36B89925C1E1170011F98D /* EventCD+CoreDataProperties.swift in Sources */,
 				63AB4BD424B791FE00DBCFB9 /* SongsAlbum.swift in Sources */,
 				63AB4BCB24B77DB200DBCFB9 /* Help.swift in Sources */,
 				6306CDFF24B3A5AB007628F8 /* Profile.swift in Sources */,
+				7F3EA54025CDBD4100F2F6E1 /* CardViewModel.swift in Sources */,
 				639E4F4924AFEF3A00029A07 /* QueueRow.swift in Sources */,
 				7F87087C25C99E9300D28541 /* AddQueueResponse.swift in Sources */,
 				633F103424B63B1600B284AE /* ArtistSearcher.swift in Sources */,
 				635D311524AE5A77000062AF /* Branch.swift in Sources */,
 				6325359624AF7ED400651494 /* SongItem.swift in Sources */,
 				633F103C24B6719200B284AE /* Settings.swift in Sources */,
+				7F3EA53B25CDBA4900F2F6E1 /* AddCardBody.swift in Sources */,
 				6360B0A324AE7FFE00811899 /* LocationManager.swift in Sources */,
 				63DC28DE24B51A360062C4D8 /* CustomTextField.swift in Sources */,
 				7F53E95825BA378D0044D258 /* BranchesViewModel.swift in Sources */,
@@ -1224,25 +1293,32 @@
 				7F53E92625BA2A6E0044D258 /* ApiService.swift in Sources */,
 				7F36B89225C1E1170011F98D /* PeriodCD+CoreDataClass.swift in Sources */,
 				7F87090225CC286500D28541 /* SeeAll.swift in Sources */,
+				7FA43B0F25D1BD7500914661 /* AddQueue.swift in Sources */,
 				7F36B89325C1E1170011F98D /* PeriodCD+CoreDataProperties.swift in Sources */,
 				6325359A24AF84B600651494 /* CurrentSong.swift in Sources */,
 				635D310924AE52BE000062AF /* BranchRow.swift in Sources */,
 				63FAB1CD24BCA0B100527EE0 /* YearSearcher.swift in Sources */,
 				6360B0A024AE701F00811899 /* SearchBar.swift in Sources */,
 				63981FBF24B8D24500693058 /* SignUpView.swift in Sources */,
+				7FA43ABD25D1829B00914661 /* DeleteCodeBody.swift in Sources */,
+				63981FBF24B8D24500693058 /* SignUpView.swift in Sources */,
 				7F8708A125C9A27400D28541 /* QueueViewModel.swift in Sources */,
 				633F103224B62AD600B284AE /* Artist.swift in Sources */,
 				7F741E5A25BB928000C23A6B /* AlbumStockResponse.swift in Sources */,
 				6339F05E24B35E66008C8554 /* IconBtn.swift in Sources */,
+				7FA43AC725D1918500914661 /* StoreViewModel.swift in Sources */,
 				6306CE0124B3A5E7007628F8 /* ProfileImage.swift in Sources */,
+				7FC0C5F525CD9DE500317A70 /* CardView.swift in Sources */,
 				6339F06D24B36F5E008C8554 /* Store.swift in Sources */,
 				7F87089425C9A14F00D28541 /* Dictionary+Encoded.swift in Sources */,
 				7F36B89A25C1E1170011F98D /* AlbumStockCD+CoreDataClass.swift in Sources */,
 				7F36B89025C1E1170011F98D /* TitleCD+CoreDataClass.swift in Sources */,
 				7F53E94E25BA2DF90044D258 /*  ArionService.swift in Sources */,
+				7FC0C5F725CD9DE500317A70 /* OPAddress.swift in Sources */,
 				7F741E3425BB4AEC00C23A6B /* SongsQueueResponse.swift in Sources */,
 				635D310724AE5265000062AF /* BranchesNav.swift in Sources */,
 				7F10762A25BF7A050011FF05 /* ArionAppHelper.swift in Sources */,
+				7FA43AC225D18EED00914661 /* CreditsPackagesResponse.swift in Sources */,
 				6339F06124B36094008C8554 /* Triangle.swift in Sources */,
 				0A18CD6925CB5261006C28BD /* SecureTextField.swift in Sources */,
 				7F741E4325BB5BFD00C23A6B /* SongsUriViewModel.swift in Sources */,
@@ -1251,10 +1327,12 @@
 				7F36B89825C1E1170011F98D /* EventCD+CoreDataClass.swift in Sources */,
 				0A4C344F25C9C1C900785422 /* Constants.swift in Sources */,
 				6306CE0524B3B6E8007628F8 /* RectangleBtn.swift in Sources */,
+				7FC0C5F825CD9DE500317A70 /* SecureUITextField.swift in Sources */,
 				7F87087725C99E0800D28541 /* AddQueue.swift in Sources */,
 				63AB4BD124B7871500DBCFB9 /* MusicalGenre.swift in Sources */,
 				7F6E25EB25C30D2A00E797C3 /* GridViewSong.swift in Sources */,
 				6306CE0D24B3C6B8007628F8 /* CreditCards.swift in Sources */,
+				7F3EA54525CDC3B800F2F6E1 /* AddCardResponse.swift in Sources */,
 				63981FBB24B8BE6000693058 /* LoginView.swift in Sources */,
 				7F53E91225BA22DC0044D258 /* ExpandedSearchBar.swift in Sources */,
 				7F36B87D25C1D8280011F98D /* SongsState+CoreDataClass.swift in Sources */,
@@ -1310,6 +1388,16 @@
 				7F07225F25BA6279009E6E95 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7FC0C5E725CD9DE500317A70 /* CardView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FC0C5E825CD9DE500317A70 /* en */,
+				7FC0C5ED25CD9DE500317A70 /* Base */,
+				7FC0C5F125CD9DE500317A70 /* es-MX */,
+			);
+			name = CardView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1438,7 +1526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
-				DEVELOPMENT_TEAM = UA8F39F9KD;
+				DEVELOPMENT_TEAM = 95TDA5VUFH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "arion movil/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

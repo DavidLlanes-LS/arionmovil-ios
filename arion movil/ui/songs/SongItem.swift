@@ -40,8 +40,9 @@ struct SongItem: View {
                     if(hasCorners){
                         VStack {
                             
-                            TextWithCustomFonts(song.artist ?? "No hay", customFont: CustomFont(type: .bold, size: 8)).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
+                           
                             TextWithCustomFonts(song.name ?? "No hay", customFont: CustomFont(type: .bold, size: 12)).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
+                            TextWithCustomFonts(song.artist ?? "No hay", customFont: CustomFont(type: .bold, size: 8)).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
                             Spacer().frame(height:2)
                             
                         }.frame(maxWidth:.infinity).background(Color.white).onAppear{

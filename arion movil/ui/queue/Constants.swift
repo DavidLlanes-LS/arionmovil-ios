@@ -14,4 +14,6 @@ struct Constants {
     static let keyUserId: String = "user_id"
     static let keyLocationId: String  = "location_id"
     static let keyCookie:String = "cookie"
+    static let keyOpenPay:String = "pk_1643e9f30f534e32afb0cd51e8b2693a"
+    static let idOpenPayMerchant:String = "mqjmzuhblyqymlbmg3y8"
 }

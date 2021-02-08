@@ -151,7 +151,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
             titles = Array(Set(titles))
             musicList = titles
             musicList.sort{
-                $0.name!<$1.name!
+                $0.artist!<$1.artist!
             }
             count = musicList.count - 1
             let sections = Set(musicList.map{ $0.artist!})
