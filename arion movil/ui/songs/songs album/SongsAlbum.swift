@@ -11,6 +11,7 @@ struct SongsAlbum: View {
     @StateObject var queueViewModel = QueueViewModel()
     @State var musicList:[TitleCD] = []
     @State var navigateLogin = false
+    @StateObject var storeViewModel = StoreViewModel()
     var songs:[Song] = [Song(id: 1, name: "Lost",artist: Artist(id: 1, name: "Frank Ocean"))]
     var body: some View {
         VStack{

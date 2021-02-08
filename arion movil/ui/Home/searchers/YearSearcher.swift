@@ -12,6 +12,7 @@ struct YearSearcher: View {
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
     
     @State var NavLogin = false
+    @StateObject var storeViewModel = StoreViewModel()
     @State public var searchText : String = ""
     init(branchId: String){
         viewModel.branchId = branchId

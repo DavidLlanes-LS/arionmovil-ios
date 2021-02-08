@@ -10,6 +10,7 @@ import SwiftUI
 struct MusicalGenreSearcher: View {
     @StateObject var queueViewModel = QueueViewModel()
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
+    @StateObject var storeViewModel = StoreViewModel()
     @State var NavLogin:Bool = false
     init(branchId: String){
         

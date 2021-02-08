@@ -11,6 +11,7 @@ struct SeeAll: View {
     @ObservedObject var viewModel:SongsUriViewModel = SongsUriViewModel()
     @StateObject var queueViewModel = QueueViewModel()
     @State var navigateLogin:Bool = false
+    @StateObject var storeViewModel = StoreViewModel()
     init(branchId: String){
         viewModel.branchId = branchId
         viewModel.setDataCD()

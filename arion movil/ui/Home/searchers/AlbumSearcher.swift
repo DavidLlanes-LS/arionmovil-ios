@@ -12,6 +12,7 @@ struct AlbumSearcher: View {
     var letters: [Character] = (0..<26).map {
         i in Character(UnicodeScalar("A".unicodeScalars[ "A".unicodeScalars.startIndex].value + i)!)
     }
+    @StateObject var storeViewModel = StoreViewModel()
     var albums:[Album] = [Album(id: 1, name: "De jira con dualipa", image: "dualipa")]
     @State public var searchText : String = ""
     @State var NavLogin:Bool = false
@@ -36,7 +37,7 @@ struct AlbumSearcher: View {
                     
                 }
             }
-        }.navigationBarTitle("Albúmes",displayMode: .inline)
+        }.navigationBarTitle("Àlbumes",displayMode: .inline)
     }
     
 }

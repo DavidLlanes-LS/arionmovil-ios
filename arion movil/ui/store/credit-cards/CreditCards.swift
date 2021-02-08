@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CreditCards: View {
     @StateObject var viewModel = CardViewModel()
-    
+    @EnvironmentObject var appSettings: AppHelper;
     @State var navigationToLogin: Bool = false
     @State var navigationToCreateCard: Bool = false
     @State var showAlert: Bool = false
@@ -35,20 +35,23 @@ struct CreditCards: View {
                                     Spacer()
                                 }
                             }.onDelete(perform: { indexSet in
-                              
+                                
                                 //print("eliminar",viewModel.creditCards[])
                                 indexSet.forEach{(i) in
-                                   
+                                    
                                     print("eliminar", viewModel.creditCards[i].id!)
                                     viewModel.deleteCard(cardId:viewModel.creditCards[i].id!)
                                     viewModel.creditCards.remove(at: i)
+                                    viewModel.appSettings = self.appSettings
+                                    
+                                   
                                     
                                 }
                             }).listStyle(PlainListStyle())
-
+                            
                         }
-
-
+                        
+                        
                     }
                 }
                 else{
@@ -56,25 +59,26 @@ struct CreditCards: View {
                     TextWithCustomFonts("No cuentas con tarjetas registradas",customFont: CustomFont(type: .bold, size: 16),color: Color("title-row")).frame(minWidth:0, maxWidth: .infinity, alignment: .center)
                     Spacer()
                 }
-               
+                
             }
-          
             
-                Button(action:{
-                    let isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
-                    if isAuth {
-                        navigationToCreateCard = true
-                    }
-                    else{
-                        showAlert = true
-                    }
-                    
-                }) {
-                    RedRectangleText("Añadir método de pago").frame(width: 250, height: 40, alignment: .center)
+            
+            Button(action:{
+                let isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
+                if isAuth {
+                    navigationToCreateCard = true
                 }
+                else{
+                    showAlert = true
+                }
+                
+            }) {
+                RedRectangleText("Añadir método de pago").frame(width: 250, height: 40, alignment: .center)
+            }
             
-           
+            
         }.padding().background(Color("background")).navigationBarTitle("Método de pago").onAppear{
+            viewModel.appSettings = self.appSettings
             viewModel.getCreditList()
             //viewModel.getCreditCards()
         }.alert(isPresented: $showAlert, content: {

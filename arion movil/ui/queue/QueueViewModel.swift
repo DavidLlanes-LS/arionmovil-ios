@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 class QueueViewModel: ObservableObject, ArionService {
-    
+   
     var apiSession: APIService
     var cancellables = Set<AnyCancellable>()
     var branchPrice:BranchPriceResponse?
@@ -42,6 +42,7 @@ class QueueViewModel: ObservableObject, ArionService {
             }) { (queue) in
                 DispatchQueue.main.async {
                     self.songs = queue.titlesInQueue
+                   
                 }
             }
         cancellables.insert(cancellable)
@@ -94,7 +95,9 @@ class QueueViewModel: ObservableObject, ArionService {
         let userId = UserDefaults.standard.string(forKey: Constants.keyUserId)
         print("branchprice",branchPrice!.basePrice)
         if userId != nil
-        { self.addQueue(body: AddQueue(userId: userId!, locationId: self.locationId!, playerId: self.playerId!, mediaTitleId: id, creditsToCharge: branchPrice!.basePrice, positionToAdvance: -1)){result, error in}}
-        
+        { self.addQueue(body: AddQueue(userId: userId!, locationId: self.locationId!, playerId: self.playerId!, mediaTitleId: id, creditsToCharge: branchPrice!.basePrice, positionToAdvance: -1)){result, error in
+           
+        }}
+         
     }
 }

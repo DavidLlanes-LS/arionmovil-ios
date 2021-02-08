@@ -11,7 +11,7 @@ import SwiftUI
 struct SearchBarFilter: View {
     var body: some View {
         HStack{
-            TextWithCustomFonts("Canción, artísta o albúm",color: Color("title-row"))
+            TextWithCustomFonts("Canción, artísta o álbum",color: Color("title-row"))
             Spacer()
             Image(systemName: "magnifyingglass").foregroundColor(Color("secondary-background"))
             }.padding().frame(height:60).background(Color("searchbar"))

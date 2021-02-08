@@ -16,7 +16,7 @@ struct FilterGrid: View {
                 FilterButton(text: "Artistas"){
                     self.openFilter(1)
                 }
-                FilterButton(text: "Albúmes"){
+                FilterButton(text: "Álbumes"){
                     self.openFilter(2)
                     
                 }

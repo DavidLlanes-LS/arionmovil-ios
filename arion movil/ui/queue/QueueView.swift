@@ -9,15 +9,17 @@ import SwiftUI
 
 struct QueueView: View {
     @StateObject var viewModel = QueueViewModel()
+    @StateObject var storeViewModel = StoreViewModel()
+    @EnvironmentObject var appSettings: AppHelper
     @State var navigationToLogin: Bool = false
-    
+  
     var body: some View {
         NavigationView {
             VStack(spacing:0) {
                 NavigationLink(destination: LoginView(), isActive: self.$navigationToLogin) {
                     Spacer().fixedSize()
                 }
-                AvailableCredits()
+                AvailableCredits(credits:$appSettings.userCredits)
                 VStack {
                     HStack {
                         TextWithCustomFonts("Termina en",customFont: CustomFont(type: .bold, size: 17))
@@ -47,9 +49,13 @@ struct QueueView: View {
                 }
                 .onAppear(perform: {
                     self.viewModel.getQueue()
+                   
                 })
             }
             .navigationBarTitle("En fila", displayMode: .inline)
+        }.onAppear{
+            self.storeViewModel.appSettings = self.appSettings
+            storeViewModel.getCreditsUser()
         }
     }
     

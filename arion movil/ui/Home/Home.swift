@@ -11,6 +11,7 @@ struct Home: View {
     @EnvironmentObject var appSettings:AppHelper
     @StateObject var queueViewModel = QueueViewModel()
     @ObservedObject var viewModel:SongsUriViewModel = SongsUriViewModel()
+    @StateObject var storeModel = StoreViewModel()
     var fetchRequest: FetchRequest<AlbumStockCD> = FetchRequest<AlbumStockCD>(entity:AlbumStockCD.entity(), sortDescriptors: [], predicate: NSPredicate(format: "restaurantId == %@", ""))
     private var stock: FetchedResults<AlbumStockCD>{fetchRequest.wrappedValue}
     @State var navigateLogin = false
@@ -75,7 +76,6 @@ struct Home: View {
                                     HStack(spacing: 16){
                                         SongItem(song: musicList[i*2], navigateLogin: self.$navigateLogin,url:musicList[i*2].coverImageUri! ){id in
                                             queueViewModel.addNewQueue(id: id)
-                                            
                                         }.buttonStyle(PlainButtonStyle())
                                         SongItem(song: musicList[(i*2)+1], navigateLogin: self.$navigateLogin,url:musicList[(i*2)+1].coverImageUri!){ id in
                                             queueViewModel.addNewQueue(id: id)
@@ -95,7 +95,6 @@ struct Home: View {
                                     }.buttonStyle(PlainButtonStyle())
                                     SongItem(song: musicList[count], navigateLogin: self.$navigateLogin,url:musicList[count].coverImageUri!){id in
                                         queueViewModel.addNewQueue(id: id)
-                                        
                                     }.opacity(0.0).buttonStyle(PlainButtonStyle())
                                     
                                     

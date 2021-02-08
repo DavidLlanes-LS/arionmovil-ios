@@ -148,6 +148,8 @@
 		7FA43AC225D18EED00914661 /* CreditsPackagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */; };
 		7FA43AC725D1918500914661 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43AC625D1918500914661 /* StoreViewModel.swift */; };
 		7FA43B0F25D1BD7500914661 /* AddQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43B0E25D1BD7500914661 /* AddQueue.swift */; };
+		7FA43B1425D1DF6C00914661 /* BuyCreditsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43B1325D1DF6C00914661 /* BuyCreditsBody.swift */; };
+		7FA43B1925D1E72400914661 /* UserCreditsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43B1825D1E72400914661 /* UserCreditsResponse.swift */; };
 		7FC0C5F325CD9DE500317A70 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC0C5E725CD9DE500317A70 /* CardView.xib */; };
 		7FC0C5F425CD9DE500317A70 /* PickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5E925CD9DE500317A70 /* PickerControl.swift */; };
 		7FC0C5F525CD9DE500317A70 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5EA25CD9DE500317A70 /* CardView.swift */; };
@@ -333,6 +335,8 @@
 		7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsPackagesResponse.swift; sourceTree = "<group>"; };
 		7FA43AC625D1918500914661 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		7FA43B0E25D1BD7500914661 /* AddQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQueue.swift; sourceTree = "<group>"; };
+		7FA43B1325D1DF6C00914661 /* BuyCreditsBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyCreditsBody.swift; sourceTree = "<group>"; };
+		7FA43B1825D1E72400914661 /* UserCreditsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreditsResponse.swift; sourceTree = "<group>"; };
 		7FC0C5E825CD9DE500317A70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CardView.xib; sourceTree = "<group>"; };
 		7FC0C5E925CD9DE500317A70 /* PickerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerControl.swift; sourceTree = "<group>"; };
 		7FC0C5EA25CD9DE500317A70 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -628,6 +632,7 @@
 				7F87087625C99E0800D28541 /* AddQueue.swift */,
 				7F3EA53A25CDBA4900F2F6E1 /* AddCardBody.swift */,
 				7FA43B0E25D1BD7500914661 /* AddQueue.swift */,
+				7FA43B1325D1DF6C00914661 /* BuyCreditsBody.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -854,6 +859,7 @@
 				7F3EA54925CDCE3000F2F6E1 /* CardListResponse.swift */,
 				7FA43ABC25D1829B00914661 /* DeleteCodeBody.swift */,
 				7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */,
+				7FA43B1825D1E72400914661 /* UserCreditsResponse.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -1260,6 +1266,7 @@
 				6360B0AE24AE85DD00811899 /* FilterGrid.swift in Sources */,
 				7F36B89425C1E1170011F98D /* AlbumCD+CoreDataClass.swift in Sources */,
 				63AB4BCF24B786AF00DBCFB9 /* MusicalGenreSearcher.swift in Sources */,
+				7FA43B1925D1E72400914661 /* UserCreditsResponse.swift in Sources */,
 				6360B0AC24AE84DC00811899 /* FilterButton.swift in Sources */,
 				6339F06324B36113008C8554 /* TurnedTriangle.swift in Sources */,
 				0A08EF2725CDEFEF006D921E /* SignUpResponse.swift in Sources */,
@@ -1267,6 +1274,7 @@
 				7F53E96625BA4ABD0044D258 /* imageWeb.swift in Sources */,
 				7FC0C5FA25CD9DE500317A70 /* Openpay.swift in Sources */,
 				7F8708F725CC226700D28541 /* GenereRow.swift in Sources */,
+				7FA43B1425D1DF6C00914661 /* BuyCreditsBody.swift in Sources */,
 				633F103724B66F1100B284AE /* ShopHistory.swift in Sources */,
 				7FC0C5F625CD9DE500317A70 /* OPToken.swift in Sources */,
 				7F3EA54A25CDCE3000F2F6E1 /* CardListResponse.swift in Sources */,
