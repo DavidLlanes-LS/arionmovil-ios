@@ -64,6 +64,16 @@ extension ArionService {
             .eraseToAnyPublisher()
     }
     
+    func postSignUp(body: SignUpBody) -> AnyPublisher<SignUpResponse, APIError> {
+        return apiSession.request(with: ApiRequest().postSignUP(body: body))
+            .eraseToAnyPublisher()
+    }
+    
+    func getCountries()-> AnyPublisher<CountriesResponse,APIError> {
+        return apiSession.request(with: ApiRequest().getCountries())
+            .eraseToAnyPublisher()
+    }
+    
     func getStockUnzipped(branchId:String,catalogUri:String,completion: @escaping () -> () ){
         var file:Data = Data()
         AF.download(catalogUri).downloadProgress{bytesRead in

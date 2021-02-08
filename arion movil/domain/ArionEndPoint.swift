@@ -44,6 +44,40 @@ class ApiRequest{
         return urlRequest
     }
     
+    func getCountries()->URLRequest{
+        var urlRequest:URLRequest{
+            let urlRequest:String = "http://acsstaging.cloudapp.net/api/amcm/countries/get-all"
+            guard let url = URL(string: urlRequest)
+                else {preconditionFailure("Invalid URL format")}
+            let request = URLRequest(url: url)
+            
+            return request
+        }
+        
+        return urlRequest
+    }
+    
+    func postSignUP(body: SignUpBody)->URLRequest{
+        var urlRequest:URLRequest{
+            let urlRequest:String = "http://acsstaging.cloudapp.net/api/amcm/users/register-user"
+            guard let url = URL(string: urlRequest)
+                else { preconditionFailure("Invalid URL format") }
+            var request = URLRequest(url: url)
+            
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            print("body: \(body.getDic())")
+            
+            let bodyData = try? JSONSerialization.data(withJSONObject: body.getDic(), options: [])
+            request.httpBody = bodyData
+            request.httpMethod = "POST"
+           
+            return request
+        }
+        return urlRequest
+    }
+    
     func getSongQueue(playerId: String)->URLRequest{
         var urlRequest: URLRequest{
             let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/queue/get-queue/\(playerId)"

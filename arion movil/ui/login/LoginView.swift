@@ -11,9 +11,13 @@ import SwiftUI
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     @Environment(\.presentationMode) var presentationMode
+    @State var navigationToRegister = false
     
     var body: some View {
             ZStack{
+                NavigationLink(destination: SignUpView(), isActive: self.$navigationToRegister) {
+                    Spacer().fixedSize()
+                }
                 Image("background")
                     .resizable()
                 VStack{
@@ -48,7 +52,7 @@ struct LoginView: View {
                     
                     VStack(spacing:16){
                         SimpleBtn("Crear una cuenta", action: {
-                            
+                            self.navigationToRegister = true
                         }, color:Color.white)
                         SimpleBtn("Recupera tu contraaseña", action: {
                             
