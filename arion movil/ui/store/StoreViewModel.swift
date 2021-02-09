@@ -24,7 +24,6 @@ class StoreViewModel: ObservableObject, ArionService {
     }
     
     func getPackages() {
-        
         let cancellable = self.getPackagesList(branchid: locationId!)
             .sink(receiveCompletion: { result in
                 switch result {
@@ -37,7 +36,9 @@ class StoreViewModel: ObservableObject, ArionService {
                 }
             }) { (packages) in
                 DispatchQueue.main.async {
-                    self.pakcagesList = packages.packages!
+                    if (packages.packages != nil) {
+                        self.pakcagesList = packages.packages!
+                    }
                 }
             }
         cancellables.insert(cancellable)

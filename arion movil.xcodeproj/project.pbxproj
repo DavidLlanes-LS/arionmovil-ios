@@ -15,6 +15,10 @@
 		0A18CD4325CA0E6B006C28BD /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A18CD4225CA0E6A006C28BD /* SignInResponse.swift */; };
 		0A18CD6925CB5261006C28BD /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A18CD6825CB5261006C28BD /* SecureTextField.swift */; };
 		0A4C344F25C9C1C900785422 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C344E25C9C1C900785422 /* Constants.swift */; };
+		0AE25B5425D1D2950081C343 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE25B5325D1D2950081C343 /* RoundedTextField.swift */; };
+		0AE25B5C25D2E9CD0081C343 /* PickerRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE25B5B25D2E9CD0081C343 /* PickerRounded.swift */; };
+		0AE25B6125D2F13A0081C343 /* DatePickerRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE25B6025D2F13A0081C343 /* DatePickerRounded.swift */; };
+		0AE25B7225D343FF0081C343 /* RecoverPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE25B7125D343FF0081C343 /* RecoverPasswordView.swift */; };
 		630198D324AFC3F0007C43F3 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630198D224AFC3F0007C43F3 /* ProgressBar.swift */; };
 		6306CDFF24B3A5AB007628F8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6306CDFE24B3A5AB007628F8 /* Profile.swift */; };
 		6306CE0124B3A5E7007628F8 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6306CE0024B3A5E7007628F8 /* ProfileImage.swift */; };
@@ -190,6 +194,10 @@
 		0A18CD4225CA0E6A006C28BD /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		0A18CD6825CB5261006C28BD /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
 		0A4C344E25C9C1C900785422 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0AE25B5325D1D2950081C343 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		0AE25B5B25D2E9CD0081C343 /* PickerRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerRounded.swift; sourceTree = "<group>"; };
+		0AE25B6025D2F13A0081C343 /* DatePickerRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerRounded.swift; sourceTree = "<group>"; };
+		0AE25B7125D343FF0081C343 /* RecoverPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordView.swift; sourceTree = "<group>"; };
 		116FBD71EBA89BB8262849CF /* Pods_arion_movil_arion_movilUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arion_movil_arion_movilUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD0B4EF911D580D5E67209D /* Pods-arion movil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil.debug.xcconfig"; path = "Target Support Files/Pods-arion movil/Pods-arion movil.debug.xcconfig"; sourceTree = "<group>"; };
 		4F4A90C33FD1582C787F1923 /* Pods-arion movil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arion movil.release.xcconfig"; path = "Target Support Files/Pods-arion movil/Pods-arion movil.release.xcconfig"; sourceTree = "<group>"; };
@@ -396,6 +404,14 @@
 			path = body;
 			sourceTree = "<group>";
 		};
+		0AE25B7025D343C90081C343 /* recover_password */ = {
+			isa = PBXGroup;
+			children = (
+				0AE25B7125D343FF0081C343 /* RecoverPasswordView.swift */,
+			);
+			path = recover_password;
+			sourceTree = "<group>";
+		};
 		630198D124AFC3D9007C43F3 /* progressbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +584,7 @@
 				7F210E2325C5E3390074373D /* Home */,
 				63981FB924B8BD5200693058 /* login */,
 				0A08EF1425CDEC8B006D921E /* register */,
+				0AE25B7025D343C90081C343 /* recover_password */,
 				6306CDFD24B3A59D007628F8 /* profile */,
 				6339F06824B368D1008C8554 /* store */,
 				639E4F4524AFEDA100029A07 /* queue */,
@@ -772,6 +789,9 @@
 				63DC28DD24B51A360062C4D8 /* CustomTextField.swift */,
 				633F102524B61B8100B284AE /* TextBindingManager.swift */,
 				0A18CD6825CB5261006C28BD /* SecureTextField.swift */,
+				0AE25B5325D1D2950081C343 /* RoundedTextField.swift */,
+				0AE25B5B25D2E9CD0081C343 /* PickerRounded.swift */,
+				0AE25B6025D2F13A0081C343 /* DatePickerRounded.swift */,
 			);
 			path = "text field";
 			sourceTree = "<group>";
@@ -1216,6 +1236,7 @@
 				633F102B24B6251C00B284AE /* Song.swift in Sources */,
 				7F36B89D25C1E1170011F98D /* PlaylistCD+CoreDataProperties.swift in Sources */,
 				7F10762F25BF7A7B0011FF05 /* BranchesList.swift in Sources */,
+				0AE25B6125D2F13A0081C343 /* DatePickerRounded.swift in Sources */,
 				635D30D324AE513D000062AF /* AppDelegate.swift in Sources */,
 				6306CE1324B3C9EF007628F8 /* CustomFont.swift in Sources */,
 				63981FBD24B8CB8500693058 /* SimpleBtn.swift in Sources */,
@@ -1230,6 +1251,7 @@
 				639E4F4224AFD04200029A07 /* SimpleunderlineBtn.swift in Sources */,
 				63AB4BC824B77A4000DBCFB9 /* ChangePasswordEmail.swift in Sources */,
 				7FC0C5F925CD9DE500317A70 /* OPCard.swift in Sources */,
+				0AE25B5425D1D2950081C343 /* RoundedTextField.swift in Sources */,
 				6312061324B611C000CB0312 /* RedRectangleText.swift in Sources */,
 				6339F07124B372B8008C8554 /* Package.swift in Sources */,
 				0A18CD4325CA0E6B006C28BD /* SignInResponse.swift in Sources */,
@@ -1240,6 +1262,7 @@
 				633F103E24B6731B00B284AE /* UserDefaultManager.swift in Sources */,
 				7FC0C5F425CD9DE500317A70 /* PickerControl.swift in Sources */,
 				635D310C24AE5520000062AF /* LogoImage.swift in Sources */,
+				0AE25B5C25D2E9CD0081C343 /* PickerRounded.swift in Sources */,
 				6312AABD24B797C300256983 /* SongAlbumRow.swift in Sources */,
 				7F53E92B25BA2AC20044D258 /* ApiSession.swift in Sources */,
 				7FCAB36C25CC885100BF63FC /* BranchPriceResponse.swift in Sources */,
@@ -1277,6 +1300,7 @@
 				63AB4BCB24B77DB200DBCFB9 /* Help.swift in Sources */,
 				6306CDFF24B3A5AB007628F8 /* Profile.swift in Sources */,
 				7F3EA54025CDBD4100F2F6E1 /* CardViewModel.swift in Sources */,
+				0AE25B7225D343FF0081C343 /* RecoverPasswordView.swift in Sources */,
 				639E4F4924AFEF3A00029A07 /* QueueRow.swift in Sources */,
 				7F87087C25C99E9300D28541 /* AddQueueResponse.swift in Sources */,
 				633F103424B63B1600B284AE /* ArtistSearcher.swift in Sources */,
