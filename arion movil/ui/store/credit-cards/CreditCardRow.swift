@@ -21,7 +21,7 @@ struct CreditCardRow: View {
         VStack{
             VStack(alignment:.leading, spacing:32){
                 TextWithCustomFonts("Tarjeta guardada",customFont: CustomFont(type: .bold, size: 16),color: Color.white)
-                HStack(spacing:22){
+                HStack(alignment:.center,spacing:18){
                     HStack(spacing:8){
                         TextWithCustomFonts("*",customFont: CustomFont(type: .semibold, size: 22),color: .white)
                         TextWithCustomFonts("*",customFont: CustomFont(type: .semibold, size: 22),color: .white)
@@ -40,11 +40,11 @@ struct CreditCardRow: View {
                         TextWithCustomFonts("*",customFont: CustomFont(type: .semibold, size: 22),color: .white)
                         TextWithCustomFonts("*",customFont: CustomFont(type: .semibold, size: 22),color: .white)
                     }
-                    HStack(spacing:8){
-                        TextWithCustomFonts(String(card.cardNumber![12]),customFont: CustomFont(type: .bold, size: 17),color: .white)
-                        TextWithCustomFonts(String(card.cardNumber![13]),customFont: CustomFont(type: .bold, size: 17),color: .white)
-                        TextWithCustomFonts(String(card.cardNumber![14]),customFont: CustomFont(type: .bold, size: 17),color: .white)
-                        TextWithCustomFonts(String(card.cardNumber![15]),customFont: CustomFont(type: .bold, size: 17),color: .white)
+                    HStack(){
+                        TextWithCustomFonts(String(card.cardNumber!.suffix(4)),customFont: CustomFont(type: .bold, size: 15),color: .white)
+//                        TextWithCustomFonts(String(card.cardNumber![13]),customFont: CustomFont(type: .bold, size: 15),color: .white)
+//                        TextWithCustomFonts(String(card.cardNumber![14]),customFont: CustomFont(type: .bold, size: 15),color: .white)
+//                        TextWithCustomFonts(String(card.cardNumber![15]),customFont: CustomFont(type: .bold, size: 15),color: .white)
                     }
                 }.frame(minWidth:0, maxWidth: .infinity)
                 

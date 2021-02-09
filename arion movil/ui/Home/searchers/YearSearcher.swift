@@ -12,10 +12,11 @@ struct YearSearcher: View {
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
     
     @State var NavLogin = false
+    @StateObject var storeViewModel = StoreViewModel()
     @State public var searchText : String = ""
     init(branchId: String){
         viewModel.branchId = branchId
-        viewModel.setDataCD()
+        
     }
     @State var musicList:[TitleCD] = []
     var body: some View {
@@ -34,11 +35,12 @@ struct YearSearcher: View {
                                 }
                             }
                         }
-                    }
+                    }.listRowBackground(Color("background"))
                     
                 }
             }
         }.navigationBarTitle("Año",displayMode: .inline).onAppear{
+            viewModel.setDataCD()
             
         }
     }

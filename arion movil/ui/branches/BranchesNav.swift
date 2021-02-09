@@ -10,15 +10,22 @@ import SwiftUI
 
 struct BranchesNav: View {
    
-  
+    @StateObject var viewModel = CardViewModel()
+    @StateObject var storeViewModel = StoreViewModel()
     @EnvironmentObject var pageSettings: AppHelper;
+   
     
     var body: some View {
         if pageSettings.currentPage == "splash" {
             BranchesList()
         }
         else{
-            MainTabBar()
+            MainTabBar().onAppear{
+                viewModel.appSettings = self.pageSettings
+                viewModel.getCreditList()
+                storeViewModel.appSettings = self.pageSettings
+                storeViewModel.getCreditsUser()
+            }
             
         }
     }

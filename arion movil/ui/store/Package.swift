@@ -20,7 +20,7 @@ struct Package: View {
                 TextWithCustomFonts("- \(package.amount!) Créditos",customFont: CustomFont(type: .semibold, size: 16), color: Color("light-gray")).frame(minWidth:0,maxWidth: .infinity, alignment: .leading)
                 TextWithCustomFonts("$\(package.price!)",customFont: CustomFont(type: .bold, size: 16), color: Color("title")).frame(width:60).frame(width:40)
             }.padding()
-        }.background(Color("gray-background"))
+        }
     }
 }
 

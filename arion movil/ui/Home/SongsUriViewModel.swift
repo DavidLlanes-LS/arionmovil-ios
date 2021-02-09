@@ -16,6 +16,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
     var viewContext:NSManagedObjectContext = MyCoreBack.shared.background
     var songsState: [SongsState] = []
     var stock: [AlbumStockCD] = []
+    var appSettings:AppHelper?
     @Published var branchId:String = ""
     @Published var artistListMain:[String] = []
     @Published var genereList:[String] = []
@@ -34,8 +35,8 @@ class SongsUriViewModel: ObservableObject, ArionService {
         self.apiSession = apiSession
         self.branchId = branchId
         self.songsState = self.getSongsStateCD(branchId: branchId)
-        getStockCD(branchId: branchId)
-        getList()
+       //getStockCD(branchId: branchId)
+     //   getList()
         
         
         
@@ -45,7 +46,6 @@ class SongsUriViewModel: ObservableObject, ArionService {
         let cancellable = self.getSongsURI(branchid:branchId)
             .sink(receiveCompletion: { result in
                 switch result {
-                
                 case .failure(let error):
                     self.requested = true
                     print("Handle error: \(error)")
@@ -124,83 +124,91 @@ class SongsUriViewModel: ObservableObject, ArionService {
         PersistenceController.shared.container.viewContext.saveIfNeeded()
         
     }
-    func setDataCD(){
+    func setDataCD(completion: @escaping () -> () = {}){
         getStockCD(branchId: branchId)
-        getList()
-        getRows()
+        getList(completion: completion)
+      
     }
-    func getList(){
-        
-        if(stock.count != 0){
-            var titles:[TitleCD] = []
-            let playlists = stock.first?.playlists?.allObjects as! [PlaylistCD]
-            var albumsTemporal:[AlbumCD] = []
-            for playlist in playlists{
-                albumsTemporal.append(contentsOf: (playlist.albums?.allObjects as! [AlbumCD]))
+    func getList(completion: @escaping () -> () = {}){
+        DispatchQueue.main.async {
+            if(self.stock.count != 0){
+                print("laggeo","pasado")
+                var titles:[TitleCD] = []
+                let playlists = self.stock.first?.playlists?.allObjects as! [PlaylistCD]
+                var albumsTemporal:[AlbumCD] = []
+                for playlist in playlists{
+                    albumsTemporal.append(contentsOf: (playlist.albums?.allObjects as! [AlbumCD]))
+                }
+                var albums = albumsTemporal
+                albums.forEach{ album in
+                    (album.titles?.allObjects as! [TitleCD]).forEach{
+                        $0.coverImageUri = album.coverImageUri
+                        titles.append(contentsOf:(album.titles?.allObjects as! [TitleCD]))
+                    }        }
+                albums = Array(Set(albums))
+                albums.sort{
+                    $0.name!<$1.name!
+                }
+                self.albumListMain = albums
+                completion()
+                if self.appSettings != nil {
+                    self.appSettings?.albumsList = self.albumListMain
+                }
+                titles.forEach{title in
+                    title.coverImageUri = title.coverImageUri! as String
+                }
+
+                titles = Array(Set(titles))
+                self.musicList = titles
+                self.musicList.sort{
+                    $0.artist!<$1.artist!
+                }
+                self.count = self.musicList.count - 1
+                let sections = Set(self.musicList.map{ $0.artist!})
+                self.artistListMain = Array(sections)
+                self.artistListMain.sort{
+                    $0<$1
+                }
+                let sections2 = Set(self.musicList.map{ $0.genere!})
+                self.genereList = Array(sections2)
+                self.genereList.sort{
+                    $0<$1
+                }
+                let sections3 = Set(self.musicList.map{ $0.recordedYear})
+                let temporarlYearList = Array(sections3)
+                var yearListIndividual = temporarlYearList.map({
+                    (Int($0)/10)*10
+
+                })
+                yearListIndividual = yearListIndividual.filter({$0 != 0})
+                yearListIndividual = Array(Set(yearListIndividual))
+                yearListIndividual.sort{
+                    $0<$1
+                }
+                yearListIndividual.forEach { year in
+                    self.yearList.append([year,year+9])
+                }
+
+               
+
+                self.getRows()
             }
-            var albums = albumsTemporal
-            albums.forEach{ album in
-                (album.titles?.allObjects as! [TitleCD]).forEach{
-                    $0.coverImageUri = album.coverImageUri
-                    titles.append(contentsOf:(album.titles?.allObjects as! [TitleCD]))
-                }        }
-            titles.forEach{title in
-                title.coverImageUri = title.coverImageUri! as String
-            }
-            
-            titles = Array(Set(titles))
-            musicList = titles
-            musicList.sort{
-                $0.artist!<$1.artist!
-            }
-            count = musicList.count - 1
-            let sections = Set(musicList.map{ $0.artist!})
-            artistListMain = Array(sections)
-            artistListMain.sort{
-                $0<$1
-            }
-            let sections2 = Set(musicList.map{ $0.genere!})
-            genereList = Array(sections2)
-            genereList.sort{
-                $0<$1
-            }
-            let sections3 = Set(musicList.map{ $0.recordedYear})
-            let temporarlYearList = Array(sections3)
-            var yearListIndividual = temporarlYearList.map({
-                (Int($0)/10)*10
-                
-            })
-            yearListIndividual = yearListIndividual.filter({$0 != 0})
-            yearListIndividual = Array(Set(yearListIndividual))
-            yearListIndividual.sort{
-                $0<$1
-            }
-            yearListIndividual.forEach { year in
-                yearList.append([year,year+9])
-            }
-            
-            albums = Array(Set(albums))
-            albums.sort{
-                $0.name!<$1.name!
-            }
-            albumListMain = albums
-            
-            
         }
-        
+       
+
     }
     public func getRows(){
         let decimalValue:Double = Double(count-1)/2
         let intValue:Int =  (count-1)/2
         let difference:Double = decimalValue - Double(intValue)
-        
+
         if difference > 0 {
             rows = intValue
             self.isImpar = true
         }
         else {
             rows = intValue
-            
+
         }
         
     }

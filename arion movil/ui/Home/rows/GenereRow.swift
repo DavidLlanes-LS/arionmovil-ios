@@ -60,7 +60,7 @@ struct GenereRow: View {
                     }
                 )
             }
-        })
+        }).background(Color("background"))
     }
 }
 

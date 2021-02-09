@@ -10,11 +10,12 @@ import SwiftUI
 struct MusicalGenreSearcher: View {
     @StateObject var queueViewModel = QueueViewModel()
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
+    @StateObject var storeViewModel = StoreViewModel()
     @State var NavLogin:Bool = false
     init(branchId: String){
         
         viewModel.branchId = branchId
-        viewModel.setDataCD()
+        
     }
     var musicalGenres:[MusicalGenre] = [MusicalGenre(id:1,name:"Rock")]
     @State public var searchText : String = ""
@@ -30,12 +31,14 @@ struct MusicalGenreSearcher: View {
                                 queueViewModel.addNewQueue(id: title.id!)
                             }
                         }
-                    }
+                    }.listRowBackground(Color("background"))
                     
                 }
-            }.animation(.default)
+            }
             // Spacer().frame(height:78)
-        }.navigationBarTitle("Género",displayMode: .inline)
+        }.navigationBarTitle("Género",displayMode: .inline).onAppear{
+            viewModel.setDataCD()
+        }
     }
     
     

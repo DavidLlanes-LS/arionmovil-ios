@@ -134,6 +134,26 @@ class ApiRequest{
            }
            return urlRequest
     }
+    func postBuyPackage(body: BuyCreditsBody)->URLRequest{
+           var urlRequest: URLRequest{
+                let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/buy-credits-package"
+                guard let url = URL(string:urlRequest )
+                   else {preconditionFailure("Invalid URL format")}
+                // print("branchesRequest: \(urlRequest)")
+                var request = URLRequest(url: url)
+            
+                request.setValue("application/json", forHTTPHeaderField: "Accept")
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue(UserDefaults.standard.string(forKey: Constants.keyCookie), forHTTPHeaderField: "Cookie")
+                
+                let bodyData = try? JSONSerialization.data(withJSONObject: body.getDic(), options: [])
+                request.httpBody = bodyData
+                request.httpMethod = "POST"
+               
+                return request
+           }
+           return urlRequest
+    }
     
 
     func postAddCard(body: AddCardBody)->URLRequest{
@@ -190,10 +210,35 @@ class ApiRequest{
         }
         return urlRequest
     }
+    func getUserCredits()->URLRequest{
+        var urlRequest: URLRequest{
+            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-credits-account-balance"
+            guard let url = URL(string:urlRequest )
+                else {preconditionFailure("Invalid URL format")}
+            //print("songsRequest: \(branchId)")
+            var request = URLRequest(url: url)
+            request.setValue(UserDefaults.standard.string(forKey: Constants.keyCookie), forHTTPHeaderField: "Cookie")
+            return request
+        }
+        return urlRequest
+    }
     
     func getPackagesList(branchId:String)->URLRequest{
         var urlRequest: URLRequest{
             let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-available-packages/\(branchId)"
+            guard let url = URL(string:urlRequest )
+                else {preconditionFailure("Invalid URL format")}
+            //print("songsRequest: \(branchId)")
+            var request = URLRequest(url: url)
+            request.setValue(UserDefaults.standard.string(forKey: Constants.keyCookie), forHTTPHeaderField: "Cookie")
+            return request
+        }
+        return urlRequest
+    }
+    
+    func getPurchasesHistory()->URLRequest{
+        var urlRequest: URLRequest{
+            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-credits-purchasing-history"
             guard let url = URL(string:urlRequest )
                 else {preconditionFailure("Invalid URL format")}
             //print("songsRequest: \(branchId)")

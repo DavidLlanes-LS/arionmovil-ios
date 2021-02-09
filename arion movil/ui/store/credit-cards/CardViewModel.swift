@@ -12,6 +12,8 @@ import SwiftUI
 class CardViewModel: ObservableObject, ArionService {
     var apiSession: APIService
     @Published var creditCards:[CreditCard] = []
+    var appSettings:AppHelper?
+    var hasDeleted:Bool = false
     @Published var showLoader:Bool = false
     var cancellables = Set<AnyCancellable>()
     init(apiSession: APIService = APISession()) {
@@ -20,7 +22,7 @@ class CardViewModel: ObservableObject, ArionService {
     }
     
     
-    func addCard(body: AddCardBody, onSuccess:@escaping ()->()) {
+    func addCard(body: AddCardBody, onSuccess:@escaping ()->(),onFail:@escaping ()->()) {
         
         let cancellable = self.postAddCard(body: body)
             .sink(receiveCompletion: { result in
@@ -29,16 +31,22 @@ class CardViewModel: ObservableObject, ArionService {
                     print("Error: \(error.localizedDescription)")
                     DispatchQueue.main.async {
                         self.showLoader = false}
+                    onFail()
                 case .finished:
                     
                     break
                 }
             }) { (result) in
                 DispatchQueue.main.async {
-                    DispatchQueue.main.async {
-                        self.showLoader = true}
+                   
                     print("openpay",result)
-                    onSuccess()
+                    if result.resultCode == 0 {
+                        onSuccess()
+                    }
+                    else{
+                        onFail()
+                    }
+                    
                 }
             }
         cancellables.insert(cancellable)
@@ -59,13 +67,20 @@ class CardViewModel: ObservableObject, ArionService {
                 DispatchQueue.main.async {
                     print("openpay",result)
                 }
+                self.hasDeleted = true
+                self.getCreditList()
+                
             }
         cancellables.insert(cancellable)
     }
     
     func getCreditList() {
         DispatchQueue.main.async {
-            self.showLoader = true}
+            if(!self.hasDeleted)
+            {
+                self.showLoader = true
+            }
+            }
         let cancellable = self.getCreditCards()
             .sink(receiveCompletion: { result in
                 switch result {
@@ -82,7 +97,17 @@ class CardViewModel: ObservableObject, ArionService {
                 self.showLoader = false
                 if list.cards != nil {
                     self.creditCards = list.cards!}
-        }
+                if self.appSettings != nil
+                    {
+                    DispatchQueue.main.async {
+                        if list.cards != nil {
+                            self.appSettings?.payCards = list.cards!
+                        }
+                        
+                    }
+                    }
+                
+            }
         cancellables.insert(cancellable)
     }
 }

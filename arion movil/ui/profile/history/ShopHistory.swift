@@ -9,10 +9,16 @@
 import SwiftUI
 
 struct ShopHistory: View {
+    @StateObject var viewModel = ProfileViewModel()
     var body: some View {
         List{
-            ShopHistoryRow()
-        }.navigationBarTitle("Historial de compras")
+            ForEach(viewModel.transactionsList,id:\.self){ transaction in
+                ShopHistoryRow(transaction: transaction).listRowBackground(Color("background"))
+            }
+           
+        }.navigationBarTitle("Historial de compras").onAppear{
+            viewModel.getHistory()
+        }
     }
 }
 

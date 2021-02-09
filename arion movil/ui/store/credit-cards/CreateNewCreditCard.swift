@@ -15,6 +15,7 @@ struct CreateNewCreditCard: View {
     @State private var years:[Int] = Array(21...30)
     @State private var yearIndex:Int = 0
     @State var openpay : Openpay!
+    @State var isPresented:Bool = false
     @State private var cardName:String = ""
     @State private var token:String = ""
     @State private var sessionId:String = ""
@@ -66,6 +67,8 @@ struct CreateNewCreditCard: View {
                 
             }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
             }
+        }.alert(isPresented: $isPresented) {
+            Alert(title: Text(String("Aviso").capitalized), message: Text("N"+String("o pudimos agregar tu tarjeta, por favor verifica tus datos e intentalo de nuevo").lowercased()), dismissButton: .default(Text(String("Aceptar").capitalized)))
         }
         
     }
@@ -73,6 +76,7 @@ struct CreateNewCreditCard: View {
     func isValuesReady() -> Bool {
         if self.cardName.count > 0 {
             if self.cardNumberBinding.text.count == 16 || self.cardNumberBinding.text.count == 18{
+                
                 if self.cardCVVBinding.text.count == 3{
                     return true
                 }
@@ -101,12 +105,16 @@ struct CreateNewCreditCard: View {
             self.token = token.id
         viewModel.addCard(body:AddCardBody(cardToken: self.token, deviceSessionId: self.sessionId) ){
             self.presentationMode.wrappedValue.dismiss()
+        } onFail:{
+            isPresented = true
         }
            
     }
 
     func failToken(error: NSError) {
             print("openpayR\(error.code) - \(error.localizedDescription)")
+        viewModel.showLoader = false
+        isPresented = true
     }
     func successSession(sessionId: String) {
             print("openpaySessionID: \(sessionId)")
@@ -117,6 +125,8 @@ struct CreateNewCreditCard: View {
 
     func failSession(error: NSError) {
             print("openpayR\(error.code) - \(error.localizedDescription)")
+        viewModel.showLoader = false
+        isPresented = true
     }
 }
 

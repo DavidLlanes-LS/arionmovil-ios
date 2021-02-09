@@ -9,22 +9,24 @@ import SwiftUI
 
 struct QueueView: View {
     @StateObject var viewModel = QueueViewModel()
+    @StateObject var storeViewModel = StoreViewModel()
+    @EnvironmentObject var appSettings: AppHelper
     @State var navigationToLogin: Bool = false
-    
+  
     var body: some View {
         NavigationView {
             VStack(spacing:0) {
                 NavigationLink(destination: LoginView(), isActive: self.$navigationToLogin) {
                     Spacer().fixedSize()
                 }
-                AvailableCredits()
+                AvailableCredits(credits:$appSettings.userCredits)
                 VStack {
                     HStack {
                         TextWithCustomFonts("Termina en",customFont: CustomFont(type: .bold, size: 17))
                         TextWithCustomFonts(" 00:30",customFont: CustomFont(type: .bold, size: 17),color: Color("secondary-background"))
-                        Spacer()
+                        Spacer().background(Color("background"))
                     }
-                    .padding([.top, .leading, .trailing])
+                    .padding([.top, .leading, .trailing]).background(Color("background"))
                     List{
                         ForEach(0..<self.viewModel.songs.count, id: \.self) { index in
                             QueueRow(
@@ -35,7 +37,7 @@ struct QueueView: View {
                                 nav: self.$navigationToLogin,
                                 position: index,
                                 totalList: viewModel.songs.count
-                            )
+                            ).listRowBackground(Color("background"))
                             .environmentObject(viewModel)
                         }
                     }
@@ -44,13 +46,17 @@ struct QueueView: View {
                     if viewModel.showLoader {
                         ProgressView()
                     }
-                }
+                }.background(Color("background"))
                 .onAppear(perform: {
                     self.viewModel.getQueue()
+                   
                 })
             }
             .navigationBarTitle("En fila", displayMode: .inline)
-        }
+        }.onAppear{
+            self.storeViewModel.appSettings = self.appSettings
+            storeViewModel.getCreditsUser()
+        }.background(Color("background"))
     }
     
 }

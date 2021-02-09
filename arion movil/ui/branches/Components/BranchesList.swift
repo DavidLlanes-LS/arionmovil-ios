@@ -16,7 +16,7 @@ struct BranchesList: View {
     @State var txt = ""
     @State var branchesFiltered:[Branch]=[]
     @ObservedObject var locationManager = LocationManager()
-
+    
     var body: some View{
         ZStack {
             VStack(spacing:0){
