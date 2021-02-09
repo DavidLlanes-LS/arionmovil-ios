@@ -1,14 +1,14 @@
 //
-//  SecureTextField.swift
+//  ErrorTextField.swift
 //  arion movil
 //
-//  Created by Daniel Luna on 03/02/21.
+//  Created by Daniel Luna on 08/02/21.
 //  Copyright © 2021 David Pacheco Rodriguez. All rights reserved.
 //
 
 import SwiftUI
 
-struct SecureTextField: View {
+struct RoundedTextField: View {
     @Binding var textValue:String
     @State var title:String
     var textError:String
@@ -16,7 +16,7 @@ struct SecureTextField: View {
     var color: Color = .black
     var body: some View {
         VStack(alignment: .leading) {
-            SecureField(self.title, text: self.$textValue)
+            TextField(self.title, text: self.$textValue)
                 .font(.custom(self.customFont.type.rawValue, size: CGFloat(self.customFont.size))).foregroundColor(self.color)
                 .padding()
                 .background(Color.white)
@@ -25,10 +25,11 @@ struct SecureTextField: View {
             if !textError.isEmpty {
                 TextWithCustomFonts(
                     textError,
-                    customFont: CustomFont(type: .light, size: 15),
+                    customFont: CustomFont(type: .light, size: 14),
                     color: Color("error")
                 ).padding(.horizontal)
             }
+                
         }
     }
 }

@@ -26,7 +26,6 @@ class StoreViewModel: ObservableObject, ArionService {
     }
     
     func getPackages() {
-        
         let cancellable = self.getPackagesList(branchid: locationId!)
             .sink(receiveCompletion: { result in
                 switch result {
