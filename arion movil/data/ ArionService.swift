@@ -31,6 +31,10 @@ extension ArionService {
         return apiSession.request(with: ApiRequest().getPackagesList(branchId: branchid))
             .eraseToAnyPublisher()
     }
+    func getPurchasesList() -> AnyPublisher<PurchasesHistoryResponse, APIError> {
+        return apiSession.request(with: ApiRequest().getPurchasesHistory())
+            .eraseToAnyPublisher()
+    }
     
     func getSongsURI(branchid:String) -> AnyPublisher<SongsUriResponse, APIError> {
         return apiSession.request(with: ApiRequest().getSongsList(branchId: branchid))
@@ -38,6 +42,10 @@ extension ArionService {
     }
     func getCreditCards() -> AnyPublisher<CardListResponse, APIError> {
         return apiSession.request(with: ApiRequest().getRegisteredCards())
+            .eraseToAnyPublisher()
+    }
+    func getUserCredit() -> AnyPublisher<UserCreditsResponse, APIError> {
+        return apiSession.request(with: ApiRequest().getUserCredits())
             .eraseToAnyPublisher()
     }
     func getBranchPrice(branchid:String) -> AnyPublisher<BranchPriceResponse, APIError> {
@@ -51,6 +59,10 @@ extension ArionService {
     }
     func postAddCard(body: AddCardBody) -> AnyPublisher<AddCardResultCode, APIError> {
            return apiSession.request(with: ApiRequest().postAddCard(body: body))
+            .eraseToAnyPublisher()
+       }
+    func postBuyCredits(body: BuyCreditsBody) -> AnyPublisher<AddCardResultCode, APIError> {
+           return apiSession.request(with: ApiRequest().postBuyPackage(body: body))
             .eraseToAnyPublisher()
        }
     

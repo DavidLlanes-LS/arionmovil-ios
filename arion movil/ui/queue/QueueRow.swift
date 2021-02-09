@@ -13,8 +13,9 @@ struct QueueRow: View {
     var creditsNext: Int
     var hiddenButtons: Bool
     var position: Int
+    @EnvironmentObject var appSettings: AppHelper
     var totalList: Int
-    
+    @StateObject var storeViewModel = StoreViewModel()
     @State var showAlert: Bool = false
     @State var authAlert: Bool = false
     @State var sendToNext: Bool = false
@@ -68,6 +69,8 @@ struct QueueRow: View {
                     primaryButton: .cancel(Text(String("Cancelar").capitalized)),
                     secondaryButton: .default(Text(String("Aceptar").capitalized)) {
                         viewModel.addQueue(body: AddQueue(userId: userId!, locationId: locationId!, playerId: playerId!, mediaTitleId: song.titleID, creditsToCharge: result, positionToAdvance: positionAdvance)) { result, error in
+                            storeViewModel.appSettings = self.appSettings
+                            storeViewModel.getCreditsUser()
                             if (result != nil) {
                                 //viewModel.getQueue()
                             } else if (error != nil) {

@@ -11,6 +11,7 @@ struct SongsAlbum: View {
     @StateObject var queueViewModel = QueueViewModel()
     @State var musicList:[TitleCD] = []
     @State var navigateLogin = false
+    @StateObject var storeViewModel = StoreViewModel()
     var songs:[Song] = [Song(id: 1, name: "Lost",artist: Artist(id: 1, name: "Frank Ocean"))]
     var body: some View {
         VStack{
@@ -24,14 +25,21 @@ struct SongsAlbum: View {
 
 //                        $0.resizable().aspectRatio(contentMode: .fill)}).frame(maxWidth: .infinity).frame(height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding(.leading,20).padding(.trailing,20)
                         $0.resizable().aspectRatio(contentMode: .fill)}).frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).frame(height:130).clipped().cornerRadius(20).padding(.leading,20).padding(.trailing,20)
-            List(self.musicList){ song in
-                GenereRow(name: song.name!, artist: song.artist!, navigateLogin: $navigateLogin){
-                    queueViewModel.addNewQueue(id: song.id!)
-                }
+            List{
+             
+                    ForEach(self.musicList,id:\.self){song in
+                        GenereRow(name: song.name!, artist: song.artist!, navigateLogin: $navigateLogin){
+                                                queueViewModel.addNewQueue(id: song.id!)
+                                            }.listRowBackground(Color("background"))
+                    }
+
+                  
+                
+               
             }
         }.onAppear{
             print("songsartist",musicList.count)
-        }
+        }.background(Color("background"))
     }
 }
 

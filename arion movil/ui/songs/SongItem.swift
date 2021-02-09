@@ -45,7 +45,7 @@ struct SongItem: View {
                             TextWithCustomFonts(song.artist ?? "No hay", customFont: CustomFont(type: .bold, size: 8)).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
                             Spacer().frame(height:2)
                             
-                        }.frame(maxWidth:.infinity).background(Color.white).onAppear{
+                        }.frame(maxWidth:.infinity).background(Color("background")).onAppear{
                             
                         }
                     }

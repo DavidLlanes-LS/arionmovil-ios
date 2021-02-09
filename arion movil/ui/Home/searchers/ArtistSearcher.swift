@@ -15,7 +15,7 @@ struct ArtistSearcher: View {
     @State public var searchText : String = ""
     init(branchId: String){
         viewModel.branchId = branchId
-        viewModel.setDataCD()
+     
         
     }
     var body: some View {
@@ -31,13 +31,14 @@ struct ArtistSearcher: View {
                             }
                         }
                         
-                    }
+                    }.listRowBackground(Color("background"))
                     
                 }
                 
                 
-            }.animation(.default)
+            }
         }.navigationBarTitle("Artistas",displayMode: .inline).onAppear{
+            viewModel.setDataCD()
         }
     }
     

@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct AvailableCreditsBig: View {
+    @Binding var credits:Int
+    init(credits:Binding<Int>) {
+       _credits = credits
+    }
     var body: some View {
         HStack{
             VStack(spacing:4){
@@ -16,7 +20,7 @@ struct AvailableCreditsBig: View {
                 HStack{
                     Image(systemName: "music.note")
                         .foregroundColor(Color.white)
-                    TextWithCustomFonts("150",customFont: CustomFont(type: .bold, size: 30),color: .white)
+                    TextWithCustomFonts("\(credits)",customFont: CustomFont(type: .bold, size: 30),color: .white)
                     TextWithCustomFonts("créditos",customFont: CustomFont(type: .light, size: 16),color: .white)
                 }
             }
@@ -26,7 +30,8 @@ struct AvailableCreditsBig: View {
 }
 
 struct AvailableCreditsBig_Previews: PreviewProvider {
+    @State static var test = 23
     static var previews: some View {
-        AvailableCreditsBig()
+        AvailableCreditsBig(credits: $test)
     }
 }

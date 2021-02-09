@@ -14,7 +14,7 @@ struct SongSearcher: View {
     @State var navigateLogin = false
     init(branchId: String){
         viewModel.branchId = branchId
-        viewModel.setDataCD()
+        
     }
     var body: some View {
         VStack{
@@ -25,12 +25,13 @@ struct SongSearcher: View {
                     ForEach(viewModel.musicList.filter{$0.name!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty},id: \.self){song in
                         GenereRow(name: song.name!, artist: song.artist!, navigateLogin: $navigateLogin){
                             queueViewModel.addNewQueue(id: song.id!)
-                        }
+                        }.listRowBackground(Color("background"))
                     }
                 }
-            }.animation(.default)
+            }
         }.navigationBarTitle("Buscador",displayMode: .inline).onAppear{
-        }
+            viewModel.setDataCD()
+        }.background(Color("background"))
     }
     
     
