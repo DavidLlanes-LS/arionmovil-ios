@@ -100,7 +100,10 @@ class CardViewModel: ObservableObject, ArionService {
                 if self.appSettings != nil
                     {
                     DispatchQueue.main.async {
-                        self.appSettings?.payCards = list.cards!
+                        if list.cards != nil {
+                            self.appSettings?.payCards = list.cards!
+                        }
+                        
                     }
                     }
                 

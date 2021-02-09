@@ -150,6 +150,8 @@
 		7FA43B0F25D1BD7500914661 /* AddQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43B0E25D1BD7500914661 /* AddQueue.swift */; };
 		7FA43B1425D1DF6C00914661 /* BuyCreditsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43B1325D1DF6C00914661 /* BuyCreditsBody.swift */; };
 		7FA43B1925D1E72400914661 /* UserCreditsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43B1825D1E72400914661 /* UserCreditsResponse.swift */; };
+		7FA43B1E25D30EB700914661 /* PurchasesHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43B1D25D30EB700914661 /* PurchasesHistoryResponse.swift */; };
+		7FA43B2325D310E300914661 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA43B2225D310E300914661 /* ProfileViewModel.swift */; };
 		7FC0C5F325CD9DE500317A70 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC0C5E725CD9DE500317A70 /* CardView.xib */; };
 		7FC0C5F425CD9DE500317A70 /* PickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5E925CD9DE500317A70 /* PickerControl.swift */; };
 		7FC0C5F525CD9DE500317A70 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0C5EA25CD9DE500317A70 /* CardView.swift */; };
@@ -337,6 +339,8 @@
 		7FA43B0E25D1BD7500914661 /* AddQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQueue.swift; sourceTree = "<group>"; };
 		7FA43B1325D1DF6C00914661 /* BuyCreditsBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyCreditsBody.swift; sourceTree = "<group>"; };
 		7FA43B1825D1E72400914661 /* UserCreditsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreditsResponse.swift; sourceTree = "<group>"; };
+		7FA43B1D25D30EB700914661 /* PurchasesHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesHistoryResponse.swift; sourceTree = "<group>"; };
+		7FA43B2225D310E300914661 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		7FC0C5E825CD9DE500317A70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CardView.xib; sourceTree = "<group>"; };
 		7FC0C5E925CD9DE500317A70 /* PickerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerControl.swift; sourceTree = "<group>"; };
 		7FC0C5EA25CD9DE500317A70 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -417,6 +421,7 @@
 				633F103524B66EFC00B284AE /* history */,
 				6306CDFE24B3A5AB007628F8 /* Profile.swift */,
 				6306CE0024B3A5E7007628F8 /* ProfileImage.swift */,
+				7FA43B2225D310E300914661 /* ProfileViewModel.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -860,6 +865,7 @@
 				7FA43ABC25D1829B00914661 /* DeleteCodeBody.swift */,
 				7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */,
 				7FA43B1825D1E72400914661 /* UserCreditsResponse.swift */,
+				7FA43B1D25D30EB700914661 /* PurchasesHistoryResponse.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -1247,6 +1253,7 @@
 				7FC0C5F425CD9DE500317A70 /* PickerControl.swift in Sources */,
 				635D310C24AE5520000062AF /* LogoImage.swift in Sources */,
 				6312AABD24B797C300256983 /* SongAlbumRow.swift in Sources */,
+				7FA43B1E25D30EB700914661 /* PurchasesHistoryResponse.swift in Sources */,
 				7F53E92B25BA2AC20044D258 /* ApiSession.swift in Sources */,
 				7FCAB36C25CC885100BF63FC /* BranchPriceResponse.swift in Sources */,
 				7F36B89725C1E1170011F98D /* ItemCD+CoreDataProperties.swift in Sources */,
@@ -1331,6 +1338,7 @@
 				0A18CD6925CB5261006C28BD /* SecureTextField.swift in Sources */,
 				7F741E4325BB5BFD00C23A6B /* SongsUriViewModel.swift in Sources */,
 				7F36B89C25C1E1170011F98D /* PlaylistCD+CoreDataClass.swift in Sources */,
+				7FA43B2325D310E300914661 /* ProfileViewModel.swift in Sources */,
 				7F53E94925BA2D600044D258 /* ArionEndPoint.swift in Sources */,
 				7F36B89825C1E1170011F98D /* EventCD+CoreDataClass.swift in Sources */,
 				0A4C344F25C9C1C900785422 /* Constants.swift in Sources */,

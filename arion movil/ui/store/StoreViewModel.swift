@@ -39,7 +39,11 @@ class StoreViewModel: ObservableObject, ArionService {
                 }
             }) { (packages) in
                 DispatchQueue.main.async {
-                    self.pakcagesList = packages.packages!
+                    if packages.packages != nil
+                    {
+                        self.pakcagesList = packages.packages!
+                    }
+                  
                 }
             }
         cancellables.insert(cancellable)

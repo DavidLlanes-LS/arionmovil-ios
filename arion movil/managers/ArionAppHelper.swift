@@ -16,4 +16,5 @@ class AppHelper: ObservableObject {
     @Published var showCurrentSong: Bool = true
     @Published var payCards:[CreditCard] = []
     @Published var userCredits:Int = 0
+    @Published var albumsList:[AlbumCD] = []
 }

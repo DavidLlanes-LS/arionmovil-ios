@@ -31,6 +31,10 @@ extension ArionService {
         return apiSession.request(with: ApiRequest().getPackagesList(branchId: branchid))
             .eraseToAnyPublisher()
     }
+    func getPurchasesList() -> AnyPublisher<PurchasesHistoryResponse, APIError> {
+        return apiSession.request(with: ApiRequest().getPurchasesHistory())
+            .eraseToAnyPublisher()
+    }
     
     func getSongsURI(branchid:String) -> AnyPublisher<SongsUriResponse, APIError> {
         return apiSession.request(with: ApiRequest().getSongsList(branchId: branchid))

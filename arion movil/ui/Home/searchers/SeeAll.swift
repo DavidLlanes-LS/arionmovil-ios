@@ -14,7 +14,7 @@ struct SeeAll: View {
     @StateObject var storeViewModel = StoreViewModel()
     init(branchId: String){
         viewModel.branchId = branchId
-        viewModel.setDataCD()
+       
         
     }
     var body: some View {
@@ -47,6 +47,8 @@ struct SeeAll: View {
                     }
                 }
             }
+        }.onAppear{
+            viewModel.setDataCD()
         }
         
     }

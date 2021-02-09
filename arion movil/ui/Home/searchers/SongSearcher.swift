@@ -14,7 +14,7 @@ struct SongSearcher: View {
     @State var navigateLogin = false
     init(branchId: String){
         viewModel.branchId = branchId
-        viewModel.setDataCD()
+        
     }
     var body: some View {
         VStack{
@@ -30,6 +30,7 @@ struct SongSearcher: View {
                 }
             }.animation(.default)
         }.navigationBarTitle("Buscador",displayMode: .inline).onAppear{
+            viewModel.setDataCD()
         }
     }
     

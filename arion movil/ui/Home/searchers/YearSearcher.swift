@@ -16,7 +16,7 @@ struct YearSearcher: View {
     @State public var searchText : String = ""
     init(branchId: String){
         viewModel.branchId = branchId
-        viewModel.setDataCD()
+        
     }
     @State var musicList:[TitleCD] = []
     var body: some View {
@@ -40,6 +40,7 @@ struct YearSearcher: View {
                 }
             }
         }.navigationBarTitle("Año",displayMode: .inline).onAppear{
+            viewModel.setDataCD()
             
         }
     }

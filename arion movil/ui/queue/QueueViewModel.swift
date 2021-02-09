@@ -100,4 +100,5 @@ class QueueViewModel: ObservableObject, ArionService {
         }}
          
     }
+    
 }

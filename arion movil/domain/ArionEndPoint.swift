@@ -235,6 +235,19 @@ class ApiRequest{
         }
         return urlRequest
     }
+    
+    func getPurchasesHistory()->URLRequest{
+        var urlRequest: URLRequest{
+            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-credits-purchasing-history"
+            guard let url = URL(string:urlRequest )
+                else {preconditionFailure("Invalid URL format")}
+            //print("songsRequest: \(branchId)")
+            var request = URLRequest(url: url)
+            request.setValue(UserDefaults.standard.string(forKey: Constants.keyCookie), forHTTPHeaderField: "Cookie")
+            return request
+        }
+        return urlRequest
+    }
 }
 
 

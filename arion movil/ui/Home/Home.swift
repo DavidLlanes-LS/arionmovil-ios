@@ -14,6 +14,8 @@ struct Home: View {
     @StateObject var storeModel = StoreViewModel()
     var fetchRequest: FetchRequest<AlbumStockCD> = FetchRequest<AlbumStockCD>(entity:AlbumStockCD.entity(), sortDescriptors: [], predicate: NSPredicate(format: "restaurantId == %@", ""))
     private var stock: FetchedResults<AlbumStockCD>{fetchRequest.wrappedValue}
+    @FetchRequest(sortDescriptors: [])
+    var songs:FetchedResults<TitleCD>
     @State var navigateLogin = false
     @State var navigateFilterArtist:Bool = false
     @State var navigateFilterAlbum:Bool = false
@@ -66,7 +68,7 @@ struct Home: View {
                                 navigateSeeAll = true
                             }
                         }
-                    }.buttonStyle(PlainButtonStyle())
+                    }.listRowBackground(Color("background")).buttonStyle(PlainButtonStyle())
                     if(stock.count != 0){
                         if rows > 0{
                             
@@ -85,7 +87,7 @@ struct Home: View {
                                         
                                     }
                                     Spacer().frame(height:10)
-                                }
+                                }.listRowBackground(Color("background"))
                             }
                             if self.isImpar {
                                 HStack(spacing: 16){
@@ -98,7 +100,7 @@ struct Home: View {
                                     }.opacity(0.0).buttonStyle(PlainButtonStyle())
                                     
                                     
-                                }
+                                }.listRowBackground(Color("background"))
                             }
                             
                             
@@ -106,9 +108,9 @@ struct Home: View {
                             
                         }
                     }
-                    Spacer().frame(height:78)
-                }
-            }.listStyle(PlainListStyle()).navigationBarTitle("Bienvenido",displayMode: .inline).alert(isPresented:$showingAlert, content: {
+                    Spacer().frame(height:78).listRowBackground(Color("background"))
+                }.listRowBackground(Color("background"))
+            }.listRowBackground(Color("background")).listStyle(PlainListStyle()).navigationBarTitle("Bienvenido",displayMode: .inline).alert(isPresented:$showingAlert, content: {
                 Alert(title:Text(String("Atención").capitalized), message: Text(String("Recuerda que no podrás reproducir canciones si la calidad de red es baja").capitalized), primaryButton: .cancel(Text(String("Cancelar").capitalized)),secondaryButton: .default(Text(String("Aceptar").capitalized)))
             }).onAppear{
                 if stock.count > 0 {

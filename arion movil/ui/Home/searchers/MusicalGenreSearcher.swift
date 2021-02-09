@@ -15,7 +15,7 @@ struct MusicalGenreSearcher: View {
     init(branchId: String){
         
         viewModel.branchId = branchId
-        viewModel.setDataCD()
+        
     }
     var musicalGenres:[MusicalGenre] = [MusicalGenre(id:1,name:"Rock")]
     @State public var searchText : String = ""
@@ -36,7 +36,9 @@ struct MusicalGenreSearcher: View {
                 }
             }.animation(.default)
             // Spacer().frame(height:78)
-        }.navigationBarTitle("Género",displayMode: .inline)
+        }.navigationBarTitle("Género",displayMode: .inline).onAppear{
+            viewModel.setDataCD()
+        }
     }
     
     
