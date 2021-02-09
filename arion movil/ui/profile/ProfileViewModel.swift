@@ -32,9 +32,11 @@ class ProfileViewModel: ObservableObject, ArionService {
                     break
                 }
             }) { (response) in
-                
-                self.transactionsList = response.transactions!
-                print("historial5",response.transactions?.count)
+                if response.transactions != nil{
+                    self.transactionsList = response.transactions!
+                   
+                }
+               
             }
         cancellables.insert(cancellable)
     }
