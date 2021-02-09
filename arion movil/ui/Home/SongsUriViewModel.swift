@@ -127,7 +127,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
     func setDataCD(completion: @escaping () -> () = {}){
         getStockCD(branchId: branchId)
         getList(completion: completion)
-        getRows()
+      
     }
     func getList(completion: @escaping () -> () = {}){
         DispatchQueue.main.async {
@@ -191,7 +191,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
 
                
 
-
+                self.getRows()
             }
         }
        

@@ -47,7 +47,7 @@ struct AlbumSearcher: View {
                             }
 
                         }
-                    }
+                    }.listRowBackground(Color("background"))
 
 
 

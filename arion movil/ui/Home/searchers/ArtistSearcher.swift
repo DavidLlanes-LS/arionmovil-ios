@@ -31,12 +31,12 @@ struct ArtistSearcher: View {
                             }
                         }
                         
-                    }
+                    }.listRowBackground(Color("background"))
                     
                 }
                 
                 
-            }.animation(.default)
+            }
         }.navigationBarTitle("Artistas",displayMode: .inline).onAppear{
             viewModel.setDataCD()
         }

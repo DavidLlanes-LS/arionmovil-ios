@@ -31,10 +31,10 @@ struct MusicalGenreSearcher: View {
                                 queueViewModel.addNewQueue(id: title.id!)
                             }
                         }
-                    }
+                    }.listRowBackground(Color("background"))
                     
                 }
-            }.animation(.default)
+            }
             // Spacer().frame(height:78)
         }.navigationBarTitle("Género",displayMode: .inline).onAppear{
             viewModel.setDataCD()

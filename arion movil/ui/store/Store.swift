@@ -21,14 +21,14 @@ struct Store: View {
                 VStack(spacing:0){
                     AvailableCreditsBig(credits: $appSettings.userCredits)
                     List{
-                        TextWithCustomFonts("Paquetes disponibles",customFont: CustomFont(type: .bold, size: 22),color:Color("title"))
+                        TextWithCustomFonts("Paquetes disponibles",customFont: CustomFont(type: .bold, size: 22),color:Color("title")).listRowBackground(Color("background"))
                         ForEach(viewModel.pakcagesList,id:\.self){package in
                             Button(action:{
                                 selectedPackage = package
                                 isPresented = true
                                 
                                 
-                            }){Package(package: package)}
+                            }){Package(package: package)}.listRowBackground(Color("background"))
                             
                         }
                     }.listStyle(PlainListStyle())
@@ -43,7 +43,7 @@ struct Store: View {
                             Section(header: TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18))){
                                 Picker(selection: $dateIndex, label: TextWithCustomFonts("")) {
                                     ForEach(0 ..< appSettings.payCards.count) {index in
-                                        CreditCardRow(card: appSettings.payCards[index]).frame(minWidth:0, maxWidth: 300)
+                                        CreditCardRow(card: appSettings.payCards[index]).frame(minWidth:0, maxWidth: 300).listRowBackground(Color("background"))
                                         
                                     }
                                 }}

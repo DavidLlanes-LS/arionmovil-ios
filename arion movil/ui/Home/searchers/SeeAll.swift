@@ -33,7 +33,7 @@ struct SeeAll: View {
                                 }.buttonStyle(PlainButtonStyle())
                             }
                             Spacer().frame(height:10)
-                        }
+                        }.listRowBackground(Color("background"))
                     }
                     if viewModel.isImpar {
                         HStack(spacing: 16){
@@ -43,13 +43,13 @@ struct SeeAll: View {
                             SongItem(song: viewModel.musicList[viewModel.count], navigateLogin: self.$navigateLogin,url:viewModel.musicList[viewModel.count].coverImageUri!){id in
                                 queueViewModel.addNewQueue(id: id)
                             }.opacity(0.0).buttonStyle(PlainButtonStyle())
-                        }
+                        }.listRowBackground(Color("background"))
                     }
                 }
             }
         }.onAppear{
             viewModel.setDataCD()
-        }
+        }.background(Color("background"))
         
     }
 }

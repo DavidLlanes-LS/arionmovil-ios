@@ -13,7 +13,7 @@ struct ShopHistory: View {
     var body: some View {
         List{
             ForEach(viewModel.transactionsList,id:\.self){ transaction in
-                ShopHistoryRow(transaction: transaction)
+                ShopHistoryRow(transaction: transaction).listRowBackground(Color("background"))
             }
            
         }.navigationBarTitle("Historial de compras").onAppear{

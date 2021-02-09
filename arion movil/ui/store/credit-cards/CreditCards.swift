@@ -21,9 +21,12 @@ struct CreditCards: View {
             NavigationLink(destination: CreateNewCreditCard(), isActive: self.$navigationToCreateCard) {
             }
             if viewModel.showLoader {
-                Spacer()
-                LoaderComponent()
-                Spacer()
+                VStack{
+                    Spacer()
+                    LoaderComponent()
+                    Spacer()
+                }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color("background"))
+               
             }
             else{
                 if viewModel.creditCards.count != 0  {
@@ -33,7 +36,7 @@ struct CreditCards: View {
                                 HStack {
                                     CreditCardRow(card: credit)
                                     Spacer()
-                                }
+                                }.listRowBackground(Color("background"))
                             }.onDelete(perform: { indexSet in
                                 
                                 //print("eliminar",viewModel.creditCards[])
@@ -52,7 +55,7 @@ struct CreditCards: View {
                         }
                         
                         
-                    }
+                    }.background(Color("background"))
                 }
                 else{
                     Spacer()
@@ -90,7 +93,7 @@ struct CreditCards: View {
                     navigationToLogin = true
                 }
             )
-        })
+        }).background(Color("background"))
     }
 }
 

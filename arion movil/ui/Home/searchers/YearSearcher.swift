@@ -35,7 +35,7 @@ struct YearSearcher: View {
                                 }
                             }
                         }
-                    }
+                    }.listRowBackground(Color("background"))
                     
                 }
             }
