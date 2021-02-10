@@ -18,7 +18,8 @@ struct Constants {
     static let idOpenPayMerchant:String = "mqjmzuhblyqymlbmg3y8"
     
     
-    // MARK: - Dialog Messages
+    
+    // MARK: - Dialog card purchases messages
     
     static let succesPurchaseMsg = "La compra se realizó correctamente"
     static let declinedCardMsg  = "La tarjeta fue declinada"
