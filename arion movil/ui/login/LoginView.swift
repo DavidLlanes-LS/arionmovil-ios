@@ -50,6 +50,7 @@ struct LoginView: View {
                             textValue: $viewModel.username,
                             title: "Ingresa tu correo electrónico",
                             textError: viewModel.errorUsername
+                            ,transparent:false
                         )
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
@@ -64,6 +65,7 @@ struct LoginView: View {
                             textValue: $viewModel.password,
                             title: "Ingresa tu contraseña",
                             textError: viewModel.errorPassword
+                            ,transparent:false
                         )
                     }
                 }

@@ -12,13 +12,13 @@ struct CustomTextField: View {
     @Binding var textValue:String
     @State var title:String
     var customFont: CustomFont = CustomFont(type: .semibold, size: 16)
-    var color: Color = .black
+    var color: Color = Color("title")
     var body: some View {
         VStack {
             TextField(self.title, text: self.$textValue)
                 .font(.custom(self.customFont.type.rawValue, size: CGFloat(self.customFont.size))).foregroundColor(self.color)
                 .padding()
-                .background(Color.white)
+                .background(Color("background_text"))
                 .cornerRadius(4.0)
                 .opacity(0.8)
         }

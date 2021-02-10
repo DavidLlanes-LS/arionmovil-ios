@@ -40,14 +40,14 @@ struct SignUpView: View {
                 .resizable()
             VStack{
                 Form{
-                    RoundedTextField(textValue: $viewModel.name, title: "Nombre", textError: viewModel.errorName)
-                    RoundedTextField(textValue: $viewModel.email, title: "Correo electrónico", textError: viewModel.errorEmail).keyboardType(.emailAddress).autocapitalization(.none)
-                    RoundedTextField(textValue: $viewModel.phoneNumber, title: "Teléfono", textError: viewModel.errorPhoneNumber)
+                    RoundedTextField(textValue: $viewModel.name, title: "Nombre", textError: viewModel.errorName,transparent:true)
+                    RoundedTextField(textValue: $viewModel.email, title: "Correo electrónico", textError: viewModel.errorEmail,transparent:true).keyboardType(.emailAddress).autocapitalization(.none)
+                    RoundedTextField(textValue: $viewModel.phoneNumber, title: "Teléfono", textError: viewModel.errorPhoneNumber,transparent:true)
                     PickerRounded(selection: $viewModel.countrySelection, title: "País", data: viewModel.countries, textError: viewModel.errorCountry)
                     PickerRounded(selection: $viewModel.gender, title: "Genero", data: viewModel.genders, textError: viewModel.errorGender)
                     DatePickerRounded(dateSelection: $viewModel.birthday, title: "Fecha de nacimiento", textError: viewModel.errorBirthday)
-                    SecureTextField(textValue: $viewModel.password, title: "Contraseña", textError: viewModel.errorPassword)
-                    SecureTextField(textValue: $viewModel.confirmPassword, title: "Confirmar contraseña", textError: viewModel.errorConfirmPassword)
+                    SecureTextField(textValue: $viewModel.password, title: "Contraseña", textError: viewModel.errorPassword,transparent:true)
+                    SecureTextField(textValue: $viewModel.confirmPassword, title: "Confirmar contraseña", textError: viewModel.errorConfirmPassword,transparent:true)
                     RectangleBtn("Crear cuenta") {
                         if self.viewModel.isFormValid() {
                             self.viewModel.signUp() { result, error in
