@@ -14,6 +14,8 @@ class StoreViewModel: ObservableObject, ArionService {
     @Published var pakcagesList:[Packages] = []
     @Published var isLoading:Bool = false
     @Published var credits:Int = 0
+    @Published var showResult:Bool = false
+    @Published var resultText:String = ""
     var apiSession: APIService
     var cancellables = Set<AnyCancellable>()
     var appSettings:AppHelper?
@@ -42,6 +44,9 @@ class StoreViewModel: ObservableObject, ArionService {
                     {
                         self.pakcagesList = packages.packages!
                     }
+                    else{
+                        self.pakcagesList = []
+                    }
                   
                 }
             }
@@ -63,6 +68,30 @@ class StoreViewModel: ObservableObject, ArionService {
                 print("comprar",result)
                 self.getCreditsUser()
                 self.isLoading = false
+                
+                switch result.resultCode{
+                case 1:
+                    self.resultText = String(Constants.succesPurchaseMsg)
+                case 128:
+                    self.resultText = String(Constants.declinedCardMsg)
+                case 129:
+                    self.resultText = String(Constants.expiredCardMsg)
+                case 130:
+                    self.resultText = String(Constants.foundLessCardMsg)
+                case 136:
+                    self.resultText = String(Constants.restrictedCardMsg)
+                case 137:
+                    self.resultText = String(Constants.retainedCardMsg)
+                case 138:
+                    self.resultText = String(Constants.needsBankAuthMsg)
+                    
+                default:
+                    self.resultText = String(Constants.failPurchaseDefaultMsg)
+                    
+                }
+                self.showResult.toggle()
+               
+                
                 
             }
         cancellables.insert(cancellable)

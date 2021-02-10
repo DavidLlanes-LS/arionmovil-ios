@@ -8,6 +8,12 @@
 
 import SwiftUI
 import BottomSheet
+extension String {
+    var capitalizedFirstLetter:String {
+          let string = self
+          return string.replacingCharacters(in: startIndex...startIndex, with: String(self[startIndex]).capitalized)
+    }
+}
 struct Store: View {
     @StateObject var viewModel = StoreViewModel()
     @EnvironmentObject var appSettings: AppHelper
@@ -15,7 +21,8 @@ struct Store: View {
     @State private var dateIndex:Int = 0
     @State var openpay : Openpay!
     @State var showBottomSheet:Bool = false
-    @State var showAlert:Bool = false
+    @State var showAlertQuestion:Bool = false
+    @State var showAlertResult:Bool = false
     @State var selectedPackage:Packages = Packages()
     var body: some View {
         NavigationView{
@@ -39,11 +46,11 @@ struct Store: View {
                 .navigationBarTitle("Compras", displayMode: .inline)
                 .onAppear() {
                     appSettings.showCurrentSong = false
-                }.bottomSheet(isPresented: $showBottomSheet, height: appSettings.payCards.count > 0 ? 420:300) {
+                }.bottomSheet(isPresented: $showBottomSheet, height: cardViewModel.creditCards.count > 0 ? 420:300) {
                     VStack(alignment:.center){
                         Form{
                             
-                            if appSettings.payCards.count <= 0 {
+                            if cardViewModel.creditCards.count <= 0 {
                                 List{
                                     NavigationLink(destination: CreateNewCreditCard(), label: {
                                         TextWithCustomFonts("Agregar método de pago",customFont: CustomFont(type: .semibold, size: 18), color: Color("title")).frame(height:40)
@@ -53,8 +60,8 @@ struct Store: View {
                             else{
                                 Section(header: TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18))){
                                     Picker(selection: $dateIndex, label: TextWithCustomFonts("")) {
-                                        ForEach(0 ..< appSettings.payCards.count, id:\.self) {index in
-                                            CreditCardRow(card: appSettings.payCards[index]).frame(minWidth:0, maxWidth: 300).listRowBackground(Color("background"))
+                                        ForEach(0 ..< cardViewModel.creditCards.count, id:\.self) {index in
+                                            CreditCardRow(card: cardViewModel.creditCards[index]).frame(minWidth:0, maxWidth: 300).listRowBackground(Color("background"))
                                             
                                         }
                                     }
@@ -67,8 +74,8 @@ struct Store: View {
                         Spacer().frame(height:14)
                         
                         RectangleBtn("Aceptar"){
-                            showAlert = true
-                        }.disabled(appSettings.payCards.count > 0 ? false:true).frame(width: 250, height: 40, alignment: .center)
+                            showAlertQuestion = true
+                        }.disabled(cardViewModel.creditCards.count > 0 ? false:true).frame(width: 250, height: 40, alignment: .center)
                         Spacer().frame(height:20)
                     }.background(Color("background"))
                 }.background(Color("background"))
@@ -91,8 +98,10 @@ struct Store: View {
                 viewModel.getCreditsUser()
             }.onDisappear{
                 dateIndex = 0
+            }.alert(isPresented: $viewModel.showResult) { () -> Alert in
+                Alert(title: Text(String("Aviso").capitalized), message: Text(String("\(viewModel.resultText)").capitalizedFirstLetter), dismissButton: .default(Text(String("Aceptar").capitalized)))
             }
-        }.environmentObject(appSettings).alert(isPresented: $showAlert) { () -> Alert in
+        }.environmentObject(appSettings).alert(isPresented: $showAlertQuestion) { () -> Alert in
             Alert(
                 title:Text(String("Comprar paquete").capitalized),
                 message: Text(String("Se te hará un cobro de $\(self.selectedPackage.price ?? 0.00) por compra del paquete \(self.selectedPackage.name ?? "")")),

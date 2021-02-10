@@ -20,7 +20,7 @@ class CardViewModel: ObservableObject, ArionService {
         self.apiSession = apiSession
         
     }
-    
+    @Published var resultText:String = ""
     
     func addCard(body: AddCardBody, onSuccess:@escaping ()->(),onFail:@escaping ()->()) {
         
@@ -38,7 +38,7 @@ class CardViewModel: ObservableObject, ArionService {
                 }
             }) { (result) in
                 DispatchQueue.main.async {
-                   
+                    self.showLoader = false
                    
                     if result.resultCode == 0 {
                         onSuccess()
@@ -46,6 +46,7 @@ class CardViewModel: ObservableObject, ArionService {
                     }
                     else{
                         onFail()
+                      
                     }
                     
                 }

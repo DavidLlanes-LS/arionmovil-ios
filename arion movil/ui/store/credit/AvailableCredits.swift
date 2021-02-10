@@ -18,7 +18,7 @@ struct AvailableCredits: View {
             HStack{
                 TextWithCustomFonts("Saldo disponible",customFont: CustomFont(type: .bold, size: 16),color: Color.white)
                 Spacer()
-                Image(systemName: "music.note")
+                Image("token")
                 .foregroundColor(Color.white)
                 Text("\(credits) créditos")
                     .font(.custom("Exo-Semibold", size: 16))

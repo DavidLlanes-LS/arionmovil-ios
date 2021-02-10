@@ -18,7 +18,7 @@ struct AvailableCreditsBig: View {
             VStack(spacing:4){
                 TextWithCustomFonts("Saldo disponible",customFont: CustomFont(type: .bold, size: 16),color: Color.white)
                 HStack{
-                    Image(systemName: "music.note")
+                    Image("token")
                         .foregroundColor(Color.white)
                     TextWithCustomFonts("\(credits)",customFont: CustomFont(type: .bold, size: 30),color: .white)
                     TextWithCustomFonts("créditos",customFont: CustomFont(type: .light, size: 16),color: .white)
