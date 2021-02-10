@@ -39,9 +39,10 @@ class CardViewModel: ObservableObject, ArionService {
             }) { (result) in
                 DispatchQueue.main.async {
                    
-                    print("openpay",result)
+                   
                     if result.resultCode == 0 {
                         onSuccess()
+                        self.getCreditList()
                     }
                     else{
                         onFail()
@@ -99,12 +100,12 @@ class CardViewModel: ObservableObject, ArionService {
                     self.creditCards = list.cards!}
                 if self.appSettings != nil
                     {
-                    DispatchQueue.main.async {
+                   
                         if list.cards != nil {
                             self.appSettings?.payCards = list.cards!
                         }
                         
-                    }
+                    
                     }
                 
             }

@@ -15,6 +15,7 @@ struct CreateNewCreditCard: View {
     @State private var years:[Int] = Array(21...30)
     @State private var yearIndex:Int = 0
     @State var openpay : Openpay!
+    @EnvironmentObject var appSettings: AppHelper;
     @State var isPresented:Bool = false
     @State private var cardName:String = ""
     @State private var token:String = ""
@@ -103,6 +104,7 @@ struct CreateNewCreditCard: View {
     func successToken(token: OPToken) {
             print("openpayTokenID: \(token.id)")
             self.token = token.id
+        viewModel.appSettings = self.appSettings
         viewModel.addCard(body:AddCardBody(cardToken: self.token, deviceSessionId: self.sessionId) ){
             self.presentationMode.wrappedValue.dismiss()
         } onFail:{
