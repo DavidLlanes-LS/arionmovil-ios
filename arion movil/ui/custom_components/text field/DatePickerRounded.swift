@@ -14,9 +14,13 @@ struct DatePickerRounded: View {
     var textError:String
     var body: some View {
         VStack(alignment: .leading) {
-            DatePicker(selection: $dateSelection, in: ...Date(), displayedComponents: .date){
-                TextWithCustomFonts(title, customFont: CustomFont(type: .light, size: 16)).padding()
+            DatePicker(selection: $dateSelection, in: ...dateSelection, displayedComponents: .date){
+                TextWithCustomFonts(title, customFont: CustomFont(type: .semibold, size: 16), color: Color.gray)
             }
         }
+        .padding()
+        .background(Color.white)
+        .opacity(0.8)
+        .cornerRadius(4.0)
     }
 }
