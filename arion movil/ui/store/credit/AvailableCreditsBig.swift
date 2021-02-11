@@ -13,17 +13,19 @@ struct AvailableCreditsBig: View {
     init(credits:Binding<Int>) {
        _credits = credits
     }
-    var body: some View {
+    var body: some View{
         HStack{
-            VStack(spacing:4){
-                TextWithCustomFonts("Saldo disponible",customFont: CustomFont(type: .bold, size: 16),color: Color.white)
+            VStack(alignment: .leading, spacing:4){
+                TextWithCustomFonts("Saldo disponible",customFont: CustomFont(type: .bold, size: 16), color: Color.white)
                 HStack{
                     Image("token")
                         .foregroundColor(Color.white)
-                    TextWithCustomFonts("\(credits)",customFont: CustomFont(type: .bold, size: 30),color: .white)
-                    TextWithCustomFonts("créditos",customFont: CustomFont(type: .light, size: 16),color: .white)
+                    TextWithCustomFonts("\(credits)",customFont: CustomFont(type: .bold, size: 30), color: .white)
+                    TextWithCustomFonts("créditos",customFont: CustomFont(type: .light, size: 16), color: .white)
                 }
             }
+            .padding(.horizontal)
+            .padding(.vertical, 8)
             Spacer()
         }.padding([.bottom,.top,.leading],4).frame(minWidth:0,maxWidth: .infinity).background(Color("secondary-background"))
     }

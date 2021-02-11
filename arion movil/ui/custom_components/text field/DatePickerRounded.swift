@@ -12,6 +12,7 @@ struct DatePickerRounded: View {
     @Binding var dateSelection:Date
     var title:String
     var textError:String
+    @State var transparent:Bool
     var body: some View {
         VStack(alignment: .leading) {
             DatePicker(selection: $dateSelection, in: ...dateSelection, displayedComponents: .date){
@@ -19,7 +20,7 @@ struct DatePickerRounded: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(!transparent ? Color("background"): Color("background_text"))
         .opacity(0.8)
         .cornerRadius(4.0)
     }

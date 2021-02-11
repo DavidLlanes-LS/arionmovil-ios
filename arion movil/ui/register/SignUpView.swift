@@ -54,9 +54,9 @@ struct SignUpView: View {
                         customFont:
                             CustomFont(type: .bold, size: 16),
                         color: .white
-                    )
+                    ).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     RoundedTextField(textValue: $viewModel.name, title: "Nombre", textError: viewModel.errorName,transparent: false)
-                }
+                }.padding(.horizontal)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
                         "Correo electrónico",
@@ -65,7 +65,7 @@ struct SignUpView: View {
                         color: .white
                     )
                     RoundedTextField(textValue: $viewModel.email, title: "Correo electrónico", textError: viewModel.errorEmail,transparent: false).keyboardType(.emailAddress).autocapitalization(.none)
-                }
+                }.padding(.horizontal)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
                         "Teléfono",
@@ -74,7 +74,7 @@ struct SignUpView: View {
                         color: .white
                     )
                     RoundedTextField(textValue: $viewModel.phoneNumber, title: "Teléfono", textError: viewModel.errorPhoneNumber,transparent: false).keyboardType(.phonePad)
-                }
+                }.padding(.horizontal)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
                         "País",
@@ -82,8 +82,8 @@ struct SignUpView: View {
                             CustomFont(type: .bold, size: 16),
                         color: .white
                     )
-                    PickerRounded(selection: $viewModel.countrySelection, title: "Seleccionar", data: viewModel.countries, textError: viewModel.errorCountry)
-                }
+                    PickerRounded(selection: $viewModel.countrySelection, title: "Seleccionar", data: viewModel.countries, textError: viewModel.errorCountry, transparent: false)
+                }.padding(.horizontal)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
                         "Genero",
@@ -91,8 +91,8 @@ struct SignUpView: View {
                             CustomFont(type: .bold, size: 16),
                         color: .white
                     )
-                    PickerRounded(selection: $viewModel.gender, title: "Seleccionar", data: viewModel.genders, textError: viewModel.errorGender)
-                }
+                    PickerRounded(selection: $viewModel.gender, title: "Seleccionar", data: viewModel.genders, textError: viewModel.errorGender, transparent: false)
+                }.padding(.horizontal)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
                         "Fecha de nacimiento",
@@ -100,8 +100,8 @@ struct SignUpView: View {
                             CustomFont(type: .bold, size: 16),
                         color: .white
                     )
-                    DatePickerRounded(dateSelection: $viewModel.birthday, title: "Seleccionar", textError: viewModel.errorBirthday)
-                }
+                    DatePickerRounded(dateSelection: $viewModel.birthday, title: "Seleccionar", textError: viewModel.errorBirthday, transparent: false)
+                }.padding(.horizontal)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
                         "Contraseña",
@@ -110,7 +110,7 @@ struct SignUpView: View {
                         color: .white
                     )
                     SecureTextField(textValue: $viewModel.password, title: "Contraseña", textError: viewModel.errorPassword,transparent: false)
-                }
+                }.padding(.horizontal)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
                         "Confirmar contraseña",
@@ -119,7 +119,7 @@ struct SignUpView: View {
                         color: .white
                     )
                     SecureTextField(textValue: $viewModel.confirmPassword, title: "Confirmar contraseña", textError: viewModel.errorConfirmPassword,transparent: false)
-                }
+                }.padding(.horizontal)
                 
                 RectangleBtn("Crear cuenta") {
                     if self.viewModel.isFormValid() {
@@ -149,9 +149,8 @@ struct SignUpView: View {
                 }
                 .disabled(viewModel.disableButton())
                 .frame(height:40)
-                .padding(.vertical)
+                .padding()
             }
-            .padding()
         }
         .alert(isPresented: $showSuccess, content: {
                 switch (result) {

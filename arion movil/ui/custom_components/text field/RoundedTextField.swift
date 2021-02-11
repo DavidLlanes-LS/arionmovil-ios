@@ -28,7 +28,7 @@ struct RoundedTextField: View {
             if !textError.isEmpty {
                 TextWithCustomFonts(
                     textError,
-                    customFont: CustomFont(type: .light, size: 14),
+                    customFont: CustomFont(type: .semibold, size: 14),
                     color: Color("error")
                 ).padding(.horizontal)
             }
