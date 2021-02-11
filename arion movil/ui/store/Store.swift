@@ -30,7 +30,7 @@ struct Store: View {
                 VStack(spacing:0){
                     AvailableCreditsBig(credits: $appSettings.userCredits)
                     List{
-                        TextWithCustomFonts("Paquetes disponibles",customFont: CustomFont(type: .bold, size: 22),color:Color("title")).listRowBackground(Color("background"))
+                        TextWithCustomFonts("Paquetes disponibles",customFont: CustomFont(type: .bold, size: 17),color:Color("title")).listRowBackground(Color("background"))
                         ForEach(viewModel.pakcagesList,id:\.self){package in
                             Button(action:{
                                 selectedPackage = package

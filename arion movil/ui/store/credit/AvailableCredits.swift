@@ -20,7 +20,7 @@ struct AvailableCredits: View {
                 Spacer()
                 Image("token")
                 .foregroundColor(Color.white)
-                Text("\(credits) créditos")
+                Text(String("\(credits) créditos"))
                     .font(.custom("Exo-Semibold", size: 16))
                     .foregroundColor(Color.white)
             }.padding()

@@ -13,6 +13,7 @@ struct PickerRounded: View {
     var title:String
     var data:[Any]
     var textError:String
+    @State var transparent:Bool 
     var body: some View {
         VStack(alignment: .leading) {
             Picker(
@@ -33,7 +34,7 @@ struct PickerRounded: View {
                         .foregroundColor(Color.gray)
                 }
                 .padding()
-                .background(Color.white)
+                .background(!transparent ? Color("background"): Color("background_text"))
                 .opacity(0.8)
                 .cornerRadius(4.0)
             ) {
