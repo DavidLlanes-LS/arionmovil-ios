@@ -19,9 +19,8 @@ struct Profile: View {
                    ProfileImage()
                        .frame(width: 200, height: 200)
                    TextWithCustomFonts("David Pacheco",customFont: CustomFont(type: .bold, size: 16), color: Color("two-gray"))
-                   Rectangle()
-                       .frame(width: 200, height: 0.5)
-                       .background(Color("two-gray")).padding(.bottom, 32)
+                 
+                       
                    List{
                        NavigationLink(destination: CreditCards()){
                            TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18), color: Color("title"))
@@ -40,10 +39,22 @@ struct Profile: View {
                        }).listRowBackground(Color("background"))
                     
                        
-                       }.padding()
+                       }
                    
                    RectangleBtn("Cerrar sesión", action: {
-                       
+                    let defaults = UserDefaults.standard
+//                       let dictionary = defaults.dictionaryRepresentation()
+                    defaults.removeObject(forKey: Constants.keyIsAuth)
+                   defaults.removeObject(forKey: Constants.keyCookie)
+                    defaults.removeObject(forKey: Constants.keyUserId)
+                    
+                    UserDefaults.standard.set("", forKey: Constants.keyCookie)
+                    appSettings.userCredits = 0
+//
+//                       dictionary.keys.forEach { key in
+//                        print("userdefaultsd",key)
+//                          // defaults.removeObject(forKey: key)
+//                       }
                    }).frame(width:200, height:40).padding()
                }
                 .onAppear() {

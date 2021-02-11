@@ -21,8 +21,8 @@ struct BranchRow: View {
                 LogoImage(imageName:branch.logoImage == nil ? "image": branch.logoImage!)
                     .frame(width: 40, height: 40, alignment: .center)
                 VStack{
-                    TextWithCustomFonts(branch.name,customFont: CustomFont(type: .bold, size: 16),color: Color("title-row")).frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
-                    TextWithCustomFonts(branch.locationDescription,color: Color("title-row")).frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
+                    TextWithCustomFonts(branch.name,customFont: CustomFont(type: .bold, size: 16),color: Color("title")).frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
+                    TextWithCustomFonts(branch.locationDescription,color: Color("title")).frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
                 }
                 .frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
                

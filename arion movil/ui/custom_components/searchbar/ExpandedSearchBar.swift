@@ -21,7 +21,7 @@ struct ExpandedSearchBar: View {
                 
                 if self.show{
                     
-                    Image("search").padding(.horizontal, 8)
+                    Image("search") .renderingMode(.template).padding(.horizontal, 8).foregroundColor(Color("title"))
                     
                     TextField(placeholder, text: self.$txt)
                     
@@ -35,7 +35,7 @@ struct ExpandedSearchBar: View {
                         
                     }) {
                         
-                        Image(systemName: "xmark").foregroundColor(.black)
+                        Image(systemName: "xmark").foregroundColor(Color("title"))
                     }
                     .padding(.horizontal, 8)
                     
@@ -52,7 +52,7 @@ struct ExpandedSearchBar: View {
                         
                     }) {
                         
-                        Image("search").foregroundColor(.black).padding(10)
+                        Image("search").renderingMode(.template).foregroundColor(Color("title")).padding(10)
                         
                     }
                 }

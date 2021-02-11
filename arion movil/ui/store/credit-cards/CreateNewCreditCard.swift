@@ -15,8 +15,10 @@ struct CreateNewCreditCard: View {
     @State private var years:[Int] = Array(21...30)
     @State private var yearIndex:Int = 0
     @State var openpay : Openpay!
+    @EnvironmentObject var appSettings: AppHelper;
     @State var isPresented:Bool = false
     @State private var cardName:String = ""
+    @State  var errorMessage:String = ""
     @State private var token:String = ""
     @State private var sessionId:String = ""
     @ObservedObject private var cardNumberBinding = TextBindingManager(limit: 16)
@@ -68,7 +70,7 @@ struct CreateNewCreditCard: View {
             }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
             }
         }.alert(isPresented: $isPresented) {
-            Alert(title: Text(String("Aviso").capitalized), message: Text("N"+String("o pudimos agregar tu tarjeta, por favor verifica tus datos e intentalo de nuevo").lowercased()), dismissButton: .default(Text(String("Aceptar").capitalized)))
+            Alert(title: Text(String("Aviso").capitalized), message: Text(Constants.failAddCardDefaultMsg.lowercased()), dismissButton: .default(Text(String("Aceptar").capitalized)))
         }
         
     }
@@ -103,6 +105,7 @@ struct CreateNewCreditCard: View {
     func successToken(token: OPToken) {
             print("openpayTokenID: \(token.id)")
             self.token = token.id
+        viewModel.appSettings = self.appSettings
         viewModel.addCard(body:AddCardBody(cardToken: self.token, deviceSessionId: self.sessionId) ){
             self.presentationMode.wrappedValue.dismiss()
         } onFail:{
@@ -115,6 +118,7 @@ struct CreateNewCreditCard: View {
             print("openpayR\(error.code) - \(error.localizedDescription)")
         viewModel.showLoader = false
         isPresented = true
+        
     }
     func successSession(sessionId: String) {
             print("openpaySessionID: \(sessionId)")
