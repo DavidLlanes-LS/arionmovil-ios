@@ -55,7 +55,7 @@ struct SignUpView: View {
                             CustomFont(type: .bold, size: 16),
                         color: .white
                     )
-                    RoundedTextField(textValue: $viewModel.name, title: "Nombre", textError: viewModel.errorName)
+                    RoundedTextField(textValue: $viewModel.name, title: "Nombre", textError: viewModel.errorName,transparent: false)
                 }
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
@@ -64,7 +64,7 @@ struct SignUpView: View {
                             CustomFont(type: .bold, size: 16),
                         color: .white
                     )
-                    RoundedTextField(textValue: $viewModel.email, title: "Correo electrónico", textError: viewModel.errorEmail).keyboardType(.emailAddress).autocapitalization(.none)
+                    RoundedTextField(textValue: $viewModel.email, title: "Correo electrónico", textError: viewModel.errorEmail,transparent: false).keyboardType(.emailAddress).autocapitalization(.none)
                 }
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
@@ -73,7 +73,7 @@ struct SignUpView: View {
                             CustomFont(type: .bold, size: 16),
                         color: .white
                     )
-                    RoundedTextField(textValue: $viewModel.phoneNumber, title: "Teléfono", textError: viewModel.errorPhoneNumber).keyboardType(.phonePad)
+                    RoundedTextField(textValue: $viewModel.phoneNumber, title: "Teléfono", textError: viewModel.errorPhoneNumber,transparent: false).keyboardType(.phonePad)
                 }
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
@@ -109,7 +109,7 @@ struct SignUpView: View {
                             CustomFont(type: .bold, size: 16),
                         color: .white
                     )
-                    SecureTextField(textValue: $viewModel.password, title: "Contraseña", textError: viewModel.errorPassword)
+                    SecureTextField(textValue: $viewModel.password, title: "Contraseña", textError: viewModel.errorPassword,transparent: false)
                 }
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
@@ -118,7 +118,7 @@ struct SignUpView: View {
                             CustomFont(type: .bold, size: 16),
                         color: .white
                     )
-                    SecureTextField(textValue: $viewModel.confirmPassword, title: "Confirmar contraseña", textError: viewModel.errorConfirmPassword)
+                    SecureTextField(textValue: $viewModel.confirmPassword, title: "Confirmar contraseña", textError: viewModel.errorConfirmPassword,transparent: false)
                 }
                 
                 RectangleBtn("Crear cuenta") {
