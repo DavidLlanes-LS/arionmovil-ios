@@ -10,8 +10,11 @@ import SwiftUI
 
 struct Profile: View {
     @EnvironmentObject var appSettings: AppHelper
+    @State var banerDate = BannerData(title: "", detail: "", type: .info)
     var userName = UserDefaults.standard.string(forKey: Constants.keyUserName)
     @State var navigationToLogin: Bool = false
+    @State var showBanner: Bool = false
+    var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
     var body: some View {
         NavigationView{
             ZStack{
@@ -46,8 +49,11 @@ struct Profile: View {
                     
                        
                        }
-                    if appSettings.isLoged == true {
+                    if isAuth {
+                        
                         RectangleBtn("Cerrar sesión", action: {
+                            banerDate.title = "Haz cerrado sesión"
+                            showBanner = true
                          let defaults = UserDefaults.standard
                          defaults.removeObject(forKey: Constants.keyIsAuth)
                         defaults.removeObject(forKey: Constants.keyCookie)
@@ -66,8 +72,14 @@ struct Profile: View {
                        
                     }
                   
-               }
+                }.banner(data: $banerDate, show: $showBanner)
                 .onAppear() {
+                    if isAuth{
+                    if appSettings.isLoged{
+                        banerDate.title = "Bienvenido \(userName!)"
+                        showBanner = true
+                        appSettings.isLoged = false
+                    }}
                     appSettings.showCurrentSong = false
                 }
             }

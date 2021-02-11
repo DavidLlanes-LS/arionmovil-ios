@@ -23,7 +23,7 @@ struct BannerData {
         var tintColor: Color {
             switch self {
             case .info:
-                return Color(red: 67/255, green: 154/255, blue: 215/255)
+                return Color("toast")
             case .success:
                 return Color.green
             case .warning:
@@ -47,15 +47,16 @@ struct BannerModifier: ViewModifier {
             if show {
                 VStack {
                     HStack {
-                        VStack(alignment: .leading, spacing: 2) {
+                        Spacer()
+                        VStack(alignment: .center, spacing: 2) {
                             Text(data.title)
-                                .bold()
-                            Text(data.detail)
-                                .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
-                        }
+                                .bold().frame(alignment:.center)
+//                            Text(data.detail)
+//                                .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
+                        }.frame(alignment:.center)
                         Spacer()
                     }
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color("background"))
                     .padding(12)
                     .background(data.type.tintColor)
                     .cornerRadius(8)
@@ -77,7 +78,7 @@ struct BannerModifier: ViewModifier {
                         }
                     }
                     // Auto dismiss after 5 seconds, and cancel the task if view disappear before the auto dismiss
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: self.task!)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: self.task!)
                 }
                 .onDisappear {
                     self.task?.cancel()
