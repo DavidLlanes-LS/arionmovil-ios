@@ -14,6 +14,7 @@ class AppHelper: ObservableObject {
     @Published var userId: String? = nil
     @Published var playerId: String? = nil
     @Published var showCurrentSong: Bool = true
+    @Published var isLoged: Bool = false
     @Published var payCards:[CreditCard] = []
     @Published var userCredits:Int = 0
     @Published var albumsList:[AlbumCD] = []

@@ -10,15 +10,21 @@ import SwiftUI
 
 struct Profile: View {
     @EnvironmentObject var appSettings: AppHelper
-    
+    var userName = UserDefaults.standard.string(forKey: Constants.keyUserName)
+    @State var navigationToLogin: Bool = false
     var body: some View {
         NavigationView{
             ZStack{
                 Color("background")
                 VStack{
+                    NavigationLink(destination: LoginView(), isActive: self.$navigationToLogin) {
+                    }
                    ProfileImage()
                        .frame(width: 200, height: 200)
-                   TextWithCustomFonts("David Pacheco",customFont: CustomFont(type: .bold, size: 16), color: Color("two-gray"))
+                    if userName != nil {
+                        TextWithCustomFonts(userName!,customFont: CustomFont(type: .bold, size: 16), color: Color("two-gray")).animation(.default)
+                    }
+                   
                  
                        
                    List{
@@ -40,22 +46,26 @@ struct Profile: View {
                     
                        
                        }
-                   
-                   RectangleBtn("Cerrar sesión", action: {
-                    let defaults = UserDefaults.standard
-//                       let dictionary = defaults.dictionaryRepresentation()
-                    defaults.removeObject(forKey: Constants.keyIsAuth)
-                   defaults.removeObject(forKey: Constants.keyCookie)
-                    defaults.removeObject(forKey: Constants.keyUserId)
-                    
-                    UserDefaults.standard.set("", forKey: Constants.keyCookie)
-                    appSettings.userCredits = 0
-//
-//                       dictionary.keys.forEach { key in
-//                        print("userdefaultsd",key)
-//                          // defaults.removeObject(forKey: key)
-//                       }
-                   }).frame(width:200, height:40).padding()
+                    if appSettings.isLoged == true {
+                        RectangleBtn("Cerrar sesión", action: {
+                         let defaults = UserDefaults.standard
+                         defaults.removeObject(forKey: Constants.keyIsAuth)
+                        defaults.removeObject(forKey: Constants.keyCookie)
+                         defaults.removeObject(forKey: Constants.keyUserId)
+                         
+                         UserDefaults.standard.set("", forKey: Constants.keyCookie)
+                         appSettings.userCredits = 0
+                            appSettings.isLoged = false
+                        }).frame(width:200, height:40).padding()
+                    }
+                    else{
+                        
+                            RectangleBtn("Iniciar sesión", action: {
+                                navigationToLogin = true
+                            }).frame(width:200, height:40).padding()
+                       
+                    }
+                  
                }
                 .onAppear() {
                     appSettings.showCurrentSong = false

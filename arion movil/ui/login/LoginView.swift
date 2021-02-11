@@ -12,6 +12,7 @@ struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     @Environment(\.presentationMode) var presentationMode
     @State var navigationToRegister = false
+    @EnvironmentObject var appSettings: AppHelper
     @State var navigationToRecoverPass = false
     
     var alert: Alert {
@@ -81,7 +82,10 @@ struct LoginView: View {
                                     break
                                 }
                                 case 1: do {
+                                   
                                     self.presentationMode.wrappedValue.dismiss()
+                                    appSettings.isLoged = true
+                                   
                                 }
                                 default: break
                                 }
@@ -101,7 +105,7 @@ struct LoginView: View {
                     SimpleBtn("Crear una cuenta", action: {
                         self.navigationToRegister = true
                     }, color:Color.white)
-                    SimpleBtn("Recupera tu contraaseña", action: {
+                    SimpleBtn("Recupera tu contraseña", action: {
                         self.navigationToRecoverPass = true
                     }, color:Color.white)
                 }

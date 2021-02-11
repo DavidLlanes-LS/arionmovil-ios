@@ -42,6 +42,7 @@ class LoginViewModel:ObservableObject,ArionService {
                 handle(result.status, nil)
                 UserDefaults.standard.set(result.userId, forKey: Constants.keyUserId)
                 UserDefaults.standard.set(true, forKey: Constants.keyIsAuth)
+                UserDefaults.standard.set(result.userName, forKey: Constants.keyUserName)
             })
         
         cancellables.insert(cancellable)
