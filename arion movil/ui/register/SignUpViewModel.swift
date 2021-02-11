@@ -22,7 +22,7 @@ class SignUpViewModel:ObservableObject,ArionService {
     @Published var countrySelection:Int = -1
     @Published var errorCountry:String = ""
     @Published var countries: [Country] = []
-    @Published var birthday:Date = Date()
+    @Published var birthday:Date = Calendar.current.date(byAdding: .year, value: -18, to: Date())!
     @Published var errorBirthday:String = ""
     @Published var gender = -1
     @Published var errorGender:String = ""
