@@ -15,7 +15,28 @@ struct PickerRounded: View {
     var textError:String
     var body: some View {
         VStack(alignment: .leading) {
-            Picker(selection: $selection, label: TextWithCustomFonts(self.title, customFont: CustomFont(type: .light, size: 16)).padding()) {
+            Picker(
+                selection: $selection,
+                label: HStack {
+                    if selection < 0 {
+                        TextWithCustomFonts(title, customFont: CustomFont(type: .semibold, size: 16), color: Color.gray)
+                    } else {
+                        if self.data[selection] is Country {
+                            TextWithCustomFonts((self.data[selection] as! Country).name,customFont: CustomFont(type: .bold, size: 16))
+                        }
+                        if self.data[selection] is String {
+                            TextWithCustomFonts((self.data[selection] as! String),customFont: CustomFont(type: .bold, size: 16))
+                        }
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                        .foregroundColor(Color.gray)
+                }
+                .padding()
+                .background(Color.white)
+                .opacity(0.8)
+                .cornerRadius(4.0)
+            ) {
                 ForEach(0..<self.data.count, id: \.self) { index in
                     if (self.data[index] is Country) {
                         TextWithCustomFonts((self.data[index] as! Country).name).tag(index)
@@ -25,6 +46,7 @@ struct PickerRounded: View {
                     }
                 }
             }
+            .pickerStyle(MenuPickerStyle())
             if !textError.isEmpty {
                 TextWithCustomFonts(
                     textError,

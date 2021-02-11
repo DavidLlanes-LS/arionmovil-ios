@@ -30,57 +30,141 @@ struct SignUpView: View {
             }
         )
     }
+    var alertError: Alert {
+        Alert(
+            title: Text(String("Error")),
+            message: Text(String("Se ha producido un error al registrar el usuario.")),
+            dismissButton: .default(Text(String("Iniciar sesión"))) {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        )
+    }
     
     @State var showSuccess:Bool = false
-    @State var showErrorEmail: Bool = false
+    @State var result:Int = -1
     
     var body: some View {
         ZStack{
             Image("background")
                 .resizable()
-            VStack{
-                Form{
+            ScrollView{
+                VStack(alignment: .leading) {
+                    TextWithCustomFonts(
+                        "Nombre",
+                        customFont:
+                            CustomFont(type: .bold, size: 16),
+                        color: .white
+                    )
                     RoundedTextField(textValue: $viewModel.name, title: "Nombre", textError: viewModel.errorName)
+                }
+                VStack(alignment: .leading) {
+                    TextWithCustomFonts(
+                        "Correo electrónico",
+                        customFont:
+                            CustomFont(type: .bold, size: 16),
+                        color: .white
+                    )
                     RoundedTextField(textValue: $viewModel.email, title: "Correo electrónico", textError: viewModel.errorEmail).keyboardType(.emailAddress).autocapitalization(.none)
-                    RoundedTextField(textValue: $viewModel.phoneNumber, title: "Teléfono", textError: viewModel.errorPhoneNumber)
-                    PickerRounded(selection: $viewModel.countrySelection, title: "País", data: viewModel.countries, textError: viewModel.errorCountry)
-                    PickerRounded(selection: $viewModel.gender, title: "Genero", data: viewModel.genders, textError: viewModel.errorGender)
-                    DatePickerRounded(dateSelection: $viewModel.birthday, title: "Fecha de nacimiento", textError: viewModel.errorBirthday)
+                }
+                VStack(alignment: .leading) {
+                    TextWithCustomFonts(
+                        "Teléfono",
+                        customFont:
+                            CustomFont(type: .bold, size: 16),
+                        color: .white
+                    )
+                    RoundedTextField(textValue: $viewModel.phoneNumber, title: "Teléfono", textError: viewModel.errorPhoneNumber).keyboardType(.phonePad)
+                }
+                VStack(alignment: .leading) {
+                    TextWithCustomFonts(
+                        "País",
+                        customFont:
+                            CustomFont(type: .bold, size: 16),
+                        color: .white
+                    )
+                    PickerRounded(selection: $viewModel.countrySelection, title: "Seleccionar", data: viewModel.countries, textError: viewModel.errorCountry)
+                }
+                VStack(alignment: .leading) {
+                    TextWithCustomFonts(
+                        "Genero",
+                        customFont:
+                            CustomFont(type: .bold, size: 16),
+                        color: .white
+                    )
+                    PickerRounded(selection: $viewModel.gender, title: "Seleccionar", data: viewModel.genders, textError: viewModel.errorGender)
+                }
+                VStack(alignment: .leading) {
+                    TextWithCustomFonts(
+                        "Fecha de nacimiento",
+                        customFont:
+                            CustomFont(type: .bold, size: 16),
+                        color: .white
+                    )
+                    DatePickerRounded(dateSelection: $viewModel.birthday, title: "Seleccionar", textError: viewModel.errorBirthday)
+                }
+                VStack(alignment: .leading) {
+                    TextWithCustomFonts(
+                        "Contraseña",
+                        customFont:
+                            CustomFont(type: .bold, size: 16),
+                        color: .white
+                    )
                     SecureTextField(textValue: $viewModel.password, title: "Contraseña", textError: viewModel.errorPassword)
+                }
+                VStack(alignment: .leading) {
+                    TextWithCustomFonts(
+                        "Confirmar contraseña",
+                        customFont:
+                            CustomFont(type: .bold, size: 16),
+                        color: .white
+                    )
                     SecureTextField(textValue: $viewModel.confirmPassword, title: "Confirmar contraseña", textError: viewModel.errorConfirmPassword)
-                    RectangleBtn("Crear cuenta") {
-                        if self.viewModel.isFormValid() {
-                            self.viewModel.signUp() { result, error in
-                                if (error != nil) {
-                                    
-                                }
-                                if (result != nil) {
-                                    switch result {
-                                    case 0:
-                                        self.showSuccess = true
-                                        break
-                                    case 1:
-                                        self.showErrorEmail = true
-                                        break
-                                    default:
-                                        break
-                                    }
+                }
+                
+                RectangleBtn("Crear cuenta") {
+                    if self.viewModel.isFormValid() {
+                        self.viewModel.signUp() { result, error in
+                            if (error != nil) {
+                                self.showSuccess = true
+                                self.result = -1
+                            }
+                            if (result != nil) {
+                                switch result {
+                                case 0:
+                                    self.showSuccess = true
+                                    self.result = result!
+                                    break
+                                case 1:
+                                    self.showSuccess = true
+                                    self.result = result!
+                                    break
+                                default:
+                                    self.showSuccess = true
+                                    self.result = result!
+                                    break
                                 }
                             }
                         }
                     }
-                    .disabled(viewModel.disableButton())
-                    .frame(height:40)
-                    .padding(.vertical)
+                }
+                .disabled(viewModel.disableButton())
+                .frame(height:40)
+                .padding(.vertical)
+            }
+            .padding()
+        }
+        .alert(isPresented: $showSuccess, content: {
+                switch (result) {
+                case 0:
+                    return alertSuccess
+                case 1:
+                    return alertEmailAlreadyExist
+                default:
+                    return alertError
                 }
             }
-        }
-        .alert(isPresented: $showErrorEmail, content: { alertEmailAlreadyExist })
-        .alert(isPresented: $showSuccess, content: { alertSuccess })
-        .onAppear{
-            UITableView.appearance().backgroundColor = UIColor.clear
-            UITableViewCell.appearance().backgroundColor = UIColor.clear
-        }
+        )
+        
         .navigationBarTitle(String("Nueva cuenta"), displayMode: .inline)
     }
 }

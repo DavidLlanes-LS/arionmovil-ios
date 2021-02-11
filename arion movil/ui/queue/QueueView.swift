@@ -28,6 +28,9 @@ struct QueueView: View {
                     }
                     .padding([.top, .leading, .trailing]).background(Color("background"))
                     List{
+                        if viewModel.showLoader {
+                            ProgressView()
+                        }
                         ForEach(0..<self.viewModel.songs.count, id: \.self) { index in
                             QueueRow(
                                 song: viewModel.songs[index],
@@ -43,9 +46,6 @@ struct QueueView: View {
                     }
                     .animation(.default)
                     .listStyle(PlainListStyle())
-                    if viewModel.showLoader {
-                        ProgressView()
-                    }
                 }.background(Color("background"))
                 .onAppear(perform: {
                     self.viewModel.getQueue()

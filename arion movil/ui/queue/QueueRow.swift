@@ -72,7 +72,17 @@ struct QueueRow: View {
                             storeViewModel.appSettings = self.appSettings
                             storeViewModel.getCreditsUser()
                             if (result != nil) {
-                                //viewModel.getQueue()
+                                switch result {
+                                case 1:
+                                    viewModel.getQueue()
+                                    break
+                                case 2:
+                                    break
+                                case 3:
+                                    break
+                                default:
+                                    break
+                                }
                             } else if (error != nil) {
                                 UserDefaults.standard.set(false, forKey: Constants.keyIsAuth)
                                 self.showAlert = true
