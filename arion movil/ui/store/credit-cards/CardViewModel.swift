@@ -98,12 +98,20 @@ class CardViewModel: ObservableObject, ArionService {
             }) { (list) in
                 self.showLoader = false
                 if list.cards != nil {
-                    self.creditCards = list.cards!}
+                    self.creditCards = list.cards!
+                }
                 if self.appSettings != nil
                     {
-                   
                         if list.cards != nil {
                             self.appSettings?.payCards = list.cards!
+                            if self.appSettings!.selectedPayCard == nil{
+                                self.appSettings?.selectedPayCard = list.cards?.first
+                            }
+                            else{
+                                if !list.cards!.contains(self.appSettings!.selectedPayCard!){
+                                    self.appSettings?.selectedPayCard = list.cards?.first
+                                }
+                            }
                         }
                         
                     

@@ -19,11 +19,12 @@ struct Profile: View {
         NavigationView{
             ZStack{
                 Color("background")
-                VStack{
+                VStack(alignment:.center){
                     NavigationLink(destination: LoginView(), isActive: self.$navigationToLogin) {
                     }
                    ProfileImage()
                        .frame(width: 200, height: 200)
+                    //Image("playlist_filled").offset(x:50,y:-165)
                     if userName != nil {
                         TextWithCustomFonts(userName!,customFont: CustomFont(type: .bold, size: 16), color: Color("two-gray")).animation(.default)
                     }
@@ -81,6 +82,8 @@ struct Profile: View {
                         appSettings.isLoged = false
                     }}
                     appSettings.showCurrentSong = false
+                }.onDisappear{
+                    showBanner = false
                 }
             }
            .navigationBarTitle("Perfil", displayMode: .inline)

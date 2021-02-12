@@ -28,6 +28,10 @@ struct PickerRounded: View {
                         if self.data[selection] is String {
                             TextWithCustomFonts((self.data[selection] as! String),customFont: CustomFont(type: .bold, size: 16))
                         }
+                        if self.data[selection] is Int {
+                            // TextWithCustomFonts(String(Int(self.data[selection]))),customFont: CustomFont(type: .bold, size: 16))
+                            TextWithCustomFonts(("\(self.data[selection] as! Int)"),customFont: CustomFont(type: .bold, size: 16))
+                        }
                     }
                     Spacer()
                     Image(systemName: "chevron.down")
@@ -39,12 +43,20 @@ struct PickerRounded: View {
                 .cornerRadius(4.0)
             ) {
                 ForEach(0..<self.data.count, id: \.self) { index in
-                    if (self.data[index] is Country) {
+                    if self.data[index] is Country {
                         TextWithCustomFonts((self.data[index] as! Country).name).tag(index)
                     }
-                    if (self.data[index] is String) {
+                    if self.data[index] is String {
                         TextWithCustomFonts((self.data[index] as! String)).tag(index)
                     }
+                    else{
+                        
+                        TextWithCustomFonts(("\(self.data[index])")).tag(index)                    }
+                    
+                    //                    if self.data[index] is String {
+                    //
+                    //                    }
+                    
                 }
             }
             .pickerStyle(MenuPickerStyle())

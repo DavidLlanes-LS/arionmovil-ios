@@ -48,8 +48,20 @@ struct CreditCardRow: View {
                     }
                 }.frame(minWidth:0, maxWidth: .infinity)
                 
-                TextWithCustomFonts("\(card.expirationMonth!)/\(card.expirationYear!.suffix(2))",customFont: CustomFont(type: .semibold, size: 20),color: .white)
-                    .frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
+                
+                HStack{
+                    TextWithCustomFonts("\(card.expirationMonth!)/\(card.expirationYear!.suffix(2))",customFont: CustomFont(type: .semibold, size: 20),color: .white)
+                        .frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                    if card.brand == "mastercard"{
+                        Image("mastercard").resizable() .scaledToFit().frame(maxWidth:40)
+                    }
+                    else if card.brand == "visa"{
+                        Image("visa").renderingMode(.template).resizable() .scaledToFit().frame(maxWidth:40).foregroundColor(Color("visa_color"))
+                    }
+                   
+                   
+                }
                 }.padding()
         }.background(Color("gray-lightgray")).cornerRadius(10)
     }

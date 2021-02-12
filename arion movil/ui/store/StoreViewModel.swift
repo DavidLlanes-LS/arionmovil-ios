@@ -11,6 +11,7 @@ import Combine
 import SwiftUI
 
 class StoreViewModel: ObservableObject, ArionService {
+    @Published var banerDate = BannerData(title: "", detail: "", type: .info)
     @Published var pakcagesList:[Packages] = []
     @Published var isLoading:Bool = false
     @Published var credits:Int = 0
@@ -72,23 +73,32 @@ class StoreViewModel: ObservableObject, ArionService {
                 switch result.resultCode{
                 case 1:
                     self.resultText = String(Constants.succesPurchaseMsg)
+                    self.banerDate.type = .success
                 case 128:
                     self.resultText = String(Constants.declinedCardMsg)
+                    self.banerDate.type = .error
                 case 129:
                     self.resultText = String(Constants.expiredCardMsg)
+                    self.banerDate.type = .error
                 case 130:
                     self.resultText = String(Constants.foundLessCardMsg)
+                    self.banerDate.type = .error
                 case 136:
                     self.resultText = String(Constants.restrictedCardMsg)
+                    self.banerDate.type = .error
                 case 137:
                     self.resultText = String(Constants.retainedCardMsg)
+                    self.banerDate.type = .error
                 case 138:
                     self.resultText = String(Constants.needsBankAuthMsg)
+                    self.banerDate.type = .error
                     
                 default:
                     self.resultText = String(Constants.failPurchaseDefaultMsg)
+                    self.banerDate.type = .error
                     
                 }
+                self.banerDate.title = self.resultText
                 self.showResult.toggle()
                
                 

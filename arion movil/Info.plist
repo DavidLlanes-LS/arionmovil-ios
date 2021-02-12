@@ -13,6 +13,8 @@
 	<string>Utilizamos tu ubicacion para recomendarte los restaurantes mas cercanos a ti.</string>
 	<key>Privacy - Location </key>
 	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>Se usa la cámara para tomar fotos en la aplicación</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Exo-ThinItalic.ttf</string>
