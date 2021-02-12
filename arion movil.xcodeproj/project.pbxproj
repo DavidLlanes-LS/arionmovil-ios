@@ -100,6 +100,8 @@
 		63DC28DB24B5185E0062C4D8 /* CreateNewCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC28DA24B5185E0062C4D8 /* CreateNewCreditCard.swift */; };
 		63DC28DE24B51A360062C4D8 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC28DD24B51A360062C4D8 /* CustomTextField.swift */; };
 		63FAB1CD24BCA0B100527EE0 /* YearSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FAB1CC24BCA0B100527EE0 /* YearSearcher.swift */; };
+		7F00C7CB25D73329003879E6 /* ChangeProfileBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00C7CA25D73329003879E6 /* ChangeProfileBody.swift */; };
+		7F00C7D025D73464003879E6 /* ChangeProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00C7CF25D73464003879E6 /* ChangeProfileResponse.swift */; };
 		7F07226025BA6279009E6E95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */; };
 		7F10760625BF48DD0011FF05 /* LoaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10760525BF48DD0011FF05 /* LoaderComponent.swift */; };
 		7F10762A25BF7A050011FF05 /* ArionAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762925BF7A050011FF05 /* ArionAppHelper.swift */; };
@@ -295,6 +297,8 @@
 		63DC28DA24B5185E0062C4D8 /* CreateNewCreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCreditCard.swift; sourceTree = "<group>"; };
 		63DC28DD24B51A360062C4D8 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		63FAB1CC24BCA0B100527EE0 /* YearSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSearcher.swift; sourceTree = "<group>"; };
+		7F00C7CA25D73329003879E6 /* ChangeProfileBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileBody.swift; sourceTree = "<group>"; };
+		7F00C7CF25D73464003879E6 /* ChangeProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileResponse.swift; sourceTree = "<group>"; };
 		7F07225F25BA6279009E6E95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "arion movil/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		7F10760525BF48DD0011FF05 /* LoaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderComponent.swift; sourceTree = "<group>"; };
 		7F10762925BF7A050011FF05 /* ArionAppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArionAppHelper.swift; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				0A08EF2125CDEEB7006D921E /* SignUpBody.swift */,
+				7F00C7CA25D73329003879E6 /* ChangeProfileBody.swift */,
 			);
 			path = body;
 			sourceTree = "<group>";
@@ -908,6 +913,7 @@
 				7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */,
 				7FA43B1825D1E72400914661 /* UserCreditsResponse.swift */,
 				7FA43B1D25D30EB700914661 /* PurchasesHistoryResponse.swift */,
+				7F00C7CF25D73464003879E6 /* ChangeProfileResponse.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -1346,6 +1352,7 @@
 				635D311524AE5A77000062AF /* Branch.swift in Sources */,
 				6325359624AF7ED400651494 /* SongItem.swift in Sources */,
 				633F103C24B6719200B284AE /* Settings.swift in Sources */,
+				7F00C7D025D73464003879E6 /* ChangeProfileResponse.swift in Sources */,
 				7F3EA53B25CDBA4900F2F6E1 /* AddCardBody.swift in Sources */,
 				6360B0A324AE7FFE00811899 /* LocationManager.swift in Sources */,
 				63DC28DE24B51A360062C4D8 /* CustomTextField.swift in Sources */,
@@ -1381,6 +1388,7 @@
 				7F741E3425BB4AEC00C23A6B /* SongsQueueResponse.swift in Sources */,
 				635D310724AE5265000062AF /* BranchesNav.swift in Sources */,
 				7F10762A25BF7A050011FF05 /* ArionAppHelper.swift in Sources */,
+				7F00C7CB25D73329003879E6 /* ChangeProfileBody.swift in Sources */,
 				7FA43AC225D18EED00914661 /* CreditsPackagesResponse.swift in Sources */,
 				6339F06124B36094008C8554 /* Triangle.swift in Sources */,
 				0A18CD6925CB5261006C28BD /* SecureTextField.swift in Sources */,

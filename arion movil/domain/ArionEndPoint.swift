@@ -177,6 +177,27 @@ class ApiRequest{
 
             return urlRequest
         }
+    func postChangeProfile(body: ChangeProfileBody)->URLRequest{
+            var urlRequest:URLRequest{
+                let urlReq: String = "http://acsstaging.cloudapp.net/api/amcm/users/change-user-profile"
+                guard let url = URL(string: urlReq)
+                    else {preconditionFailure("Invalid URL format")}
+                var request = URLRequest(url: url)
+                
+                request.setValue("application/json", forHTTPHeaderField: "Accept")
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue(UserDefaults.standard.string(forKey: Constants.keyCookie), forHTTPHeaderField: "Cookie")
+                
+                let bodyData = try? JSONSerialization.data(withJSONObject: body.getDic(), options: [])
+                request.httpBody = bodyData
+                request.httpMethod = "POST"
+                
+                return request
+            }
+            
+
+            return urlRequest
+        }
     func postDeleteCard(body: DeleteCardBody)->URLRequest{
             var urlRequest:URLRequest{
                 let urlReq: String = "http://acsstaging.cloudapp.net/api/amcm/credits/delete-user-card"

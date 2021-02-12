@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ChangePasswordEmail: View {
+    @StateObject var viewModel = ProfileViewModel()
     @State var newEmail:String = ""
     var body: some View {
         ZStack{
@@ -28,6 +29,7 @@ struct ChangePasswordEmail: View {
                     }
                 }
                 RectangleBtn("Guardar"){
+                    viewModel.changeProfile(body: ChangeProfileBody(options: "ChangeUserPassword", newEmail: "", currentPassword: "1234567", newPassword: "123456"))
                     
                 }.frame(width:200,height:40)
                     .frame(minWidth:0, maxWidth: .infinity, alignment: .center).padding()
