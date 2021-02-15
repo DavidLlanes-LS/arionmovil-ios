@@ -100,11 +100,15 @@
 		63DC28DB24B5185E0062C4D8 /* CreateNewCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC28DA24B5185E0062C4D8 /* CreateNewCreditCard.swift */; };
 		63DC28DE24B51A360062C4D8 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC28DD24B51A360062C4D8 /* CustomTextField.swift */; };
 		63FAB1CD24BCA0B100527EE0 /* YearSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FAB1CC24BCA0B100527EE0 /* YearSearcher.swift */; };
+		7F00C7CB25D73329003879E6 /* ChangeProfileBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00C7CA25D73329003879E6 /* ChangeProfileBody.swift */; };
+		7F00C7D025D73464003879E6 /* ChangeProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00C7CF25D73464003879E6 /* ChangeProfileResponse.swift */; };
 		7F07226025BA6279009E6E95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F07225E25BA6279009E6E95 /* LaunchScreen.storyboard */; };
 		7F10760625BF48DD0011FF05 /* LoaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10760525BF48DD0011FF05 /* LoaderComponent.swift */; };
 		7F10762A25BF7A050011FF05 /* ArionAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762925BF7A050011FF05 /* ArionAppHelper.swift */; };
 		7F10762F25BF7A7B0011FF05 /* BranchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10762E25BF7A7B0011FF05 /* BranchesList.swift */; };
 		7F1702FB25C472C000D15908 /* SongsDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F1702F925C472C000D15908 /* SongsDB.xcdatamodeld */; };
+		7F31448325D5C61F00234B50 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31448225D5C61F00234B50 /* Banner.swift */; };
+		7F31448C25D7068D00234B50 /* imagepickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31448B25D7068D00234B50 /* imagepickerView.swift */; };
 		7F36B81425C097990011F98D /* PersitenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B81325C097990011F98D /* PersitenceController.swift */; };
 		7F36B87D25C1D8280011F98D /* SongsState+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B87B25C1D8280011F98D /* SongsState+CoreDataClass.swift */; };
 		7F36B87E25C1D8280011F98D /* SongsState+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F36B87C25C1D8280011F98D /* SongsState+CoreDataProperties.swift */; };
@@ -293,11 +297,15 @@
 		63DC28DA24B5185E0062C4D8 /* CreateNewCreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCreditCard.swift; sourceTree = "<group>"; };
 		63DC28DD24B51A360062C4D8 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		63FAB1CC24BCA0B100527EE0 /* YearSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSearcher.swift; sourceTree = "<group>"; };
+		7F00C7CA25D73329003879E6 /* ChangeProfileBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileBody.swift; sourceTree = "<group>"; };
+		7F00C7CF25D73464003879E6 /* ChangeProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileResponse.swift; sourceTree = "<group>"; };
 		7F07225F25BA6279009E6E95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "arion movil/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		7F10760525BF48DD0011FF05 /* LoaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderComponent.swift; sourceTree = "<group>"; };
 		7F10762925BF7A050011FF05 /* ArionAppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArionAppHelper.swift; sourceTree = "<group>"; };
 		7F10762E25BF7A7B0011FF05 /* BranchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesList.swift; sourceTree = "<group>"; };
 		7F1702FA25C472C000D15908 /* SongsDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SongsDB.xcdatamodel; sourceTree = "<group>"; };
+		7F31448225D5C61F00234B50 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		7F31448B25D7068D00234B50 /* imagepickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagepickerView.swift; sourceTree = "<group>"; };
 		7F36B81325C097990011F98D /* PersitenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersitenceController.swift; sourceTree = "<group>"; };
 		7F36B87B25C1D8280011F98D /* SongsState+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongsState+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7F36B87C25C1D8280011F98D /* SongsState+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongsState+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -408,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				0A08EF2125CDEEB7006D921E /* SignUpBody.swift */,
+				7F00C7CA25D73329003879E6 /* ChangeProfileBody.swift */,
 			);
 			path = body;
 			sourceTree = "<group>";
@@ -616,6 +625,8 @@
 		635D310A24AE54F4000062AF /* custom_components */ = {
 			isa = PBXGroup;
 			children = (
+				7F31448A25D7067B00234B50 /* image_picker */,
+				7F31448125D5C61200234B50 /* banner */,
 				7F6E25E925C30D1200E797C3 /* grid_view */,
 				7F10760425BF48C60011FF05 /* loader */,
 				7F53E96425BA4AA70044D258 /* image_web */,
@@ -845,6 +856,22 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		7F31448125D5C61200234B50 /* banner */ = {
+			isa = PBXGroup;
+			children = (
+				7F31448225D5C61F00234B50 /* Banner.swift */,
+			);
+			path = banner;
+			sourceTree = "<group>";
+		};
+		7F31448A25D7067B00234B50 /* image_picker */ = {
+			isa = PBXGroup;
+			children = (
+				7F31448B25D7068D00234B50 /* imagepickerView.swift */,
+			);
+			path = image_picker;
+			sourceTree = "<group>";
+		};
 		7F36B85F25C1D6FD0011F98D /* cd */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,6 +913,7 @@
 				7FA43AC125D18EED00914661 /* CreditsPackagesResponse.swift */,
 				7FA43B1825D1E72400914661 /* UserCreditsResponse.swift */,
 				7FA43B1D25D30EB700914661 /* PurchasesHistoryResponse.swift */,
+				7F00C7CF25D73464003879E6 /* ChangeProfileResponse.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -1280,6 +1308,7 @@
 				7F53E92B25BA2AC20044D258 /* ApiSession.swift in Sources */,
 				7FCAB36C25CC885100BF63FC /* BranchPriceResponse.swift in Sources */,
 				7F36B89725C1E1170011F98D /* ItemCD+CoreDataProperties.swift in Sources */,
+				7F31448C25D7068D00234B50 /* imagepickerView.swift in Sources */,
 				633F103924B66F3900B284AE /* ShopHistoryRow.swift in Sources */,
 				7F1702FB25C472C000D15908 /* SongsDB.xcdatamodeld in Sources */,
 				6339F06A24B368F1008C8554 /* AvailableCredits.swift in Sources */,
@@ -1291,6 +1320,7 @@
 				0A08EF1C25CDED5C006D921E /* SignUpViewModel.swift in Sources */,
 				633F102E24B6274300B284AE /* Album.swift in Sources */,
 				7F36B87E25C1D8280011F98D /* SongsState+CoreDataProperties.swift in Sources */,
+				7F31448325D5C61F00234B50 /* Banner.swift in Sources */,
 				7F741E3925BB4DDE00C23A6B /* MusicListViewModel.swift in Sources */,
 				7F87089C25C9A25200D28541 /* OnLoadModifier.swift in Sources */,
 				6360B0AE24AE85DD00811899 /* FilterGrid.swift in Sources */,
@@ -1322,6 +1352,7 @@
 				635D311524AE5A77000062AF /* Branch.swift in Sources */,
 				6325359624AF7ED400651494 /* SongItem.swift in Sources */,
 				633F103C24B6719200B284AE /* Settings.swift in Sources */,
+				7F00C7D025D73464003879E6 /* ChangeProfileResponse.swift in Sources */,
 				7F3EA53B25CDBA4900F2F6E1 /* AddCardBody.swift in Sources */,
 				6360B0A324AE7FFE00811899 /* LocationManager.swift in Sources */,
 				63DC28DE24B51A360062C4D8 /* CustomTextField.swift in Sources */,
@@ -1357,6 +1388,7 @@
 				7F741E3425BB4AEC00C23A6B /* SongsQueueResponse.swift in Sources */,
 				635D310724AE5265000062AF /* BranchesNav.swift in Sources */,
 				7F10762A25BF7A050011FF05 /* ArionAppHelper.swift in Sources */,
+				7F00C7CB25D73329003879E6 /* ChangeProfileBody.swift in Sources */,
 				7FA43AC225D18EED00914661 /* CreditsPackagesResponse.swift in Sources */,
 				6339F06124B36094008C8554 /* Triangle.swift in Sources */,
 				0A18CD6925CB5261006C28BD /* SecureTextField.swift in Sources */,
@@ -1567,7 +1599,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
-				DEVELOPMENT_TEAM = 95TDA5VUFH;
+				DEVELOPMENT_TEAM = UA8F39F9KD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "arion movil/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1590,7 +1622,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
-				DEVELOPMENT_TEAM = 95TDA5VUFH;
+				DEVELOPMENT_TEAM = UA8F39F9KD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "arion movil/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

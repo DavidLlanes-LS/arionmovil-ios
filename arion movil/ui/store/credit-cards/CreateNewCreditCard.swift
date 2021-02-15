@@ -12,6 +12,7 @@ struct CreateNewCreditCard: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var dateIndex:Int = 0
     @State private var months:[Int] = Array(1...12)
+    @State private var monthsArr:[String] = []
     @State private var years:[Int] = Array(21...30)
     @State private var yearIndex:Int = 0
     @State var openpay : Openpay!
@@ -24,31 +25,40 @@ struct CreateNewCreditCard: View {
     @ObservedObject private var cardNumberBinding = TextBindingManager(limit: 16)
     @ObservedObject private var cardCVVBinding = TextBindingManager(limit: 3)
     @StateObject var viewModel = CardViewModel()
+    init(){
+        months = Array(1...12)
+        self.monthsArr = self.months.map {
+            String($0)
+            
+        }
+    }
     var body: some View {
         ZStack{
             Color("background")
             VStack{
                 Form{
                     Section(header: TextWithCustomFonts("Nombre del titular",customFont: CustomFont(type: .bold, size: 18))){
-                        CustomTextField(textValue: self.$cardName, title: "Escribe el nombre del titular")
+                      // CustomTextField(textValue: self.$cardName, title: "Escribe el nombre del titular")
+                        RoundedTextField(textValue: self.$cardName, title: "Escribe el nombre del titular", textError:"",transparent: true)
                     }
                     Section(header: TextWithCustomFonts("Número de tarjeta",customFont: CustomFont(type: .bold, size: 18))){
-                        CustomTextField(textValue: $cardNumberBinding.text, title: "Escribe el número de la tarjeta").keyboardType(.numberPad)
+                        RoundedTextField(textValue: $cardNumberBinding.text, title: "Escribe el número de tarjeta", textError:"",transparent: true).keyboardType(.numberPad)
+//                        CustomTextField(textValue: $cardNumberBinding.text, title: "Escribe el número de la tarjeta").keyboardType(.numberPad)
                     }
                     Section(header: TextWithCustomFonts("Fecha de vencimiento",customFont: CustomFont(type: .bold, size: 18))){
-                        Picker(selection: $dateIndex, label: TextWithCustomFonts("Mes")) {
-                            ForEach(0 ..< months.count) {
-                                TextWithCustomFonts("\(self.months[$0])")
-                            }
-                        }
-                        Picker(selection: $yearIndex, label: TextWithCustomFonts("Año")) {
-                            ForEach(0 ..< years.count) {
-                                TextWithCustomFonts("\(self.years[$0])")
-                            }
+                        HStack{
+                            PickerRounded(selection:  $dateIndex, title: "Seleccionar", data: months, textError: "", transparent: true)
+                            VStack{}.frame(width:10)
+                            PickerRounded(selection:  $yearIndex, title: "Seleccionar", data: years, textError: "", transparent: true)
+                            
                         }
                     }
                     Section(header: TextWithCustomFonts("CVV",customFont: CustomFont(type: .bold, size: 18))){
-                        CustomTextField(textValue: $cardCVVBinding.text, title: "Escribe el cvv de la tarjeta").keyboardType(.numberPad)
+                       // CustomTextField(textValue: $cardCVVBinding.text, title: "Escribe el cvv de la tarjeta").keyboardType(.numberPad)
+                      
+                            
+                        SecureTextField(textValue:  $cardCVVBinding.text, title: "Escribe el cvv de la tarjeta", textError:"",transparent: true).keyboardType(.numberPad)
+                        
                     }
                     
                 }.padding(.top, 16)

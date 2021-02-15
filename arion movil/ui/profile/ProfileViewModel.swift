@@ -40,4 +40,36 @@ class ProfileViewModel: ObservableObject, ArionService {
             }
         cancellables.insert(cancellable)
     }
+    
+    func changeProfile(body:ChangeProfileBody,onSuccess:@escaping (_:String)->(),onFail:@escaping (_:String)->()) {
+        
+        let cancellable = self.postChangeProfile(body: body)
+            .sink(receiveCompletion: { result in
+                switch result {
+                case .failure(let error):
+                    print("Handle error: \(error)")
+                    
+                case .finished:
+                    
+                    break
+                }
+            }) { (response) in
+                switch response.result{
+                case 0:
+                    onSuccess(Constants.succesChangeMsg)
+                case 1:
+                    onFail(Constants.emailExistsMsg)
+                case 2:
+                    onFail(Constants.wrongCredentialMsg)
+                case 3:
+                    onFail(Constants.generalChangeErrorMsg)
+                default:
+                    onFail(Constants.generalChangeErrorMsg)
+                }
+              
+                print("cambio",response)
+               
+            }
+        cancellables.insert(cancellable)
+    }
 }

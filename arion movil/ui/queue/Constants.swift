@@ -33,6 +33,14 @@ struct Constants {
     static let failAddCardDefaultMsg  = "No se ha podido agregar este método de pago, por favor revisa tus datos e intenta de nuevo"
     
     
-    
+    // MARK: - change profile messages and strings
+    static let succesChangeMsg = "Se realizó el cambio exitosamente"
+    static let emailExistsMsg = "Este email ya existe"
+    static let wrongCredentialMsg = "Por favor verifica que tu contraseña sea correcta e intentalo de nuevo"
+    static let generalChangeErrorMsg = "Ocurrio un error inesperado,por favor intenta nuevamente más tarde"
+    static let missmatchPasswordsMsg = "Las contraseñas no coinciden"
+    static let changePasswordAndEmailOption = "ChangeUserEmail | ChangeUserPassword"
+    static let changePasswordOption = "ChangeUserPassword"
+    static let changeEmailOption = "ChangeUserEmail"
     
 }

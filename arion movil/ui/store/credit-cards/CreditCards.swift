@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CreditCards: View {
+    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = CardViewModel()
     @EnvironmentObject var appSettings: AppHelper;
     @State var navigationToLogin: Bool = false
@@ -33,19 +34,25 @@ struct CreditCards: View {
                     HStack {
                         List{
                             ForEach(viewModel.creditCards, id:\.self){credit in
+                                Button(action:{
+                                    if appSettings.isFromStoreToCreditCard{
+                                        print("comprado", appSettings.isFromStoreToCreditCard)
+                                        appSettings.selectedPayCard = credit
+                                        self.presentationMode.wrappedValue.dismiss()
+                                    }
+                                }){
                                 HStack {
+                                    
                                     CreditCardRow(card: credit)
                                     Spacer()
-                                }.listRowBackground(Color("background"))
+                                }}.disabled(false).listRowBackground(Color("background"))
                             }.onDelete(perform: { indexSet in
-                                
-                                //print("eliminar",viewModel.creditCards[])
                                 indexSet.forEach{(i) in
                                     
-                                    print("eliminar", viewModel.creditCards[i].id!)
+                                    viewModel.appSettings = self.appSettings
                                     viewModel.deleteCard(cardId:viewModel.creditCards[i].id!)
                                     viewModel.creditCards.remove(at: i)
-                                    viewModel.appSettings = self.appSettings
+                                   
                                     
                                    
                                     
@@ -83,7 +90,6 @@ struct CreditCards: View {
         }.padding().background(Color("background")).navigationBarTitle("Método de pago").onAppear{
             viewModel.appSettings = self.appSettings
             viewModel.getCreditList()
-            //viewModel.getCreditCards()
         }.alert(isPresented: $showAlert, content: {
             Alert(
                 title:Text(String("Inicia sesión para continuar")),

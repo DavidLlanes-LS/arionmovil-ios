@@ -61,6 +61,10 @@ extension ArionService {
            return apiSession.request(with: ApiRequest().postAddCard(body: body))
             .eraseToAnyPublisher()
        }
+    func postChangeProfile(body: ChangeProfileBody) -> AnyPublisher<ChangeProfileResponse, APIError> {
+        return apiSession.request(with: ApiRequest().postChangeProfile(body: body))
+            .eraseToAnyPublisher()
+       }
     func postBuyCredits(body: BuyCreditsBody) -> AnyPublisher<AddCardResultCode, APIError> {
            return apiSession.request(with: ApiRequest().postBuyPackage(body: body))
             .eraseToAnyPublisher()
