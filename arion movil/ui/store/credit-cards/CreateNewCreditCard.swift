@@ -57,7 +57,7 @@ struct CreateNewCreditCard: View {
                        // CustomTextField(textValue: $cardCVVBinding.text, title: "Escribe el cvv de la tarjeta").keyboardType(.numberPad)
                       
                             
-                            RoundedTextField(textValue:  $cardCVVBinding.text, title: "Escribe el cvv de la tarjeta", textError:"",transparent: true).keyboardType(.numberPad)
+                        SecureTextField(textValue:  $cardCVVBinding.text, title: "Escribe el cvv de la tarjeta", textError:"",transparent: true).keyboardType(.numberPad)
                         
                     }
                     

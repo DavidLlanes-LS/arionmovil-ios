@@ -112,6 +112,9 @@ class CardViewModel: ObservableObject, ArionService {
                                     self.appSettings?.selectedPayCard = list.cards?.first
                                 }
                             }
+                            if list.cards!.count <= 0{
+                                self.appSettings!.selectedPayCard = nil
+                            }
                         }
                         
                     

@@ -1599,7 +1599,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
-				DEVELOPMENT_TEAM = 95TDA5VUFH;
+				DEVELOPMENT_TEAM = UA8F39F9KD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "arion movil/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1622,7 +1622,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
-				DEVELOPMENT_TEAM = 95TDA5VUFH;
+				DEVELOPMENT_TEAM = UA8F39F9KD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "arion movil/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

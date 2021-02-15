@@ -11,6 +11,7 @@ import SwiftUI
 struct ShopHistory: View {
     @StateObject var viewModel = ProfileViewModel()
     var body: some View {
+        ZStack{
         VStack{
             List{
                 ForEach(viewModel.transactionsList,id:\.self){ transaction in
@@ -18,10 +19,20 @@ struct ShopHistory: View {
                 }
                
             }
+           
+            
         }.navigationBarTitle("Historial de compras").onAppear{
             viewModel.getHistory()
         }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color("background"))
-        
+            if viewModel.transactionsList.count <= 0{
+                VStack{
+                Spacer()
+                    TextWithCustomFonts("No tienes compras realizadas aún",customFont: CustomFont(type: .bold, size: 16),color: Color("title")).frame(minWidth:0, maxWidth: .infinity, alignment: .center)
+              
+                Spacer()
+                }
+            }
+    }
     }
 }
 

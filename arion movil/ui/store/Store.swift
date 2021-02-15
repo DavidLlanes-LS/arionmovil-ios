@@ -64,7 +64,7 @@ struct Store: View {
                     VStack(alignment:.center){
                         Form{
                             
-                            if cardViewModel.creditCards.count <= 0 {
+                            if appSettings.selectedPayCard == nil {
                                 List{
                                     NavigationLink(destination: CreateNewCreditCard(), label: {
                                         TextWithCustomFonts("Agregar método de pago",customFont: CustomFont(type: .semibold, size: 18), color: Color("title")).frame(height:40)
