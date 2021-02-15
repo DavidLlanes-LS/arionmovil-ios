@@ -29,17 +29,19 @@ class StoreViewModel: ObservableObject, ArionService {
     }
     
     func getPackages() {
+        isLoading.toggle()
         let cancellable = self.getPackagesList(branchid: locationId!)
             .sink(receiveCompletion: { result in
                 switch result {
                 case .failure(let error):
                     print("Handle error: \(error)")
-                   
+                    self.isLoading.toggle()
                 case .finished:
                   
                     break
                 }
             }) { (packages) in
+                self.isLoading.toggle()
                 DispatchQueue.main.async {
                     if packages.packages != nil
                     {

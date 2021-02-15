@@ -12,7 +12,7 @@ import SwiftUI
 
 class ProfileViewModel: ObservableObject, ArionService {
     var apiSession: APIService
-  
+    @Published var isLoading:Bool = false
     @Published var transactionsList:[Transaction] = []
     var cancellables = Set<AnyCancellable>()
     init(apiSession: APIService = APISession()) {
@@ -20,11 +20,12 @@ class ProfileViewModel: ObservableObject, ArionService {
       
     }
     func getHistory() {
-        
+        self.isLoading.toggle()
         let cancellable = self.getPurchasesList()
             .sink(receiveCompletion: { result in
                 switch result {
                 case .failure(let error):
+                    self.isLoading.toggle()
                     print("Handle error: \(error)")
                     
                 case .finished:
@@ -32,6 +33,7 @@ class ProfileViewModel: ObservableObject, ArionService {
                     break
                 }
             }) { (response) in
+                self.isLoading.toggle()
                 if response.transactions != nil{
                     self.transactionsList = response.transactions!
                    

@@ -39,7 +39,7 @@ struct Profile: View {
                            TextWithCustomFonts("Historial de compras",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
                        }).listRowBackground(Color("background"))
                        NavigationLink(destination: ChangePasswordEmail(), label: {
-                           TextWithCustomFonts("Cambiar correo o contraseña",customFont: CustomFont(type: .semibold, size: 18), color: Color("title")).frame(height:40)
+                           TextWithCustomFonts("Cambiar correo o contraseña",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
                        }).listRowBackground(Color("background"))
                        NavigationLink(destination: Settings(), label: {
                            TextWithCustomFonts("Configuraciones",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)

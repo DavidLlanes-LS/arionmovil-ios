@@ -98,7 +98,7 @@ struct Store: View {
                         
                         RectangleBtn("Aceptar"){
                             showAlertQuestion = true
-                        }.disabled(cardViewModel.creditCards.count > 0 ? false:true).frame(width: 250, height: 40, alignment: .center)
+                        }.disabled(appSettings.selectedPayCard == nil).frame(width: 250, height: 40, alignment: .center)
                         Spacer().frame(height:10)
                     }.background(Color("background"))
                 }.background(Color("background"))
@@ -110,7 +110,13 @@ struct Store: View {
                     }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
                 }
                 
-                
+                if viewModel.isLoading{
+                    VStack{
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                    }
+                }
                 
                 
             }.banner(data: $viewModel.banerDate, show: $viewModel.showResult)}.environmentObject(appSettings).alert(isPresented: $showAlertQuestion) { () -> Alert in
