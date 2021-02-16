@@ -29,28 +29,38 @@ struct Profile: View {
                        .frame(width: 200, height: 200)
                     //Image("playlist_filled").offset(x:50,y:-165)
                     if userName != nil {
+                        
                         TextWithCustomFonts(userName!,customFont: CustomFont(type: .bold, size: 16), color: Color("two-gray")).animation(.default)
                     }
                    
                    List{
                     
                        NavigationLink(destination: CreditCards()){
+                        
                            TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18), color: Color("title"))
+                        
                        }.listRowBackground(Color("background"))
                        NavigationLink(destination: ShopHistory(), label: {
+                        
                            TextWithCustomFonts("Historial de compras",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                        
                        }).listRowBackground(Color("background"))
                        NavigationLink(destination: ChangePasswordEmail(), label: {
+                        
                            TextWithCustomFonts("Cambiar correo o contraseña",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                        
                        }).listRowBackground(Color("background"))
                        NavigationLink(destination: Settings(), label: {
+                        
                            TextWithCustomFonts("Configuraciones",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                        
                        }).listRowBackground(Color("background"))
                        NavigationLink(destination: Help(), label: {
+                        
                            TextWithCustomFonts("Ayuda",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                        
                        }).listRowBackground(Color("background"))
-                    
-                       
+                            
                        }
                     if isAuth {
                         
@@ -91,6 +101,8 @@ struct Profile: View {
            .navigationBarTitle("Perfil", displayMode: .inline)
         }
     }
+    
+   
 }
 
 struct Profile_Previews: PreviewProvider {

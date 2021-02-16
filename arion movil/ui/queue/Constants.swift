@@ -39,8 +39,11 @@ struct Constants {
     static let wrongCredentialMsg = "Por favor verifica que tu contraseña sea correcta e intentalo de nuevo"
     static let generalChangeErrorMsg = "Ocurrio un error inesperado,por favor intenta nuevamente más tarde"
     static let missmatchPasswordsMsg = "Las contraseñas no coinciden"
-    static let changePasswordAndEmailOption = "ChangeUserEmail | ChangeUserPassword"
-    static let changePasswordOption = "ChangeUserPassword"
-    static let changeEmailOption = "ChangeUserEmail"
+    static let errorInvalidEmailsMsg = "Por favor ingresa un email valido"
+    static let errorMinCharactersPasswordMsg = "La contraseña debe tener al menos 6 caracteres"
+
+    static let changePasswordAndEmailOption = 3
+    static let changePasswordOption = 2
+    static let changeEmailOption = 1
     
 }
