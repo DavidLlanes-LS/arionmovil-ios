@@ -104,19 +104,13 @@ struct Store: View {
                 }.background(Color("background"))
                 if viewModel.isLoading  {
                     VStack{
-                        Spacer()
-                        LoaderComponent()
-                        Spacer()
-                    }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
-                }
-                
-                if viewModel.isLoading{
-                    VStack{
                     Spacer()
                     ProgressView()
                     Spacer()
-                    }
+                    }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
                 }
+                
+                
                 
                 
             }.banner(data: $viewModel.banerDate, show: $viewModel.showResult)}.environmentObject(appSettings).alert(isPresented: $showAlertQuestion) { () -> Alert in
