@@ -71,6 +71,7 @@ struct BranchesList: View {
                     }.onAppear{
                         self.viewModel.getBranchesList(longitude: "-103.33270", latitude: "20.62753")
                         /*self.viewModel.getBranchesList(longitude: self.locationManager.longitudeVar, latitude: self.locationManager.latitudeVar)*/
+                        print("ubicaciones","\(self.locationManager.longitudeVar) \(self.locationManager.latitudeVar)")
                         viewModel.showLoader = false
                     }
                     

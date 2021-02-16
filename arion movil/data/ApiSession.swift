@@ -15,15 +15,10 @@ struct APISession: APIService {
         // json decoder instance
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
-        // 2
         return URLSession.shared
             .dataTaskPublisher(for: builder)
-            // 3
             .receive(on: DispatchQueue.main)
-            // 4
             .mapError { _ in .unknown }
-            // 5
             .flatMap { data, response -> AnyPublisher<T, APIError> in
                 if let response = response as? HTTPURLResponse {
                     if (200...299).contains(response.statusCode) {
@@ -44,10 +39,8 @@ struct APISession: APIService {
                         .mapError {_ in .decodingError}
                         .eraseToAnyPublisher()
                     } else {
-                    // 7
                         print("respuesta error \(response.statusCode)")
                         return Fail(error: APIError.httpError(response.statusCode)).eraseToAnyPublisher()
-                       
                     }
                 }
                 return Fail(error: APIError.unknown)

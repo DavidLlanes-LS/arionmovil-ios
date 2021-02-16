@@ -6,6 +6,8 @@
 //  Copyright © 2020 David Pacheco Rodriguez. All rights reserved.
 //
 
+
+
 import SwiftUI
 
 struct Profile: View {
@@ -17,6 +19,7 @@ struct Profile: View {
     var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
     var body: some View {
         NavigationView{
+            
             ZStack{
                 Color("background")
                 VStack(alignment:.center){
@@ -29,9 +32,8 @@ struct Profile: View {
                         TextWithCustomFonts(userName!,customFont: CustomFont(type: .bold, size: 16), color: Color("two-gray")).animation(.default)
                     }
                    
-                 
-                       
                    List{
+                    
                        NavigationLink(destination: CreditCards()){
                            TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18), color: Color("title"))
                        }.listRowBackground(Color("background"))

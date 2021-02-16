@@ -77,7 +77,7 @@ struct ExpandedSearchBar_Previews: PreviewProvider {
     static var previews: some View {
        
         BindingTestHolder()
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
         
     }
 }
