@@ -17,7 +17,7 @@ struct SimpleunderlineBtn: View {
     }
     var body: some View {
         Button(action: action, label: {
-            Text(text).underline().foregroundColor(Color("secondary-background"))
+            TextWithCustomFonts(text, customFont: CustomFont(type: .light, size: Constants.sizeTextBody), color: Color("secondary-background"), font: .body, underline: true)
         })
     }
 }

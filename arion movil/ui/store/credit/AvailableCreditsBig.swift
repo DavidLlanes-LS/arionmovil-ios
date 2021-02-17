@@ -16,12 +16,12 @@ struct AvailableCreditsBig: View {
     var body: some View{
         HStack{
             VStack(alignment: .leading, spacing:4){
-                TextWithCustomFonts("Saldo disponible",customFont: CustomFont(type: .bold, size: 16), color: Color.white)
+                TextWithCustomFonts("Saldo disponible",customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), color: Color.white, font: .body)
                 HStack{
                     Image("token")
                         .foregroundColor(Color.white)
-                    TextWithCustomFonts("\(credits)",customFont: CustomFont(type: .bold, size: 30), color: .white)
-                    TextWithCustomFonts("créditos",customFont: CustomFont(type: .light, size: 16), color: .white)
+                    TextWithCustomFonts("\(credits)",customFont: CustomFont(type: .bold, size: Constants.sizeTextPageTitle), color: .white, font: .title)
+                    TextWithCustomFonts("créditos",customFont: CustomFont(type: .light, size: Constants.sizeTextBody), color: .white, font: .body)
                 }
             }
             .padding(.horizontal)

@@ -14,24 +14,21 @@ struct BranchRow: View {
     
     var body: some View {
        // background(Color.red)
-        VStack {
+        VStack{
             HStack{
-            
-             
                 LogoImage(imageName:branch.logoImage == nil ? "image": branch.logoImage!)
                     .frame(width: 40, height: 40, alignment: .center)
-                VStack{
-                    TextWithCustomFonts(branch.name,customFont: CustomFont(type: .bold, size: 16),color: Color("title")).frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
-                    TextWithCustomFonts(branch.locationDescription,color: Color("title")).frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
+                VStack(alignment: .leading){
+                    TextWithCustomFonts(branch.name,customFont: CustomFont(type: .bold, size: 17),color: Color("title"), font: .body)
+                    TextWithCustomFonts(branch.locationDescription, customFont: CustomFont(type: .light, size: 17), color: Color("title"), font: .body)
                 }
-                .frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
+                .frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
                
-            }.frame(height:60).padding(EdgeInsets(top: 2, leading: 20, bottom: 2, trailing: 20))
             }
-            
+            .frame(height:60)
+            .padding(EdgeInsets(top: 2, leading: 20, bottom: 2, trailing: 20))
         }
-        
-    
+    }
 }
 
 struct BranchRow_Previews: PreviewProvider {

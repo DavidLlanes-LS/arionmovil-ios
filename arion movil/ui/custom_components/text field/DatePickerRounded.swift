@@ -16,7 +16,7 @@ struct DatePickerRounded: View {
     var body: some View {
         VStack(alignment: .leading) {
             DatePicker(selection: $dateSelection, in: ...dateSelection, displayedComponents: .date){
-                TextWithCustomFonts(title, customFont: CustomFont(type: .semibold, size: 16), color: Color.gray)
+                TextWithCustomFonts(title, customFont: CustomFont(type: .semibold, size: Constants.sizeTextFormControls), color: Color.gray)
             }
         }
         .padding()

@@ -23,8 +23,8 @@ struct QueueView: View {
                     AvailableCredits(credits:$appSettings.userCredits)
                     VStack {
                         HStack {
-                            TextWithCustomFonts("Termina en",customFont: CustomFont(type: .bold, size: 17))
-                            TextWithCustomFonts(" 00:30",customFont: CustomFont(type: .bold, size: 17),color: Color("secondary-background"))
+                            TextWithCustomFonts("Termina en",customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), font: .body)
+                            TextWithCustomFonts(" 00:30",customFont: CustomFont(type: .bold, size: Constants.sizeTextBody),color: Color("secondary-background"), font: .body)
                             Spacer().background(Color("background"))
                         }
                         .padding([.top, .leading, .trailing]).background(Color("background"))
@@ -56,7 +56,7 @@ struct QueueView: View {
                         ProgressView()
                     }
                 }
-            }.navigationBarTitle("En fila", displayMode: .inline)
+            }.navigationBarTitle(String("En fila"), displayMode: .inline)
         }.onAppear{
             viewModel.appSettings = appSettings
             self.storeViewModel.appSettings = self.appSettings

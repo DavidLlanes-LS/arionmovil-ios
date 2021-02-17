@@ -57,7 +57,7 @@ struct QueueRow: View {
                 Text("\(song.credits)").bold()
             }
         }
-        .padding(.vertical)
+        .padding(.vertical, 8)
         .buttonStyle(PlainButtonStyle())
         .alert(isPresented: $showAlert, content: {
             let result:Int = sendToNext ? creditsNext - song.credits + 1 : creditsFirst - song.credits + 1

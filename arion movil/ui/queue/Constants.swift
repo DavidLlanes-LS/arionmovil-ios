@@ -45,4 +45,12 @@ struct Constants {
     static let changePasswordOption = 2
     static let changeEmailOption = 1
     
+    
+    //MARK: dimens
+    static let sizeTextTitle:Float = 17.0
+    static let sizeTextPageTitle:Float = 34
+    static let sizeTextBody:Float = 17
+    static let sizeTextSecondaryText:Float = 15
+    static let sizeTextCaption:Float = 13
+    static let sizeTextFormControls:Float = 17
 }

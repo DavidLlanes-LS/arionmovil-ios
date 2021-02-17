@@ -24,13 +24,13 @@ struct BranchesList: View {
                 VStack {
                     ZStack {
                         if !self.show{
-                            
-                            TextWithCustomFonts("Elije tu establecimiento",customFont: CustomFont(type: .bold, size: 16),color: Color("title")).frame(minWidth:0, maxWidth: .infinity, alignment: .center)
+                            TextWithCustomFonts("Elije tu establecimiento",customFont: CustomFont(type: .bold, size: 17), color: Color("title"), font: .title)
                         }
-                        
                         ExpandedSearchBar(show:$show,txt: $txt, placeholder: "Buscar Restaurante")
                     }
-                    Spacer().frame(height:10).background(Color("background"))
+                    Spacer()
+                        .frame(height:10)
+                        .background(Color("background"))
                     if self.locationManager.latitudeVar==""{
                         Spacer()}
                 }.background(Color("background"))

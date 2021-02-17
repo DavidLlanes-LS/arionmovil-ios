@@ -27,7 +27,7 @@ struct MusicalGenreSearcher: View {
             SearchBar(text: $searchText, placeholder: "Busca un género")
             List{
                 ForEach(viewModel.genereList.filter{$0.lowercased().contains(searchText) || searchText.isEmpty},id:\.self){ genere in
-                    Section(header: TextWithCustomFonts(genere, customFont: CustomFont(type: .bold, size: 16)) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))) {
+                    Section(header: TextWithCustomFonts(genere, customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), font: .caption) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))) {
                         ForEach(viewModel.musicList.filter{$0.genere! == genere},id:\.self){title in
                             GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin){
                                 queueViewModel.addNewQueue(id: title.id!)

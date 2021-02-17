@@ -14,7 +14,7 @@ struct SecureTextField: View {
     @State var hide:Bool = true
     var textError:String
     var transparent:Bool
-    var customFont: CustomFont = CustomFont(type: .semibold, size: 16)
+    var customFont: CustomFont = CustomFont(type: .semibold, size: Constants.sizeTextFormControls)
     var color: Color = Color("title")
     var body: some View {
         VStack(alignment: .leading) {

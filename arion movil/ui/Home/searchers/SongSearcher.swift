@@ -30,7 +30,7 @@ struct SongSearcher: View {
                     }
                 }
             }
-        }.navigationBarTitle("Buscador",displayMode: .inline).onAppear{
+        }.navigationBarTitle(String("Buscador"), displayMode: .inline).onAppear{
             viewModel.setDataCD()
         }.background(Color("background")).onAppear{
             queueViewModel.appSettings = appSettings
