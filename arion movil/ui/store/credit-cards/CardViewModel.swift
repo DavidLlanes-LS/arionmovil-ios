@@ -43,10 +43,16 @@ class CardViewModel: ObservableObject, ArionService {
                     if result.resultCode == 0 {
                         onSuccess()
                         self.getCreditList()
+                        if self.appSettings != nil {
+                            self.appSettings?.banerInfo.title = "La tarjeta se ha agregado correctamente"
+                            self.appSettings?.banerInfo.type = .success
+                            self.appSettings?.showBanner = true
+                            
+                        }
                     }
                     else{
                         onFail()
-                      
+                       
                     }
                     
                 }
@@ -71,6 +77,14 @@ class CardViewModel: ObservableObject, ArionService {
                 }
                 self.hasDeleted = true
                 self.getCreditList()
+                if result.resultCode == 0{
+                    if self.appSettings != nil {
+                        self.appSettings?.banerInfo.title = "La tarjeta se ha eliminado correctamente"
+                        self.appSettings?.banerInfo.type = .success
+                        self.appSettings?.showBanner = true
+                        
+                    }
+                }
                 
             }
         cancellables.insert(cancellable)

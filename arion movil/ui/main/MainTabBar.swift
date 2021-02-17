@@ -55,7 +55,7 @@ struct MainTabBar: View {
                             //    .padding(.bottom, self.paddingHeight - geometry.safeAreaInsets.bottom).transition(.asymmetric(insertion: .scale, removal: .opacity))
                         }
                     }
-                }
+                }.banner(data: $appSettings.banerInfo, show: $appSettings.showBanner)
                 
             }
         }.transition(.move(edge: .trailing)).onAppear{

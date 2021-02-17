@@ -20,4 +20,6 @@ class AppHelper: ObservableObject {
     @Published var selectedPayCard:CreditCard?
     @Published var userCredits:Int = 0
     @Published var albumsList:[AlbumCD] = []
+    @Published var showBanner:Bool = false
+    @Published var banerInfo = BannerData(title: "", detail: "", type: .info)
 }

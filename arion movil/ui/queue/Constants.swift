@@ -9,6 +9,7 @@
 import Foundation
 
 struct Constants {
+    
     static let keyPlayerId: String = "player_id"
     static let keyIsAuth: String = "is_auth"
     static let keyUserId: String = "user_id"
@@ -17,7 +18,6 @@ struct Constants {
     static let keyCookie:String = "cookie"
     static let keyOpenPay:String = "pk_1643e9f30f534e32afb0cd51e8b2693a"
     static let idOpenPayMerchant:String = "mqjmzuhblyqymlbmg3y8"
-    
     
     
     // MARK: - Dialog card purchases messages
@@ -33,18 +33,20 @@ struct Constants {
     static let failAddCardDefaultMsg  = "No se ha podido agregar este método de pago, por favor revisa tus datos e intenta de nuevo"
     
     
-    // MARK: - change profile messages and strings
+    // MARK: - change profile messages and change options
     static let succesChangeMsg = "Se realizó el cambio exitosamente"
-    static let emailExistsMsg = "Este email ya existe"
+    static let emailExistsMsg = "Este email ya existe, por favor ingresa uno distinto"
     static let wrongCredentialMsg = "Por favor verifica que tu contraseña sea correcta e intentalo de nuevo"
     static let generalChangeErrorMsg = "Ocurrio un error inesperado,por favor intenta nuevamente más tarde"
     static let missmatchPasswordsMsg = "Las contraseñas no coinciden"
-    static let changePasswordAndEmailOption = "ChangeUserEmail | ChangeUserPassword"
-    static let changePasswordOption = "ChangeUserPassword"
-    static let changeEmailOption = "ChangeUserEmail"
+    static let errorInvalidEmailsMsg = "Por favor ingresa un email valido"
+    static let errorMinCharactersPasswordMsg = "La contraseña debe tener al menos 6 caracteres"
+    static let changePasswordAndEmailOption = 3
+    static let changePasswordOption = 2
+    static let changeEmailOption = 1
     
     
-    //MARK: dimens
+    //MARK: - dimens
     static let sizeTextTitle:Float = 17.0
     static let sizeTextPageTitle:Float = 34
     static let sizeTextBody:Float = 17

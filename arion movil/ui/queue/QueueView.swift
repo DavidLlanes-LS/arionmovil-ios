@@ -58,6 +58,7 @@ struct QueueView: View {
                 }
             }.navigationBarTitle(String("En fila"), displayMode: .inline)
         }.onAppear{
+            viewModel.appSettings = appSettings
             self.storeViewModel.appSettings = self.appSettings
             storeViewModel.getCreditsUser()
         }.background(Color("background"))

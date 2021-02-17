@@ -49,8 +49,7 @@ struct BannerModifier: ViewModifier {
                     HStack {
                         Spacer()
                         VStack(alignment: .center, spacing: 2) {
-                            Text(data.title)
-                                .bold().frame(alignment:.center)
+                            Text(data.title).bold().frame(alignment:.center).multilineTextAlignment(.center)
 //                            Text(data.detail)
 //                                .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
                         }.frame(alignment:.center)

@@ -8,7 +8,7 @@
 
 import Foundation
 public struct ChangeProfileBody{
-    var options: String?
+    var options: Int?
     var newEmail: String?
     var currentPassword: String?
     var newPassword: String?
@@ -19,7 +19,7 @@ public struct ChangeProfileBody{
             "Options": options,
             "NewEmail": newEmail,
             "CurrentPassword": currentPassword,
-            "NewPasssword": newPassword,
+            "NewPassword": newPassword,
             
         ]
     }

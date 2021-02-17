@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct SeeAll: View {
-    @ObservedObject var viewModel:SongsUriViewModel = SongsUriViewModel()
+    @StateObject var viewModel:SongsUriViewModel = SongsUriViewModel()
     @StateObject var queueViewModel = QueueViewModel()
     @State var navigateLogin:Bool = false
     @StateObject var storeViewModel = StoreViewModel()
+    @EnvironmentObject var appSettings: AppHelper
+    let  branchId:String
     init(branchId: String){
-        viewModel.branchId = branchId
+        self.branchId = branchId
        
         
     }
@@ -48,6 +50,8 @@ struct SeeAll: View {
                 }
             }
         }.onAppear{
+            viewModel.branchId = branchId
+            queueViewModel.appSettings = appSettings
             viewModel.setDataCD()
         }.background(Color("background"))
         

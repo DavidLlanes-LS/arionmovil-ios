@@ -28,6 +28,7 @@ class SignUpViewModel:ObservableObject,ArionService {
     @Published var errorGender:String = ""
     @Published var phoneNumber:String = ""
     @Published var errorPhoneNumber:String = ""
+    @Published var appSettings:AppHelper?
     var genders = ["Otro", "Hombre", "Mujer"]
     
     var apiSession: APIService

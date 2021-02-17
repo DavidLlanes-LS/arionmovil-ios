@@ -112,6 +112,7 @@ struct Home: View {
             }.listRowBackground(Color("background")).listStyle(PlainListStyle()).navigationBarTitle(String("Bienvenido"),displayMode: .inline).alert(isPresented:$showingAlert, content: {
                 Alert(title:Text(String("Atención").capitalized), message: Text(String("Recuerda que no podrás reproducir canciones si la calidad de red es baja").capitalized), primaryButton: .cancel(Text(String("Cancelar").capitalized)),secondaryButton: .default(Text(String("Aceptar").capitalized)))
             }).onAppear{
+                queueViewModel.appSettings = appSettings
                 if stock.count > 0 {
                     self.getList()
                     self.getRows()

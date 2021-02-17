@@ -9,13 +9,14 @@ import SwiftUI
 
 struct YearSearcher: View {
     @StateObject var queueViewModel = QueueViewModel()
-    @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
-    
+    @StateObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
+    @EnvironmentObject var appSettings: AppHelper
     @State var NavLogin = false
+    let  branchId:String
     @StateObject var storeViewModel = StoreViewModel()
     @State public var searchText : String = ""
     init(branchId: String){
-        viewModel.branchId = branchId
+        self.branchId = branchId
         
     }
     @State var musicList:[TitleCD] = []
@@ -39,7 +40,9 @@ struct YearSearcher: View {
                     
                 }
             }
-        }.navigationBarTitle(String("Año"),displayMode: .inline).onAppear{
+        }.navigationBarTitle("Año",displayMode: .inline).onAppear{
+            viewModel.branchId = branchId
+            queueViewModel.appSettings = appSettings
             viewModel.setDataCD()
             
         }

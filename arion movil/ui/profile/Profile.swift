@@ -16,6 +16,10 @@ struct Profile: View {
     var userName = UserDefaults.standard.string(forKey: Constants.keyUserName)
     @State var navigationToLogin: Bool = false
     @State var showBanner: Bool = false
+    @State var showLoginAlert: Bool = false
+    @State var navigateCreditCards = false
+    @State var navigatePurchaseHistory = false
+    @State var navigateChangeProfile = false
     var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
     var body: some View {
         NavigationView{
@@ -23,40 +27,85 @@ struct Profile: View {
             ZStack{
                 Color("background")
                 VStack(alignment:.center){
+                    NavigationLink(destination:CreditCards(), isActive: self.$navigateCreditCards ) {}
+                    NavigationLink(destination:ShopHistory(), isActive: self.$navigatePurchaseHistory ) {}
+                    NavigationLink(destination:ChangePasswordEmail(), isActive: self.$navigateChangeProfile ) {}
                     NavigationLink(destination: LoginView(), isActive: self.$navigationToLogin) {
                     }
                    ProfileImage()
                        .frame(width: 200, height: 200)
                     //Image("playlist_filled").offset(x:50,y:-165)
                     if userName != nil {
+                        
                         TextWithCustomFonts(userName!,customFont: CustomFont(type: .bold, size: 16), color: Color("two-gray")).animation(.default)
                     }
                    
                    List{
-                    
-                       NavigationLink(destination: CreditCards()){
+                    Button(action:{
+                        if isAuth{
+                        navigateCreditCards = true
+                        }
+                        else {
+                            showLoginAlert = true
+                        }
+                    }){
+                       NavigationLink(destination:EmptyView() ){
+                        
                            TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18), color: Color("title"))
+                        
                        }.listRowBackground(Color("background"))
-                       NavigationLink(destination: ShopHistory(), label: {
+                    }
+                    Button(action:{
+                        if isAuth{
+                            navigatePurchaseHistory = true
+                        }
+                        else {
+                            showLoginAlert = true
+                        }
+                       
+                    }){
+                       NavigationLink(destination: EmptyView(), label: {
+                       
                            TextWithCustomFonts("Historial de compras",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
                        }).listRowBackground(Color("background"))
+                        
+                    }
+
+                    Button(action:{
+                        if isAuth{
+                            navigateChangeProfile = true
+                        }
+                        else {
+                            showLoginAlert = true
+                        }
+                        
+                    }){
                        NavigationLink(destination: ChangePasswordEmail(), label: {
+                        
                            TextWithCustomFonts("Cambiar correo o contraseña",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                        
                        }).listRowBackground(Color("background"))
+                    }
                        NavigationLink(destination: Settings(), label: {
+                        
                            TextWithCustomFonts("Configuraciones",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                        
                        }).listRowBackground(Color("background"))
                        NavigationLink(destination: Help(), label: {
+                        
                            TextWithCustomFonts("Ayuda",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                        
                        }).listRowBackground(Color("background"))
-                    
-                       
+                            
                        }
                     if isAuth {
                         
                         RectangleBtn("Cerrar sesión", action: {
-                            banerDate.title = "Haz cerrado sesión"
-                            showBanner = true
+                            appSettings.banerInfo.title = "Haz cerrado sesión"
+                            appSettings.banerInfo.type = .info
+                            appSettings.showBanner = true
+//                            banerDate.title = "Haz cerrado sesión"
+//                            showBanner = true
                          let defaults = UserDefaults.standard
                          defaults.removeObject(forKey: Constants.keyIsAuth)
                         defaults.removeObject(forKey: Constants.keyCookie)
@@ -79,8 +128,9 @@ struct Profile: View {
                 .onAppear() {
                     if isAuth{
                     if appSettings.isLoged{
-                        banerDate.title = "Bienvenido \(userName!)"
-                        showBanner = true
+                        appSettings.banerInfo.title = "Bienvenido \(userName!)"
+                        appSettings.banerInfo.type = .info
+                        appSettings.showBanner = true
                         appSettings.isLoged = false
                     }}
                     appSettings.showCurrentSong = false
@@ -88,9 +138,16 @@ struct Profile: View {
                     showBanner = false
                 }
             }
-           .navigationBarTitle("Perfil", displayMode: .inline)
+            .navigationBarTitle("Perfil", displayMode: .inline).alert(isPresented: $showLoginAlert, content: {
+                Alert(title: Text(String("Inicia sesión para continuar")), message: Text(String("Iniciar sesión o crea una cuenta para poder realizar esta acción.")), primaryButton: .cancel(Text(String("Cancelar").capitalized)), secondaryButton: .default(Text(String("Aceptar").capitalized)){
+                    navigationToLogin = true
+                })
+            })
+            
         }
     }
+    
+   
 }
 
 struct Profile_Previews: PreviewProvider {
