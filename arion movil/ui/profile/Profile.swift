@@ -16,6 +16,10 @@ struct Profile: View {
     var userName = UserDefaults.standard.string(forKey: Constants.keyUserName)
     @State var navigationToLogin: Bool = false
     @State var showBanner: Bool = false
+    @State var showLoginAlert: Bool = false
+    @State var navigateCreditCards = false
+    @State var navigatePurchaseHistory = false
+    @State var navigateChangeProfile = false
     var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
     var body: some View {
         NavigationView{
@@ -23,6 +27,9 @@ struct Profile: View {
             ZStack{
                 Color("background")
                 VStack(alignment:.center){
+                    NavigationLink(destination:CreditCards(), isActive: self.$navigateCreditCards ) {}
+                    NavigationLink(destination:ShopHistory(), isActive: self.$navigatePurchaseHistory ) {}
+                    NavigationLink(destination:ChangePasswordEmail(), isActive: self.$navigateChangeProfile ) {}
                     NavigationLink(destination: LoginView(), isActive: self.$navigationToLogin) {
                     }
                    ProfileImage()
@@ -34,22 +41,51 @@ struct Profile: View {
                     }
                    
                    List{
-                    
-                       NavigationLink(destination: CreditCards()){
+                    Button(action:{
+                        if isAuth{
+                        navigateCreditCards = true
+                        }
+                        else {
+                            showLoginAlert = true
+                        }
+                    }){
+                       NavigationLink(destination:EmptyView() ){
                         
                            TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18), color: Color("title"))
                         
-                       }.disabled(!isAuth).listRowBackground(Color("background"))
-                       NavigationLink(destination: ShopHistory(), label: {
-                        
+                       }.listRowBackground(Color("background"))
+                    }
+                    Button(action:{
+                        if isAuth{
+                            navigatePurchaseHistory = true
+                        }
+                        else {
+                            showLoginAlert = true
+                        }
+                       
+                    }){
+                       NavigationLink(destination: EmptyView(), label: {
+                       
                            TextWithCustomFonts("Historial de compras",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                       }).listRowBackground(Color("background"))
                         
-                       }).disabled(!isAuth).listRowBackground(Color("background"))
+                    }
+
+                    Button(action:{
+                        if isAuth{
+                            navigateChangeProfile = true
+                        }
+                        else {
+                            showLoginAlert = true
+                        }
+                        
+                    }){
                        NavigationLink(destination: ChangePasswordEmail(), label: {
                         
                            TextWithCustomFonts("Cambiar correo o contraseña",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
                         
-                       }).disabled(!isAuth).listRowBackground(Color("background"))
+                       }).listRowBackground(Color("background"))
+                    }
                        NavigationLink(destination: Settings(), label: {
                         
                            TextWithCustomFonts("Configuraciones",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
@@ -98,7 +134,12 @@ struct Profile: View {
                     showBanner = false
                 }
             }
-           .navigationBarTitle("Perfil", displayMode: .inline)
+            .navigationBarTitle("Perfil", displayMode: .inline).alert(isPresented: $showLoginAlert, content: {
+                Alert(title: Text(String("Inicia sesión para continuar")), message: Text(String("Iniciar sesión o crea una cuenta para poder realizar esta acción.")), primaryButton: .cancel(Text(String("Cancelar").capitalized)), secondaryButton: .default(Text(String("Aceptar").capitalized)){
+                    navigationToLogin = true
+                })
+            })
+            
         }
     }
     
