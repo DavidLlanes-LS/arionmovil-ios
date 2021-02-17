@@ -100,8 +100,13 @@ class StoreViewModel: ObservableObject, ArionService {
                     self.banerDate.type = .error
                     
                 }
-                self.banerDate.title = self.resultText
-                self.showResult.toggle()
+                if self.appSettings != nil{
+                    self.banerDate.title = self.resultText
+                    self.appSettings?.banerInfo = self.banerDate
+                    self.appSettings?.showBanner = true
+                }
+               
+               // self.showResult.toggle()
                
                 
                 

@@ -113,7 +113,11 @@ struct Store: View {
                 
                 
                 
-            }.banner(data: $viewModel.banerDate, show: $viewModel.showResult)}.environmentObject(appSettings).alert(isPresented: $showAlertQuestion) { () -> Alert in
+            }.onAppear{
+                viewModel.appSettings = appSettings
+            }
+            
+        }.environmentObject(appSettings).alert(isPresented: $showAlertQuestion) { () -> Alert in
                 Alert(
                     title:Text(String("Comprar paquete").capitalized),
                     message: Text(String("Se te hará un cobro de $\(self.selectedPackage.price ?? 0.00) por compra del paquete \(self.selectedPackage.name ?? "")")),

@@ -11,10 +11,11 @@ struct SongSearcher: View {
     @EnvironmentObject var appSettings: AppHelper
     @StateObject var queueViewModel = QueueViewModel()
     @State var searchText:String = ""
-    @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
+    let  branchId:String
+    @StateObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
     @State var navigateLogin = false
     init(branchId: String){
-        viewModel.branchId = branchId
+        self.branchId = branchId
         
     }
     var body: some View {
@@ -31,6 +32,7 @@ struct SongSearcher: View {
                 }
             }
         }.navigationBarTitle(String("Buscador"), displayMode: .inline).onAppear{
+            viewModel.branchId = branchId
             viewModel.setDataCD()
         }.background(Color("background")).onAppear{
             queueViewModel.appSettings = appSettings

@@ -101,8 +101,11 @@ struct Profile: View {
                     if isAuth {
                         
                         RectangleBtn("Cerrar sesión", action: {
-                            banerDate.title = "Haz cerrado sesión"
-                            showBanner = true
+                            appSettings.banerInfo.title = "Haz cerrado sesión"
+                            appSettings.banerInfo.type = .info
+                            appSettings.showBanner = true
+//                            banerDate.title = "Haz cerrado sesión"
+//                            showBanner = true
                          let defaults = UserDefaults.standard
                          defaults.removeObject(forKey: Constants.keyIsAuth)
                         defaults.removeObject(forKey: Constants.keyCookie)
@@ -125,8 +128,9 @@ struct Profile: View {
                 .onAppear() {
                     if isAuth{
                     if appSettings.isLoged{
-                        banerDate.title = "Bienvenido \(userName!)"
-                        showBanner = true
+                        appSettings.banerInfo.title = "Bienvenido \(userName!)"
+                        appSettings.banerInfo.type = .info
+                        appSettings.showBanner = true
                         appSettings.isLoged = false
                     }}
                     appSettings.showCurrentSong = false
