@@ -24,20 +24,15 @@ struct GenereRow: View {
     var body: some View {
         HStack {
             VStack(alignment:.leading){
-                TextWithCustomFonts(self.name, customFont: CustomFont(type: .bold, size: 15))
-                TextWithCustomFonts(self.artist, customFont: CustomFont(type: .light, size: 14))
-
-
-
+                TextWithCustomFonts(self.name, customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), font: .body)
+                TextWithCustomFonts(self.artist, customFont: CustomFont(type: .light, size: Constants.sizeTextBody), font: .body)
             }
-
             Spacer()
             Button(action: {
                 logo = "playlist_filled"
                 showAlert = true
             }, label: {
                 Image(logo)
-
             })
 
         }.buttonStyle(PlainButtonStyle()).alert(isPresented: $showAlert, content: {

@@ -30,7 +30,7 @@ struct Store: View {
                 VStack(spacing:0){
                     AvailableCreditsBig(credits: $appSettings.userCredits)
                     List{
-                        TextWithCustomFonts("Paquetes disponibles",customFont: CustomFont(type: .bold, size: 17),color:Color("title")).listRowBackground(Color("background"))
+                        TextWithCustomFonts("Paquetes disponibles",customFont: CustomFont(type: .bold, size: Constants.sizeTextBody),color:Color("title"), font: .body).listRowBackground(Color("background"))
                         if isAuth{
                             
                             ForEach(viewModel.pakcagesList,id:\.self){package in
@@ -57,7 +57,7 @@ struct Store: View {
                         }
                     }
                 }.background(Color("background"))
-                .navigationBarTitle("Compras", displayMode: .inline)
+                .navigationBarTitle(String("Compras"), displayMode: .inline)
                 .onAppear() {
                     appSettings.showCurrentSong = false
                 }.bottomSheet(isPresented: $showBottomSheet, height: cardViewModel.creditCards.count > 0 ? 260:260) {
@@ -67,7 +67,7 @@ struct Store: View {
                             if appSettings.selectedPayCard == nil {
                                 List{
                                     NavigationLink(destination: CreateNewCreditCard(), label: {
-                                        TextWithCustomFonts("Agregar método de pago",customFont: CustomFont(type: .semibold, size: 18), color: Color("title")).frame(height:40)
+                                        TextWithCustomFonts("Agregar método de pago",customFont: CustomFont(type: .semibold, size: Constants.sizeTextBody), color: Color("title")).frame(height:40)
                                     }).listRowBackground(Color("background"))
                                 }
                             }
@@ -86,7 +86,7 @@ struct Store: View {
                                         else if appSettings.selectedPayCard!.brand == "visa"{
                                             Image("visa").renderingMode(.template).resizable() .scaledToFit().frame(maxWidth:40).foregroundColor(Color("visa_color"))
                                         }
-                                        TextWithCustomFonts(String(appSettings.selectedPayCard!.cardNumber!.suffix(4)),customFont: CustomFont(type: .semibold, size: 18), color: Color("title")).frame(height:40)
+                                        TextWithCustomFonts(String(appSettings.selectedPayCard!.cardNumber!.suffix(4)),customFont: CustomFont(type: .semibold, size: Constants.sizeTextBody), color: Color("title")).frame(height:40)
                                     }
                                     
                                 }).listRowBackground(Color("background"))

@@ -44,8 +44,8 @@ struct LoginView: View {
                         TextWithCustomFonts(
                             "Usuario",
                             customFont:
-                                CustomFont(type: .bold, size: 16),
-                            color: .white
+                                CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                            color: .white, font: .caption
                         )
                         RoundedTextField(
                             textValue: $viewModel.username,
@@ -59,8 +59,9 @@ struct LoginView: View {
                     VStack(alignment:.leading){
                         TextWithCustomFonts(
                             "Contraseña",
-                            customFont: CustomFont(type: .bold, size: 16),
-                            color: .white
+                            customFont:
+                                CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                            color: .white, font: .caption
                         )
                         SecureTextField(
                             textValue: $viewModel.password,
@@ -96,7 +97,7 @@ struct LoginView: View {
                     }
                 }
                 .disabled(viewModel.disableButton())
-                .frame(height: 50)
+                .frame(height: 40)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding()
                 
                 Spacer()

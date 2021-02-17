@@ -20,17 +20,17 @@ struct PickerRounded: View {
                 selection: $selection,
                 label: HStack {
                     if selection < 0 {
-                        TextWithCustomFonts(title, customFont: CustomFont(type: .semibold, size: 16), color: Color.gray)
+                        TextWithCustomFonts(title, customFont: CustomFont(type: .semibold, size: Constants.sizeTextBody), color: Color.gray)
                     } else {
                         if self.data[selection] is Country {
-                            TextWithCustomFonts((self.data[selection] as! Country).name,customFont: CustomFont(type: .bold, size: 16))
+                            TextWithCustomFonts((self.data[selection] as! Country).name,customFont: CustomFont(type: .bold, size: Constants.sizeTextBody))
                         }
                         if self.data[selection] is String {
-                            TextWithCustomFonts((self.data[selection] as! String),customFont: CustomFont(type: .bold, size: 16))
+                            TextWithCustomFonts((self.data[selection] as! String),customFont: CustomFont(type: .bold, size: Constants.sizeTextBody))
                         }
                         if self.data[selection] is Int {
                             // TextWithCustomFonts(String(Int(self.data[selection]))),customFont: CustomFont(type: .bold, size: 16))
-                            TextWithCustomFonts(("\(self.data[selection] as! Int)"),customFont: CustomFont(type: .bold, size: 16))
+                            TextWithCustomFonts(("\(self.data[selection] as! Int)"),customFont: CustomFont(type: .bold, size: Constants.sizeTextBody))
                         }
                     }
                     Spacer()
@@ -63,7 +63,7 @@ struct PickerRounded: View {
             if !textError.isEmpty {
                 TextWithCustomFonts(
                     textError,
-                    customFont: CustomFont(type: .light, size: 14),
+                    customFont: CustomFont(type: .light, size: Constants.sizeTextCaption),
                     color: Color("error")
                 ).padding(.horizontal)
             }

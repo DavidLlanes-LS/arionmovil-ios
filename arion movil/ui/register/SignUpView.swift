@@ -52,17 +52,17 @@ struct SignUpView: View {
                     TextWithCustomFonts(
                         "Nombre",
                         customFont:
-                            CustomFont(type: .bold, size: 16),
-                        color: .white
-                    ).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                        color: .white, font: .caption
+                    )
                     RoundedTextField(textValue: $viewModel.name, title: "Nombre", textError: viewModel.errorName,transparent: false)
                 }.padding(.horizontal)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
                         "Correo electrónico",
                         customFont:
-                            CustomFont(type: .bold, size: 16),
-                        color: .white
+                            CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                        color: .white, font: .caption
                     )
                     RoundedTextField(textValue: $viewModel.email, title: "Correo electrónico", textError: viewModel.errorEmail,transparent: false).keyboardType(.emailAddress).autocapitalization(.none)
                 }.padding(.horizontal)
@@ -70,8 +70,8 @@ struct SignUpView: View {
                     TextWithCustomFonts(
                         "Teléfono",
                         customFont:
-                            CustomFont(type: .bold, size: 16),
-                        color: .white
+                            CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                        color: .white, font: .caption
                     )
                     RoundedTextField(textValue: $viewModel.phoneNumber, title: "Teléfono", textError: viewModel.errorPhoneNumber,transparent: false).keyboardType(.phonePad)
                 }.padding(.horizontal)
@@ -79,8 +79,8 @@ struct SignUpView: View {
                     TextWithCustomFonts(
                         "País",
                         customFont:
-                            CustomFont(type: .bold, size: 16),
-                        color: .white
+                            CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                        color: .white, font: .caption
                     )
                     PickerRounded(selection: $viewModel.countrySelection, title: "Seleccionar", data: viewModel.countries, textError: viewModel.errorCountry, transparent: false)
                 }.padding(.horizontal)
@@ -88,8 +88,8 @@ struct SignUpView: View {
                     TextWithCustomFonts(
                         "Genero",
                         customFont:
-                            CustomFont(type: .bold, size: 16),
-                        color: .white
+                            CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                        color: .white, font: .caption
                     )
                     PickerRounded(selection: $viewModel.gender, title: "Seleccionar", data: viewModel.genders, textError: viewModel.errorGender, transparent: false)
                 }.padding(.horizontal)
@@ -97,8 +97,8 @@ struct SignUpView: View {
                     TextWithCustomFonts(
                         "Fecha de nacimiento",
                         customFont:
-                            CustomFont(type: .bold, size: 16),
-                        color: .white
+                            CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                        color: .white, font: .caption
                     )
                     DatePickerRounded(dateSelection: $viewModel.birthday, title: "Seleccionar", textError: viewModel.errorBirthday, transparent: false)
                 }.padding(.horizontal)
@@ -106,8 +106,8 @@ struct SignUpView: View {
                     TextWithCustomFonts(
                         "Contraseña",
                         customFont:
-                            CustomFont(type: .bold, size: 16),
-                        color: .white
+                            CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                        color: .white, font: .caption
                     )
                     SecureTextField(textValue: $viewModel.password, title: "Contraseña", textError: viewModel.errorPassword,transparent: false)
                 }.padding(.horizontal)
@@ -115,8 +115,8 @@ struct SignUpView: View {
                     TextWithCustomFonts(
                         "Confirmar contraseña",
                         customFont:
-                            CustomFont(type: .bold, size: 16),
-                        color: .white
+                            CustomFont(type: .bold, size: Constants.sizeTextCaption),
+                        color: .white, font: .caption
                     )
                     SecureTextField(textValue: $viewModel.confirmPassword, title: "Confirmar contraseña", textError: viewModel.errorConfirmPassword,transparent: false)
                 }.padding(.horizontal)
@@ -151,6 +151,7 @@ struct SignUpView: View {
                 .frame(height:40)
                 .padding()
             }
+            .padding(.vertical)
         }
         .alert(isPresented: $showSuccess, content: {
                 switch (result) {

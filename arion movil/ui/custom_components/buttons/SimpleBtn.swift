@@ -19,7 +19,7 @@ struct SimpleBtn: View {
     }
     var body: some View {
         Button(action: action, label: {
-            Text(text).foregroundColor(color)
+            TextWithCustomFonts(text, customFont: CustomFont(type: .semibold, size: Constants.sizeTextFormControls), color: color)
         })
     }
 }

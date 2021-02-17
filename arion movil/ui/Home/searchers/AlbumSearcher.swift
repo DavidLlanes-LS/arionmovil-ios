@@ -40,7 +40,7 @@ struct AlbumSearcher: View {
           
             List{
                 ForEach(albumListMain.filter({$0.name!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty}), id: \.self) {album in
-                    Section(header:  TextWithCustomFonts(album.name!, customFont: CustomFont(type: .bold, size: 16)) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))){
+                    Section(header:  TextWithCustomFonts(album.name!, customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), font: .caption) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))){
                         ForEach((album.titles?.allObjects as! [TitleCD]),id:\.self){ title in
                             GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin){
                                 queueViewModel.addNewQueue(id: title.id!)
@@ -60,7 +60,7 @@ struct AlbumSearcher: View {
             }
         
             
-        }.navigationBarTitle("Àlbumes",displayMode: .inline).onAppear{
+        }.navigationBarTitle(String("Àlbumes"),displayMode: .inline).onAppear{
             viewModel.appSettings = self.appSettings
             viewModel.setDataCD {
                 self.albumListMain = viewModel.albumListMain

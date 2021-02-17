@@ -25,7 +25,7 @@ struct YearSearcher: View {
             //SearchBar(text: $searchText, placeholder: "Busca una cancion")
             List{
                 ForEach(viewModel.yearList, id: \.self) {interval in
-                    Section(header:TextWithCustomFonts(String("\(interval[0])-\(interval[1])"), customFont: CustomFont(type: .bold, size: 16)) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)) ){
+                    Section(header:TextWithCustomFonts(String("\(interval[0])-\(interval[1])"), customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), font: .caption) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)) ){
                         ForEach(viewModel.musicList.filter {$0.recordedYear >= interval[0] && $0.recordedYear <= interval[1] } , id: \.id){ title in
                             Button(action:{
                                 NavLogin = true
@@ -39,7 +39,7 @@ struct YearSearcher: View {
                     
                 }
             }
-        }.navigationBarTitle("Año",displayMode: .inline).onAppear{
+        }.navigationBarTitle(String("Año"),displayMode: .inline).onAppear{
             viewModel.setDataCD()
             
         }

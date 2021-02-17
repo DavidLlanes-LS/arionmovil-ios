@@ -15,17 +15,18 @@ struct RecoverPasswordView: View {
             Image("background")
                 .resizable()
             VStack {
-                TextWithCustomFonts("Ingresa el correo electrónico ligado a la cuenta. Te enviaremos un email con instrucciones para restablecer tu contraseña.", color: .white)
+                TextWithCustomFonts("Ingresa el correo electrónico ligado a la cuenta. Te enviaremos un email con instrucciones para restablecer tu contraseña.", customFont: CustomFont(type: .light, size: Constants.sizeTextBody), color: .white, font: .body)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(
                         "Correo electrónico",
                         customFont:
-                            CustomFont(type: .bold, size: 16),
+                            CustomFont(type: .bold, size: Constants.sizeTextFormControls),
                         color: .white
                     )
                     RoundedTextField(textValue: $email, title: "Correo electrónico", textError: "", transparent:false)
-                        .padding(.vertical, 32)
+                        
                 }
+                .padding(.vertical, 32)
                 RectangleBtn("Enviar") {
                     
                 }.frame(height: 40)
