@@ -48,12 +48,11 @@ struct Home: View {
                 
                 List{
                     VStack{
-                        TextWithCustomFonts("Buscar una canción", customFont: CustomFont(type: .bold, size: 20))
+                        TextWithCustomFonts("Buscar una canción", customFont: CustomFont(type: .bold, size: Constants.sizeTextTitle), font: .title)
                             .frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
                         ZStack {
                             Button(action:{
                                 navigateSongSearcher = true
-                                
                             }){
                                 SearchBarFilter().buttonStyle(PlainButtonStyle())
                             }
@@ -63,7 +62,7 @@ struct Home: View {
                             FilterGrid(openFilter: self.openFilter(id:))
                         }.padding(.bottom)
                         HStack{
-                            TextWithCustomFonts("Canciones disponibles",customFont: CustomFont(type: .bold, size: 20)).frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
+                            TextWithCustomFonts("Canciones disponibles",customFont: CustomFont(type: .bold, size: Constants.sizeTextTitle), font: .title).frame(minWidth:0, maxWidth: .infinity,alignment: .leading)
                             SimpleunderlineBtn("Ver todo"){
                                 navigateSeeAll = true
                             }
@@ -110,7 +109,7 @@ struct Home: View {
                     }
                     Spacer().frame(height:78).listRowBackground(Color("background"))
                 }.listRowBackground(Color("background"))
-            }.listRowBackground(Color("background")).listStyle(PlainListStyle()).navigationBarTitle("Bienvenido",displayMode: .inline).alert(isPresented:$showingAlert, content: {
+            }.listRowBackground(Color("background")).listStyle(PlainListStyle()).navigationBarTitle(String("Bienvenido"),displayMode: .inline).alert(isPresented:$showingAlert, content: {
                 Alert(title:Text(String("Atención").capitalized), message: Text(String("Recuerda que no podrás reproducir canciones si la calidad de red es baja").capitalized), primaryButton: .cancel(Text(String("Cancelar").capitalized)),secondaryButton: .default(Text(String("Aceptar").capitalized)))
             }).onAppear{
                 if stock.count > 0 {

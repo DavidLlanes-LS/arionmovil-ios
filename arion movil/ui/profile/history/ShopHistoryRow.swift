@@ -22,11 +22,12 @@ struct ShopHistoryRow: View {
     var body: some View {
         HStack{
             VStack(alignment:.leading){
-                TextWithCustomFonts("\(transaction.packageName!)", customFont: CustomFont(type: .bold, size: 16)).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
-                TextWithCustomFonts("\(dateFormatterOut.string(from: dateFormatterIn.date(from: transaction.transactionDate!)!))", customFont: CustomFont(type: .light, size: 22)).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
+                TextWithCustomFonts("\(transaction.packageName!)", customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), font: .body).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
+                TextWithCustomFonts("\(dateFormatterOut.string(from: dateFormatterIn.date(from: transaction.transactionDate!)!))", customFont: CustomFont(type: .light, size: Constants.sizeTextBody), font: .body).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
             }
-            TextWithCustomFonts("$\(transaction.amount!)",customFont: CustomFont(type: .bold, size: 18), color: Color("secondary-background"))
+            TextWithCustomFonts("$\(transaction.amount!)",customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), color: Color("secondary-background"), font: .body)
         }
+        .padding(.vertical, 8)
     }
 }
 

@@ -14,7 +14,7 @@ struct RoundedTextField: View {
    
     var textError:String
     @State var transparent:Bool 
-    var customFont: CustomFont = CustomFont(type: .semibold, size: 16)
+    var customFont: CustomFont = CustomFont(type: .semibold, size: Constants.sizeTextFormControls)
     var color: Color = Color("title")
    
     var body: some View {
@@ -28,8 +28,9 @@ struct RoundedTextField: View {
             if !textError.isEmpty {
                 TextWithCustomFonts(
                     textError,
-                    customFont: CustomFont(type: .semibold, size: 14),
-                    color: Color("error")
+                    customFont: CustomFont(type: .semibold, size: Constants.sizeTextCaption),
+                    color: Color("error"),
+                    font: .caption
                 ).padding(.horizontal)
             }
                 

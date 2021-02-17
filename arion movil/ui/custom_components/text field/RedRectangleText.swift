@@ -14,7 +14,7 @@ struct RedRectangleText: View {
         self.text = text
     }
     var body: some View {
-       TextWithCustomFonts(self.text, customFont: CustomFont(type: .semibold, size: 16), color: Color.white).frame(minWidth:0,maxWidth: .infinity,minHeight:0 ,maxHeight: .infinity, alignment: .center)
+        TextWithCustomFonts(self.text, customFont: CustomFont(type: .semibold, size: Constants.sizeTextFormControls), color: Color.white).frame(minWidth:0,maxWidth: .infinity,minHeight:0 ,maxHeight: .infinity, alignment: .center)
         .background(Color("secondary-background")).cornerRadius(5)
     }
 }

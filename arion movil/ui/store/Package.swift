@@ -17,8 +17,8 @@ struct Package: View {
         HStack{
             HStack{
                 TextWithCustomFonts(package.name!,customFont: CustomFont(type: .bold, size: 16), color: Color("secondary-background"))
-                TextWithCustomFonts("- \(package.amount!) Créditos",customFont: CustomFont(type: .semibold, size: 16), color: Color("light-gray")).frame(minWidth:0,maxWidth: .infinity, alignment: .leading)
-                TextWithCustomFonts("$\(package.price!)",customFont: CustomFont(type: .bold, size: 16), color: Color("title")).frame(width:60).frame(width:40)
+                TextWithCustomFonts("- \(package.amount!) Créditos",customFont: CustomFont(type: .semibold, size: Constants.sizeTextBody), color: Color("light-gray"), font: .body).frame(minWidth:0,maxWidth: .infinity, alignment: .leading)
+                TextWithCustomFonts("$\(package.price!)",customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), color: Color("title"), font: .body).frame(width:60).frame(width:40)
             }.padding()
         }
     }
