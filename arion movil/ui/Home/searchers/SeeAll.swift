@@ -12,6 +12,7 @@ struct SeeAll: View {
     @StateObject var queueViewModel = QueueViewModel()
     @State var navigateLogin:Bool = false
     @StateObject var storeViewModel = StoreViewModel()
+    @EnvironmentObject var appSettings: AppHelper
     init(branchId: String){
         viewModel.branchId = branchId
        
@@ -48,6 +49,7 @@ struct SeeAll: View {
                 }
             }
         }.onAppear{
+            queueViewModel.appSettings = appSettings
             viewModel.setDataCD()
         }.background(Color("background"))
         

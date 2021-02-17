@@ -10,7 +10,7 @@ import SwiftUI
 struct YearSearcher: View {
     @StateObject var queueViewModel = QueueViewModel()
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
-    
+    @EnvironmentObject var appSettings: AppHelper
     @State var NavLogin = false
     @StateObject var storeViewModel = StoreViewModel()
     @State public var searchText : String = ""
@@ -40,6 +40,7 @@ struct YearSearcher: View {
                 }
             }
         }.navigationBarTitle("Año",displayMode: .inline).onAppear{
+            queueViewModel.appSettings = appSettings
             viewModel.setDataCD()
             
         }

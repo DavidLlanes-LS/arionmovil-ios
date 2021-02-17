@@ -18,7 +18,7 @@ class QueueViewModel: ObservableObject, ArionService {
     @Published var showLoader: Bool = false
     @Published var costCredits: Int = 0
     @Published var showAlert: Bool = false
-    
+    @Published var appSettings:AppHelper?
     var playerId = UserDefaults.standard.string(forKey: Constants.keyPlayerId)
     var locationId = UserDefaults.standard.string(forKey: Constants.keyLocationId)
     
@@ -66,6 +66,11 @@ class QueueViewModel: ObservableObject, ArionService {
                         handle(nil, true)
                     } else {
                         handle(result.resultCode, nil)
+                        if self.appSettings != nil {
+                            self.appSettings?.banerInfo.title = "La canción se agregó correctamente a la fila"
+                            self.appSettings?.banerInfo.type = .success
+                            self.appSettings?.showBanner = true
+                        }
                         self.getQueue()
                     }
                 }

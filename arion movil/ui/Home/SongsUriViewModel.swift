@@ -33,7 +33,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
     var cancellables = Set<AnyCancellable>()
     init(apiSession: APIService = APISession(), branchId:String = "") {
         self.apiSession = apiSession
-        self.branchId = branchId
+//        self.branchId = branchId
         self.songsState = self.getSongsStateCD(branchId: branchId)
        //getStockCD(branchId: branchId)
      //   getList()

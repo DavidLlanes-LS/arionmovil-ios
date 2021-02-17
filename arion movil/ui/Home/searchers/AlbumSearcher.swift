@@ -65,9 +65,8 @@ struct AlbumSearcher: View {
             viewModel.setDataCD {
                 self.albumListMain = viewModel.albumListMain
             }
-        }.onDisappear{
-           // appSettings.albumsList = []
-            //onceLoad = false
+        }.onAppear{
+            queueViewModel.appSettings = appSettings
         }
         
             

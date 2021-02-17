@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SongSearcher: View {
+    @EnvironmentObject var appSettings: AppHelper
     @StateObject var queueViewModel = QueueViewModel()
     @State var searchText:String = ""
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
@@ -31,7 +32,9 @@ struct SongSearcher: View {
             }
         }.navigationBarTitle("Buscador",displayMode: .inline).onAppear{
             viewModel.setDataCD()
-        }.background(Color("background"))
+        }.background(Color("background")).onAppear{
+            queueViewModel.appSettings = appSettings
+        }
     }
     
     
