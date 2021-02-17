@@ -35,7 +35,7 @@ struct Constants {
     
     // MARK: - change profile messages and change options
     static let succesChangeMsg = "Se realizó el cambio exitosamente"
-    static let emailExistsMsg = "Este email ya existe"
+    static let emailExistsMsg = "Este email ya existe, por favor ingresa uno distinto"
     static let wrongCredentialMsg = "Por favor verifica que tu contraseña sea correcta e intentalo de nuevo"
     static let generalChangeErrorMsg = "Ocurrio un error inesperado,por favor intenta nuevamente más tarde"
     static let missmatchPasswordsMsg = "Las contraseñas no coinciden"
@@ -46,7 +46,7 @@ struct Constants {
     static let changeEmailOption = 1
     
     
-    //MARK: dimens
+    //MARK: - dimens
     static let sizeTextTitle:Float = 17.0
     static let sizeTextPageTitle:Float = 34
     static let sizeTextBody:Float = 17

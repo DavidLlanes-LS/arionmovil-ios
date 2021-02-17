@@ -11,7 +11,7 @@ import SwiftUI
 struct SignUpView: View {
     @StateObject var viewModel = SignUpViewModel()
     @Environment(\.presentationMode) var presentationMode
-    
+    @EnvironmentObject var appSettings: AppHelper
     var alertEmailAlreadyExist: Alert {
         Alert(
             title: Text(String("Atención")),
@@ -165,7 +165,9 @@ struct SignUpView: View {
             }
         )
         
-        .navigationBarTitle(String("Nueva cuenta"), displayMode: .inline)
+        .navigationBarTitle(String("Nueva cuenta"), displayMode: .inline).onAppear{
+            viewModel.appSettings = appSettings
+        }
     }
 }
 
