@@ -54,7 +54,7 @@ struct Profile: View {
                            TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18), color: Color("title"))
                         
                        }.listRowBackground(Color("background"))
-                    }
+                    }.listRowBackground(Color("background"))
                     Button(action:{
                         if isAuth{
                             navigatePurchaseHistory = true
@@ -69,7 +69,7 @@ struct Profile: View {
                            TextWithCustomFonts("Historial de compras",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
                        }).listRowBackground(Color("background"))
                         
-                    }
+                    }.listRowBackground(Color("background"))
 
                     Button(action:{
                         if isAuth{
@@ -85,7 +85,7 @@ struct Profile: View {
                            TextWithCustomFonts("Cambiar correo o contraseña",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
                         
                        }).listRowBackground(Color("background"))
-                    }
+                    }.listRowBackground(Color("background"))
                        NavigationLink(destination: Settings(), label: {
                         
                            TextWithCustomFonts("Configuraciones",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)

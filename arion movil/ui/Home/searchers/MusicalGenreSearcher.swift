@@ -19,7 +19,7 @@ struct MusicalGenreSearcher: View {
         
         
     }
-    var musicalGenres:[MusicalGenre] = [MusicalGenre(id:1,name:"Rock")]
+   
     @State public var searchText : String = ""
     var body: some View {
         VStack(spacing:0){

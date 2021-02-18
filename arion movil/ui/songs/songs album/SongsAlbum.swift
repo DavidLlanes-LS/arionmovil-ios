@@ -13,7 +13,6 @@ struct SongsAlbum: View {
     @State var navigateLogin = false
     @EnvironmentObject var appSettings: AppHelper
     @StateObject var storeViewModel = StoreViewModel()
-    var songs:[Song] = [Song(id: 1, name: "Lost",artist: Artist(id: 1, name: "Frank Ocean"))]
     var body: some View {
         VStack{
             NavigationLink(destination: LoginView(), isActive: self.$navigateLogin ) {

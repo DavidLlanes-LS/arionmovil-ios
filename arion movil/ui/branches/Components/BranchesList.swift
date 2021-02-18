@@ -14,7 +14,6 @@ struct BranchesList: View {
     @State var show = false
     @State var isView = true
     @State var txt = ""
-    @State var branchesFiltered:[Branch]=[]
     @ObservedObject var locationManager = LocationManager()
     
     var body: some View{

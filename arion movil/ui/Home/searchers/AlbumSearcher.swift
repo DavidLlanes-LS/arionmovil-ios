@@ -14,7 +14,6 @@ struct AlbumSearcher: View {
     }
     @EnvironmentObject var appSettings: AppHelper
     @StateObject var storeViewModel = StoreViewModel()
-    var albums:[Album] = [Album(id: 1, name: "De jira con dualipa", image: "dualipa")]
     @State public var searchText : String = ""
     @State var NavLogin:Bool = false
     @State var conteo = 1
