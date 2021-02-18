@@ -440,12 +440,12 @@
 		6306CDFD24B3A59D007628F8 /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				7FC55C3E25DEB8AB00C10420 /* components */,
 				63AB4BC924B77DA100DBCFB9 /* help */,
 				63AB4BC624B77A0900DBCFB9 /* change pass email */,
 				633F103A24B6718400B284AE /* settings */,
 				633F103524B66EFC00B284AE /* history */,
 				6306CDFE24B3A5AB007628F8 /* Profile.swift */,
-				6306CE0024B3A5E7007628F8 /* ProfileImage.swift */,
 				7FA43B2225D310E300914661 /* ProfileViewModel.swift */,
 			);
 			path = profile;
@@ -490,10 +490,10 @@
 		6339F06824B368D1008C8554 /* store */ = {
 			isa = PBXGroup;
 			children = (
+				7FC55C3F25DEB8C400C10420 /* components */,
 				6306CE0B24B3C6A3007628F8 /* credit-cards */,
 				6306CE0A24B3C695007628F8 /* credit */,
 				6339F06C24B36F5E008C8554 /* Store.swift */,
-				6339F07024B372B7008C8554 /* Package.swift */,
 				7FA43AC625D1918500914661 /* StoreViewModel.swift */,
 			);
 			path = store;
@@ -555,7 +555,6 @@
 		635D30D124AE513D000062AF /* arion movil */ = {
 			isa = PBXGroup;
 			children = (
-				7FC0C5E625CD9DE500317A70 /* Openpay */,
 				7F53E91725BA288D0044D258 /* data */,
 				7F53E91625BA28790044D258 /* domain */,
 				6360B0A124AE7FEF00811899 /* managers */,
@@ -769,11 +768,9 @@
 		639E4F4524AFEDA100029A07 /* queue */ = {
 			isa = PBXGroup;
 			children = (
+				7FC55C4025DEB91700C10420 /* components */,
 				639E4F4624AFEEE500029A07 /* QueueView.swift */,
-				639E4F4824AFEF3A00029A07 /* QueueRow.swift */,
-				7F87089B25C9A25200D28541 /* OnLoadModifier.swift */,
 				7F8708A025C9A27400D28541 /* QueueViewModel.swift */,
-				0A4C344E25C9C1C900785422 /* Constants.swift */,
 			);
 			path = queue;
 			sourceTree = "<group>";
@@ -848,6 +845,8 @@
 		7F210E2D25C5E40E0074373D /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				7FC0C5E625CD9DE500317A70 /* Openpay */,
+				0A4C344E25C9C1C900785422 /* Constants.swift */,
 				635D30DA24AE5143000062AF /* Preview Content */,
 				635D30D824AE5143000062AF /* Assets.xcassets */,
 				63AB4BC424B7705F00DBCFB9 /* Localizable.Strings */,
@@ -986,6 +985,31 @@
 				7FC0C5F225CD9DE500317A70 /* Openpay.swift */,
 			);
 			path = Openpay;
+			sourceTree = "<group>";
+		};
+		7FC55C3E25DEB8AB00C10420 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				6306CE0024B3A5E7007628F8 /* ProfileImage.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		7FC55C3F25DEB8C400C10420 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				6339F07024B372B7008C8554 /* Package.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		7FC55C4025DEB91700C10420 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				639E4F4824AFEF3A00029A07 /* QueueRow.swift */,
+				7F87089B25C9A25200D28541 /* OnLoadModifier.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 		A21AB6E488325072D410A668 /* Pods */ = {
