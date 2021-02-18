@@ -32,107 +32,110 @@ struct Profile: View {
                     NavigationLink(destination:ChangePasswordEmail(), isActive: self.$navigateChangeProfile ) {}
                     NavigationLink(destination: LoginView(), isActive: self.$navigationToLogin) {
                     }
-                   ProfileImage()
-                       .frame(width: 200, height: 200)
+                    ProfileImage()
+                        .frame(width: 200, height: 200)
                     //Image("playlist_filled").offset(x:50,y:-165)
                     if userName != nil {
                         
                         TextWithCustomFonts(userName!,customFont: CustomFont(type: .bold, size: 16), color: Color("two-gray")).animation(.default)
                     }
-                   
-                   List{
-                    Button(action:{
-                        if isAuth{
-                        navigateCreditCards = true
-                        }
-                        else {
-                            showLoginAlert = true
-                        }
-                    }){
-                       NavigationLink(destination:EmptyView() ){
-                        
-                           TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18), color: Color("title"))
-                        
-                       }.listRowBackground(Color("background"))
-                    }.listRowBackground(Color("background"))
-                    Button(action:{
-                        if isAuth{
-                            navigatePurchaseHistory = true
-                        }
-                        else {
-                            showLoginAlert = true
-                        }
-                       
-                    }){
-                       NavigationLink(destination: EmptyView(), label: {
-                       
-                           TextWithCustomFonts("Historial de compras",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
-                       }).listRowBackground(Color("background"))
-                        
-                    }.listRowBackground(Color("background"))
-
-                    Button(action:{
-                        if isAuth{
-                            navigateChangeProfile = true
-                        }
-                        else {
-                            showLoginAlert = true
-                        }
-                        
-                    }){
-                       NavigationLink(destination: ChangePasswordEmail(), label: {
-                        
-                           TextWithCustomFonts("Cambiar correo o contraseña",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
-                        
-                       }).listRowBackground(Color("background"))
-                    }.listRowBackground(Color("background"))
-                       NavigationLink(destination: Settings(), label: {
-                        
-                           TextWithCustomFonts("Configuraciones",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
-                        
-                       }).listRowBackground(Color("background"))
-                       NavigationLink(destination: Help(), label: {
-                        
-                           TextWithCustomFonts("Ayuda",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
-                        
-                       }).listRowBackground(Color("background"))
+                    
+                    List{
+                        Button(action:{
+                            if isAuth{
+                                navigateCreditCards = true
+                            }
+                            else {
+                                showLoginAlert = true
+                            }
+                        }){
+                            NavigationLink(destination:EmptyView() ){
+                                
+                                TextWithCustomFonts("Método de pago",customFont: CustomFont(type: .bold, size: 18), color: Color("title"))
+                                
+                            }.listRowBackground(Color("background"))
+                        }.listRowBackground(Color("background"))
+                        Button(action:{
+                            if isAuth{
+                                navigatePurchaseHistory = true
+                            }
+                            else {
+                                showLoginAlert = true
+                            }
                             
-                       }
+                        }){
+                            NavigationLink(destination: EmptyView(), label: {
+                                
+                                TextWithCustomFonts("Historial de compras",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                            }).listRowBackground(Color("background"))
+                            
+                        }.listRowBackground(Color("background"))
+                        
+                        Button(action:{
+                            if isAuth{
+                                navigateChangeProfile = true
+                            }
+                            else {
+                                showLoginAlert = true
+                            }
+                            
+                        }){
+                            NavigationLink(destination: ChangePasswordEmail(), label: {
+                                
+                                TextWithCustomFonts("Cambiar correo o contraseña",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                                
+                            }).listRowBackground(Color("background"))
+                        }.listRowBackground(Color("background"))
+                        NavigationLink(destination: Settings(), label: {
+                            
+                            TextWithCustomFonts("Configuraciones",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                            
+                        }).listRowBackground(Color("background"))
+                        NavigationLink(destination: Help(), label: {
+                            
+                            TextWithCustomFonts("Ayuda",customFont: CustomFont(type: .bold, size: 18), color: Color("title")).frame(height:40)
+                            
+                        }).listRowBackground(Color("background"))
+                        
+                    }
                     if isAuth {
                         
                         RectangleBtn("Cerrar sesión", action: {
-                            appSettings.banerInfo.title = "Haz cerrado sesión"
-                            appSettings.banerInfo.type = .info
-                            appSettings.showBanner = true
-//                            banerDate.title = "Haz cerrado sesión"
-//                            showBanner = true
-                         let defaults = UserDefaults.standard
-                         defaults.removeObject(forKey: Constants.keyIsAuth)
-                        defaults.removeObject(forKey: Constants.keyCookie)
-                         defaults.removeObject(forKey: Constants.keyUserId)
-                         
-                         UserDefaults.standard.set("", forKey: Constants.keyCookie)
-                         appSettings.userCredits = 0
-                            appSettings.isLoged = false
+                            
+                            withAnimation{
+                                appSettings.banerInfo.title = "Haz cerrado sesión"
+                                appSettings.banerInfo.type = .info
+                                appSettings.showBanner = true
+                                //                            banerDate.title = "Haz cerrado sesión"
+                                //                            showBanner = true
+                                let defaults = UserDefaults.standard
+                                defaults.removeObject(forKey: Constants.keyIsAuth)
+                                defaults.removeObject(forKey: Constants.keyCookie)
+                                defaults.removeObject(forKey: Constants.keyUserId)
+                                UserDefaults.standard.set("", forKey: Constants.keyCookie)
+                                appSettings.userCredits = 0
+                                appSettings.isLoged = false
+                            }
+                            
                         }).frame(width:200, height:40).padding()
                     }
                     else{
                         
-                            RectangleBtn("Iniciar sesión", action: {
-                                navigationToLogin = true
-                            }).frame(width:200, height:40).padding()
-                       
+                        RectangleBtn("Iniciar sesión", action: {
+                            navigationToLogin = true
+                        }).frame(width:200, height:40).padding()
+                        
                     }
-                  
+                    
                 }.banner(data: $banerDate, show: $showBanner)
                 .onAppear() {
                     if isAuth{
-                    if appSettings.isLoged{
-                        appSettings.banerInfo.title = "Bienvenido \(userName!)"
-                        appSettings.banerInfo.type = .info
-                        appSettings.showBanner = true
-                        appSettings.isLoged = false
-                    }}
+                        if appSettings.isLoged{
+                            appSettings.banerInfo.title = "Bienvenido \(userName!)"
+                            appSettings.banerInfo.type = .info
+                            appSettings.showBanner = true
+                            appSettings.isLoged = false
+                        }}
                     appSettings.showCurrentSong = false
                 }.onDisappear{
                     showBanner = false
@@ -147,7 +150,7 @@ struct Profile: View {
         }
     }
     
-   
+    
 }
 
 struct Profile_Previews: PreviewProvider {
