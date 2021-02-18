@@ -27,9 +27,7 @@ struct OnLoadModifier: ViewModifier {
     func onLoad() {
 
         if !didAppear {
-
             work()
-
         }
 
         didAppear = true

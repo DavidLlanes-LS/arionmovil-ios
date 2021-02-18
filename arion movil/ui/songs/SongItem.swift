@@ -36,7 +36,7 @@ struct SongItem: View {
 
                                     $0.resizable().aspectRatio(contentMode: .fill)}).frame(maxWidth: .infinity,maxHeight:.infinity)
                         Spacer()
-                    }.frame(maxWidth: .infinity,maxHeight:.infinity)
+                    }.frame(maxWidth: .infinity,maxHeight:160)
                     if(hasCorners){
                         VStack {
                             

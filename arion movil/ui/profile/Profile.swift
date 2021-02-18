@@ -57,7 +57,9 @@ struct Profile: View {
                         }.listRowBackground(Color("background"))
                         Button(action:{
                             if isAuth{
+                                
                                 navigatePurchaseHistory = true
+                                
                             }
                             else {
                                 showLoginAlert = true

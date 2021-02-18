@@ -33,7 +33,6 @@ struct ChangePasswordEmail: View {
                 RectangleBtn("Guardar"){
                     hide_keyboard()
                     viewModel.changeProfile()
-                    
                 }.disabled(!(!viewModel.newEmail.isEmpty || ((!viewModel.newPassword.isEmpty && !viewModel.verifyPassword.isEmpty) && !viewModel.currentPassword.isEmpty ))).frame(width:200,height:40)
                
                 .frame(minWidth:0, maxWidth: .infinity, alignment: .center).padding()
@@ -42,6 +41,7 @@ struct ChangePasswordEmail: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }) }).navigationBarTitle("Cambiar correo o contraseña").padding(.top)
+            
         }.onAppear{
             if !isAuth{
                 viewModel.responseMessage = "Por favor inicia sesión para poder realizar esta acción"

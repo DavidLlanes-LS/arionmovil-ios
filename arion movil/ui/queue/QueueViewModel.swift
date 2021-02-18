@@ -73,22 +73,22 @@ class QueueViewModel: ObservableObject, ArionService {
                                 self.appSettings?.banerInfo.title = "La canción se agregó correctamente a la fila"
                                     self.appSettings?.banerInfo.type = .success
                             case 2:
-                                self.appSettings?.banerInfo.title = "Tu suscripción no está activa"
+                                self.appSettings?.banerInfo.title = "El cliente no tiene una suscripción activa"
                                     self.appSettings?.banerInfo.type = .error
                             case 3:
-                                self.appSettings?.banerInfo.title = "No cuentas con créditos suficientes"
+                                self.appSettings?.banerInfo.title = "Upss! No cuentas con créditos suficientes"
                                     self.appSettings?.banerInfo.type = .error
                             case 4:
                                 self.appSettings?.banerInfo.title = "Créditos inconsistentes a cargar"
                                     self.appSettings?.banerInfo.type = .error
                             case 5:
-                                self.appSettings?.banerInfo.title = "No se pudo agregar este título a la fila"
+                                self.appSettings?.banerInfo.title = "No se pudo agregar esta canción a la fila"
                                     self.appSettings?.banerInfo.type = .error
                             case 6:
                                 self.appSettings?.banerInfo.title = "Posición inconsistente para avanzar"
                                     self.appSettings?.banerInfo.type = .error
                             default:
-                                self.appSettings?.banerInfo.title = "ocurrió un error inesperado"
+                                self.appSettings?.banerInfo.title = "No se pudo agregar esta canción a la fila"
                                 self.appSettings?.banerInfo.type = .error
                             }
                             self.appSettings?.showBanner = true

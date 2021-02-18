@@ -20,7 +20,7 @@ struct BranchRow: View {
                     .frame(width: 40, height: 40, alignment: .center)
                 VStack(alignment: .leading){
                     TextWithCustomFonts(branch.name,customFont: CustomFont(type: .bold, size: 17),color: Color("title"), font: .body)
-                    TextWithCustomFonts(branch.locationDescription, customFont: CustomFont(type: .light, size: 17), color: Color("title"), font: .body)
+                    TextWithCustomFonts(branch.addressLine, customFont: CustomFont(type: .light, size: 17), color: Color("title"), font: .body)
                 }
                 .frame(minWidth:0, maxWidth: .infinity, alignment: .leading)
                
