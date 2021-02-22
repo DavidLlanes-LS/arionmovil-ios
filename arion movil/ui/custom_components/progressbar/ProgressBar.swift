@@ -17,7 +17,7 @@ struct ProgressBar: View {
                 Rectangle().fill(Color("secondary-background")).frame(width: (geometry.size.width * CGFloat(self.average)) / 100)
             }.frame(height:5)
         }
-       
+        
     }
 }
 

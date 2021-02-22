@@ -11,27 +11,27 @@ import SwiftUI
 struct OnLoadModifier: ViewModifier {
     // MARK: - variables
     @State var didAppear = false
-
-    var work : () -> Void
-
     
-
+    var work : () -> Void
+    
+    
+    
     func body(content: Content) -> some View {
-
+        
         content
-
+            
             .onAppear(perform: onLoad)
-
+        
     }
-
+    
     func onLoad() {
-
+        
         if !didAppear {
             work()
         }
-
+        
         didAppear = true
-
+        
     }
-
+    
 }

@@ -21,8 +21,8 @@ struct LogoImage: View {
         Image(systemName: "building.fill").data(url: URL(string: imageName)!)
             .resizable()
             .aspectRatio(1, contentMode: .fit)
-            }
-        
+    }
+    
     
 }
 

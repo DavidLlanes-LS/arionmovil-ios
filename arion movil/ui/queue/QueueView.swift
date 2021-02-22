@@ -12,7 +12,7 @@ struct QueueView: View {
     @StateObject var storeViewModel = StoreViewModel()
     @EnvironmentObject var appSettings: AppHelper
     @State var navigationToLogin: Bool = false
-  
+    
     var body: some View {
         NavigationView {
             ZStack{
@@ -44,11 +44,11 @@ struct QueueView: View {
                         }
                         .animation(.default)
                         .listStyle(PlainListStyle())
-                       
+                        
                     }.background(Color("background"))
                     .onAppear(perform: {
                         self.viewModel.getQueue()
-                       
+                        
                     })
                 }
                 VStack{

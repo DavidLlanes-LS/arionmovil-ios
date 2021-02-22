@@ -24,7 +24,7 @@ struct RecoverPasswordView: View {
                         color: .white
                     )
                     RoundedTextField(textValue: $email, title: "Correo electrónico", textError: "", transparent:false)
-                        
+                    
                 }
                 .padding(.vertical, 32)
                 RectangleBtn("Enviar") {

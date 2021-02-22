@@ -11,7 +11,7 @@ import SwiftUI
 struct ShopHistoryRow: View {
     let dateFormatterIn = DateFormatter()
     let dateFormatterOut = DateFormatter()
-   var transaction:Transaction
+    var transaction:Transaction
     init(transaction:Transaction) {
         self.transaction = transaction
         dateFormatterIn.locale = Locale(identifier: "en_US_POSIX")

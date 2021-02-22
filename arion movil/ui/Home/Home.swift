@@ -30,7 +30,7 @@ struct Home: View {
     @State var count:Int = 0
     @State var rows:Int = 0
     @State var isImpar = false
-   
+    
     init(branchId: String){
         fetchRequest = FetchRequest<AlbumStockCD>(entity:AlbumStockCD.entity(), sortDescriptors: [], predicate: NSPredicate(format: "restaurantId == %@", branchId))
     }
@@ -168,7 +168,7 @@ struct Home: View {
         }
         
     }
-   
+    
     func getList(){
         
         if(stock.count != 0){
@@ -191,9 +191,9 @@ struct Home: View {
             }
             titles = Array(Set(titles))
             musicList = titles
-//            musicList.sort{
-//                $0.name!<$1.name!
-//            }
+            //            musicList.sort{
+            //                $0.name!<$1.name!
+            //            }
             //count = musicList.count - 1
             count = 30 - 1
         }

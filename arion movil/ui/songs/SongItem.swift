@@ -14,7 +14,7 @@ struct SongItem: View {
     var funct:(_:String) -> ()
     @State var showAlert: Bool = false
     @Binding var navigateLogin:Bool
-     var url:String = "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BLACKPINK-_The_Album.png/220px-BLACKPINK-_The_Album.png"
+    var url:String = "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BLACKPINK-_The_Album.png/220px-BLACKPINK-_The_Album.png"
     var hasCorners:Bool = true
     init(song:TitleCD,navigateLogin:Binding<Bool>,url:String="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/BLACKPINK-_The_Album.png/220px-BLACKPINK-_The_Album.png" ,hasCorners:Bool = true,funct:@escaping (_:String)->()) {
         _navigateLogin = navigateLogin
@@ -33,14 +33,14 @@ struct SongItem: View {
                     VStack(alignment: .center) {
                         Spacer()
                         URLImage(url:URL(string: url)!, content:  {
-
-                                    $0.resizable().aspectRatio(contentMode: .fill)}).frame(maxWidth: .infinity,maxHeight:.infinity)
+                                    
+                                    $0.resizable().frame(maxWidth: .infinity,maxHeight:.infinity).aspectRatio(contentMode: .fill)})
                         Spacer()
-                    }.frame(maxWidth: .infinity,maxHeight:160)
+                    }.frame(maxWidth: .infinity,maxHeight:160) .mask(CustomShape(radius: hasCorners ? 8:0))
                     if(hasCorners){
                         VStack {
                             
-                           
+                            
                             TextWithCustomFonts(song.name ?? "No hay", customFont: CustomFont(type: .bold, size: 17), font: .title).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
                             TextWithCustomFonts(song.artist ?? "No hay", customFont: CustomFont(type: .light, size: 17), font: .title).frame(maxWidth:.infinity,alignment: .leading).padding(.leading,2)
                             Spacer().frame(height:2)
@@ -49,8 +49,8 @@ struct SongItem: View {
                             
                         }
                     }
-                
-                   
+                    
+                    
                 }.frame(height: hasCorners ? 200: nil)
             }.alert(isPresented: $showAlert, content: {
                 if (isAuth) {

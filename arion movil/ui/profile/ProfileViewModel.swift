@@ -18,7 +18,7 @@ class ProfileViewModel: ObservableObject, ArionService {
     @Published var newPasswordBinding:Binding<String>?
     @Published var newEmailBinding:Binding<String>?
     var cancellables = Set<AnyCancellable>()
-   
+    
     
     @Published var newEmail:String = ""
     @Published var newPassword:String = ""
@@ -30,7 +30,7 @@ class ProfileViewModel: ObservableObject, ArionService {
     @Published var errorMinimumPassword:String = ""
     @Published var showAlert = false
     @Published var wasSucces = false
-
+    
     init(apiSession: APIService = APISession()) {
         self.apiSession = apiSession
         

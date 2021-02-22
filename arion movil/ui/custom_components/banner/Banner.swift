@@ -9,39 +9,39 @@
 import Foundation
 import SwiftUI
 struct BannerData {
-        var title: String
-        var detail: String
-        var type: BannerType
-    }
+    var title: String
+    var detail: String
+    var type: BannerType
+}
 
-    enum BannerType {
-        case info
-        case warning
-        case success
-        case error
-
-        var tintColor: Color {
-            switch self {
-            case .info:
-                return Color("toast")
-            case .success:
-                return Color.green
-            case .warning:
-                return Color.yellow
-            case .error:
-                return Color.red
-            }
+enum BannerType {
+    case info
+    case warning
+    case success
+    case error
+    
+    var tintColor: Color {
+        switch self {
+        case .info:
+            return Color("toast")
+        case .success:
+            return Color.green
+        case .warning:
+            return Color.yellow
+        case .error:
+            return Color.red
         }
     }
+}
 
 struct BannerModifier: ViewModifier {
-
+    
     @Binding var data: BannerData
     @Binding var show: Bool
-
-
+    
+    
     @State var task: DispatchWorkItem?
-
+    
     func body(content: Content) -> some View {
         ZStack {
             if show {
@@ -50,8 +50,8 @@ struct BannerModifier: ViewModifier {
                         Spacer()
                         VStack(alignment: .center, spacing: 2) {
                             Text(data.title).bold().frame(alignment:.center).multilineTextAlignment(.center)
-//                            Text(data.detail)
-//                                .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
+                            //                            Text(data.detail)
+                            //                                .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
                         }.frame(alignment:.center)
                         Spacer()
                     }
@@ -65,7 +65,7 @@ struct BannerModifier: ViewModifier {
                 .padding()
                 .animation(.easeInOut(duration: 1.2))
                 .transition(AnyTransition.move(edge: .top).combined(with: .opacity)).zIndex(5)
-
+                
                 .onTapGesture {
                     withAnimation {
                         self.show = false

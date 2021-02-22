@@ -23,7 +23,7 @@ struct BranchesList: View {
                 VStack {
                     ZStack {
                         if !self.show{
-                            TextWithCustomFonts("Elije tu establecimiento",customFont: CustomFont(type: .bold, size: 17), color: Color("title"), font: .title)
+                            TextWithCustomFonts("Elige tu establecimiento",customFont: CustomFont(type: .bold, size: 17), color: Color("title"), font: .title)
                         }
                         ExpandedSearchBar(show:$show,txt: $txt, placeholder: "Buscar Restaurante")
                     }

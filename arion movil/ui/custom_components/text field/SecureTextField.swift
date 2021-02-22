@@ -18,18 +18,18 @@ struct SecureTextField: View {
     var color: Color = Color("title")
     var body: some View {
         VStack(alignment: .leading) {
-
-              
-              
-                    SecureField(self.title, text: self.$textValue)
-                        .font(.custom(self.customFont.type.rawValue, size: CGFloat(self.customFont.size))).foregroundColor(self.color)
-                        .padding()
-                        .background(!transparent ? Color("background"):Color("background_text"))
-                        .cornerRadius(4.0)
-                        .opacity(0.8)
-                
-
-          
+            
+            
+            
+            SecureField(self.title, text: self.$textValue)
+                .font(.custom(self.customFont.type.rawValue, size: CGFloat(self.customFont.size))).foregroundColor(self.color)
+                .padding()
+                .background(!transparent ? Color("background"):Color("background_text"))
+                .cornerRadius(4.0)
+                .opacity(0.8)
+            
+            
+            
             if !textError.isEmpty {
                 TextWithCustomFonts(
                     textError,

@@ -104,9 +104,9 @@ struct Store: View {
                 }.background(Color("background"))
                 if viewModel.isLoading  {
                     VStack{
-                    Spacer()
-                    ProgressView()
-                    Spacer()
+                        Spacer()
+                        ProgressView()
+                        Spacer()
                     }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
                 }
                 
@@ -118,18 +118,18 @@ struct Store: View {
             }
             
         }.environmentObject(appSettings).alert(isPresented: $showAlertQuestion) { () -> Alert in
-                Alert(
-                    title:Text(String("Comprar paquete").capitalized),
-                    message: Text(String("Se te hará un cobro de $\(self.selectedPackage.price ?? 0.00) por compra del paquete \(self.selectedPackage.name ?? "")")),
-                    primaryButton: .cancel(Text(String("Cancelar").capitalized)){
-                        showBottomSheet = false
-                    },
-                    secondaryButton: .default(Text(String("Aceptar").capitalized)) {
-                        self.openpay = Openpay(withMerchantId: Constants.idOpenPayMerchant, andApiKey: Constants.keyOpenPay, isProductionMode: false)
-                        openpay.createDeviceSessionId(successFunction: successSession, failureFunction: failSession)
-                        showBottomSheet = false
-                    })
-            }
+            Alert(
+                title:Text(String("Comprar paquete").capitalized),
+                message: Text(String("Se te hará un cobro de $\(self.selectedPackage.price ?? 0.00) por compra del paquete \(self.selectedPackage.name ?? "")")),
+                primaryButton: .cancel(Text(String("Cancelar").capitalized)){
+                    showBottomSheet = false
+                },
+                secondaryButton: .default(Text(String("Aceptar").capitalized)) {
+                    self.openpay = Openpay(withMerchantId: Constants.idOpenPayMerchant, andApiKey: Constants.keyOpenPay, isProductionMode: false)
+                    openpay.createDeviceSessionId(successFunction: successSession, failureFunction: failSession)
+                    showBottomSheet = false
+                })
+        }
         
         
     }

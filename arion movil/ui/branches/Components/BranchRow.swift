@@ -13,7 +13,6 @@ struct BranchRow: View {
     @State var ImageUrl:String = ""
     
     var body: some View {
-       // background(Color.red)
         VStack{
             HStack{
                 LogoImage(imageName:branch.logoImage == nil ? "image": branch.logoImage!)

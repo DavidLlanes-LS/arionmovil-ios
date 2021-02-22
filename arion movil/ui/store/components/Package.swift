@@ -28,6 +28,6 @@ struct Package_Previews: PreviewProvider {
     static var previews: some View {
         let package:Packages =  Packages()
         Package(package: package)
-        .environment(\.colorScheme, .dark)
+            .environment(\.colorScheme, .dark)
     }
 }

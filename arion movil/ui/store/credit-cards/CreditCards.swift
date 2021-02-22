@@ -27,7 +27,7 @@ struct CreditCards: View {
                     LoaderComponent()
                     Spacer()
                 }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color("background"))
-               
+                
             }
             else{
                 if viewModel.creditCards.count != 0  {
@@ -41,20 +41,20 @@ struct CreditCards: View {
                                         self.presentationMode.wrappedValue.dismiss()
                                     }
                                 }){
-                                HStack {
-                                    
-                                    CreditCardRow(card: credit)
-                                    Spacer()
-                                }}.disabled(false).listRowBackground(Color("background"))
+                                    HStack {
+                                        
+                                        CreditCardRow(card: credit)
+                                        Spacer()
+                                    }}.disabled(false).listRowBackground(Color("background"))
                             }.onDelete(perform: { indexSet in
                                 indexSet.forEach{(i) in
                                     
                                     viewModel.appSettings = self.appSettings
                                     viewModel.deleteCard(cardId:viewModel.creditCards[i].id!)
                                     viewModel.creditCards.remove(at: i)
-                                   
                                     
-                                   
+                                    
+                                    
                                     
                                 }
                             }).listStyle(PlainListStyle())

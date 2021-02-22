@@ -11,7 +11,7 @@ import Combine
 import SwiftUI
 
 class MusicListViewModel: ObservableObject, ArionService {
-
+    
     var apiSession: APIService
     @Published var bch = [TitleInQueue]()
     
@@ -32,9 +32,9 @@ class MusicListViewModel: ObservableObject, ArionService {
                 
             }) { (branch) in
                 self.bch = branch.titlesInQueue
-        }
+            }
         cancellables.insert(cancellable)
     }
-   
+    
 }
 

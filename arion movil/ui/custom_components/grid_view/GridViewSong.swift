@@ -38,16 +38,16 @@ struct GridViewSong: View {
                             
                         }
                     }
-                   
+                    
                     
                     
                 }.onAppear{
-                  //  UITableView.appearance().isScrollEnabled = false
+                    //  UITableView.appearance().isScrollEnabled = false
                 }
             }
-           
             
-           
+            
+            
         }
     }
     
@@ -62,9 +62,9 @@ struct GridViewSong: View {
         }
         else {
             rows = intValue
-           
+            
         }
-     
+        
     }
 }
 

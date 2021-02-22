@@ -35,8 +35,8 @@ struct AlbumSearcher: View {
                         Spacer()
                     }
                 }
-           }
-          
+            }
+            
             List{
                 ForEach(albumListMain.filter({$0.name!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty}), id: \.self) {album in
                     Section(header:  TextWithCustomFonts(album.name!, customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), font: .caption) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))){
@@ -44,20 +44,17 @@ struct AlbumSearcher: View {
                             GenereRow(name: title.name!, artist: title.artist!,navigateLogin: $NavLogin){
                                 queueViewModel.addNewQueue(id: title.id!)
                             }
-
+                            
                         }
                     }.listRowBackground(Color("background"))
-
-
-
-                }.onAppear{
-//                    print("listalbum","\(conteo)")
-//                    conteo += 1
+                    
+                    
+                    
                 }
             }.id(UUID()).onAppear{
                 onceLoad = true
             }
-        
+            
             
         }.navigationBarTitle(String("Àlbumes"),displayMode: .inline).onAppear{
             viewModel.appSettings = self.appSettings
@@ -68,8 +65,8 @@ struct AlbumSearcher: View {
             queueViewModel.appSettings = appSettings
         }
         
-            
-            
+        
+        
         
         }
         

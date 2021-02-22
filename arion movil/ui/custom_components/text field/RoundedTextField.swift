@@ -11,12 +11,12 @@ import SwiftUI
 struct RoundedTextField: View {
     @Binding var textValue:String
     @State var title:String
-   
+    
     var textError:String
     @State var transparent:Bool 
     var customFont: CustomFont = CustomFont(type: .semibold, size: Constants.sizeTextFormControls)
     var color: Color = Color("title")
-   
+    
     var body: some View {
         VStack(alignment: .leading) {
             TextField(self.title, text: self.$textValue)
@@ -33,7 +33,7 @@ struct RoundedTextField: View {
                     font: .caption
                 ).padding(.horizontal)
             }
-                
+            
         }
     }
 }

@@ -38,12 +38,12 @@ struct CreateNewCreditCard: View {
             VStack{
                 Form{
                     Section(header: TextWithCustomFonts("Nombre del titular",customFont: CustomFont(type: .bold, size: 18))){
-                      // CustomTextField(textValue: self.$cardName, title: "Escribe el nombre del titular")
+                        // CustomTextField(textValue: self.$cardName, title: "Escribe el nombre del titular")
                         RoundedTextField(textValue: self.$cardName, title: "Escribe el nombre del titular", textError:"",transparent: true)
                     }
                     Section(header: TextWithCustomFonts("Número de tarjeta",customFont: CustomFont(type: .bold, size: 18))){
                         RoundedTextField(textValue: $cardNumberBinding.text, title: "Escribe el número de tarjeta", textError:"",transparent: true).keyboardType(.numberPad)
-//                        CustomTextField(textValue: $cardNumberBinding.text, title: "Escribe el número de la tarjeta").keyboardType(.numberPad)
+                        //                        CustomTextField(textValue: $cardNumberBinding.text, title: "Escribe el número de la tarjeta").keyboardType(.numberPad)
                     }
                     Section(header: TextWithCustomFonts("Fecha de vencimiento",customFont: CustomFont(type: .bold, size: 18))){
                         HStack{
@@ -54,9 +54,9 @@ struct CreateNewCreditCard: View {
                         }
                     }
                     Section(header: TextWithCustomFonts("CVV",customFont: CustomFont(type: .bold, size: 18))){
-                       // CustomTextField(textValue: $cardCVVBinding.text, title: "Escribe el cvv de la tarjeta").keyboardType(.numberPad)
-                      
-                            
+                        // CustomTextField(textValue: $cardCVVBinding.text, title: "Escribe el cvv de la tarjeta").keyboardType(.numberPad)
+                        
+                        
                         SecureTextField(textValue:  $cardCVVBinding.text, title: "Escribe el cvv de la tarjeta", textError:"",transparent: true).keyboardType(.numberPad)
                         
                     }
@@ -66,18 +66,18 @@ struct CreateNewCreditCard: View {
                     myFunction()
                     
                 }.disabled(!self.isValuesReady()).frame(width:200, height:40)
-                    .frame(minWidth:0, maxWidth: .infinity, alignment: .center).padding()
+                .frame(minWidth:0, maxWidth: .infinity, alignment: .center).padding()
             }.navigationBarTitle("Nuevo método de pago").onAppear{
-               
+                
             }
             if viewModel.showLoader {
-            VStack{
-               
+                VStack{
+                    
                     Spacer()
                     LoaderComponent()
                     Spacer()
-                
-            }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
+                    
+                }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
             }
         }.alert(isPresented: $isPresented) {
             Alert(title: Text(String("Aviso").capitalized), message: Text(Constants.failAddCardDefaultMsg.lowercased()), dismissButton: .default(Text(String("Aceptar").capitalized)))
@@ -98,7 +98,7 @@ struct CreateNewCreditCard: View {
     }
     func myFunction(){
         viewModel.showLoader = true
-      
+        
         self.openpay = Openpay(withMerchantId: Constants.idOpenPayMerchant, andApiKey: Constants.keyOpenPay, isProductionMode: false)
         let card:OPCard = OPCard()
         card.holderName = cardName
@@ -111,34 +111,34 @@ struct CreateNewCreditCard: View {
         
         
     }
-
+    
     func successToken(token: OPToken) {
-            print("openpayTokenID: \(token.id)")
-            self.token = token.id
+        print("openpayTokenID: \(token.id)")
+        self.token = token.id
         viewModel.appSettings = self.appSettings
         viewModel.addCard(body:AddCardBody(cardToken: self.token, deviceSessionId: self.sessionId) ){
             self.presentationMode.wrappedValue.dismiss()
         } onFail:{
             isPresented = true
         }
-           
+        
     }
-
+    
     func failToken(error: NSError) {
-            print("openpayR\(error.code) - \(error.localizedDescription)")
+        print("openpayR\(error.code) - \(error.localizedDescription)")
         viewModel.showLoader = false
         isPresented = true
         
     }
     func successSession(sessionId: String) {
-            print("openpaySessionID: \(sessionId)")
+        print("openpaySessionID: \(sessionId)")
         self.sessionId = sessionId
-       
-       
+        
+        
     }
-
+    
     func failSession(error: NSError) {
-            print("openpayR\(error.code) - \(error.localizedDescription)")
+        print("openpayR\(error.code) - \(error.localizedDescription)")
         viewModel.showLoader = false
         isPresented = true
     }

@@ -12,14 +12,14 @@ struct MusicalGenreSearcher: View {
     @StateObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
     @StateObject var storeViewModel = StoreViewModel()
     @State var NavLogin:Bool = false
-     let  branchId:String
+    let  branchId:String
     @EnvironmentObject var appSettings: AppHelper
     init(branchId: String){
         self.branchId = branchId
         
         
     }
-   
+    
     @State public var searchText : String = ""
     var body: some View {
         VStack(spacing:0){
@@ -36,7 +36,7 @@ struct MusicalGenreSearcher: View {
                     }.listRowBackground(Color("background"))
                     
                 }.onAppear{
-                   
+                    
                 }
             }
             // Spacer().frame(height:78)

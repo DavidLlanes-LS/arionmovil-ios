@@ -13,7 +13,7 @@ struct MainTabBar: View {
     @State private var paddingHeight:CGFloat = 0
     @State private var currentTab:Int = 0
     @State private var showCurrentSong:Bool = false
-
+    
     var body: some View{
         VStack{
             GeometryReader{geometry in
@@ -28,22 +28,22 @@ struct MainTabBar: View {
                                 DispatchQueue.main.async{
                                     self.paddingHeight = tabBar.bounds.height
                                 }
-                                }).tag(0)
+                            }).tag(0)
                             QueueView().tabItem{
                                 Image(systemName: "music.note.list")
                                 Text("En fila")
                             }.background(TabBarAccessor { tabBar in
-                            DispatchQueue.main.async{
-                                self.paddingHeight = tabBar.bounds.height
-                            }
+                                DispatchQueue.main.async{
+                                    self.paddingHeight = tabBar.bounds.height
+                                }
                             }).tag(1)
                             Store().tabItem{
                                 Image(systemName: "bag")
                                 Text("Compras")
                             }.background(TabBarAccessor { tabBar in
-                            DispatchQueue.main.async{
-                                self.paddingHeight = tabBar.bounds.height
-                            }
+                                DispatchQueue.main.async{
+                                    self.paddingHeight = tabBar.bounds.height
+                                }
                             }).tag(2)
                             Profile().tabItem{
                                 Image(systemName: "person")
@@ -75,21 +75,21 @@ struct MainTabBar_Previews: PreviewProvider {
 struct TabBarAccessor: UIViewControllerRepresentable {
     var callback: (UITabBar) -> Void
     private let proxyController = ViewController()
-
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<TabBarAccessor>) ->
-                              UIViewController {
+    UIViewController {
         proxyController.callback = callback
         return proxyController
     }
-
+    
     func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<TabBarAccessor>) {
     }
-
+    
     typealias UIViewControllerType = UIViewController
-
+    
     private class ViewController: UIViewController {
         var callback: (UITabBar) -> Void = { _ in }
-
+        
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             if let tabBar = self.tabBarController {

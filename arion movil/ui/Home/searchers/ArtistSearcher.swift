@@ -13,10 +13,10 @@ struct ArtistSearcher: View {
     }
     @ObservedObject var viewModel:SongsUriViewModel =  SongsUriViewModel()
     @State public var searchText : String = ""
-   
+    
     init(branchId: String){
         viewModel.branchId = branchId
-     
+        
         
     }
     var body: some View {

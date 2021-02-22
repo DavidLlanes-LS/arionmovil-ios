@@ -11,7 +11,7 @@ import SwiftUI
 struct AvailableCredits: View {
     @Binding var credits:Int
     init(credits:Binding<Int>) {
-       _credits = credits
+        _credits = credits
     }
     var body: some View {
         HStack{

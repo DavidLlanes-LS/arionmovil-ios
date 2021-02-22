@@ -25,7 +25,7 @@ class StoreViewModel: ObservableObject, ArionService {
     
     init(apiSession: APIService = APISession()) {
         self.apiSession = apiSession
-       
+        
     }
     
     func getPackages() {
@@ -37,7 +37,7 @@ class StoreViewModel: ObservableObject, ArionService {
                     print("Handle error: \(error)")
                     self.isLoading.toggle()
                 case .finished:
-                  
+                    
                     break
                 }
             }) { (packages) in
@@ -50,7 +50,7 @@ class StoreViewModel: ObservableObject, ArionService {
                     else{
                         self.pakcagesList = []
                     }
-                  
+                    
                 }
             }
         cancellables.insert(cancellable)
@@ -64,7 +64,7 @@ class StoreViewModel: ObservableObject, ArionService {
                     print("Handle error: \(error)")
                     self.isLoading = false
                 case .finished:
-                 
+                    
                     break
                 }
             }) { (result) in
@@ -105,9 +105,9 @@ class StoreViewModel: ObservableObject, ArionService {
                     self.appSettings?.banerInfo = self.banerDate
                     self.appSettings?.showBanner = true
                 }
-               
-               // self.showResult.toggle()
-               
+                
+                // self.showResult.toggle()
+                
                 
                 
             }
@@ -122,14 +122,14 @@ class StoreViewModel: ObservableObject, ArionService {
                 switch result {
                 case .failure(let error):
                     print("Handle error: \(error)")
-                   
+                    
                 case .finished:
-                  
+                    
                     break
                 }
             }) { (result) in
                 DispatchQueue.main.async {
-                   print("comprar",result)
+                    print("comprar",result)
                     self.credits = result.creditsBalance
                     if self.appSettings != nil {
                         self.appSettings?.userCredits = result.creditsBalance
@@ -139,5 +139,5 @@ class StoreViewModel: ObservableObject, ArionService {
         cancellables.insert(cancellable)
     }
     
-  
+    
 }

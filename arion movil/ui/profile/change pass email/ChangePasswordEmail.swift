@@ -13,7 +13,7 @@ struct ChangePasswordEmail: View {
     @Environment(\.presentationMode) var presentationMode
     var isAuth = UserDefaults.standard.bool(forKey: Constants.keyIsAuth)
     var body: some View {
- 
+        
         ZStack{
             Color("background")
             VStack{
@@ -34,7 +34,7 @@ struct ChangePasswordEmail: View {
                     hide_keyboard()
                     viewModel.changeProfile()
                 }.disabled(!(!viewModel.newEmail.isEmpty || ((!viewModel.newPassword.isEmpty && !viewModel.verifyPassword.isEmpty) && !viewModel.currentPassword.isEmpty ))).frame(width:200,height:40)
-               
+                
                 .frame(minWidth:0, maxWidth: .infinity, alignment: .center).padding()
             } .alert(isPresented: $viewModel.showAlert, content: { Alert(title: Text(String("Atención")), message: Text(String(viewModel.responseMessage)), dismissButton: .default(Text(String("Aceptar"))) {
                 if viewModel.wasSucces {
@@ -54,7 +54,7 @@ struct ChangePasswordEmail: View {
     {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-   
+    
 }
 
 struct ChangePasswordEmail_Previews: PreviewProvider {

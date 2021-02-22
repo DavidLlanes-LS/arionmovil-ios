@@ -33,11 +33,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
     var cancellables = Set<AnyCancellable>()
     init(apiSession: APIService = APISession(), branchId:String = "") {
         self.apiSession = apiSession
-//        self.branchId = branchId
         self.songsState = self.getSongsStateCD(branchId: branchId)
-       //getStockCD(branchId: branchId)
-     //   getList()
-        
         
         
     }
@@ -127,7 +123,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
     func setDataCD(completion: @escaping () -> () = {}){
         getStockCD(branchId: branchId)
         getList(completion: completion)
-      
+        
     }
     func getList(completion: @escaping () -> () = {}){
         DispatchQueue.main.async {
@@ -157,7 +153,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
                 titles.forEach{title in
                     title.coverImageUri = title.coverImageUri! as String
                 }
-
+                
                 titles = Array(Set(titles))
                 self.musicList = titles
                 self.musicList.sort{
@@ -178,7 +174,7 @@ class SongsUriViewModel: ObservableObject, ArionService {
                 let temporarlYearList = Array(sections3)
                 var yearListIndividual = temporarlYearList.map({
                     (Int($0)/10)*10
-
+                    
                 })
                 yearListIndividual = yearListIndividual.filter({$0 != 0})
                 yearListIndividual = Array(Set(yearListIndividual))
@@ -188,27 +184,27 @@ class SongsUriViewModel: ObservableObject, ArionService {
                 yearListIndividual.forEach { year in
                     self.yearList.append([year,year+9])
                 }
-
-               
-
+                
+                
+                
                 self.getRows()
             }
         }
-       
-
+        
+        
     }
     public func getRows(){
         let decimalValue:Double = Double(count-1)/2
         let intValue:Int =  (count-1)/2
         let difference:Double = decimalValue - Double(intValue)
-
+        
         if difference > 0 {
             rows = intValue
             self.isImpar = true
         }
         else {
             rows = intValue
-
+            
         }
         
     }

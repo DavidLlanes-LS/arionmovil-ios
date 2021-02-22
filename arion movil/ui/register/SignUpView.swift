@@ -154,15 +154,15 @@ struct SignUpView: View {
             .padding(.vertical)
         }
         .alert(isPresented: $showSuccess, content: {
-                switch (result) {
-                case 0:
-                    return alertSuccess
-                case 1:
-                    return alertEmailAlreadyExist
-                default:
-                    return alertError
-                }
+            switch (result) {
+            case 0:
+                return alertSuccess
+            case 1:
+                return alertEmailAlreadyExist
+            default:
+                return alertError
             }
+        }
         )
         
         .navigationBarTitle(String("Nueva cuenta"), displayMode: .inline).onAppear{

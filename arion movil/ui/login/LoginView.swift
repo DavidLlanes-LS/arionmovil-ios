@@ -83,10 +83,10 @@ struct LoginView: View {
                                     break
                                 }
                                 case 1: do {
-                                   
+                                    
                                     self.presentationMode.wrappedValue.dismiss()
                                     appSettings.isLoged = true
-                                   
+                                    
                                 }
                                 default: break
                                 }

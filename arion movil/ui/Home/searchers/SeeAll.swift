@@ -16,7 +16,7 @@ struct SeeAll: View {
     let  branchId:String
     init(branchId: String){
         self.branchId = branchId
-       
+        
         
     }
     var body: some View {

@@ -39,7 +39,7 @@ class CardViewModel: ObservableObject, ArionService {
             }) { (result) in
                 DispatchQueue.main.async {
                     self.showLoader = false
-                   
+                    
                     if result.resultCode == 0 {
                         onSuccess()
                         self.getCreditList()
@@ -52,7 +52,7 @@ class CardViewModel: ObservableObject, ArionService {
                     }
                     else{
                         onFail()
-                       
+                        
                     }
                     
                 }
@@ -66,7 +66,7 @@ class CardViewModel: ObservableObject, ArionService {
                 switch result {
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
-                   
+                    
                 case .finished:
                     
                     break
@@ -96,7 +96,7 @@ class CardViewModel: ObservableObject, ArionService {
             {
                 self.showLoader = true
             }
-            }
+        }
         let cancellable = self.getCreditCards()
             .sink(receiveCompletion: { result in
                 switch result {
@@ -108,31 +108,31 @@ class CardViewModel: ObservableObject, ArionService {
                     break
                 }
                 
-
+                
             }) { (list) in
                 self.showLoader = false
                 if list.cards != nil {
                     self.creditCards = list.cards!
                 }
                 if self.appSettings != nil
-                    {
-                        if list.cards != nil {
-                            self.appSettings?.payCards = list.cards!
-                            if self.appSettings!.selectedPayCard == nil{
+                {
+                    if list.cards != nil {
+                        self.appSettings?.payCards = list.cards!
+                        if self.appSettings!.selectedPayCard == nil{
+                            self.appSettings?.selectedPayCard = list.cards?.first
+                        }
+                        else{
+                            if !list.cards!.contains(self.appSettings!.selectedPayCard!){
                                 self.appSettings?.selectedPayCard = list.cards?.first
                             }
-                            else{
-                                if !list.cards!.contains(self.appSettings!.selectedPayCard!){
-                                    self.appSettings?.selectedPayCard = list.cards?.first
-                                }
-                            }
-                            if list.cards!.count <= 0{
-                                self.appSettings!.selectedPayCard = nil
-                            }
                         }
-                        
-                    
+                        if list.cards!.count <= 0{
+                            self.appSettings!.selectedPayCard = nil
+                        }
                     }
+                    
+                    
+                }
                 
             }
         cancellables.insert(cancellable)

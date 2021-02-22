@@ -29,14 +29,14 @@ class LoginViewModel:ObservableObject,ArionService {
         let cancellable = self.postSignIn(body: ["Email": username, "Password": password])
             .sink(receiveCompletion: { result in
                 switch result {
-                    case .failure(let error):
-                        print("Handle error \(error)")
-                        handle(nil, error)
-                        self.showLoader = false
-                    case .finished:
-                        print("Response \(result)")
-                        self.showLoader = false
-                        break
+                case .failure(let error):
+                    print("Handle error \(error)")
+                    handle(nil, error)
+                    self.showLoader = false
+                case .finished:
+                    print("Response \(result)")
+                    self.showLoader = false
+                    break
                 }
             }, receiveValue: { (result) in
                 handle(result.status, nil)

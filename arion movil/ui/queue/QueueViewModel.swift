@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 class QueueViewModel: ObservableObject, ArionService {
-   
+    
     var apiSession: APIService
     var cancellables = Set<AnyCancellable>()
     var branchPrice:BranchPriceResponse?
@@ -42,7 +42,7 @@ class QueueViewModel: ObservableObject, ArionService {
             }) { (queue) in
                 DispatchQueue.main.async {
                     self.songs = queue.titlesInQueue
-                   
+                    
                 }
             }
         cancellables.insert(cancellable)
@@ -71,22 +71,22 @@ class QueueViewModel: ObservableObject, ArionService {
                             
                             case 1:
                                 self.appSettings?.banerInfo.title = "La canción se agregó correctamente a la fila"
-                                    self.appSettings?.banerInfo.type = .success
+                                self.appSettings?.banerInfo.type = .success
                             case 2:
                                 self.appSettings?.banerInfo.title = "El cliente no tiene una suscripción activa"
-                                    self.appSettings?.banerInfo.type = .error
+                                self.appSettings?.banerInfo.type = .error
                             case 3:
                                 self.appSettings?.banerInfo.title = "Upss! No cuentas con créditos suficientes"
-                                    self.appSettings?.banerInfo.type = .error
+                                self.appSettings?.banerInfo.type = .error
                             case 4:
                                 self.appSettings?.banerInfo.title = "Créditos inconsistentes a cargar"
-                                    self.appSettings?.banerInfo.type = .error
+                                self.appSettings?.banerInfo.type = .error
                             case 5:
                                 self.appSettings?.banerInfo.title = "No se pudo agregar esta canción a la fila"
-                                    self.appSettings?.banerInfo.type = .error
+                                self.appSettings?.banerInfo.type = .error
                             case 6:
                                 self.appSettings?.banerInfo.title = "Posición inconsistente para avanzar"
-                                    self.appSettings?.banerInfo.type = .error
+                                self.appSettings?.banerInfo.type = .error
                             default:
                                 self.appSettings?.banerInfo.title = "No se pudo agregar esta canción a la fila"
                                 self.appSettings?.banerInfo.type = .error
@@ -123,9 +123,9 @@ class QueueViewModel: ObservableObject, ArionService {
         print("branchprice",branchPrice!.basePrice)
         if userId != nil
         { self.addQueue(body: AddQueue(userId: userId!, locationId: self.locationId!, playerId: self.playerId!, mediaTitleId: id, creditsToCharge: branchPrice!.basePrice, positionToAdvance: -1)){result, error in
-           
+            
         }}
-         
+        
     }
     
 }

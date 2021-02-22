@@ -14,7 +14,7 @@ struct ExpandedSearchBar: View {
     var placeholder: String
     var body: some View {
         HStack{
-          
+            
             Spacer(minLength: 0)
             
             HStack{
@@ -67,15 +67,15 @@ struct ExpandedSearchBar: View {
 struct ExpandedSearchBar_Previews: PreviewProvider {
     
     struct BindingTestHolder: View {
-           @State var testItem:String = ""
+        @State var testItem:String = ""
         @State var testIBool:Bool = false
-           var body: some View {
+        var body: some View {
             ExpandedSearchBar(show:$testIBool,txt: $testItem,placeholder:"Buscar Restaurante")
-           }
-       }
+        }
+    }
     @State  var searchText : String = ""
     static var previews: some View {
-       
+        
         BindingTestHolder()
             .preferredColorScheme(.light)
         

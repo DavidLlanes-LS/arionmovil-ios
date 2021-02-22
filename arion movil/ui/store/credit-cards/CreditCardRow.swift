@@ -42,9 +42,9 @@ struct CreditCardRow: View {
                     }
                     HStack(){
                         TextWithCustomFonts(String(card.cardNumber!.suffix(4)),customFont: CustomFont(type: .bold, size: 15),color: .white)
-//                        TextWithCustomFonts(String(card.cardNumber![13]),customFont: CustomFont(type: .bold, size: 15),color: .white)
-//                        TextWithCustomFonts(String(card.cardNumber![14]),customFont: CustomFont(type: .bold, size: 15),color: .white)
-//                        TextWithCustomFonts(String(card.cardNumber![15]),customFont: CustomFont(type: .bold, size: 15),color: .white)
+                        //                        TextWithCustomFonts(String(card.cardNumber![13]),customFont: CustomFont(type: .bold, size: 15),color: .white)
+                        //                        TextWithCustomFonts(String(card.cardNumber![14]),customFont: CustomFont(type: .bold, size: 15),color: .white)
+                        //                        TextWithCustomFonts(String(card.cardNumber![15]),customFont: CustomFont(type: .bold, size: 15),color: .white)
                     }
                 }.frame(minWidth:0, maxWidth: .infinity)
                 
@@ -59,10 +59,10 @@ struct CreditCardRow: View {
                     else if card.brand == "visa"{
                         Image("visa").renderingMode(.template).resizable() .scaledToFit().frame(maxWidth:40).foregroundColor(Color("visa_color"))
                     }
-                   
-                   
+                    
+                    
                 }
-                }.padding()
+            }.padding()
         }.background(Color("gray-lightgray")).cornerRadius(10)
     }
 }
