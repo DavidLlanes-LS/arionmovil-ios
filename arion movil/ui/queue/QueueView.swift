@@ -24,7 +24,7 @@ struct QueueView: View {
                     VStack {
                         HStack {
                             TextWithCustomFonts("Termina en",customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), font: .body)
-                            TextWithCustomFonts(" 00:30",customFont: CustomFont(type: .bold, size: Constants.sizeTextBody),color: Color("secondary-background"), font: .body)
+                            TextWithCustomFonts(appSettings.signalRResponse!,customFont: CustomFont(type: .bold, size: Constants.sizeTextBody),color: Color("secondary-background"), font: .body)
                             Spacer().background(Color("background"))
                         }
                         .padding([.top, .leading, .trailing]).background(Color("background"))

@@ -2,4 +2,5 @@ ${PODS_ROOT}/Target Support Files/Pods-arion movil-arion movilUITests/Pods-arion
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/BottomSheet/BottomSheet.framework
 ${BUILT_PRODUCTS_DIR}/GzipSwift/Gzip.framework
+${BUILT_PRODUCTS_DIR}/SwiftSignalRClient/SwiftSignalRClient.framework
 ${BUILT_PRODUCTS_DIR}/URLImage/URLImage.framework

@@ -10,6 +10,8 @@ target 'arion movil' do
   pod 'GzipSwift'
   pod 'URLImage'
   pod 'BottomSheet', :git => 'https://github.com/weitieda/bottom-sheet.git'
+  use_frameworks!
+  pod 'SwiftSignalRClient'
   target 'arion movilTests' do
     inherit! :search_paths
     # Pods for testing

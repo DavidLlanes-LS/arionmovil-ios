@@ -7,11 +7,12 @@
 //
 
 import Foundation
-class AppHelper: ObservableObject {
+public class AppHelper: ObservableObject {
     @Published var currentPage: String = "splash"
     @Published var currentBranchId: String = ""
     @Published var locationId: String? = nil
     @Published var userId: String? = nil
+    @Published var signalRResponse: String? = ""
     @Published var playerId: String? = nil
     @Published var showCurrentSong: Bool = true
     @Published var isLoged: Bool = false

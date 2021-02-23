@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CurrentSong: View {
+    @EnvironmentObject var appSettings: AppHelper
     @State var progressValue: Float = 0.0
     var song:TitleCD = TitleCD()
     @State var navigateLogin = false
@@ -18,7 +19,7 @@ struct CurrentSong: View {
                     .frame(width:75, height:75)
                 VStack{
                     TextWithCustomFonts("Reproducción actual",customFont:CustomFont(type: .light, size: 14) ,color: Color("title")).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
-                    TextWithCustomFonts("Blinding Lights",customFont: CustomFont(type: .bold, size: 16),color: Color("secondary-background")).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
+                    TextWithCustomFonts(appSettings.signalRResponse!,customFont: CustomFont(type: .bold, size: 16),color: Color("secondary-background")).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
                     TextWithCustomFonts("The weekend",color: Color("secondary-background")).frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
                 }.frame(minWidth:0,maxWidth: .infinity,alignment: .leading)
             }.frame(height:75)
