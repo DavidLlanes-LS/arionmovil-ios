@@ -23,7 +23,7 @@ struct Home: View {
     @State var navigateFilterYear:Bool = false
     @State var navigateSongSearcher:Bool = false
     @State var navigateSeeAll:Bool = false
-    @State private var showingAlert = true
+    @State private var showingAlert = false
     @State var hasFetsched:Bool = false
     @State var musicList:[TitleCD] = []
     @State public var searchText : String = ""
@@ -157,7 +157,6 @@ struct Home: View {
         let decimalValue:Double = Double(count-1)/2
         let intValue:Int =  (count-1)/2
         let difference:Double = decimalValue - Double(intValue)
-        print("rows",difference)
         if difference > 0 {
             rows = intValue
             self.isImpar = true
@@ -185,7 +184,6 @@ struct Home: View {
                     $0.coverImageUri = album.coverImageUri
                     titles.append(contentsOf:(album.titles?.allObjects as! [TitleCD]))
                 }        }
-            print("pruebas",titles.count)
             titles.forEach{title in
                 title.coverImageUri = title.coverImageUri! as String
             }

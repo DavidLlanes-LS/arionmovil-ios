@@ -25,9 +25,9 @@ struct ChangePasswordEmail: View {
                         }
                     }
                     Section(header: TextWithCustomFonts("Cambiar contraseña",customFont: CustomFont(type: .bold, size: 20))){
-                        SecureTextField(textValue: $viewModel.currentPassword, title: "Escribe tu contraseña actual",textError: "",transparent: true)
-                        SecureTextField(textValue: viewModel.newPasswordBinding!, title: "Nueva contraseña",textError: viewModel.errorMinimumPassword,transparent: true)
-                        SecureTextField(textValue: viewModel.verifyPasswordBinding!, title: "Confirmar contraseña",textError: viewModel.errorVerifyMessage,transparent: true)
+                        SecureTextField(textValue: $viewModel.currentPassword, title: "Escribe tu contraseña actual",textError: "",transparent: true).buttonStyle(PlainButtonStyle())
+                        SecureTextField(textValue: viewModel.newPasswordBinding!, title: "Nueva contraseña",textError: viewModel.errorMinimumPassword,transparent: true).buttonStyle(PlainButtonStyle())
+                        SecureTextField(textValue: viewModel.verifyPasswordBinding!, title: "Confirmar contraseña",textError: viewModel.errorVerifyMessage,transparent: true).buttonStyle(PlainButtonStyle())
                     }
                 }.background(Color("background"))
                 RectangleBtn("Guardar"){

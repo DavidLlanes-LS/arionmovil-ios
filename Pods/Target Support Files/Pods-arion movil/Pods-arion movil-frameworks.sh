@@ -178,12 +178,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BottomSheet/BottomSheet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GzipSwift/Gzip.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftSignalRClient/SwiftSignalRClient.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/URLImage/URLImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BottomSheet/BottomSheet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GzipSwift/Gzip.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftSignalRClient/SwiftSignalRClient.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/URLImage/URLImage.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

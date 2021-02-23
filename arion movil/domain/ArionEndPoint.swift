@@ -9,10 +9,10 @@
 import Foundation
 
 class ApiRequest{
-   
+   public let URL_BASE = "https://www.arioncloudx2.com"
     func getBranches(longitude:String, latitude: String)->URLRequest{
         var urlRequest: URLRequest{
-            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/business/get-closest-locations?Latitude=\(latitude)&Longitude=\(longitude)"
+            let urlRequest:String="\(URL_BASE)/api/amcm/business/get-closest-locations?Latitude=\(latitude)&Longitude=\(longitude)"
             guard let url = URL(string:urlRequest )
                 else {preconditionFailure("Invalid URL format")}
             //print("branchesRequest: \(urlRequest)")
@@ -25,7 +25,7 @@ class ApiRequest{
     
     func postSingIn(body: [String:Any])->URLRequest{
         var urlRequest:URLRequest{
-            let urlReq: String = "http://acsstaging.cloudapp.net/api/amcm/auth/sign-in"
+            let urlReq: String = "\(URL_BASE)/api/amcm/auth/sign-in"
             guard let url = URL(string: urlReq)
                 else {preconditionFailure("Invalid URL format")}
             var request = URLRequest(url: url)
@@ -46,7 +46,7 @@ class ApiRequest{
     
     func getCountries()->URLRequest{
         var urlRequest:URLRequest{
-            let urlRequest:String = "http://acsstaging.cloudapp.net/api/amcm/countries/get-all"
+            let urlRequest:String = "\(URL_BASE)/api/amcm/countries/get-all"
             guard let url = URL(string: urlRequest)
                 else {preconditionFailure("Invalid URL format")}
             let request = URLRequest(url: url)
@@ -59,7 +59,7 @@ class ApiRequest{
     
     func postSignUP(body: SignUpBody)->URLRequest{
         var urlRequest:URLRequest{
-            let urlRequest:String = "http://acsstaging.cloudapp.net/api/amcm/users/register-user"
+            let urlRequest:String = "\(URL_BASE)/api/amcm/users/register-user"
             guard let url = URL(string: urlRequest)
                 else { preconditionFailure("Invalid URL format") }
             var request = URLRequest(url: url)
@@ -80,7 +80,7 @@ class ApiRequest{
     
     func getSongQueue(playerId: String)->URLRequest{
         var urlRequest: URLRequest{
-            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/queue/get-queue/\(playerId)"
+            let urlRequest:String="\(URL_BASE)/api/amcm/queue/get-queue/\(playerId)"
             guard let url = URL(string:urlRequest )
                 else {preconditionFailure("Invalid URL format")}
            // print("branchesRequest: \(urlRequest)")
@@ -93,7 +93,7 @@ class ApiRequest{
     
     func getSongsList(branchId:String)->URLRequest{
         var urlRequest: URLRequest{
-            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/playlists/get-playlists-catalog/\(branchId)"
+            let urlRequest:String="\(URL_BASE)/api/amcm/playlists/get-playlists-catalog/\(branchId)"
             guard let url = URL(string:urlRequest )
                 else {preconditionFailure("Invalid URL format")}
             //print("songsRequest: \(branchId)")
@@ -105,7 +105,7 @@ class ApiRequest{
     
     func getBranchPrice(branchId:String)->URLRequest{
            var urlRequest: URLRequest{
-               let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-location-base-price/\(branchId)"
+               let urlRequest:String="\(URL_BASE)/api/amcm/credits/get-location-base-price/\(branchId)"
                guard let url = URL(string:urlRequest )
                    else {preconditionFailure("Invalid URL format")}
                //print("songsRequest: \(branchId)")
@@ -116,7 +116,7 @@ class ApiRequest{
        }
     func postQueue(body: AddQueue)->URLRequest{
            var urlRequest: URLRequest{
-                let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/queue/modify-queue"
+                let urlRequest:String="\(URL_BASE)/api/amcm/queue/modify-queue"
                 guard let url = URL(string:urlRequest )
                    else {preconditionFailure("Invalid URL format")}
                 // print("branchesRequest: \(urlRequest)")
@@ -136,7 +136,7 @@ class ApiRequest{
     }
     func postBuyPackage(body: BuyCreditsBody)->URLRequest{
            var urlRequest: URLRequest{
-                let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/buy-credits-package"
+                let urlRequest:String="\(URL_BASE)/api/amcm/credits/buy-credits-package"
                 guard let url = URL(string:urlRequest )
                    else {preconditionFailure("Invalid URL format")}
                 // print("branchesRequest: \(urlRequest)")
@@ -158,7 +158,7 @@ class ApiRequest{
 
     func postAddCard(body: AddCardBody)->URLRequest{
             var urlRequest:URLRequest{
-                let urlReq: String = "http://acsstaging.cloudapp.net/api/amcm/credits/add-user-card"
+                let urlReq: String = "\(URL_BASE)/api/amcm/credits/add-user-card"
                 guard let url = URL(string: urlReq)
                     else {preconditionFailure("Invalid URL format")}
                 var request = URLRequest(url: url)
@@ -179,7 +179,7 @@ class ApiRequest{
         }
     func postChangeProfile(body: ChangeProfileBody)->URLRequest{
             var urlRequest:URLRequest{
-                let urlReq: String = "http://acsstaging.cloudapp.net/api/amcm/users/change-user-profile"
+                let urlReq: String = "\(URL_BASE)/api/amcm/users/change-user-profile"
                 guard let url = URL(string: urlReq)
                     else {preconditionFailure("Invalid URL format")}
                 var request = URLRequest(url: url)
@@ -200,7 +200,7 @@ class ApiRequest{
         }
     func postDeleteCard(body: DeleteCardBody)->URLRequest{
             var urlRequest:URLRequest{
-                let urlReq: String = "http://acsstaging.cloudapp.net/api/amcm/credits/delete-user-card"
+                let urlReq: String = "\(URL_BASE)/api/amcm/credits/delete-user-card"
                 guard let url = URL(string: urlReq)
                     else {preconditionFailure("Invalid URL format")}
                 var request = URLRequest(url: url)
@@ -221,7 +221,7 @@ class ApiRequest{
         }
     func getRegisteredCards()->URLRequest{
         var urlRequest: URLRequest{
-            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-user-cards"
+            let urlRequest:String="\(URL_BASE)/api/amcm/credits/get-user-cards"
             guard let url = URL(string:urlRequest )
                 else {preconditionFailure("Invalid URL format")}
             //print("songsRequest: \(branchId)")
@@ -233,7 +233,7 @@ class ApiRequest{
     }
     func getUserCredits()->URLRequest{
         var urlRequest: URLRequest{
-            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-credits-account-balance"
+            let urlRequest:String="\(URL_BASE)/api/amcm/credits/get-credits-account-balance"
             guard let url = URL(string:urlRequest )
                 else {preconditionFailure("Invalid URL format")}
             //print("songsRequest: \(branchId)")
@@ -246,7 +246,7 @@ class ApiRequest{
     
     func getPackagesList(branchId:String)->URLRequest{
         var urlRequest: URLRequest{
-            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-available-packages/\(branchId)"
+            let urlRequest:String="\(URL_BASE)/api/amcm/credits/get-available-packages/\(branchId)"
             guard let url = URL(string:urlRequest )
                 else {preconditionFailure("Invalid URL format")}
             //print("songsRequest: \(branchId)")
@@ -259,7 +259,7 @@ class ApiRequest{
     
     func getPurchasesHistory()->URLRequest{
         var urlRequest: URLRequest{
-            let urlRequest:String="http://acsstaging.cloudapp.net/api/amcm/credits/get-credits-purchasing-history"
+            let urlRequest:String="\(URL_BASE)/api/amcm/credits/get-credits-purchasing-history"
             guard let url = URL(string:urlRequest )
                 else {preconditionFailure("Invalid URL format")}
             //print("songsRequest: \(branchId)")

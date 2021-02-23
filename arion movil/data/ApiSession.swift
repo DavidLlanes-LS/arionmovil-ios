@@ -23,7 +23,8 @@ struct APISession: APIService {
                 if let response = response as? HTTPURLResponse {
                     if (200...299).contains(response.statusCode) {
                     // 6
-                        if (response.url?.absoluteString == "http://acsstaging.cloudapp.net/api/amcm/auth/sign-in") {
+                        
+                        if (response.url?.absoluteString == "https://www.arioncloudx2.com/api/amcm/auth/sign-in") {
                             let cookieStorage = HTTPCookieStorage.shared
                             let cookies = cookieStorage.cookies(for: response.url!) ?? []
                             for cookie in cookies {
