@@ -14,9 +14,10 @@ struct LoginView: View {
     @State var navigationToRegister = false
     @EnvironmentObject var appSettings: AppHelper
     @State var navigationToRecoverPass = false
+    @State var message = ""
     
     var alert: Alert {
-        Alert(title: Text(String("Atención")), message: Text(String("El usuario y/o contraseña son incorrectos")), dismissButton: .default(Text(String("Cerrar"))) {
+        Alert(title: Text(String("Atención")), message: Text(String(message)), dismissButton: .default(Text(String("Cerrar"))) {
         })
     }
     @State var showAlert = false
@@ -79,18 +80,30 @@ struct LoginView: View {
                             if result != nil {
                                 switch result {
                                 case -1: do {
+                                    message = "El usuario y/o contraseña son incorrectos"
                                     self.showAlert = true
                                     break
                                 }
-                                case 1: do {
+                               
+                                case 1 : do {
                                     
                                     self.presentationMode.wrappedValue.dismiss()
                                     appSettings.isLoged = true
                                     
                                 }
-                                default: break
+                                case 2: do {
+                                    message = "El usuario y/o contraseña son incorrectos"
+                                    self.showAlert = true
+                                    break
+                                }
+                                
+                                default:
+                                    message = "Ocurrió un error inesperado"
+                                    self.showAlert = true
+                                    break
                                 }
                             } else if (error != nil) {
+                                message = "El usuario y/o contraseña son incorrectos"
                                 showAlert = true
                             }
                         }

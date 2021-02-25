@@ -11,6 +11,7 @@ struct SongsAlbum: View {
     @StateObject var queueViewModel = QueueViewModel()
     @State var musicList:[TitleCD] = []
     @State var navigateLogin = false
+    @State var searchText:String = ""
     @EnvironmentObject var appSettings: AppHelper
     @StateObject var storeViewModel = StoreViewModel()
     var body: some View {
@@ -18,6 +19,7 @@ struct SongsAlbum: View {
             NavigationLink(destination: LoginView(), isActive: self.$navigateLogin ) {
                 
             }
+            SearchBar(text: $searchText, placeholder: "Busca una canción")
             Spacer()
             //Image("dualipa").resizable().aspectRatio(contentMode: .fill).frame(minWidth:0, maxWidth: .infinity).frame(height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
@@ -27,7 +29,7 @@ struct SongsAlbum: View {
                         $0.resizable().aspectRatio(contentMode: .fill)}).frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).frame(height:130).clipped().cornerRadius(20).padding(.leading,20).padding(.trailing,20)
             List{
                 
-                ForEach(self.musicList,id:\.self){song in
+                ForEach(self.musicList.filter{$0.name!.lowercased().contains(searchText) || searchText.isEmpty},id:\.self){song in
                     GenereRow(name: song.name!, artist: song.artist!, navigateLogin: $navigateLogin){
                         queueViewModel.addNewQueue(id: song.id!)
                     }.listRowBackground(Color("background"))

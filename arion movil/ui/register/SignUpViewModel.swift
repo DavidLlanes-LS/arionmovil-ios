@@ -22,6 +22,7 @@ class SignUpViewModel:ObservableObject,ArionService {
     @Published var countrySelection:Int = -1
     @Published var errorCountry:String = ""
     @Published var countries: [Country] = []
+    @Published var countriesNames: [String] = []
     @Published var birthday:Date = Calendar.current.date(byAdding: .year, value: -18, to: Date())!
     @Published var errorBirthday:String = ""
     @Published var gender = -1
@@ -48,6 +49,10 @@ class SignUpViewModel:ObservableObject,ArionService {
                     $0.name < $1.name
                 }
                 self.countries = sortedCountries
+                self.countries.forEach{
+                    self.countriesNames.append($0.name)
+                    
+                }
             })
         cancellables.insert(cancellable)
     }

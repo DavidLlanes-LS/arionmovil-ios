@@ -29,7 +29,6 @@ struct PickerRounded: View {
                             TextWithCustomFonts((self.data[selection] as! String),customFont: CustomFont(type: .bold, size: Constants.sizeTextBody))
                         }
                         if self.data[selection] is Int {
-                            // TextWithCustomFonts(String(Int(self.data[selection]))),customFont: CustomFont(type: .bold, size: 16))
                             TextWithCustomFonts(("\(self.data[selection] as! Int)"),customFont: CustomFont(type: .bold, size: Constants.sizeTextBody))
                         }
                     }
@@ -43,19 +42,17 @@ struct PickerRounded: View {
                 .cornerRadius(4.0)
             ) {
                 ForEach(0..<self.data.count, id: \.self) { index in
-                    if self.data[index] is Country {
-                        TextWithCustomFonts((self.data[index] as! Country).name).tag(index)
-                    }
+
                     if self.data[index] is String {
                         TextWithCustomFonts((self.data[index] as! String)).tag(index)
                     }
-                    else{
-                        
-                        TextWithCustomFonts(("\(self.data[index])")).tag(index)                    }
-                    
-                    //                    if self.data[index] is String {
-                    //
-                    //                    }
+                    else {
+                        TextWithCustomFonts(("\(self.data[index])")).tag(index)
+                        //getText(data: self.data[index])
+                    }
+//                    else if self.data[index] is Country{
+//                        TextWithCustomFonts(("\(self.data[index])")).tag(index)
+//                    }
                     
                 }
             }
@@ -67,6 +64,16 @@ struct PickerRounded: View {
                     color: Color("error")
                 ).padding(.horizontal)
             }
+        }
+    }
+    
+    func getText(data:Any)->TextWithCustomFonts{
+       
+        if data is Country{
+            return  TextWithCustomFonts(("\(((self.data) as! Country).name)"))
+        }
+        else{
+        return  TextWithCustomFonts(("\(self.data)"))
         }
     }
 }

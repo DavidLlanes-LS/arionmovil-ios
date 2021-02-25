@@ -16,6 +16,7 @@ class QueueViewModel: ObservableObject, ArionService {
     var branchPrice:BranchPriceResponse?
     @Published var songs = [TitleInQueue]()
     @Published var showLoader: Bool = false
+    @Published var finishedQueueRequest: Bool = false
     @Published var costCredits: Int = 0
     @Published var showAlert: Bool = false
     @Published var appSettings:AppHelper?
@@ -35,6 +36,7 @@ class QueueViewModel: ObservableObject, ArionService {
                 case .failure(let error):
                     print("Handle error: \(error)")
                     self.showLoader = false
+                    self.finishedQueueRequest = true
                 case .finished:
                     self.showLoader = false
                     break
@@ -42,7 +44,11 @@ class QueueViewModel: ObservableObject, ArionService {
             }) { (queue) in
                 DispatchQueue.main.async {
                     self.songs = queue.titlesInQueue
+                    if self.appSettings != nil {
+                        self.appSettings?.queueSongs = queue.titlesInQueue
                     
+                    }
+                    self.finishedQueueRequest = true
                 }
             }
         cancellables.insert(cancellable)

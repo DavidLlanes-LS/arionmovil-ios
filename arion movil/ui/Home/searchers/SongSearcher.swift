@@ -24,7 +24,7 @@ struct SongSearcher: View {
             SearchBar(text: $searchText, placeholder: "Busca una canción")
             List{
                 if viewModel.stock.count > 0 {
-                    ForEach(viewModel.musicList.filter{$0.name!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty},id: \.self){song in
+                    ForEach(viewModel.musicList.filter{$0.name!.lowercased().contains(searchText.lowercased()) || $0.artist!.lowercased().contains(searchText.lowercased()) || searchText.isEmpty},id: \.self){song in
                         GenereRow(name: song.name!, artist: song.artist!, navigateLogin: $navigateLogin){
                             queueViewModel.addNewQueue(id: song.id!)
                         }.listRowBackground(Color("background"))

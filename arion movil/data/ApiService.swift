@@ -13,7 +13,19 @@ protocol APIService {
     func request<T: Decodable>(with builder: URLRequest) -> AnyPublisher<T, APIError>
 }
 enum APIError: Error {
+  
     case decodingError
     case httpError(Int)
+       
     case unknown
+    
+    func get() -> Int{
+            switch self {
+            case .httpError(let num):
+                return num
+            default:
+            return 10000
+            }
+    
+        }
 }

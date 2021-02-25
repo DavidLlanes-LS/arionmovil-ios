@@ -8,6 +8,7 @@
 
 import Foundation
 public class AppHelper: ObservableObject {
+    @Published var service:SignalRService?
     @Published var currentPage: String = "splash"
     @Published var currentBranchId: String = ""
     @Published var locationId: String? = nil
@@ -23,4 +24,10 @@ public class AppHelper: ObservableObject {
     @Published var albumsList:[AlbumCD] = []
     @Published var showBanner:Bool = false
     @Published var banerInfo = BannerData(title: "", detail: "", type: .info)
+    @Published var queueSongs = [TitleInQueue]()
+    
+    
+    public func initSignalR(appSettings:AppHelper){
+        service = SignalRService(url: URL(string: "https://www.arioncloudx2.com/cloud-jukebox-app")!,appSettings:appSettings)
+    }
 }

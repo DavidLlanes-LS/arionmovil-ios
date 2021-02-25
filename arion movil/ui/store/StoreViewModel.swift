@@ -132,7 +132,9 @@ class StoreViewModel: ObservableObject, ArionService {
                     print("comprar",result)
                     self.credits = result.creditsBalance
                     if self.appSettings != nil {
+                        withAnimation{
                         self.appSettings?.userCredits = result.creditsBalance
+                        }
                     }
                 }
             }

@@ -10,7 +10,9 @@ import Foundation
 
 class SignUpResponse: Codable {
     let resultCode: Int
-    
+    init(resultCode:Int) {
+        self.resultCode = resultCode
+    }
     enum CodingKeys:String,CodingKey {
         case resultCode = "Result"
     }

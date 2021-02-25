@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import arion_movil
+//@testable import arion_movil
 
 class arion_movilTests: XCTestCase {
 

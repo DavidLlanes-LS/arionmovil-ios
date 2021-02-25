@@ -23,11 +23,11 @@ struct YearSearcher: View {
     var body: some View {
         VStack(spacing:0){
             NavigationLink(destination: LoginView(), isActive: self.$NavLogin ) {}
-            //SearchBar(text: $searchText, placeholder: "Busca una cancion")
+            SearchBar(text: $searchText, placeholder: "Busca una cancion")
             List{
                 ForEach(viewModel.yearList, id: \.self) {interval in
                     Section(header:TextWithCustomFonts(String("\(interval[0])-\(interval[1])"), customFont: CustomFont(type: .bold, size: Constants.sizeTextBody), font: .caption) .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)) ){
-                        ForEach(viewModel.musicList.filter {$0.recordedYear >= interval[0] && $0.recordedYear <= interval[1] } , id: \.id){ title in
+                        ForEach(viewModel.musicList.filter {$0.recordedYear >= interval[0] && $0.recordedYear <= interval[1] && (searchText.isEmpty || $0.name!.lowercased().contains(searchText.lowercased()))} , id: \.id){ title in
                             Button(action:{
                                 NavLogin = true
                             }){

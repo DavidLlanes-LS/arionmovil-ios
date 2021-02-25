@@ -20,7 +20,7 @@ class BranchesListViewModel: ObservableObject, ArionService {
     init(apiSession: APIService = APISession()) {
         self.apiSession = apiSession
     }
-    func getBranchesList(longitude:String, latitude:String) {
+    func getBranchesList(longitude:String, latitude:String, finish:@escaping ()->()={}) {
         DispatchQueue.main.async {
             self.showLoader = true
         }
@@ -38,6 +38,7 @@ class BranchesListViewModel: ObservableObject, ArionService {
                 
 
             }) { (branch) in
+                finish()
                 self.branch = branch.locations
         }
         cancellables.insert(cancellable)

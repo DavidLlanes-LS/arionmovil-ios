@@ -82,7 +82,7 @@ struct SignUpView: View {
                             CustomFont(type: .bold, size: Constants.sizeTextCaption),
                         color: .white, font: .caption
                     )
-                    PickerRounded(selection: $viewModel.countrySelection, title: "Seleccionar", data: viewModel.countries, textError: viewModel.errorCountry, transparent: false)
+                    PickerRounded(selection: $viewModel.countrySelection, title: "Seleccionar", data: viewModel.countriesNames, textError: viewModel.errorCountry, transparent: false)
                 }.padding(.horizontal)
                 VStack(alignment: .leading) {
                     TextWithCustomFonts(

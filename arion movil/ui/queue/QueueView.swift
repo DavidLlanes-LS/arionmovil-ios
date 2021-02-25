@@ -11,6 +11,7 @@ struct QueueView: View {
     @StateObject var viewModel = QueueViewModel()
     @StateObject var storeViewModel = StoreViewModel()
     @EnvironmentObject var appSettings: AppHelper
+    @State var showEmpty = false
     @State var navigationToLogin: Bool = false
     
     var body: some View {
@@ -29,15 +30,15 @@ struct QueueView: View {
                         }
                         .padding([.top, .leading, .trailing]).background(Color("background"))
                         List{
-                            ForEach(0..<self.viewModel.songs.count, id: \.self) { index in
+                            ForEach(0..<self.appSettings.queueSongs.count, id: \.self) { index in
                                 QueueRow(
-                                    song: viewModel.songs[index],
-                                    creditsFirst: viewModel.songs[0].credits,
-                                    creditsNext: viewModel.songs[(index - 1) < 0 ? 0 : index - 1].credits,
+                                    song: self.appSettings.queueSongs[index],
+                                    creditsFirst: self.appSettings.queueSongs[0].credits,
+                                    creditsNext: self.appSettings.queueSongs[(index - 1) < 0 ? 0 : index - 1].credits,
                                     hiddenButtons: index == 0,
                                     nav: self.$navigationToLogin,
                                     position: index,
-                                    totalList: viewModel.songs.count
+                                    totalList: self.appSettings.queueSongs.count
                                 ).listRowBackground(Color("background"))
                                 .environmentObject(viewModel)
                             }
@@ -47,15 +48,26 @@ struct QueueView: View {
                         
                     }.background(Color("background"))
                     .onAppear(perform: {
+                        viewModel.appSettings = appSettings
                         self.viewModel.getQueue()
                         
                     })
                 }
                 VStack{
                     if viewModel.showLoader {
-                        ProgressView()
+                        ProgressView().onDisappear(){
+                            showEmpty = true
+                        }
+                    }
+                    else if appSettings.queueSongs.count <= 0 {
+                        if viewModel.finishedQueueRequest{
+                        Spacer()
+                        TextWithCustomFonts("No hay canciones en la fila",customFont: CustomFont(type: .bold, size: 16),color: Color("title-row")).frame(minWidth:0, maxWidth: .infinity, alignment: .center)
+                        Spacer()
+                        }
                     }
                 }
+                
             }.navigationBarTitle(String("En fila"), displayMode: .inline)
         }.onAppear{
             viewModel.appSettings = appSettings
@@ -63,6 +75,8 @@ struct QueueView: View {
             storeViewModel.getCreditsUser()
         }.background(Color("background"))
     }
+    
+    
     
 }
 

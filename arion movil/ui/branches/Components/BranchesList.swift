@@ -81,7 +81,7 @@ struct BranchesList: View {
             }.background(Color("background")).edgesIgnoringSafeArea(.all)
             if viewModel.showLoader{
                 VStack {
-                    LoaderComponent()
+                    ProgressView()
                 }.frame(maxWidth:.infinity,maxHeight: .infinity).background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
                 
             }

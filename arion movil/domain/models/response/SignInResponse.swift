@@ -12,7 +12,11 @@ class SignInResponse: Codable {
     let userId: String
     let userName: String
     let status: Int
-    
+    init(userId:String,userName:String,status:Int){
+        self.userId = userId
+        self.userName = userName
+        self.status = status
+    }
     enum CodingKeys:String,CodingKey {
         case userId = "UserId"
         case userName = "UserName"
